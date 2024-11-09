@@ -16,6 +16,14 @@ struct ContentView: View {
             Text("Hello, world!")
         }
         .padding()
+        .previewInterfaceOrientation(.landscapeRight)
+    }
+}
+
+struct ContentView_Previews: PreviewProvider {
+    static var previews: some View {
+        ContentView()
+            .previewInterfaceOrientation(.landscapeRight)
     }
 }
 

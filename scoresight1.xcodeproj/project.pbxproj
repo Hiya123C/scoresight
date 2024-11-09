@@ -11,6 +11,7 @@
 		D9E035FD2CDF12AC00220F1F /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9E035FC2CDF12AC00220F1F /* ContentView.swift */; };
 		D9E035FF2CDF12AD00220F1F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D9E035FE2CDF12AD00220F1F /* Assets.xcassets */; };
 		D9E036022CDF12AD00220F1F /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D9E036012CDF12AD00220F1F /* Preview Assets.xcassets */; };
+		D9E0360D2CDF19B100220F1F /* SandboxView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9E0360C2CDF19B100220F1F /* SandboxView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -19,6 +20,7 @@
 		D9E035FC2CDF12AC00220F1F /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		D9E035FE2CDF12AD00220F1F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D9E036012CDF12AD00220F1F /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		D9E0360C2CDF19B100220F1F /* SandboxView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SandboxView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -53,6 +55,7 @@
 			children = (
 				D9E035FA2CDF12AC00220F1F /* scoresight1App.swift */,
 				D9E035FC2CDF12AC00220F1F /* ContentView.swift */,
+				D9E0360C2CDF19B100220F1F /* SandboxView.swift */,
 				D9E035FE2CDF12AD00220F1F /* Assets.xcassets */,
 				D9E036002CDF12AD00220F1F /* Preview Content */,
 			);
@@ -138,6 +141,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D9E035FD2CDF12AC00220F1F /* ContentView.swift in Sources */,
+				D9E0360D2CDF19B100220F1F /* SandboxView.swift in Sources */,
 				D9E035FB2CDF12AC00220F1F /* scoresight1App.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
