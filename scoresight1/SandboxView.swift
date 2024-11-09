@@ -13,12 +13,6 @@ struct SandboxView: View {
     }
 }
 
-struct SandView_Previews: PreviewProvider {
-    static var previews: some View {
-        ContentView()
-            .previewInterfaceOrientation(.landscapeRight)
-    }
-}
 
 
 #Preview {
