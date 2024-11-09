@@ -126,25 +126,25 @@ struct ContentView: View {
             }
         }
         .fullScreenCover(isPresented: $isFullScreenPresented1) {
-                    
+            SheetMusicOrganisationView()
                 }
         .fullScreenCover(isPresented: $isFullScreenPresented2) {
-                    
+            RhythmNotesRestsView()
                 }
         .fullScreenCover(isPresented: $isFullScreenPresented3) {
-                    
+            TimeSignaturesView()
                 }
         .fullScreenCover(isPresented: $isFullScreenPresented4) {
-                    
+            ClefsPitchedNotesView()
                 }
         .fullScreenCover(isPresented: $isFullScreenPresented5) {
-                    
+            KeySignaturesAccidentalsView()
                 }
         .fullScreenCover(isPresented: $isFullScreenPresented6) {
-                    
+            DynamicsView()
                 }
         .fullScreenCover(isPresented: $isFullScreenPresented7) {
-                    
+            ArticulationsOrnamentsView()
                 }
         .fullScreenCover(isPresented: $isFullScreenPresented8) {
             SandboxView()
