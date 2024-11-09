@@ -1,5 +1,5 @@
 //
-//  ClefsPitchedNotes2View.swift
+//  ClefsPitchedNotesLearn14View.swift
 //  scoresight1
 //
 //  Created by Li Jiansheng on 9/11/24.
@@ -7,24 +7,21 @@
 
 import SwiftUI
 
-struct ClefsPitchedNotesLearnView: View {
+struct ClefsPitchedNotesLearn14View: View {
     var body: some View {
         HStack {
             VStack {
-                Text("this is a")
+                Text("this is an")
                     .font(.system(size: 30))
                     .frame(alignment: .trailing)
-                Text("treble")
+                Text("octave")
                     .font(.system(size:50))
                     .frame(alignment: .trailing)
-                Text("clef")
-                    .font(.system(size: 30))
-                    .frame(alignment: .leading)
             }
         }
     }
 }
 
 #Preview {
-    ClefsPitchedNotesLearnView()
+    ClefsPitchedNotesLearn14View()
 }

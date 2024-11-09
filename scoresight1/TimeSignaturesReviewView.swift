@@ -9,7 +9,11 @@ import SwiftUI
 
 struct TimeSignaturesReviewView: View {
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        VStack {
+            Text("test your\nknowledge!")
+                .fontWeight(.bold)
+                .font(.system(size:100)).environment(\._lineHeightMultiple, 0.75)
+        }
     }
 }
 
