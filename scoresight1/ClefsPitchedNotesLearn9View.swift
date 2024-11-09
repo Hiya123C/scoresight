@@ -12,7 +12,7 @@ struct ClefsPitchedNotesLearn9View: View {
         Text("Cows Do Eat Fresh Grass And Barley")
             .font(.system(size: 50))
             .frame(alignment: .center)
-        // figure out the bold letters thing
+        // figure out the single bold letters in a word thing
     }
 }
 

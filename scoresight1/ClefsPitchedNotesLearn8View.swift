@@ -9,10 +9,9 @@ import SwiftUI
 
 struct ClefsPitchedNotesLearn8View: View {
     var body: some View {
-        HStack {
-            Text("middle C")
+        VStack {
+            Text("middle C on the tenor clef")
                 .font(.system(size: 30))
-                .frame(alignment: .trailing)
         }
     }
 }
