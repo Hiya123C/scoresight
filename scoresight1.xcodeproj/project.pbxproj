@@ -46,6 +46,7 @@
 		31B824B92CDF4ED20031E923 /* ClefsPitchedNotesReview3View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31B824B82CDF4ED20031E923 /* ClefsPitchedNotesReview3View.swift */; };
 		31B824BB2CDF4F080031E923 /* ClefsPitchedNotesReviewFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31B824BA2CDF4F080031E923 /* ClefsPitchedNotesReviewFile.swift */; };
 		31B824BF2CDF53DD0031E923 /* ClefsPitchedNotesReview4View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31B824BE2CDF53DD0031E923 /* ClefsPitchedNotesReview4View.swift */; };
+		31B824C12CDF590E0031E923 /* Sandbox2View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31B824C02CDF590E0031E923 /* Sandbox2View.swift */; };
 		D9E035FB2CDF12AC00220F1F /* scoresight1App.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9E035FA2CDF12AC00220F1F /* scoresight1App.swift */; };
 		D9E035FD2CDF12AC00220F1F /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9E035FC2CDF12AC00220F1F /* ContentView.swift */; };
 		D9E035FF2CDF12AD00220F1F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D9E035FE2CDF12AD00220F1F /* Assets.xcassets */; };
@@ -93,6 +94,7 @@
 		31B824B82CDF4ED20031E923 /* ClefsPitchedNotesReview3View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClefsPitchedNotesReview3View.swift; sourceTree = "<group>"; };
 		31B824BA2CDF4F080031E923 /* ClefsPitchedNotesReviewFile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClefsPitchedNotesReviewFile.swift; sourceTree = "<group>"; };
 		31B824BE2CDF53DD0031E923 /* ClefsPitchedNotesReview4View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClefsPitchedNotesReview4View.swift; sourceTree = "<group>"; };
+		31B824C02CDF590E0031E923 /* Sandbox2View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sandbox2View.swift; sourceTree = "<group>"; };
 		D9E035F72CDF12AC00220F1F /* scoresight1.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = scoresight1.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D9E035FA2CDF12AC00220F1F /* scoresight1App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = scoresight1App.swift; sourceTree = "<group>"; };
 		D9E035FC2CDF12AC00220F1F /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -173,6 +175,7 @@
 				31B824942CDF3FD50031E923 /* ArticulationsOrnamentsLearnView.swift */,
 				31B824982CDF400A0031E923 /* ArticulationsOrnamentsReviewView.swift */,
 				D9E0360C2CDF19B100220F1F /* SandboxView.swift */,
+				31B824C02CDF590E0031E923 /* Sandbox2View.swift */,
 				D9E035FE2CDF12AD00220F1F /* Assets.xcassets */,
 				D9E036002CDF12AD00220F1F /* Preview Content */,
 			);
@@ -294,6 +297,7 @@
 				31B824AF2CDF4BF30031E923 /* ClefsPitchedNotesLearn12View.swift in Sources */,
 				31B824932CDF3FC00031E923 /* DynamicsReviewView.swift in Sources */,
 				31B824792CDF3D7A0031E923 /* ClefsPitchedNotesReviewView.swift in Sources */,
+				31B824C12CDF590E0031E923 /* Sandbox2View.swift in Sources */,
 				D9E035FB2CDF12AC00220F1F /* scoresight1App.swift in Sources */,
 				31B8249D2CDF496B0031E923 /* ClefsPitchedNotesLearn5View.swift in Sources */,
 				31B8248B2CDF3F640031E923 /* KeySignaturesAccidentalsView.swift in Sources */,
