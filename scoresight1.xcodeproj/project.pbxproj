@@ -3,105 +3,36 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 56;
+	objectVersion = 70;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		31B8246F2CDF2DD50031E923 /* StartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31B8246E2CDF2DD50031E923 /* StartView.swift */; };
-		31B824712CDF3A5C0031E923 /* ClefsPitchedNotesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31B824702CDF3A5B0031E923 /* ClefsPitchedNotesView.swift */; };
-		31B824732CDF3BFF0031E923 /* ClefsPitchedNotesLearnView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31B824722CDF3BFF0031E923 /* ClefsPitchedNotesLearnView.swift */; };
-		31B824752CDF3C440031E923 /* RhythmNotesRestsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31B824742CDF3C440031E923 /* RhythmNotesRestsView.swift */; };
-		31B824772CDF3C510031E923 /* RhythmNotesRestsLearnView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31B824762CDF3C510031E923 /* RhythmNotesRestsLearnView.swift */; };
-		31B824792CDF3D7A0031E923 /* ClefsPitchedNotesReviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31B824782CDF3D7A0031E923 /* ClefsPitchedNotesReviewView.swift */; };
-		31B8247B2CDF3E080031E923 /* RhythmNotesRestsReviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31B8247A2CDF3E080031E923 /* RhythmNotesRestsReviewView.swift */; };
-		31B8247D2CDF3E6C0031E923 /* SheetMusicOrganisationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31B8247C2CDF3E6C0031E923 /* SheetMusicOrganisationView.swift */; };
-		31B8247F2CDF3E7B0031E923 /* SheetMusicOrganisationLearnView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31B8247E2CDF3E7B0031E923 /* SheetMusicOrganisationLearnView.swift */; };
-		31B824812CDF3E8D0031E923 /* SheetMusicOrganisationReviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31B824802CDF3E8D0031E923 /* SheetMusicOrganisationReviewView.swift */; };
-		31B824832CDF3EA50031E923 /* TimeSignaturesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31B824822CDF3EA50031E923 /* TimeSignaturesView.swift */; };
-		31B824852CDF3EB40031E923 /* TimeSignaturesLearnView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31B824842CDF3EB40031E923 /* TimeSignaturesLearnView.swift */; };
-		31B824872CDF3EC60031E923 /* TimeSignaturesReviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31B824862CDF3EC60031E923 /* TimeSignaturesReviewView.swift */; };
-		31B824892CDF3F500031E923 /* KeySignaturesAccidentalsLearnView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31B824882CDF3F500031E923 /* KeySignaturesAccidentalsLearnView.swift */; };
-		31B8248B2CDF3F640031E923 /* KeySignaturesAccidentalsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31B8248A2CDF3F640031E923 /* KeySignaturesAccidentalsView.swift */; };
-		31B8248D2CDF3F7B0031E923 /* KeySignaturesAccidentalsReviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31B8248C2CDF3F7B0031E923 /* KeySignaturesAccidentalsReviewView.swift */; };
-		31B8248F2CDF3F8E0031E923 /* DynamicsLearnView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31B8248E2CDF3F8E0031E923 /* DynamicsLearnView.swift */; };
-		31B824912CDF3FB00031E923 /* DynamicsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31B824902CDF3FB00031E923 /* DynamicsView.swift */; };
-		31B824932CDF3FC00031E923 /* DynamicsReviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31B824922CDF3FC00031E923 /* DynamicsReviewView.swift */; };
-		31B824952CDF3FD50031E923 /* ArticulationsOrnamentsLearnView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31B824942CDF3FD50031E923 /* ArticulationsOrnamentsLearnView.swift */; };
-		31B824972CDF3FEE0031E923 /* ArticulationsOrnamentsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31B824962CDF3FEE0031E923 /* ArticulationsOrnamentsView.swift */; };
-		31B824992CDF400A0031E923 /* ArticulationsOrnamentsReviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31B824982CDF400A0031E923 /* ArticulationsOrnamentsReviewView.swift */; };
-		31B8249B2CDF49490031E923 /* ClefsPitchedNotesLearn3View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31B8249A2CDF49490031E923 /* ClefsPitchedNotesLearn3View.swift */; };
-		31B8249D2CDF496B0031E923 /* ClefsPitchedNotesLearn5View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31B8249C2CDF496B0031E923 /* ClefsPitchedNotesLearn5View.swift */; };
-		31B8249F2CDF49880031E923 /* ClefsPitchedNotesLearn7View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31B8249E2CDF49880031E923 /* ClefsPitchedNotesLearn7View.swift */; };
-		31B824A12CDF4A190031E923 /* ClefsPitchedNotesLearn2View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31B824A02CDF4A190031E923 /* ClefsPitchedNotesLearn2View.swift */; };
-		31B824A32CDF4A6F0031E923 /* ClefsPitchedNotesLearn4View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31B824A22CDF4A6F0031E923 /* ClefsPitchedNotesLearn4View.swift */; };
-		31B824A52CDF4A800031E923 /* ClefsPitchedNotesLearn6View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31B824A42CDF4A800031E923 /* ClefsPitchedNotesLearn6View.swift */; };
-		31B824A72CDF4A8B0031E923 /* ClefsPitchedNotesLearn8View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31B824A62CDF4A8B0031E923 /* ClefsPitchedNotesLearn8View.swift */; };
-		31B824A92CDF4B170031E923 /* ClefsPitchedNotesLearn9View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31B824A82CDF4B170031E923 /* ClefsPitchedNotesLearn9View.swift */; };
-		31B824AB2CDF4BA40031E923 /* ClefsPitchedNotesLearn10View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31B824AA2CDF4BA40031E923 /* ClefsPitchedNotesLearn10View.swift */; };
-		31B824AD2CDF4BE70031E923 /* ClefsPitchedNotesLearn11View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31B824AC2CDF4BE70031E923 /* ClefsPitchedNotesLearn11View.swift */; };
-		31B824AF2CDF4BF30031E923 /* ClefsPitchedNotesLearn12View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31B824AE2CDF4BF30031E923 /* ClefsPitchedNotesLearn12View.swift */; };
-		31B824B12CDF4C010031E923 /* ClefsPitchedNotesLearn13View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31B824B02CDF4C010031E923 /* ClefsPitchedNotesLearn13View.swift */; };
-		31B824B32CDF4C290031E923 /* ClefsPitchedNotesLearn14View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31B824B22CDF4C290031E923 /* ClefsPitchedNotesLearn14View.swift */; };
-		31B824B72CDF4E0E0031E923 /* ClefsPitchedNotesReview2View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31B824B62CDF4E0E0031E923 /* ClefsPitchedNotesReview2View.swift */; };
-		31B824B92CDF4ED20031E923 /* ClefsPitchedNotesReview3View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31B824B82CDF4ED20031E923 /* ClefsPitchedNotesReview3View.swift */; };
-		31B824BB2CDF4F080031E923 /* ClefsPitchedNotesReviewFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31B824BA2CDF4F080031E923 /* ClefsPitchedNotesReviewFile.swift */; };
-		31B824BF2CDF53DD0031E923 /* ClefsPitchedNotesReview4View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31B824BE2CDF53DD0031E923 /* ClefsPitchedNotesReview4View.swift */; };
-		31B824C12CDF590E0031E923 /* Sandbox2View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31B824C02CDF590E0031E923 /* Sandbox2View.swift */; };
 		D9E035FB2CDF12AC00220F1F /* scoresight1App.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9E035FA2CDF12AC00220F1F /* scoresight1App.swift */; };
 		D9E035FD2CDF12AC00220F1F /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9E035FC2CDF12AC00220F1F /* ContentView.swift */; };
 		D9E035FF2CDF12AD00220F1F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D9E035FE2CDF12AD00220F1F /* Assets.xcassets */; };
 		D9E036022CDF12AD00220F1F /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D9E036012CDF12AD00220F1F /* Preview Assets.xcassets */; };
-		D9E0360D2CDF19B100220F1F /* SandboxView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9E0360C2CDF19B100220F1F /* SandboxView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		31B8246E2CDF2DD50031E923 /* StartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartView.swift; sourceTree = "<group>"; };
-		31B824702CDF3A5B0031E923 /* ClefsPitchedNotesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClefsPitchedNotesView.swift; sourceTree = "<group>"; };
-		31B824722CDF3BFF0031E923 /* ClefsPitchedNotesLearnView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClefsPitchedNotesLearnView.swift; sourceTree = "<group>"; };
-		31B824742CDF3C440031E923 /* RhythmNotesRestsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RhythmNotesRestsView.swift; sourceTree = "<group>"; };
-		31B824762CDF3C510031E923 /* RhythmNotesRestsLearnView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RhythmNotesRestsLearnView.swift; sourceTree = "<group>"; };
-		31B824782CDF3D7A0031E923 /* ClefsPitchedNotesReviewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClefsPitchedNotesReviewView.swift; sourceTree = "<group>"; };
-		31B8247A2CDF3E080031E923 /* RhythmNotesRestsReviewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RhythmNotesRestsReviewView.swift; sourceTree = "<group>"; };
-		31B8247C2CDF3E6C0031E923 /* SheetMusicOrganisationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SheetMusicOrganisationView.swift; sourceTree = "<group>"; };
-		31B8247E2CDF3E7B0031E923 /* SheetMusicOrganisationLearnView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SheetMusicOrganisationLearnView.swift; sourceTree = "<group>"; };
-		31B824802CDF3E8D0031E923 /* SheetMusicOrganisationReviewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SheetMusicOrganisationReviewView.swift; sourceTree = "<group>"; };
-		31B824822CDF3EA50031E923 /* TimeSignaturesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeSignaturesView.swift; sourceTree = "<group>"; };
-		31B824842CDF3EB40031E923 /* TimeSignaturesLearnView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeSignaturesLearnView.swift; sourceTree = "<group>"; };
-		31B824862CDF3EC60031E923 /* TimeSignaturesReviewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeSignaturesReviewView.swift; sourceTree = "<group>"; };
-		31B824882CDF3F500031E923 /* KeySignaturesAccidentalsLearnView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeySignaturesAccidentalsLearnView.swift; sourceTree = "<group>"; };
-		31B8248A2CDF3F640031E923 /* KeySignaturesAccidentalsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeySignaturesAccidentalsView.swift; sourceTree = "<group>"; };
-		31B8248C2CDF3F7B0031E923 /* KeySignaturesAccidentalsReviewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeySignaturesAccidentalsReviewView.swift; sourceTree = "<group>"; };
-		31B8248E2CDF3F8E0031E923 /* DynamicsLearnView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DynamicsLearnView.swift; sourceTree = "<group>"; };
-		31B824902CDF3FB00031E923 /* DynamicsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DynamicsView.swift; sourceTree = "<group>"; };
-		31B824922CDF3FC00031E923 /* DynamicsReviewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DynamicsReviewView.swift; sourceTree = "<group>"; };
-		31B824942CDF3FD50031E923 /* ArticulationsOrnamentsLearnView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticulationsOrnamentsLearnView.swift; sourceTree = "<group>"; };
-		31B824962CDF3FEE0031E923 /* ArticulationsOrnamentsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticulationsOrnamentsView.swift; sourceTree = "<group>"; };
-		31B824982CDF400A0031E923 /* ArticulationsOrnamentsReviewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticulationsOrnamentsReviewView.swift; sourceTree = "<group>"; };
-		31B8249A2CDF49490031E923 /* ClefsPitchedNotesLearn3View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClefsPitchedNotesLearn3View.swift; sourceTree = "<group>"; };
-		31B8249C2CDF496B0031E923 /* ClefsPitchedNotesLearn5View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClefsPitchedNotesLearn5View.swift; sourceTree = "<group>"; };
-		31B8249E2CDF49880031E923 /* ClefsPitchedNotesLearn7View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClefsPitchedNotesLearn7View.swift; sourceTree = "<group>"; };
-		31B824A02CDF4A190031E923 /* ClefsPitchedNotesLearn2View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClefsPitchedNotesLearn2View.swift; sourceTree = "<group>"; };
-		31B824A22CDF4A6F0031E923 /* ClefsPitchedNotesLearn4View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClefsPitchedNotesLearn4View.swift; sourceTree = "<group>"; };
-		31B824A42CDF4A800031E923 /* ClefsPitchedNotesLearn6View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClefsPitchedNotesLearn6View.swift; sourceTree = "<group>"; };
-		31B824A62CDF4A8B0031E923 /* ClefsPitchedNotesLearn8View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClefsPitchedNotesLearn8View.swift; sourceTree = "<group>"; };
-		31B824A82CDF4B170031E923 /* ClefsPitchedNotesLearn9View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClefsPitchedNotesLearn9View.swift; sourceTree = "<group>"; };
-		31B824AA2CDF4BA40031E923 /* ClefsPitchedNotesLearn10View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClefsPitchedNotesLearn10View.swift; sourceTree = "<group>"; };
-		31B824AC2CDF4BE70031E923 /* ClefsPitchedNotesLearn11View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClefsPitchedNotesLearn11View.swift; sourceTree = "<group>"; };
-		31B824AE2CDF4BF30031E923 /* ClefsPitchedNotesLearn12View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClefsPitchedNotesLearn12View.swift; sourceTree = "<group>"; };
-		31B824B02CDF4C010031E923 /* ClefsPitchedNotesLearn13View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClefsPitchedNotesLearn13View.swift; sourceTree = "<group>"; };
-		31B824B22CDF4C290031E923 /* ClefsPitchedNotesLearn14View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClefsPitchedNotesLearn14View.swift; sourceTree = "<group>"; };
-		31B824B62CDF4E0E0031E923 /* ClefsPitchedNotesReview2View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClefsPitchedNotesReview2View.swift; sourceTree = "<group>"; };
-		31B824B82CDF4ED20031E923 /* ClefsPitchedNotesReview3View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClefsPitchedNotesReview3View.swift; sourceTree = "<group>"; };
-		31B824BA2CDF4F080031E923 /* ClefsPitchedNotesReviewFile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClefsPitchedNotesReviewFile.swift; sourceTree = "<group>"; };
-		31B824BE2CDF53DD0031E923 /* ClefsPitchedNotesReview4View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClefsPitchedNotesReview4View.swift; sourceTree = "<group>"; };
-		31B824C02CDF590E0031E923 /* Sandbox2View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sandbox2View.swift; sourceTree = "<group>"; };
 		D9E035F72CDF12AC00220F1F /* scoresight1.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = scoresight1.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D9E035FA2CDF12AC00220F1F /* scoresight1App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = scoresight1App.swift; sourceTree = "<group>"; };
 		D9E035FC2CDF12AC00220F1F /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		D9E035FE2CDF12AD00220F1F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D9E036012CDF12AD00220F1F /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		D9E0360C2CDF19B100220F1F /* SandboxView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SandboxView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
+
+/* Begin PBXFileSystemSynchronizedRootGroup section */
+		D973E3492CE03DFC00F4E78A /* SheetMusic */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = SheetMusic; sourceTree = "<group>"; };
+		D973E34A2CE03E0E00F4E78A /* Rhythm */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = Rhythm; sourceTree = "<group>"; };
+		D973E34B2CE03E1B00F4E78A /* TimeSignature */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = TimeSignature; sourceTree = "<group>"; };
+		D973E34C2CE03E2900F4E78A /* ClefsPitchedNotes */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = ClefsPitchedNotes; sourceTree = "<group>"; };
+		D973E34D2CE03E5100F4E78A /* KeySignature */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = KeySignature; sourceTree = "<group>"; };
+		D973E34E2CE03E5E00F4E78A /* Dynamics */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = Dynamics; sourceTree = "<group>"; };
+		D973E34F2CE03E7000F4E78A /* Articulations */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = Articulations; sourceTree = "<group>"; };
+		D973E3502CE03E7C00F4E78A /* Sandbox */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = Sandbox; sourceTree = "<group>"; };
+/* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		D9E035F42CDF12AC00220F1F /* Frameworks */ = {
@@ -136,46 +67,14 @@
 				D9E035FA2CDF12AC00220F1F /* scoresight1App.swift */,
 				31B8246E2CDF2DD50031E923 /* StartView.swift */,
 				D9E035FC2CDF12AC00220F1F /* ContentView.swift */,
-				31B8247C2CDF3E6C0031E923 /* SheetMusicOrganisationView.swift */,
-				31B8247E2CDF3E7B0031E923 /* SheetMusicOrganisationLearnView.swift */,
-				31B824802CDF3E8D0031E923 /* SheetMusicOrganisationReviewView.swift */,
-				31B824742CDF3C440031E923 /* RhythmNotesRestsView.swift */,
-				31B824762CDF3C510031E923 /* RhythmNotesRestsLearnView.swift */,
-				31B8247A2CDF3E080031E923 /* RhythmNotesRestsReviewView.swift */,
-				31B824822CDF3EA50031E923 /* TimeSignaturesView.swift */,
-				31B824842CDF3EB40031E923 /* TimeSignaturesLearnView.swift */,
-				31B824862CDF3EC60031E923 /* TimeSignaturesReviewView.swift */,
-				31B824702CDF3A5B0031E923 /* ClefsPitchedNotesView.swift */,
-				31B824722CDF3BFF0031E923 /* ClefsPitchedNotesLearnView.swift */,
-				31B824A02CDF4A190031E923 /* ClefsPitchedNotesLearn2View.swift */,
-				31B8249A2CDF49490031E923 /* ClefsPitchedNotesLearn3View.swift */,
-				31B824A22CDF4A6F0031E923 /* ClefsPitchedNotesLearn4View.swift */,
-				31B8249C2CDF496B0031E923 /* ClefsPitchedNotesLearn5View.swift */,
-				31B824A42CDF4A800031E923 /* ClefsPitchedNotesLearn6View.swift */,
-				31B8249E2CDF49880031E923 /* ClefsPitchedNotesLearn7View.swift */,
-				31B824A62CDF4A8B0031E923 /* ClefsPitchedNotesLearn8View.swift */,
-				31B824A82CDF4B170031E923 /* ClefsPitchedNotesLearn9View.swift */,
-				31B824AA2CDF4BA40031E923 /* ClefsPitchedNotesLearn10View.swift */,
-				31B824AC2CDF4BE70031E923 /* ClefsPitchedNotesLearn11View.swift */,
-				31B824AE2CDF4BF30031E923 /* ClefsPitchedNotesLearn12View.swift */,
-				31B824B02CDF4C010031E923 /* ClefsPitchedNotesLearn13View.swift */,
-				31B824B22CDF4C290031E923 /* ClefsPitchedNotesLearn14View.swift */,
-				31B824782CDF3D7A0031E923 /* ClefsPitchedNotesReviewView.swift */,
-				31B824B62CDF4E0E0031E923 /* ClefsPitchedNotesReview2View.swift */,
-				31B824B82CDF4ED20031E923 /* ClefsPitchedNotesReview3View.swift */,
-				31B824BE2CDF53DD0031E923 /* ClefsPitchedNotesReview4View.swift */,
-				31B824BA2CDF4F080031E923 /* ClefsPitchedNotesReviewFile.swift */,
-				31B8248A2CDF3F640031E923 /* KeySignaturesAccidentalsView.swift */,
-				31B824882CDF3F500031E923 /* KeySignaturesAccidentalsLearnView.swift */,
-				31B8248C2CDF3F7B0031E923 /* KeySignaturesAccidentalsReviewView.swift */,
-				31B824902CDF3FB00031E923 /* DynamicsView.swift */,
-				31B8248E2CDF3F8E0031E923 /* DynamicsLearnView.swift */,
-				31B824922CDF3FC00031E923 /* DynamicsReviewView.swift */,
-				31B824962CDF3FEE0031E923 /* ArticulationsOrnamentsView.swift */,
-				31B824942CDF3FD50031E923 /* ArticulationsOrnamentsLearnView.swift */,
-				31B824982CDF400A0031E923 /* ArticulationsOrnamentsReviewView.swift */,
-				D9E0360C2CDF19B100220F1F /* SandboxView.swift */,
-				31B824C02CDF590E0031E923 /* Sandbox2View.swift */,
+				D973E3492CE03DFC00F4E78A /* SheetMusic */,
+				D973E34A2CE03E0E00F4E78A /* Rhythm */,
+				D973E34B2CE03E1B00F4E78A /* TimeSignature */,
+				D973E34C2CE03E2900F4E78A /* ClefsPitchedNotes */,
+				D973E34D2CE03E5100F4E78A /* KeySignature */,
+				D973E34E2CE03E5E00F4E78A /* Dynamics */,
+				D973E34F2CE03E7000F4E78A /* Articulations */,
+				D973E3502CE03E7C00F4E78A /* Sandbox */,
 				D9E035FE2CDF12AD00220F1F /* Assets.xcassets */,
 				D9E036002CDF12AD00220F1F /* Preview Content */,
 			);
@@ -204,6 +103,16 @@
 			buildRules = (
 			);
 			dependencies = (
+			);
+			fileSystemSynchronizedGroups = (
+				D973E3492CE03DFC00F4E78A /* SheetMusic */,
+				D973E34A2CE03E0E00F4E78A /* Rhythm */,
+				D973E34B2CE03E1B00F4E78A /* TimeSignature */,
+				D973E34C2CE03E2900F4E78A /* ClefsPitchedNotes */,
+				D973E34D2CE03E5100F4E78A /* KeySignature */,
+				D973E34E2CE03E5E00F4E78A /* Dynamics */,
+				D973E34F2CE03E7000F4E78A /* Articulations */,
+				D973E3502CE03E7C00F4E78A /* Sandbox */,
 			);
 			name = scoresight1;
 			productName = scoresight1;
@@ -260,48 +169,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				31B824B32CDF4C290031E923 /* ClefsPitchedNotesLearn14View.swift in Sources */,
-				31B824AB2CDF4BA40031E923 /* ClefsPitchedNotesLearn10View.swift in Sources */,
-				31B8248D2CDF3F7B0031E923 /* KeySignaturesAccidentalsReviewView.swift in Sources */,
-				31B8247F2CDF3E7B0031E923 /* SheetMusicOrganisationLearnView.swift in Sources */,
-				31B824B92CDF4ED20031E923 /* ClefsPitchedNotesReview3View.swift in Sources */,
-				31B8247B2CDF3E080031E923 /* RhythmNotesRestsReviewView.swift in Sources */,
-				31B824912CDF3FB00031E923 /* DynamicsView.swift in Sources */,
 				D9E035FD2CDF12AC00220F1F /* ContentView.swift in Sources */,
-				31B824952CDF3FD50031E923 /* ArticulationsOrnamentsLearnView.swift in Sources */,
-				31B8248F2CDF3F8E0031E923 /* DynamicsLearnView.swift in Sources */,
-				31B824AD2CDF4BE70031E923 /* ClefsPitchedNotesLearn11View.swift in Sources */,
-				31B824BB2CDF4F080031E923 /* ClefsPitchedNotesReviewFile.swift in Sources */,
-				31B824772CDF3C510031E923 /* RhythmNotesRestsLearnView.swift in Sources */,
-				31B824BF2CDF53DD0031E923 /* ClefsPitchedNotesReview4View.swift in Sources */,
-				31B824A92CDF4B170031E923 /* ClefsPitchedNotesLearn9View.swift in Sources */,
-				31B824A72CDF4A8B0031E923 /* ClefsPitchedNotesLearn8View.swift in Sources */,
-				31B824892CDF3F500031E923 /* KeySignaturesAccidentalsLearnView.swift in Sources */,
-				31B8247D2CDF3E6C0031E923 /* SheetMusicOrganisationView.swift in Sources */,
-				31B824992CDF400A0031E923 /* ArticulationsOrnamentsReviewView.swift in Sources */,
-				D9E0360D2CDF19B100220F1F /* SandboxView.swift in Sources */,
-				31B824712CDF3A5C0031E923 /* ClefsPitchedNotesView.swift in Sources */,
-				31B824832CDF3EA50031E923 /* TimeSignaturesView.swift in Sources */,
-				31B824752CDF3C440031E923 /* RhythmNotesRestsView.swift in Sources */,
-				31B824812CDF3E8D0031E923 /* SheetMusicOrganisationReviewView.swift in Sources */,
-				31B824A52CDF4A800031E923 /* ClefsPitchedNotesLearn6View.swift in Sources */,
-				31B8249B2CDF49490031E923 /* ClefsPitchedNotesLearn3View.swift in Sources */,
-				31B824B72CDF4E0E0031E923 /* ClefsPitchedNotesReview2View.swift in Sources */,
-				31B824872CDF3EC60031E923 /* TimeSignaturesReviewView.swift in Sources */,
-				31B824A12CDF4A190031E923 /* ClefsPitchedNotesLearn2View.swift in Sources */,
-				31B824732CDF3BFF0031E923 /* ClefsPitchedNotesLearnView.swift in Sources */,
-				31B824972CDF3FEE0031E923 /* ArticulationsOrnamentsView.swift in Sources */,
-				31B824B12CDF4C010031E923 /* ClefsPitchedNotesLearn13View.swift in Sources */,
-				31B8249F2CDF49880031E923 /* ClefsPitchedNotesLearn7View.swift in Sources */,
-				31B824A32CDF4A6F0031E923 /* ClefsPitchedNotesLearn4View.swift in Sources */,
-				31B824AF2CDF4BF30031E923 /* ClefsPitchedNotesLearn12View.swift in Sources */,
-				31B824932CDF3FC00031E923 /* DynamicsReviewView.swift in Sources */,
-				31B824792CDF3D7A0031E923 /* ClefsPitchedNotesReviewView.swift in Sources */,
-				31B824C12CDF590E0031E923 /* Sandbox2View.swift in Sources */,
 				D9E035FB2CDF12AC00220F1F /* scoresight1App.swift in Sources */,
-				31B8249D2CDF496B0031E923 /* ClefsPitchedNotesLearn5View.swift in Sources */,
-				31B8248B2CDF3F640031E923 /* KeySignaturesAccidentalsView.swift in Sources */,
-				31B824852CDF3EB40031E923 /* TimeSignaturesLearnView.swift in Sources */,
 				31B8246F2CDF2DD50031E923 /* StartView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

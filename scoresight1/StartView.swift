@@ -13,9 +13,14 @@ struct StartView: View {
     // figure out the gaps for all the pages btw title and button
     var body: some View {
         VStack {
+            Spacer()
+            
             Text("score\nsight")
                 .fontWeight(.bold)
                 .font(.system(size:100)).environment(\._lineHeightMultiple, 0.75)
+            
+            Spacer()
+            
             Button(action: {
                 isFullScreenPresented = true
             }) {
@@ -29,6 +34,7 @@ struct StartView: View {
                             .frame(width: 200, height: 50)
                     )
             }
+            Spacer()
         }
         .fullScreenCover(isPresented: $isFullScreenPresented) {
                     ContentView()

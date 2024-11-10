@@ -19,7 +19,7 @@ struct ContentView: View {
     @State private var isFullScreenPresented8 = false
     
     var body: some View {
-        VStack {
+        ScrollView {
             Button(action: {
                 isFullScreenPresented1 = true
             }) {
