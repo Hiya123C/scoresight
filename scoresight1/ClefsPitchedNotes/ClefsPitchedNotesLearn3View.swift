@@ -9,7 +9,11 @@ import SwiftUI
 
 struct ClefsPitchedNotesLearn3View: View {
     var body: some View {
-        HStack {
+        HStack(alignment: .center) {
+            Image("bass")
+                .resizable()
+                .frame(width: 500, height: 250, alignment: .bottom)
+                .position(x:300,y:50)
             VStack {
                 Text("this is a")
                     .font(.system(size: 40))

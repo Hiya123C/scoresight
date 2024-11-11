@@ -12,6 +12,10 @@ struct ClefsPitchedNotesLearn10View: View {
         VStack {
             Text("these are the pitched notes on the treble clef.")
                 .font(.system(size: 40))
+            Image("treble clef pitched notes")
+                .resizable()
+                .frame(width: 500, height: 250, alignment: .bottom)
+                .position(x:300,y:50)
         }
     }
 }
