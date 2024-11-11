@@ -10,8 +10,42 @@ import SwiftUI
 struct ClefsPitchedNotesLearn12View: View {
     var body: some View {
         VStack {
-            Text("these are the pitched notes on the alto clef.")
+            HStack {
+                Button(action:{
+                    
+                }){
+                    Image(systemName: "x.circle")
+                        .symbolRenderingMode(.palette)
+                        .foregroundStyle(.black, .white)
+                        .font(.system(size:50))
+                }
+                Spacer()
+            }
+            Text("pitched notes on the alto clef")
                 .font(.system(size: 40))
+//                Image("treble clef pitched notes")
+//                    .resizable()
+//                    .scaledToFit()
+            HStack{
+                Spacer()
+                Button(action: {
+                    
+                })
+                {
+                    Text("next")
+                        .padding()
+                        .background(
+                            RoundedRectangle(cornerRadius: 10)
+                                .stroke(.black, lineWidth: 3)
+                                .frame(width:100,height:50)
+                            
+                        )
+                        .foregroundStyle(.black)
+                        .font(.system(size: 25))
+                    
+                    
+                }
+            }
         }
     }
 }

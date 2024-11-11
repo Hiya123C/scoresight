@@ -1,5 +1,5 @@
 //
-//  DynamicsLearn3View.swift
+//  KeySignaturesAccidentalsLearn9View.swift
 //  scoresight1
 //
 //  Created by Li Jiansheng on 11/11/24.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct DynamicsLearn3View: View {
+struct KeySignaturesAccidentalsLearn9View: View {
     var body: some View {
         VStack {
             HStack {
@@ -21,14 +21,12 @@ struct DynamicsLearn3View: View {
                 }
                 Spacer()
             }
-            //Image("decrescendo")
-            //  .resizable()
-            //  .scaledToFit()
-            Text("gradually getting softer")
-                .font(.system(size: 25))
-            Text("decrescendo")
-                .font(.system(size:80))
-                .bold()
+            
+            HStack {
+//                Image("flats")
+//                    .resizable()
+//                    .scaledToFit()
+            }
             HStack{
                 Spacer()
                 Button(action: {
@@ -54,5 +52,5 @@ struct DynamicsLearn3View: View {
 }
 
 #Preview {
-    DynamicsLearn3View()
+    KeySignaturesAccidentalsLearn9View()
 }

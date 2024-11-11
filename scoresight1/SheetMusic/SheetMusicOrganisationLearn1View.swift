@@ -27,7 +27,7 @@ struct SheetMusicOrganisationLearnView: View {
                 
                  //position?
                 VStack{
-                    Text("this is a ")
+                    Text("this is a")
                         .font(.system(size: 40))
                     Text("bar")
                         .font(.system(size:80))

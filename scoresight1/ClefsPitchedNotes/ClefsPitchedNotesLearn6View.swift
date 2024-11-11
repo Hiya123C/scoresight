@@ -10,13 +10,81 @@ import SwiftUI
 struct ClefsPitchedNotesLearn6View: View {
     var body: some View {
         VStack {
+            HStack {
+                Button(action:{
+                    
+                }){
+                    Image(systemName: "x.circle")
+                        .symbolRenderingMode(.palette)
+                        .foregroundStyle(.black, .white)
+                        .font(.system(size:50))
+                }
+                Spacer()
+            }
+            Text("middle C on the bass clef")
+                .font(.system(size: 40))
+                Image("bass middle c")
+                    .resizable()
+                    .scaledToFit()
+            HStack{
+                Spacer()
+                Button(action: {
+                    
+                })
+                {
+                    Text("next")
+                        .padding()
+                        .background(
+                            RoundedRectangle(cornerRadius: 10)
+                                .stroke(.black, lineWidth: 3)
+                                .frame(width:100,height:50)
+                            
+                        )
+                        .foregroundStyle(.black)
+                        .font(.system(size: 25))
+                    
+                    
+                }
+            }
+        }
+        VStack {
+            HStack {
+                Button(action:{
+                    
+                }){
+                    Image(systemName: "x.circle")
+                        .symbolRenderingMode(.palette)
+                        .foregroundStyle(.black, .white)
+                        .font(.system(size:50))
+                }
+                Spacer()
+            }
             Text("middle C on the alto clef")
                 .font(.system(size: 40))
                 Image("alto middle c")
                     .resizable()
-                    .frame(width: 500, height: 250, alignment: .bottom)
-                    .position(x:300,y:50)
-    }
+                    .scaledToFit()
+            HStack{
+                Spacer()
+                Button(action: {
+                    
+                })
+                {
+                    Text("next")
+                        .padding()
+                        .background(
+                            RoundedRectangle(cornerRadius: 10)
+                                .stroke(.black, lineWidth: 3)
+                                .frame(width:100,height:50)
+                            
+                        )
+                        .foregroundStyle(.black)
+                        .font(.system(size: 25))
+                    
+                    
+                }
+            }
+        }
     }
 }
 

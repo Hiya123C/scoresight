@@ -8,9 +8,8 @@
 //import SwiftUI
 //
 //struct ClefsPitchedNotesReview3View: View {
-//    
-//    // replace the words in the brackets w images of the word
-//@State var questions: [Question] = [Question(question: "What is the correct order of notes being played as shown below?", options: ["B, C, G, A, B", "D, E, B, C, D", "D, C, F, E, B"], answer: "D, E, B, C, D"), Question(question: "If the notes shown below are C, D, A, B, C then what clef is this melody in?", options: ["alto (alto)", "tenor (tenor)", "tenor (alto)", "alto (tenor)"], answer: "alto (alto)"), Question(question: "Are there any octaves present in this bar?", options: ["yes", "no"], answer: "no")]
+//
+//@State var questions: [Question] = [Question(question: "What is the correct order of notes being played as shown below?", options: ["B, C, G, A, B", "D, E, B, C, D", "D, C, F, E, B"], answer: "D, E, B, C, D"), Question(question: "If the notes shown below are C, D, A, B, C then what clef is this melody in?", options: ["treble", "bass", "alto", "tenor"], answer: "alto"), Question(question: "Are there any octaves present in this bar?", options: ["yes", "no"], answer: "no")]
 //    @State var questionNumber: Int
 //    @State var selectedButtonIndex: Int?
 //    
