@@ -21,18 +21,17 @@ struct ClefsPitchedNotesLearn6View: View {
                 }
                 Spacer()
             }
-            Text("middle C on the bass clef")
+            Text("middle C on the alto clef")
                 .font(.system(size: 40))
-                Image("bass middle c")
+                Image("alto middle c")
                     .resizable()
                     .scaledToFit()
             HStack{
-                Spacer()
                 Button(action: {
                     
                 })
                 {
-                    Text("next")
+                    Text("back")
                         .padding()
                         .background(
                             RoundedRectangle(cornerRadius: 10)
@@ -42,30 +41,9 @@ struct ClefsPitchedNotesLearn6View: View {
                         )
                         .foregroundStyle(.black)
                         .font(.system(size: 25))
-                    
+                    Spacer()
                     
                 }
-            }
-        }
-        VStack {
-            HStack {
-                Button(action:{
-                    
-                }){
-                    Image(systemName: "x.circle")
-                        .symbolRenderingMode(.palette)
-                        .foregroundStyle(.black, .white)
-                        .font(.system(size:50))
-                }
-                Spacer()
-            }
-            Text("middle C on the alto clef")
-                .font(.system(size: 40))
-                Image("alto middle c")
-                    .resizable()
-                    .scaledToFit()
-            HStack{
-                Spacer()
                 Button(action: {
                     
                 })

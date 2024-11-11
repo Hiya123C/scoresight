@@ -28,7 +28,23 @@ struct KeySignaturesAccidentalsLearn9View: View {
 //                    .scaledToFit()
             }
             HStack{
-                Spacer()
+                Button(action: {
+                    
+                })
+                {
+                    Text("back")
+                        .padding()
+                        .background(
+                            RoundedRectangle(cornerRadius: 10)
+                                .stroke(.black, lineWidth: 3)
+                                .frame(width:100,height:50)
+                            
+                        )
+                        .foregroundStyle(.black)
+                        .font(.system(size: 25))
+                    Spacer()
+                    
+                }
                 Button(action: {
                     
                 })
