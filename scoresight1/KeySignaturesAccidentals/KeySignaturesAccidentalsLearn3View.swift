@@ -1,28 +1,26 @@
 //
-//  ClefsPitchedNotes3View.swift
+//  KeySignaturesAccidentalsLearn3View.swift
 //  scoresight1
 //
-//  Created by Li Jiansheng on 9/11/24.
+//  Created by Li Jiansheng on 11/11/24.
 //
 
 import SwiftUI
 
-struct ClefsPitchedNotesLearn7View: View {
+struct KeySignaturesAccidentalsLearn3View: View {
     var body: some View {
         HStack {
             VStack {
                 Text("this is a")
                     .font(.system(size: 40))
-                Text("tenor")
+                Text("flat")
                     .font(.system(size:80))
                     .bold()
-                Text("clef")
-                    .font(.system(size: 40))
             }
         }
     }
 }
 
 #Preview {
-    ClefsPitchedNotesLearn7View()
+    KeySignaturesAccidentalsLearn3View()
 }

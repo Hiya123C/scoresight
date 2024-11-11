@@ -11,7 +11,7 @@ struct ClefsPitchedNotesLearn12View: View {
     var body: some View {
         VStack {
             Text("these are the pitched notes on the alto clef.")
-                .font(.system(size: 30))
+                .font(.system(size: 40))
         }
     }
 }

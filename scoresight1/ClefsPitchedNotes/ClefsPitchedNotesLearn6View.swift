@@ -11,7 +11,7 @@ struct ClefsPitchedNotesLearn6View: View {
     var body: some View {
         VStack {
             Text("middle C on the alto clef")
-                .font(.system(size: 30))
+                .font(.system(size: 40))
         }
     }
 }

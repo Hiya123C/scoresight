@@ -9,7 +9,15 @@ import SwiftUI
 
 struct KeySignaturesAccidentalsLearnView: View {
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        HStack {
+            VStack {
+                Text("this is a")
+                    .font(.system(size: 40))
+                Text("sharp")
+                    .font(.system(size:80))
+                    .bold()
+            }
+        }
     }
 }
 

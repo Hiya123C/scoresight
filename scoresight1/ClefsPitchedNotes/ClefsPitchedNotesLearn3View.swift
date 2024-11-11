@@ -12,14 +12,12 @@ struct ClefsPitchedNotesLearn3View: View {
         HStack {
             VStack {
                 Text("this is a")
-                    .font(.system(size: 30))
-                    .frame(alignment: .trailing)
+                    .font(.system(size: 40))
                 Text("bass")
-                    .font(.system(size:50))
-                    .frame(alignment: .trailing)
+                    .font(.system(size:80))
+                    .bold()
                 Text("clef")
-                    .font(.system(size: 30))
-                    .frame(alignment: .leading)
+                    .font(.system(size: 40))
             }
         }
     }

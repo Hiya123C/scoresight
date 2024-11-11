@@ -25,10 +25,10 @@
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		D973E3492CE03DFC00F4E78A /* SheetMusic */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = SheetMusic; sourceTree = "<group>"; };
-		D973E34A2CE03E0E00F4E78A /* Rhythm */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = Rhythm; sourceTree = "<group>"; };
+		D973E34A2CE03E0E00F4E78A /* RhythmNotesRests */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = RhythmNotesRests; sourceTree = "<group>"; };
 		D973E34B2CE03E1B00F4E78A /* TimeSignature */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = TimeSignature; sourceTree = "<group>"; };
 		D973E34C2CE03E2900F4E78A /* ClefsPitchedNotes */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = ClefsPitchedNotes; sourceTree = "<group>"; };
-		D973E34D2CE03E5100F4E78A /* KeySignature */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = KeySignature; sourceTree = "<group>"; };
+		D973E34D2CE03E5100F4E78A /* KeySignaturesAccidentals */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = KeySignaturesAccidentals; sourceTree = "<group>"; };
 		D973E34E2CE03E5E00F4E78A /* Dynamics */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = Dynamics; sourceTree = "<group>"; };
 		D973E34F2CE03E7000F4E78A /* Articulations */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = Articulations; sourceTree = "<group>"; };
 		D973E3502CE03E7C00F4E78A /* Sandbox */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = Sandbox; sourceTree = "<group>"; };
@@ -68,10 +68,10 @@
 				31B8246E2CDF2DD50031E923 /* StartView.swift */,
 				D9E035FC2CDF12AC00220F1F /* ContentView.swift */,
 				D973E3492CE03DFC00F4E78A /* SheetMusic */,
-				D973E34A2CE03E0E00F4E78A /* Rhythm */,
+				D973E34A2CE03E0E00F4E78A /* RhythmNotesRests */,
 				D973E34B2CE03E1B00F4E78A /* TimeSignature */,
 				D973E34C2CE03E2900F4E78A /* ClefsPitchedNotes */,
-				D973E34D2CE03E5100F4E78A /* KeySignature */,
+				D973E34D2CE03E5100F4E78A /* KeySignaturesAccidentals */,
 				D973E34E2CE03E5E00F4E78A /* Dynamics */,
 				D973E34F2CE03E7000F4E78A /* Articulations */,
 				D973E3502CE03E7C00F4E78A /* Sandbox */,
@@ -106,10 +106,10 @@
 			);
 			fileSystemSynchronizedGroups = (
 				D973E3492CE03DFC00F4E78A /* SheetMusic */,
-				D973E34A2CE03E0E00F4E78A /* Rhythm */,
+				D973E34A2CE03E0E00F4E78A /* RhythmNotesRests */,
 				D973E34B2CE03E1B00F4E78A /* TimeSignature */,
 				D973E34C2CE03E2900F4E78A /* ClefsPitchedNotes */,
-				D973E34D2CE03E5100F4E78A /* KeySignature */,
+				D973E34D2CE03E5100F4E78A /* KeySignaturesAccidentals */,
 				D973E34E2CE03E5E00F4E78A /* Dynamics */,
 				D973E34F2CE03E7000F4E78A /* Articulations */,
 				D973E3502CE03E7C00F4E78A /* Sandbox */,

@@ -1,13 +1,13 @@
 //
-//  ClefsPitchedNotesReview2View.swift
+//  KeySignaturesAccidentalsReview2View.swift
 //  scoresight1
 //
-//  Created by Li Jiansheng on 9/11/24.
+//  Created by Li Jiansheng on 11/11/24.
 //
 
 import SwiftUI
 
-struct ClefsPitchedNotesReview2View: View {
+struct KeySignaturesAccidentalsReview2View: View {
     
     let question: Question
         // replace the words in the brackets w images of the word
@@ -46,5 +46,5 @@ struct ClefsPitchedNotesReview2View: View {
 }
 
 #Preview {
-    ClefsPitchedNotesReview2View()
+    KeySignaturesAccidentalsReview2View()
 }
