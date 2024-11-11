@@ -1,9 +1,4 @@
-//
-//  ContentView.swift
-//  scoresight1
-//
-//  Created by Crystal on 9/11/24.
-//
+//scroll view portrait
 
 import SwiftUI
 
@@ -27,10 +22,11 @@ struct ContentView: View {
                     .font(.system(size: 30))
                     .foregroundStyle(.black)
                     .bold()
+                    .padding()
                     .overlay(
                         RoundedRectangle(cornerRadius: 15)
                             .stroke(.black, lineWidth: 3)
-                            .frame(width: 200, height: 50)
+                            .frame(width: 350, height: 55)
                     )
             }
             Button(action: {
@@ -40,10 +36,11 @@ struct ContentView: View {
                     .font(.system(size: 30))
                     .foregroundStyle(.black)
                     .bold()
+                    .padding()
                     .overlay(
                         RoundedRectangle(cornerRadius: 15)
                             .stroke(.black, lineWidth: 3)
-                            .frame(width: 200, height: 50)
+                            .frame(width: 350, height: 55)
                     )
             }
             Button(action: {
@@ -53,10 +50,11 @@ struct ContentView: View {
                     .font(.system(size: 30))
                     .foregroundStyle(.black)
                     .bold()
+                    .padding()
                     .overlay(
                         RoundedRectangle(cornerRadius: 15)
                             .stroke(.black, lineWidth: 3)
-                            .frame(width: 200, height: 50)
+                            .frame(width: 350, height: 55)
                     )
             }
             Button(action: {
@@ -66,10 +64,11 @@ struct ContentView: View {
                     .font(.system(size: 30))
                     .foregroundStyle(.black)
                     .bold()
+                    .padding()
                     .overlay(
                         RoundedRectangle(cornerRadius: 15)
                             .stroke(.black, lineWidth: 3)
-                            .frame(width: 200, height: 50)
+                            .frame(width: 350, height: 55)
                     )
             }
             Button(action: {
@@ -79,10 +78,11 @@ struct ContentView: View {
                     .font(.system(size: 30))
                     .foregroundStyle(.black)
                     .bold()
+                    .padding()
                     .overlay(
                         RoundedRectangle(cornerRadius: 15)
                             .stroke(.black, lineWidth: 3)
-                            .frame(width: 200, height: 50)
+                            .frame(width: 350, height: 55)
                     )
             }
             Button(action: {
@@ -92,10 +92,11 @@ struct ContentView: View {
                     .font(.system(size: 30))
                     .foregroundStyle(.black)
                     .bold()
+                    .padding()
                     .overlay(
                         RoundedRectangle(cornerRadius: 15)
                             .stroke(.black, lineWidth: 3)
-                            .frame(width: 200, height: 50)
+                            .frame(width: 350, height: 55)
                     )
             }
             Button(action: {
@@ -105,10 +106,11 @@ struct ContentView: View {
                     .font(.system(size: 30))
                     .foregroundStyle(.black)
                     .bold()
+                    .padding()
                     .overlay(
                         RoundedRectangle(cornerRadius: 15)
                             .stroke(.black, lineWidth: 3)
-                            .frame(width: 200, height: 50)
+                            .frame(width: 350, height: 55)
                     )
             }
             Button(action: {
@@ -118,10 +120,11 @@ struct ContentView: View {
                     .font(.system(size: 30))
                     .foregroundStyle(.black)
                     .bold()
+                    .padding()
                     .overlay(
                         RoundedRectangle(cornerRadius: 15)
                             .stroke(.black, lineWidth: 3)
-                            .frame(width: 200, height: 50)
+                            .frame(width: 350, height: 55)
                     )
             }
         }

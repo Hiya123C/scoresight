@@ -1,8 +1,10 @@
-//
+//add play button
 
 import SwiftUI
 
-struct SheetMusicOrganisationLearn2View: View {
+struct SheetMusicOrganisationLearn9View: View {
+    
+    
     var body: some View {
         VStack{
             NavigationStack{
@@ -18,28 +20,27 @@ struct SheetMusicOrganisationLearn2View: View {
                     Spacer()
                 }
                 VStack{
-                    HStack(alignment: .center){
-                        Image("clefs")
-                            .resizable()
-                            .scaledToFit()
-                        
-                        //position?
-                        VStack{
-                            Text("these are")
-                                .font(.system(size: 40))
-                            Text("clefs")
-                                .font(.system(size:80))
-                                .bold()
-                            
-                        }
+                    Spacer()
+                    Image("repeat sign")
+                        .resizable()
+                        .scaledToFit()
+                    
+                    //click play button to play audio**
+                    
+                    HStack(alignment:.center){
+                        Text("this is a")
+                            .font(.system(size: 45))
+                        Text("repeat sign")
+                            .font(.system(size:60))
+                            .bold()
+                        Spacer()
                     }
                 }
                 .frame(maxHeight:.infinity)
                 
                 HStack{
-                    
                     NavigationLink{
-                        SheetMusicOrganisationLearn1View()
+                        SheetMusicOrganisationLearn8View()
                     }label:{
                         Text("back")
                             .padding()
@@ -56,7 +57,7 @@ struct SheetMusicOrganisationLearn2View: View {
                     Spacer()
                     
                     NavigationLink{
-                        SheetMusicOrganisationLearn3View()
+                        SheetMusicOrganisationLearn10View()
                     }label:{
                         Text("next")
                             .padding()
@@ -71,11 +72,13 @@ struct SheetMusicOrganisationLearn2View: View {
                     }
                 }
             }
+            
         }
         .navigationBarBackButtonHidden(true)
+        
     }
 }
 
 #Preview {
-    SheetMusicOrganisationLearn2View()
+    SheetMusicOrganisationLearn9View()
 }

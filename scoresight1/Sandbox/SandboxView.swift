@@ -1,4 +1,4 @@
-//add cross
+//
 
 
 import SwiftUI
@@ -48,7 +48,7 @@ struct SandboxView: View {
             ContentView()
         }
         .fullScreenCover (isPresented: $isFullScreenPresented) {
-            Sandbox2View()
+            Sandbox1View()
                 
             
         }

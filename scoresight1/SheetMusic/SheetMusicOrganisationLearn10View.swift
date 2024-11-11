@@ -1,8 +1,8 @@
-//
+//add play button
 
 import SwiftUI
 
-struct SheetMusicOrganisationLearn3View: View {
+struct SheetMusicOrganisationLearn10View: View {
     
     
     var body: some View {
@@ -19,34 +19,32 @@ struct SheetMusicOrganisationLearn3View: View {
                     }
                     Spacer()
                 }
-                VStack{
-                    HStack(alignment: .center){
-                        Image("clefs")
+                Spacer()
+                ZStack{
+                    HStack{
+                        Image("tempo marking")
                             .resizable()
                             .scaledToFit()
-                        
-                        //position?
-                        VStack(alignment: .leading){
-                            Text("(RH)")
-                                .font(.system(size: 40))
-                            Text("Treble")
+                    }
+                    VStack{
+                        HStack(alignment:.center){
+                            Text("this is a")
+                                .font(.system(size: 30))
+                            Text("tempo marking")
                                 .font(.system(size:40))
                                 .bold()
                             Spacer()
-                            Text("(LH)")
-                                .font(.system(size:40))
-                            Text("Bass")
-                                .font(.system(size:40))
-                                .bold()
                         }
+                        Spacer()
                     }
+                    //click play button to play audio**
+                    
                 }
-                .frame(maxHeight:.infinity)
+                
                 
                 HStack{
-                    
                     NavigationLink{
-                        SheetMusicOrganisationLearn2View()
+                        SheetMusicOrganisationLearn9View()
                     }label:{
                         Text("back")
                             .padding()
@@ -62,29 +60,30 @@ struct SheetMusicOrganisationLearn3View: View {
                     
                     Spacer()
                     
-                    NavigationLink{
-                        SheetMusicOrganisationLearn4View()
-                    }label:{
-                        Text("next")
-                            .padding()
-                            .background(
-                                RoundedRectangle(cornerRadius: 10)
-                                    .stroke(.black, lineWidth: 3)
-                                    .frame(width:100,height:50)
-                                
-                            )
-                            .foregroundStyle(.black)
-                            .font(.system(size: 25))
-                    }
+//                    NavigationLink{
+//                        SheetMusicOrganisationLearn11View()
+//                    }label:{
+//                        Text("next")
+//                            .padding()
+//                            .background(
+//                                RoundedRectangle(cornerRadius: 10)
+//                                    .stroke(.black, lineWidth: 3)
+//                                    .frame(width:100,height:50)
+//                                
+//                            )
+//                            .foregroundStyle(.black)
+//                            .font(.system(size: 25))
+//                    } NO NEXT!!!
                 }
             }
             
         }
+        .frame(maxWidth:.infinity, maxHeight:.infinity)
         .navigationBarBackButtonHidden(true)
         
     }
 }
 
 #Preview {
-    SheetMusicOrganisationLearn3View()
+    SheetMusicOrganisationLearn10View()
 }

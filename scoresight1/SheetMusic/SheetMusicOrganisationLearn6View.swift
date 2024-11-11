@@ -2,7 +2,9 @@
 
 import SwiftUI
 
-struct SheetMusicOrganisationLearn2View: View {
+struct SheetMusicOrganisationLearn6View: View {
+    
+    
     var body: some View {
         VStack{
             NavigationStack{
@@ -17,29 +19,30 @@ struct SheetMusicOrganisationLearn2View: View {
                     }
                     Spacer()
                 }
+                
                 VStack{
                     HStack(alignment: .center){
-                        Image("clefs")
+                        Image("time signature")
                             .resizable()
                             .scaledToFit()
                         
-                        //position?
-                        VStack{
-                            Text("these are")
+                        VStack(alignment:.leading){
+                            Text("this is a")
                                 .font(.system(size: 40))
-                            Text("clefs")
-                                .font(.system(size:80))
+                            Text("time")
+                                .font(.system(size:60))
                                 .bold()
-                            
+                            Text("signature")
+                                .font(.system(size:60))
+                                .bold()
                         }
                     }
                 }
                 .frame(maxHeight:.infinity)
                 
                 HStack{
-                    
                     NavigationLink{
-                        SheetMusicOrganisationLearn1View()
+                        SheetMusicOrganisationLearn5View()
                     }label:{
                         Text("back")
                             .padding()
@@ -56,7 +59,7 @@ struct SheetMusicOrganisationLearn2View: View {
                     Spacer()
                     
                     NavigationLink{
-                        SheetMusicOrganisationLearn3View()
+                        SheetMusicOrganisationLearn7View()
                     }label:{
                         Text("next")
                             .padding()
@@ -71,11 +74,13 @@ struct SheetMusicOrganisationLearn2View: View {
                     }
                 }
             }
+            
         }
         .navigationBarBackButtonHidden(true)
+        
     }
 }
 
 #Preview {
-    SheetMusicOrganisationLearn2View()
+    SheetMusicOrganisationLearn6View()
 }

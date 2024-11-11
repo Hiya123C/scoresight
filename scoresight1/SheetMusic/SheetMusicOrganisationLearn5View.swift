@@ -2,7 +2,9 @@
 
 import SwiftUI
 
-struct SheetMusicOrganisationLearn2View: View {
+struct SheetMusicOrganisationLearn5View: View {
+    
+    
     var body: some View {
         VStack{
             NavigationStack{
@@ -19,27 +21,24 @@ struct SheetMusicOrganisationLearn2View: View {
                 }
                 VStack{
                     HStack(alignment: .center){
-                        Image("clefs")
+                        Image("sharps")
                             .resizable()
                             .scaledToFit()
                         
-                        //position?
-                        VStack{
-                            Text("these are")
+                        VStack(alignment:.leading){
+                            Text("or")
                                 .font(.system(size: 40))
-                            Text("clefs")
+                            Text("sharps")
                                 .font(.system(size:80))
                                 .bold()
-                            
                         }
                     }
                 }
                 .frame(maxHeight:.infinity)
                 
                 HStack{
-                    
                     NavigationLink{
-                        SheetMusicOrganisationLearn1View()
+                        SheetMusicOrganisationLearn4View()
                     }label:{
                         Text("back")
                             .padding()
@@ -56,7 +55,7 @@ struct SheetMusicOrganisationLearn2View: View {
                     Spacer()
                     
                     NavigationLink{
-                        SheetMusicOrganisationLearn3View()
+                        SheetMusicOrganisationLearn6View()
                     }label:{
                         Text("next")
                             .padding()
@@ -71,11 +70,13 @@ struct SheetMusicOrganisationLearn2View: View {
                     }
                 }
             }
+            
         }
         .navigationBarBackButtonHidden(true)
+        
     }
 }
 
 #Preview {
-    SheetMusicOrganisationLearn2View()
+    SheetMusicOrganisationLearn5View()
 }
