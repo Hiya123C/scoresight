@@ -17,7 +17,7 @@ struct RhythmNotesRestsLearnview: View {
     @State private var metronomePlayer: AVAudioPlayer?
     @State private var metronomePlays: Bool = false
     @State private var metronomeStopped: Bool = false
-
+    
     func setupMetronome() {
         if let soundURL = Bundle.main.url(forResource: "metronome", withExtension: "m4a") {
             metronomePlayer = try? AVAudioPlayer(contentsOf: soundURL)
@@ -25,7 +25,7 @@ struct RhythmNotesRestsLearnview: View {
             metronomePlayer?.prepareToPlay()
         }
     }
-
+    
     var body: some View {
         NavigationView {
             VStack {
@@ -48,9 +48,9 @@ struct RhythmNotesRestsLearnview: View {
                     Spacer()
                 }
                 .padding(.bottom, 10)
-
+                
                 Spacer()
-
+                
                 Button(action: {}) {
                     ZStack {
                         Rectangle()
@@ -79,26 +79,28 @@ struct RhythmNotesRestsLearnview: View {
                     isPressed = pressed
                     startMetronome()
                 }
-
+                
                 if showError {
                     Text("Tap on button only on a beat")
                         .foregroundColor(.red)
                         .font(.headline)
                 }
-
+                
                 Spacer()
-
+                
                 HStack {
                     Spacer()
-
+                    
                     NavigationLink(destination: RhythmNotesRestsLearn2View()) {
                         Text("Next")
+                            .padding()
+                            .background(
+                                RoundedRectangle(cornerRadius: 10)
+                                    .stroke(.black, lineWidth: 3)
+                                    .frame(width: 100, height: 50)
+                            )
+                            .foregroundStyle(.black)
                             .font(.system(size: 25))
-                            .bold()
-                            .foregroundColor(.black)
-                            .padding(.horizontal, 20)
-                            .padding(.vertical, 10)
-                            .background(RoundedRectangle(cornerRadius: 10).stroke(Color.black, lineWidth: 2))
                     }
                     .padding(.trailing, 10)
                 }
@@ -112,51 +114,52 @@ struct RhythmNotesRestsLearnview: View {
             }
             .navigationBarBackButtonHidden(true)
         }
+        .navigationBarBackButtonHidden(true)
     }
-
+    
     private func startHolding() {
         showError = false
         print("startedHolding")
-
+        
         if beatCount % 4 == 0 {
             progress = 0
         } else {
             showError = true
         }
     }
-
+    
     private func stopHolding() {
     }
-
+    
     private func startMetronome() {
         if !metronomePlays && !metronomeStopped {
             metronomePlayer?.play()
             metronomePlays = true
         }
-
+        
         Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true) { timer in
             if !isNextVisible {
                 timer.invalidate()
                 return
             }
-
+            
             if metronomeStopped {
                 timer.invalidate()
                 return
             }
-
+            
             beatCount += 1
-
+            
             if beatCount > 4 {
                 beatCount = 1
                 progress = 0
             }
-
-
+            
+            
             if isPressed && beatCount <= 4 {
                 progress = CGFloat(beatCount) * 150
             }
-
+            
             if progress >= 600 {
                 metronomePlayer?.pause()
                 metronomePlays = false
@@ -164,7 +167,7 @@ struct RhythmNotesRestsLearnview: View {
             }
         }
     }
-
+    
     private func stopMetronome() {
         metronomePlayer?.stop()
         metronomePlays = false

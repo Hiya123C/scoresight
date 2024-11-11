@@ -47,6 +47,7 @@ struct RhythmNotesRestsView: View {
                             .stroke(.black, lineWidth: 3)
                     )
             }
+            .navigationBarBackButtonHidden(true)
         }
         
         .navigationBarBackButtonHidden(true)
@@ -62,6 +63,7 @@ struct RhythmNotesRestsView: View {
                 .onDisappear {
                 }
         }
+        .navigationBarBackButtonHidden(true)
     }
 }
 
