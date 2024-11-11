@@ -17,6 +17,7 @@ struct RhythmNotesRestsLearn2View: View {
             Spacer()
             
         }
+    .navigationBarBackButtonHidden(true)
     }
 }
 

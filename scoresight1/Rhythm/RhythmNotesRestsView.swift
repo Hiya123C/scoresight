@@ -16,9 +16,10 @@ struct RhythmNotesRestsView: View {
         VStack(spacing: 10) {
             Text("rhythm\nnotes+rests")
                 .fontWeight(.bold)
-                .font(.system(size:100))
+                .font(.system(size: 100))
                 .multilineTextAlignment(.center)
                 .environment(\._lineHeightMultiple, 0.75)
+            
             Button(action: {
                 isFullScreenPresented = true
             }) {
@@ -32,6 +33,7 @@ struct RhythmNotesRestsView: View {
                             .stroke(.black, lineWidth: 3)
                     )
             }
+            
             Button(action: {
                 isFullScreenPresented2 = true
             }) {
@@ -46,12 +48,19 @@ struct RhythmNotesRestsView: View {
                     )
             }
         }
+        
+        .navigationBarBackButtonHidden(true)
         .padding()
         .fullScreenCover(isPresented: $isFullScreenPresented) {
             RhythmNotesRestsLearnview()
+                .onDisappear {
+                    
+                }
         }
         .fullScreenCover(isPresented: $isFullScreenPresented2) {
             RhythmNotesRestsReviewView()
+                .onDisappear {
+                }
         }
     }
 }

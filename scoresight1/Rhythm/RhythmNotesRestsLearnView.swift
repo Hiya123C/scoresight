@@ -29,6 +29,16 @@ struct RhythmNotesRestsLearnview: View {
     var body: some View {
         NavigationView {
             VStack {
+                NavigationLink{
+                    RhythmNotesRestsView()
+                } label:{
+                    Image(systemName: "x.circle")
+                        .symbolRenderingMode(.palette)
+                        .foregroundStyle(.black, .white)
+                        .font(.system(size:50))
+                        .position(x:0,y:50)//find out how to replace position
+                }
+                
                 HStack {
                     Image("semibreve")
                         .resizable()
@@ -37,7 +47,7 @@ struct RhythmNotesRestsLearnview: View {
                         .padding(.leading, 30)
                     Spacer()
                 }
-                .padding(.top, 70)
+                .padding(.bottom, 10)
 
                 Spacer()
 
@@ -92,7 +102,7 @@ struct RhythmNotesRestsLearnview: View {
                     }
                     .padding(.trailing, 10)
                 }
-                .padding(.bottom, 10)
+                .padding(.bottom, 30)
             }
             .onAppear {
                 setupMetronome()
