@@ -71,6 +71,7 @@ struct ArticulationsOrnamentsLearn13View: View {
                 }
             }
         }
+        .navigationBarBackButtonHidden(true)
     }
 }
 

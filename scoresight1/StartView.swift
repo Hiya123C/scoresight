@@ -8,8 +8,6 @@
 import SwiftUI
 
 struct StartView: View {
-    
-    @State private var isFullScreenPresented = false
     // figure out the gaps for all the pages btw title and button
     var body: some View {
         VStack {
@@ -22,7 +20,7 @@ struct StartView: View {
             Spacer()
             
             Button(action: {
-                isFullScreenPresented = true
+ 
             }) {
             Text("start")
                     .font(.system(size: 30))
@@ -36,9 +34,7 @@ struct StartView: View {
             }
             Spacer()
         }
-        .fullScreenCover(isPresented: $isFullScreenPresented) {
-                    ContentView()
-                }
+        .navigationBarBackButtonHidden(true)
     }
 }
 

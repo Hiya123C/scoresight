@@ -46,12 +46,7 @@ struct RhythmNotesRestsView: View {
                 }
             }
         }
-        .fullScreenCover(isPresented: $isFullScreenPresented) {
-            RhythmNotesRestsLearnView()
-                }
-        .fullScreenCover(isPresented: $isFullScreenPresented2) {
-                    RhythmNotesRestsReviewView()
-                }
+        .navigationBarBackButtonHidden(true)
     }
 }
 

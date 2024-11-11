@@ -1,13 +1,13 @@
 //
-//  ClefsPitchedNotesLearn9View.swift
+//  KeySignaturesAccidentalsLearn5View.swift
 //  scoresight1
 //
-//  Created by Li Jiansheng on 9/11/24.
+//  Created by Li Jiansheng on 11/11/24.
 //
 
 import SwiftUI
 
-struct ClefsPitchedNotesLearn9View: View {
+struct KeySignaturesAccidentalsLearn5View: View {
     var body: some View {
         HStack {
             Button(action:{
@@ -20,7 +20,7 @@ struct ClefsPitchedNotesLearn9View: View {
             }
             Spacer()
         }
-        Text("Cows Do Eat Fresh/nGrass And Barley")
+        Text("Father Charles Goes Down And Ends Battle")
             .font(.system(size: 100))
             .frame(alignment: .center)
         // figure out the single bold letters in a word thing
@@ -65,5 +65,5 @@ struct ClefsPitchedNotesLearn9View: View {
 }
 
 #Preview {
-    ClefsPitchedNotesLearn9View()
+    KeySignaturesAccidentalsLearn5View()
 }

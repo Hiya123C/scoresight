@@ -66,6 +66,7 @@ struct DynamicsLearn8View: View {
                 }
             }
         }
+        .navigationBarBackButtonHidden(true)
     }
 }
 

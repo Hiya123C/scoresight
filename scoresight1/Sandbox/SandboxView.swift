@@ -44,14 +44,7 @@ struct SandboxView: View {
             Spacer()
             Spacer()
         }
-        .fullScreenCover(isPresented: $isPresented) {
-            ContentView()
-        }
-        .fullScreenCover (isPresented: $isFullScreenPresented) {
-            Sandbox1View()
-                
-            
-        }
+        .navigationBarBackButtonHidden(true)
     }
 }
 

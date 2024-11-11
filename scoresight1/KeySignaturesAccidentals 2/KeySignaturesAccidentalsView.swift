@@ -1,5 +1,5 @@
 //
-//  DynamicsLearn2View.swift
+//  KeySignaturesAccidentalsLearn2View.swift
 //  scoresight1
 //
 //  Created by Li Jiansheng on 9/11/24.
@@ -7,14 +7,14 @@
 
 import SwiftUI
 
-struct DynamicsView: View {
+struct KeySignaturesAccidentalsView: View {
     
     @State private var isFullScreenPresented = false
     @State private var isFullScreenPresented2 = false
     
     var body: some View {
         VStack {
-            Text("dynamics")
+            Text("key signatures\n+accidentals")
                 .fontWeight(.bold)
                 .font(.system(size:100)).environment(\._lineHeightMultiple, 0.75)
                 
@@ -51,5 +51,5 @@ struct DynamicsView: View {
 }
 
 #Preview {
-    DynamicsView()
+    KeySignaturesAccidentalsView()
 }

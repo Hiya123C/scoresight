@@ -61,6 +61,7 @@ struct DynamicsReviewView: View {
                 }
             }
         }
+        .navigationBarBackButtonHidden(true)
     }
 }
 

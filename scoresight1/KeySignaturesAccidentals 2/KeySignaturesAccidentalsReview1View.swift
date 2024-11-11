@@ -1,5 +1,5 @@
 //
-//  ClefsPitchedNotesLearn10View.swift
+//  KeySignaturesAccidentalsReviewView.swift
 //  scoresight1
 //
 //  Created by Li Jiansheng on 9/11/24.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct ClefsPitchedNotesLearn10View: View {
+struct KeySignaturesAccidentalsReviewView: View {
     var body: some View {
         VStack {
             HStack {
@@ -21,11 +21,9 @@ struct ClefsPitchedNotesLearn10View: View {
                 }
                 Spacer()
             }
-            Text("pitched notes on the treble clef")
-                .font(.system(size: 40))
-                Image("treble clef pitched notes")
-                    .resizable()
-                    .scaledToFit()
+            Text("test your\nknowledge!")
+                .fontWeight(.bold)
+                .font(.system(size:100)).environment(\._lineHeightMultiple, 0.75)
             HStack{
                 Button(action: {
                     
@@ -68,5 +66,5 @@ struct ClefsPitchedNotesLearn10View: View {
 }
 
 #Preview {
-    ClefsPitchedNotesLearn10View()
+    KeySignaturesAccidentalsReviewView()
 }

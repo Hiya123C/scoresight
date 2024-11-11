@@ -46,6 +46,7 @@ struct ArticulationsOrnamentsView: View {
                 }
             }
         }
+        .navigationBarBackButtonHidden(true)
     }
 }
 

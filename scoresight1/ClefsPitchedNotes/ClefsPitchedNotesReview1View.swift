@@ -61,6 +61,7 @@ struct ClefsPitchedNotesReviewView: View {
                 }
             }
         }
+        .navigationBarBackButtonHidden(true)
     }
 }
 

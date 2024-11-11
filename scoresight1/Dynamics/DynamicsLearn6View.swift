@@ -66,6 +66,7 @@ struct DynamicsLearn6View: View {
                 }
             }
         }
+        .navigationBarBackButtonHidden(true)
     }
 }
 

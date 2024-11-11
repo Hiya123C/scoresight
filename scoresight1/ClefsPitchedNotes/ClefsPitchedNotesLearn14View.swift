@@ -71,6 +71,7 @@ struct ClefsPitchedNotesLearn14View: View {
                 }
             }
         }
+        .navigationBarBackButtonHidden(true)
     }
 }
 

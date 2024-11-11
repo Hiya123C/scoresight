@@ -1,13 +1,13 @@
 //
-//  ClefsPitchedNotesLearn10View.swift
+//  KeySignaturesAccidentalsLearn6View.swift
 //  scoresight1
 //
-//  Created by Li Jiansheng on 9/11/24.
+//  Created by Li Jiansheng on 11/11/24.
 //
 
 import SwiftUI
 
-struct ClefsPitchedNotesLearn10View: View {
+struct KeySignaturesAccidentalsLearn6View: View {
     var body: some View {
         VStack {
             HStack {
@@ -21,11 +21,11 @@ struct ClefsPitchedNotesLearn10View: View {
                 }
                 Spacer()
             }
-            Text("pitched notes on the treble clef")
+            Text("sharps are in this order:")
                 .font(.system(size: 40))
-                Image("treble clef pitched notes")
-                    .resizable()
-                    .scaledToFit()
+            Text("F C G D A E B")
+                .font(.system(size: 100))
+                .bold()
             HStack{
                 Button(action: {
                     
@@ -62,11 +62,12 @@ struct ClefsPitchedNotesLearn10View: View {
                     
                 }
             }
+            
         }
         .navigationBarBackButtonHidden(true)
     }
 }
 
 #Preview {
-    ClefsPitchedNotesLearn10View()
+    KeySignaturesAccidentalsLearn6View()
 }

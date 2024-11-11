@@ -14,6 +14,7 @@ struct DynamicsLearnView: View {
                 
             }
         }
+        .navigationBarBackButtonHidden(true)
     }
 }
 

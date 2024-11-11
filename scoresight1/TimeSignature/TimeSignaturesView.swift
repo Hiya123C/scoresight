@@ -46,6 +46,7 @@ struct TimeSignaturesView: View {
                 }
             }
         }
+        .navigationBarBackButtonHidden(true)
     }
 }
 

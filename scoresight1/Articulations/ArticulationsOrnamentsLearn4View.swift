@@ -71,6 +71,7 @@ struct ArticulationsOrnamentsLearn4View: View {
                 }
             }
         }
+        .navigationBarBackButtonHidden(true)
     }
 }
 
