@@ -19,10 +19,10 @@ struct StartView: View {
             
             Spacer()
             
-            Button(action: {
- 
-            }) {
-            Text("start")
+            NavigationLink{
+                ContentView()
+            }label:{
+                Text("start")
                     .font(.system(size: 30))
                     .foregroundStyle(.black)
                     .bold()

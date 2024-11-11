@@ -5,10 +5,10 @@ import SwiftUI
 struct ContentView: View {
     var body: some View {
         ScrollView {
-            Button(action: {
-                
-            }) {
-            Text("sheet music organisation")
+            NavigationLink{
+                SheetMusicOrganisationView()
+            }label:{
+                Text("sheet music organisation")
                     .font(.system(size: 30))
                     .foregroundStyle(.black)
                     .bold()
@@ -19,10 +19,10 @@ struct ContentView: View {
                             .frame(width: 350, height: 55)
                     )
             }
-            Button(action: {
-                
-            }) {
-            Text("rhythm notes + rests")
+            NavigationLink{
+                RhythmNotesRestsView()
+            }label:{
+                Text("rhythm notes + rests")
                     .font(.system(size: 30))
                     .foregroundStyle(.black)
                     .bold()
@@ -33,10 +33,10 @@ struct ContentView: View {
                             .frame(width: 350, height: 55)
                     )
             }
-            Button(action: {
-                
-            }) {
-            Text("time signatures")
+            NavigationLink{
+                TimeSignaturesView()
+            }label:{
+                Text("time signatures")
                     .font(.system(size: 30))
                     .foregroundStyle(.black)
                     .bold()
@@ -47,10 +47,10 @@ struct ContentView: View {
                             .frame(width: 350, height: 55)
                     )
             }
-            Button(action: {
-                
-            }) {
-            Text("clefs + pitched notes")
+            NavigationLink{
+                ClefsPitchedNotesView()
+            }label:{
+                Text("clefs + pitched notes")
                     .font(.system(size: 30))
                     .foregroundStyle(.black)
                     .bold()
@@ -61,10 +61,10 @@ struct ContentView: View {
                             .frame(width: 350, height: 55)
                     )
             }
-            Button(action: {
-                
-            }) {
-            Text("key signatures + accidentals")
+            NavigationLink{
+                KeySignaturesAccidentalsView()
+            }label:{
+                Text("key signatures + accidentals")
                     .font(.system(size: 30))
                     .foregroundStyle(.black)
                     .bold()
@@ -75,10 +75,10 @@ struct ContentView: View {
                             .frame(width: 350, height: 55)
                     )
             }
-            Button(action: {
-                
-            }) {
-            Text("dynamics")
+            NavigationLink{
+                DynamicsView()
+            }label:{
+                Text("dynamics")
                     .font(.system(size: 30))
                     .foregroundStyle(.black)
                     .bold()
@@ -89,10 +89,10 @@ struct ContentView: View {
                             .frame(width: 350, height: 55)
                     )
             }
-            Button(action: {
-                
-            }) {
-            Text("articulations + ornaments")
+            NavigationLink{
+                ArticulationsOrnamentsView()
+            }label:{
+                Text("articulations + ornaments")
                     .font(.system(size: 30))
                     .foregroundStyle(.black)
                     .bold()
@@ -103,10 +103,10 @@ struct ContentView: View {
                             .frame(width: 350, height: 55)
                     )
             }
-            Button(action: {
-                
-            }) {
-            Text("sandbox")
+            NavigationLink{
+                SandboxView()
+            }label:{
+                Text("sandbox")
                     .font(.system(size: 30))
                     .foregroundStyle(.black)
                     .bold()
