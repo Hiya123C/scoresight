@@ -10,8 +10,8 @@ import SwiftUI
 struct KeySignaturesAccidentalsReview2View: View {
     
     let question: Question
-        // replace the words in the brackets w images of the word
-    @State var questions: [Question] = [Question(question: "What is the correct order of notes being played as shown below?", options: ["B, C, G, A, B", "D, E, B, C, D", "D, C, F, E, B"], answer: "D, E, B, C, D"), Question(question: "If the notes shown below are C, D, A, B, C then what clef is this melody in?", options: ["alto (alto)", "tenor (tenor)", "tenor (alto)", "alto (tenor)"], answer: "alto (alto)"), Question(question: "Are there any octaves present in this bar?", options: ["yes", "no"], answer: "no")]
+
+    @State var questions: [Question] = [Question(question: "What is the correct order of notes being played as shown below?", options: ["FFGGACC", "F#F#G#G#A#CC", "F#F#G#G#ACC#"], answer: "F#F#G#G#ACC#"), Question(question: "Is this a semitone?", options: ["yes", "no"], answer: "no"), Question(question: "What is the correct order of notes being played as shown below?", options: ["B♭, C, G♭, C, E, A", "B♭, C♭, F, C, E♭, A♭", "B♭, C, G𝄫, C, E♭, A♭"], answer: "B♭, C, G𝄫, C, E♭, A♭")]
         @Binding var questionNumber: Int
         @Binding var selectedButtonIndex: Int?
     
