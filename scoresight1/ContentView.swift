@@ -138,7 +138,7 @@ struct ContentView: View {
             ClefsPitchedNotesView()
                 }
         .fullScreenCover(isPresented: $isFullScreenPresented5) {
-            KeySignaturesAccidentalsView()
+//            KeySignaturesAccidentalsView()
                 }
         .fullScreenCover(isPresented: $isFullScreenPresented6) {
             DynamicsView()

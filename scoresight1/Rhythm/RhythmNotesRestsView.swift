@@ -13,57 +13,45 @@ struct RhythmNotesRestsView: View {
     @State private var isFullScreenPresented2 = false
     
     var body: some View {
-        VStack(spacing: 10) {
+        VStack {
             Text("rhythm\nnotes+rests")
                 .fontWeight(.bold)
-                .font(.system(size: 100))
-                .multilineTextAlignment(.center)
-                .environment(\._lineHeightMultiple, 0.75)
-            
+                .font(.system(size:100)).environment(\._lineHeightMultiple, 0.75)
+                
             Button(action: {
                 isFullScreenPresented = true
             }) {
-                Text("learn")
-                    .font(.system(size: 30))
-                    .foregroundStyle(.black)
-                    .bold()
-                    .frame(width: 200, height: 50)
-                    .overlay(
+                ZStack {
+                    Text("learn")
+                        .font(.system(size: 30))
+                        .foregroundStyle(.black)
+                        .bold()
                         RoundedRectangle(cornerRadius: 15)
-                            .stroke(.black, lineWidth: 3)
-                    )
+                                .stroke(.black, lineWidth: 3)
+                                .frame(width: 200, height: 50)
+                }
+                .padding()
             }
-            
             Button(action: {
                 isFullScreenPresented2 = true
             }) {
-                Text("review")
-                    .font(.system(size: 30))
-                    .foregroundStyle(.black)
-                    .bold()
-                    .frame(width: 200, height: 50)
-                    .overlay(
+                ZStack {
+                    Text("review")
+                        .font(.system(size: 30))
+                        .foregroundStyle(.black)
+                        .bold()
                         RoundedRectangle(cornerRadius: 15)
                             .stroke(.black, lineWidth: 3)
-                    )
+                            .frame(width: 200, height: 50)
+                }
             }
-            .navigationBarBackButtonHidden(true)
         }
-        
-        .navigationBarBackButtonHidden(true)
-        .padding()
         .fullScreenCover(isPresented: $isFullScreenPresented) {
-            RhythmNotesRestsLearnview()
-                .onDisappear {
-                    
+            RhythmNotesRestsLearnView()
                 }
-        }
         .fullScreenCover(isPresented: $isFullScreenPresented2) {
-            RhythmNotesRestsReviewView()
-                .onDisappear {
+                    RhythmNotesRestsReviewView()
                 }
-        }
-        .navigationBarBackButtonHidden(true)
     }
 }
 

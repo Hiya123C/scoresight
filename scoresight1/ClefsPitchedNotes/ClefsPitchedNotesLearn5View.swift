@@ -9,17 +9,69 @@ import SwiftUI
 
 struct ClefsPitchedNotesLearn5View: View {
     var body: some View {
-        HStack {
-            VStack {
-                Text("this is an")
-                    .font(.system(size: 30))
-                    .frame(alignment: .trailing)
-                Text("alto")
-                    .font(.system(size:50))
-                    .frame(alignment: .trailing)
-                Text("clef")
-                    .font(.system(size: 30))
-                    .frame(alignment: .leading)
+        VStack {
+            HStack {
+                Button(action:{
+                    
+                }){
+                    Image(systemName: "x.circle")
+                        .symbolRenderingMode(.palette)
+                        .foregroundStyle(.black, .white)
+                        .font(.system(size:50))
+                }
+                Spacer()
+            }
+            
+            HStack {
+                Image("alto")
+                    .resizable()
+                    .scaledToFit()
+                VStack(alignment: .trailing) {
+                    Text("this is an")
+                        .font(.system(size: 40))
+                    Text("alto")
+                        .font(.system(size:80))
+                        .bold()
+                    Text("clef")
+                        .font(.system(size: 40))
+                }
+                // ask about separating the image and text
+            }
+            HStack{
+                Button(action: {
+                    
+                })
+                {
+                    Text("back")
+                        .padding()
+                        .background(
+                            RoundedRectangle(cornerRadius: 10)
+                                .stroke(.black, lineWidth: 3)
+                                .frame(width:100,height:50)
+                            
+                        )
+                        .foregroundStyle(.black)
+                        .font(.system(size: 25))
+                    Spacer()
+                    
+                }
+                Button(action: {
+                    
+                })
+                {
+                    Text("next")
+                        .padding()
+                        .background(
+                            RoundedRectangle(cornerRadius: 10)
+                                .stroke(.black, lineWidth: 3)
+                                .frame(width:100,height:50)
+                            
+                        )
+                        .foregroundStyle(.black)
+                        .font(.system(size: 25))
+                    
+                    
+                }
             }
         }
     }

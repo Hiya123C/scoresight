@@ -65,7 +65,7 @@ struct RhythmNotesRestsLearn2View: View {
                 
                 HStack {
                     NavigationLink {
-                        RhythmNotesRestsLearnview()
+                        RhythmNotesRestsLearnView()
                     } label: {
                         Text("Back")
                             .padding()

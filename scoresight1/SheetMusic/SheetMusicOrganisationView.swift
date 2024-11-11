@@ -14,9 +14,11 @@ struct SheetMusicOrganisationView: View {
     
     var body: some View {
         VStack {
+            Spacer()
             Text("sheet music\norganisation")
                 .fontWeight(.bold)
                 .font(.system(size:100)).environment(\._lineHeightMultiple, 0.75)
+            Spacer()
             Button(action: {
                 isFullScreenPresented = true
             }) {
@@ -30,6 +32,9 @@ struct SheetMusicOrganisationView: View {
                             .frame(width: 200, height: 50)
                     )
             }
+            
+            Spacer()
+            
             Button(action: {
                 isFullScreenPresented2 = true
             }) {
@@ -43,6 +48,7 @@ struct SheetMusicOrganisationView: View {
                             .frame(width: 200, height: 50)
                     )
             }
+            Spacer()
         }
         .fullScreenCover(isPresented: $isFullScreenPresented) {
                     SheetMusicOrganisationLearnView()
