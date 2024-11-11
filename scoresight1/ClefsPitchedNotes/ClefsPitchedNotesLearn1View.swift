@@ -11,9 +11,9 @@ struct ClefsPitchedNotesLearnView: View {
     var body: some View {
         VStack {
             HStack {
-                Button(action:{
-                    
-                }){
+                NavigationLink{
+                    ClefsPitchedNotesView()
+                }label:{
                     Image(systemName: "x.circle")
                         .symbolRenderingMode(.palette)
                         .foregroundStyle(.black, .white)
@@ -39,10 +39,9 @@ struct ClefsPitchedNotesLearnView: View {
             }
             HStack{
                 Spacer()
-                Button(action: {
-                    
-                })
-                {
+                NavigationLink{
+                    ClefsPitchedNotesLearn2View()
+                }label:{
                     Text("next")
                         .padding()
                         .background(

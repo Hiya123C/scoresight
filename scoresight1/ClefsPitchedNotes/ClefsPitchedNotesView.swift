@@ -18,9 +18,9 @@ struct ClefsPitchedNotesView: View {
                 .fontWeight(.bold)
                 .font(.system(size:100)).environment(\._lineHeightMultiple, 0.75)
                 
-            Button(action: {
-                isFullScreenPresented = true
-            }) {
+            NavigationLink{
+                ClefsPitchedNotesLearnView()
+            }label:{
                 ZStack {
                     Text("learn")
                         .font(.system(size: 30))
@@ -32,9 +32,9 @@ struct ClefsPitchedNotesView: View {
                 }
                 .padding()
             }
-            Button(action: {
-                isFullScreenPresented2 = true
-            }) {
+            NavigationLink{
+                ClefsPitchedNotesReviewView()
+            }label:{
                 ZStack {
                     Text("review")
                         .font(.system(size: 30))

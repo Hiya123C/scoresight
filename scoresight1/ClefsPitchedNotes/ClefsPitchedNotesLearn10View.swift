@@ -11,9 +11,9 @@ struct ClefsPitchedNotesLearn10View: View {
     var body: some View {
         VStack {
             HStack {
-                Button(action:{
-                    
-                }){
+                NavigationLink{
+                    ClefsPitchedNotesView()
+                }label:{
                     Image(systemName: "x.circle")
                         .symbolRenderingMode(.palette)
                         .foregroundStyle(.black, .white)
@@ -23,14 +23,13 @@ struct ClefsPitchedNotesLearn10View: View {
             }
             Text("pitched notes on the treble clef")
                 .font(.system(size: 40))
-                Image("treble clef pitched notes")
-                    .resizable()
-                    .scaledToFit()
+            Image("treble clef pitched notes")
+                .resizable()
+                .scaledToFit()
             HStack{
-                Button(action: {
-                    
-                })
-                {
+                NavigationLink{
+                    ClefsPitchedNotesLearn9View()
+                }label:{
                     Text("back")
                         .padding()
                         .background(
@@ -44,10 +43,9 @@ struct ClefsPitchedNotesLearn10View: View {
                     Spacer()
                     
                 }
-                Button(action: {
-                    
-                })
-                {
+                NavigationLink{
+                    ClefsPitchedNotesLearn11View()
+                }label:{
                     Text("next")
                         .padding()
                         .background(

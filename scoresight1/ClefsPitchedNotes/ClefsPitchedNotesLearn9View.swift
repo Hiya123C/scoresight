@@ -10,9 +10,9 @@ import SwiftUI
 struct ClefsPitchedNotesLearn9View: View {
     var body: some View {
         HStack {
-            Button(action:{
-                
-            }){
+            NavigationLink{
+                ClefsPitchedNotesView()
+            }label:{
                 Image(systemName: "x.circle")
                     .symbolRenderingMode(.palette)
                     .foregroundStyle(.black, .white)
@@ -25,10 +25,9 @@ struct ClefsPitchedNotesLearn9View: View {
             .frame(alignment: .center)
         // figure out the single bold letters in a word thing
         HStack{
-            Button(action: {
-                
-            })
-            {
+            NavigationLink{
+                ClefsPitchedNotesLearn8View()
+            }label:{
                 Text("back")
                     .padding()
                     .background(
@@ -42,10 +41,9 @@ struct ClefsPitchedNotesLearn9View: View {
                 Spacer()
                 
             }
-            Button(action: {
-                
-            })
-            {
+            NavigationLink{
+                ClefsPitchedNotesLearn10View()
+            }label:{
                 Text("next")
                     .padding()
                     .background(
