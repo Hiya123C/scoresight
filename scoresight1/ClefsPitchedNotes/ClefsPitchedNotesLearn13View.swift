@@ -23,9 +23,9 @@ struct ClefsPitchedNotesLearn13View: View {
             }
             Text("pitched notes on the tenor clef")
                 .font(.system(size: 40))
-//                Image("treble clef pitched notes")
-//                    .resizable()
-//                    .scaledToFit()
+                Image("tenor clef pitched notes")
+                    .resizable()
+                    .scaledToFit()
             HStack{
                 Button(action: {
                     
