@@ -10,7 +10,7 @@ import SwiftUI
 struct RhythmNotesRestsReviewView: View {
     var body: some View {
         VStack {
-            Text("test your\nknowledge!")
+            Text("Test your\nknowledge!")
                 .fontWeight(.bold)
                 .font(.system(size:100)).environment(\._lineHeightMultiple, 0.75)
         }
