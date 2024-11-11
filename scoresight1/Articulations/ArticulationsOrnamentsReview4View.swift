@@ -1,5 +1,5 @@
 //
-//  KeySignaturesAccidentalsReview4View.swift
+//  ArticulationsOrnamentsReview4Vie.swift
 //  scoresight1
 //
 //  Created by Li Jiansheng on 11/11/24.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct KeySignaturesAccidentalsReview4View: View {
+struct ArticulationsOrnamentsReview4View: View {
     
     @Binding var questionNumber: Int
     @Binding var selectedButtonIndex: Int?
@@ -19,7 +19,7 @@ struct KeySignaturesAccidentalsReview4View: View {
                         selectedButtonIndex = nil
                         
                         if questionNumber == 3 {
-
+                            
                         }
                     }) {
                         Text("finish")
@@ -31,10 +31,10 @@ struct KeySignaturesAccidentalsReview4View: View {
                                     .frame(width: 100, height: 50)
                             )
                     }
-                }
+                } 
     }
 }
 
 #Preview {
-    KeySignaturesAccidentalsReview4View()
+    ArticulationsOrnamentsReview4View()
 }

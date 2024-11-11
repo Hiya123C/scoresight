@@ -9,7 +9,15 @@ import SwiftUI
 
 struct ArticulationsOrnamentsLearnView: View {
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        HStack {
+            VStack {
+                Text("this is an")
+                    .font(.system(size: 40))
+                Text("accent")
+                    .font(.system(size:80))
+                    .bold()
+            }
+        }
     }
 }
 

@@ -12,8 +12,6 @@ struct ClefsPitchedNotesReview4View: View {
     @Binding var questionNumber: Int
     @Binding var selectedButtonIndex: Int?
     
-    @State private var isFullScreenPresented = false
-    
     var body: some View {
         VStack {
                     Button(action: {
@@ -21,7 +19,7 @@ struct ClefsPitchedNotesReview4View: View {
                         selectedButtonIndex = nil
                         
                         if questionNumber == 3 {
-                            isFullScreenPresented = true
+                            
                         }
                     }) {
                         Text("finish")
@@ -33,9 +31,6 @@ struct ClefsPitchedNotesReview4View: View {
                                     .frame(width: 100, height: 50)
                             )
                     }
-                }
-                .fullScreenCover(isPresented: $isFullScreenPresented) {
-                    
                 }
     }
 }
