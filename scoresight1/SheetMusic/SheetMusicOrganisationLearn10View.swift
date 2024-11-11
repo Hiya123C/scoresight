@@ -60,20 +60,20 @@ struct SheetMusicOrganisationLearn10View: View {
                     
                     Spacer()
                     
-//                    NavigationLink{
-//                        SheetMusicOrganisationLearn11View()
-//                    }label:{
-//                        Text("next")
-//                            .padding()
-//                            .background(
-//                                RoundedRectangle(cornerRadius: 10)
-//                                    .stroke(.black, lineWidth: 3)
-//                                    .frame(width:100,height:50)
-//                                
-//                            )
-//                            .foregroundStyle(.black)
-//                            .font(.system(size: 25))
-//                    } NO NEXT!!!
+                    NavigationLink{
+                        SheetMusicOrganisationReviewView()
+                    }label:{
+                        Text("next")
+                            .padding()
+                            .background(
+                                RoundedRectangle(cornerRadius: 10)
+                                    .stroke(.black, lineWidth: 3)
+                                    .frame(width:100,height:50)
+                                
+                            )
+                            .foregroundStyle(.black)
+                            .font(.system(size: 25))
+                    }
                 }
             }
             

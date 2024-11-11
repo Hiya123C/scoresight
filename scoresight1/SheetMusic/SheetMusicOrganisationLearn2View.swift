@@ -39,7 +39,7 @@ struct SheetMusicOrganisationLearn2View: View {
                 HStack{
                     
                     NavigationLink{
-                        SheetMusicOrganisationLearn1View()
+                        SheetMusicOrganisationLearnView()
                     }label:{
                         Text("back")
                             .padding()

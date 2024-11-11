@@ -26,7 +26,7 @@
 		316BA2E42CE1FAD100BAF59C /* KeySignaturesAccidentalsLearn13View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 316BA2C72CE1FAD000BAF59C /* KeySignaturesAccidentalsLearn13View.swift */; };
 		316BA2E52CE1FAD100BAF59C /* KeySignaturesAccidentalsLearn15View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 316BA2C92CE1FAD000BAF59C /* KeySignaturesAccidentalsLearn15View.swift */; };
 		31B8246F2CDF2DD50031E923 /* StartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31B8246E2CDF2DD50031E923 /* StartView.swift */; };
-		D900AC9A2CE1F6A800DC1959 /* SheetMusicOrganisationLearn1View.swift in Sources */ = {isa = PBXBuildFile; fileRef = D900AC912CE1F6A800DC1959 /* SheetMusicOrganisationLearn1View.swift */; };
+		D900AC9A2CE1F6A800DC1959 /* SheetMusicOrganisationLearnView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D900AC912CE1F6A800DC1959 /* SheetMusicOrganisationLearnView.swift */; };
 		D900AC9B2CE1F6A800DC1959 /* SheetMusicOrganisationLearn2View.swift in Sources */ = {isa = PBXBuildFile; fileRef = D900AC922CE1F6A800DC1959 /* SheetMusicOrganisationLearn2View.swift */; };
 		D900AC9C2CE1F6A800DC1959 /* SheetMusicOrganisationLearn3View.swift in Sources */ = {isa = PBXBuildFile; fileRef = D900AC932CE1F6A800DC1959 /* SheetMusicOrganisationLearn3View.swift */; };
 		D900AC9D2CE1F6A800DC1959 /* SheetMusicOrganisationLearn4View.swift in Sources */ = {isa = PBXBuildFile; fileRef = D900AC942CE1F6A800DC1959 /* SheetMusicOrganisationLearn4View.swift */; };
@@ -92,6 +92,10 @@
 		D900AD2A2CE1F6B000DC1959 /* ArticulationsOrnamentsLearn14View.swift in Sources */ = {isa = PBXBuildFile; fileRef = D900AD162CE1F6B000DC1959 /* ArticulationsOrnamentsLearn14View.swift */; };
 		D900AD2B2CE1F6B000DC1959 /* ArticulationsOrnamentsReview1View.swift in Sources */ = {isa = PBXBuildFile; fileRef = D900AD172CE1F6B000DC1959 /* ArticulationsOrnamentsReview1View.swift */; };
 		D900AD2F2CE1F6B000DC1959 /* ArticulationsOrnamentsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D900AD1B2CE1F6B000DC1959 /* ArticulationsOrnamentsView.swift */; };
+		D900AE002CE1FCD400DC1959 /* SheetMusicOrganisationLearn7View.swift in Sources */ = {isa = PBXBuildFile; fileRef = D900ADFE2CE1FB7300DC1959 /* SheetMusicOrganisationLearn7View.swift */; };
+		D900AE042CE1FCE100DC1959 /* SheetMusicOrganisationLearn9View.swift in Sources */ = {isa = PBXBuildFile; fileRef = D900AE022CE1FCE100DC1959 /* SheetMusicOrganisationLearn9View.swift */; };
+		D900AE052CE1FCE100DC1959 /* SheetMusicOrganisationLearn8View.swift in Sources */ = {isa = PBXBuildFile; fileRef = D900AE012CE1FCE100DC1959 /* SheetMusicOrganisationLearn8View.swift */; };
+		D900AE062CE1FCE100DC1959 /* SheetMusicOrganisationLearn10View.swift in Sources */ = {isa = PBXBuildFile; fileRef = D900AE032CE1FCE100DC1959 /* SheetMusicOrganisationLearn10View.swift */; };
 		D9C232342CE0D8280032674D /* metronome.m4a in Resources */ = {isa = PBXBuildFile; fileRef = D9C232332CE0D8280032674D /* metronome.m4a */; };
 		D9E035FB2CDF12AC00220F1F /* scoresight1App.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9E035FA2CDF12AC00220F1F /* scoresight1App.swift */; };
 		D9E035FD2CDF12AC00220F1F /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9E035FC2CDF12AC00220F1F /* ContentView.swift */; };
@@ -119,7 +123,7 @@
 		316BA2CB2CE1FAD000BAF59C /* KeySignaturesAccidentalsReview1View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeySignaturesAccidentalsReview1View.swift; sourceTree = "<group>"; };
 		316BA2CF2CE1FAD000BAF59C /* KeySignaturesAccidentalsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeySignaturesAccidentalsView.swift; sourceTree = "<group>"; };
 		31B8246E2CDF2DD50031E923 /* StartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartView.swift; sourceTree = "<group>"; };
-		D900AC912CE1F6A800DC1959 /* SheetMusicOrganisationLearn1View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SheetMusicOrganisationLearn1View.swift; sourceTree = "<group>"; };
+		D900AC912CE1F6A800DC1959 /* SheetMusicOrganisationLearnView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SheetMusicOrganisationLearnView.swift; sourceTree = "<group>"; };
 		D900AC922CE1F6A800DC1959 /* SheetMusicOrganisationLearn2View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SheetMusicOrganisationLearn2View.swift; sourceTree = "<group>"; };
 		D900AC932CE1F6A800DC1959 /* SheetMusicOrganisationLearn3View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SheetMusicOrganisationLearn3View.swift; sourceTree = "<group>"; };
 		D900AC942CE1F6A800DC1959 /* SheetMusicOrganisationLearn4View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SheetMusicOrganisationLearn4View.swift; sourceTree = "<group>"; };
@@ -185,6 +189,10 @@
 		D900AD162CE1F6B000DC1959 /* ArticulationsOrnamentsLearn14View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticulationsOrnamentsLearn14View.swift; sourceTree = "<group>"; };
 		D900AD172CE1F6B000DC1959 /* ArticulationsOrnamentsReview1View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticulationsOrnamentsReview1View.swift; sourceTree = "<group>"; };
 		D900AD1B2CE1F6B000DC1959 /* ArticulationsOrnamentsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticulationsOrnamentsView.swift; sourceTree = "<group>"; };
+		D900ADFE2CE1FB7300DC1959 /* SheetMusicOrganisationLearn7View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SheetMusicOrganisationLearn7View.swift; sourceTree = "<group>"; };
+		D900AE012CE1FCE100DC1959 /* SheetMusicOrganisationLearn8View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SheetMusicOrganisationLearn8View.swift; sourceTree = "<group>"; };
+		D900AE022CE1FCE100DC1959 /* SheetMusicOrganisationLearn9View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SheetMusicOrganisationLearn9View.swift; sourceTree = "<group>"; };
+		D900AE032CE1FCE100DC1959 /* SheetMusicOrganisationLearn10View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SheetMusicOrganisationLearn10View.swift; sourceTree = "<group>"; };
 		D9C232332CE0D8280032674D /* metronome.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = metronome.m4a; sourceTree = "<group>"; };
 		D9E035F72CDF12AC00220F1F /* scoresight1.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = scoresight1.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D9E035FA2CDF12AC00220F1F /* scoresight1App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = scoresight1App.swift; sourceTree = "<group>"; };
@@ -232,12 +240,16 @@
 		D900AC992CE1F6A800DC1959 /* SheetMusic */ = {
 			isa = PBXGroup;
 			children = (
-				D900AC912CE1F6A800DC1959 /* SheetMusicOrganisationLearn1View.swift */,
+				D900AC912CE1F6A800DC1959 /* SheetMusicOrganisationLearnView.swift */,
 				D900AC922CE1F6A800DC1959 /* SheetMusicOrganisationLearn2View.swift */,
 				D900AC932CE1F6A800DC1959 /* SheetMusicOrganisationLearn3View.swift */,
 				D900AC942CE1F6A800DC1959 /* SheetMusicOrganisationLearn4View.swift */,
 				D900AC952CE1F6A800DC1959 /* SheetMusicOrganisationLearn5View.swift */,
 				D900AC962CE1F6A800DC1959 /* SheetMusicOrganisationLearn6View.swift */,
+				D900ADFE2CE1FB7300DC1959 /* SheetMusicOrganisationLearn7View.swift */,
+				D900AE012CE1FCE100DC1959 /* SheetMusicOrganisationLearn8View.swift */,
+				D900AE022CE1FCE100DC1959 /* SheetMusicOrganisationLearn9View.swift */,
+				D900AE032CE1FCE100DC1959 /* SheetMusicOrganisationLearn10View.swift */,
 				D900AC972CE1F6A800DC1959 /* SheetMusicOrganisationReview1View.swift */,
 				D900AC982CE1F6A800DC1959 /* SheetMusicOrganisationView.swift */,
 			);
@@ -461,7 +473,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D9E035FD2CDF12AC00220F1F /* ContentView.swift in Sources */,
-				D900AC9A2CE1F6A800DC1959 /* SheetMusicOrganisationLearn1View.swift in Sources */,
+				D900AC9A2CE1F6A800DC1959 /* SheetMusicOrganisationLearnView.swift in Sources */,
 				D900AC9B2CE1F6A800DC1959 /* SheetMusicOrganisationLearn2View.swift in Sources */,
 				D900AC9C2CE1F6A800DC1959 /* SheetMusicOrganisationLearn3View.swift in Sources */,
 				D900AC9D2CE1F6A800DC1959 /* SheetMusicOrganisationLearn4View.swift in Sources */,
@@ -489,6 +501,7 @@
 				D900ACD32CE1F6AD00DC1959 /* ClefsPitchedNotesLearn5View.swift in Sources */,
 				D900AD1D2CE1F6B000DC1959 /* ArticulationsOrnamentsLearn1View.swift in Sources */,
 				D900AD1E2CE1F6B000DC1959 /* ArticulationsOrnamentsLearn2View.swift in Sources */,
+				D900AE002CE1FCD400DC1959 /* SheetMusicOrganisationLearn7View.swift in Sources */,
 				D900AD1F2CE1F6B000DC1959 /* ArticulationsOrnamentsLearn3View.swift in Sources */,
 				D900AD202CE1F6B000DC1959 /* ArticulationsOrnamentsLearn4View.swift in Sources */,
 				D900AD212CE1F6B000DC1959 /* ArticulationsOrnamentsLearn5View.swift in Sources */,
@@ -540,6 +553,15 @@
 				D900AD022CE1F6B000DC1959 /* DynamicsLearn7View.swift in Sources */,
 				D900AD032CE1F6B000DC1959 /* DynamicsLearn8View.swift in Sources */,
 				D900AD042CE1F6B000DC1959 /* DynamicsReview1View.swift in Sources */,
+<<<<<<< Updated upstream
+=======
+				D900AE042CE1FCE100DC1959 /* SheetMusicOrganisationLearn9View.swift in Sources */,
+				D900AE052CE1FCE100DC1959 /* SheetMusicOrganisationLearn8View.swift in Sources */,
+				D900AE062CE1FCE100DC1959 /* SheetMusicOrganisationLearn10View.swift in Sources */,
+				D900AD052CE1F6B000DC1959 /* DynamicsReview2View.swift in Sources */,
+				D900AD062CE1F6B000DC1959 /* DynamicsReview3View.swift in Sources */,
+				D900AD072CE1F6B000DC1959 /* DynamicsReview4View.swift in Sources */,
+>>>>>>> Stashed changes
 				D900AD082CE1F6B000DC1959 /* DynamicsView.swift in Sources */,
 				D900ACE22CE1F6AD00DC1959 /* ClefsPitchedNotesView.swift in Sources */,
 				D900ACB72CE1F6AB00DC1959 /* TimeSignaturesLearnView.swift in Sources */,
