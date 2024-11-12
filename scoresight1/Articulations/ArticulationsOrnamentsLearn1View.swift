@@ -11,9 +11,9 @@ struct ArticulationsOrnamentsLearnView: View {
     var body: some View {
         VStack {
             HStack {
-                Button(action:{
-                    
-                }){
+                NavigationLink{
+                    ArticulationsOrnamentsView()
+                }label:{
                     Image(systemName: "x.circle")
                         .symbolRenderingMode(.palette)
                         .foregroundStyle(.black, .white)
@@ -36,10 +36,9 @@ struct ArticulationsOrnamentsLearnView: View {
             }
             HStack{
                 Spacer()
-                Button(action: {
-                    
-                })
-                {
+                NavigationLink{
+                    ArticulationsOrnamentsLearn2View()
+                }label:{
                     Text("next")
                         .padding()
                         .background(

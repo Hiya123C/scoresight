@@ -11,9 +11,9 @@ struct ArticulationsOrnamentsLearn14View: View {
     var body: some View {
         VStack {
             HStack {
-                Button(action:{
-                    
-                }){
+                NavigationLink{
+                    ArticulationsOrnamentsView()
+                }label:{
                     Image(systemName: "x.circle")
                         .symbolRenderingMode(.palette)
                         .foregroundStyle(.black, .white)
@@ -23,9 +23,9 @@ struct ArticulationsOrnamentsLearn14View: View {
             }
             
             HStack {
-//                Image("acciacatura")
-//                    .resizable()
-//                    .scaledToFit()
+                //                Image("acciacatura")
+                //                    .resizable()
+                //                    .scaledToFit()
                 VStack(alignment: .trailing) {
                     Text("this is an")
                         .font(.system(size: 40))
@@ -35,10 +35,9 @@ struct ArticulationsOrnamentsLearn14View: View {
                 }
             }
             HStack{
-                Button(action: {
-                    
-                })
-                {
+                NavigationLink{
+                    ArticulationsOrnamentsLearn13View()
+                }label:{
                     Text("back")
                         .padding()
                         .background(
@@ -52,10 +51,9 @@ struct ArticulationsOrnamentsLearn14View: View {
                     Spacer()
                     
                 }
-                Button(action: {
-                    
-                })
-                {
+                NavigationLink{
+                    ArticulationsOrnamentsReviewView()
+                }label:{
                     Text("next")
                         .padding()
                         .background(
