@@ -21,17 +21,19 @@ struct KeySignaturesAccidentalsLearn16View: View {
                 }
                 Spacer()
             }
-            HStack {
-                Text("a")
-                    .font(.system(size: 40))
-                Text("double flat")
-                    .font(.system(size: 80))
-                    .bold()
-                Text("goes down 2 semitones")
-                    .font(.system(size:40))
-                //Image("double flat semitone")
-                //  .resizable()
-                //  .scaledToFit()
+            VStack {
+                HStack {
+                    Text("a")
+                        .font(.system(size: 40))
+                    Text("double flat")
+                        .font(.system(size: 80))
+                        .bold()
+                    Text("goes down 2 semitones")
+                        .font(.system(size:40))
+                }
+                Image("double flat semitone")
+                    .resizable()
+                    .scaledToFit()
             }
             HStack{
                 NavigationLink{

@@ -23,9 +23,9 @@ struct KeySignaturesAccidentalsLearn2View: View {
             }
             
             HStack {
-//                Image("double sharp")
-//                    .resizable()
-//                    .scaledToFit()
+                Image("double sharp")
+                    .resizable()
+                    .scaledToFit()
                 VStack(alignment: .trailing) {
                     Text("this is a")
                         .font(.system(size: 40))

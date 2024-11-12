@@ -21,14 +21,16 @@ struct KeySignaturesAccidentalsLearn11View: View {
                 }
                 Spacer()
             }
-            HStack {
-                Text("these are")
-                Text("accidentals")
-                    .font(.system(size: 80))
-                    .bold()
-                //Image("accidentals")
-                //  .resizable()
-                //  .scaledToFit()
+            VStack {
+                HStack {
+                    Text("these are")
+                    Text("accidentals")
+                        .font(.system(size: 80))
+                        .bold()
+                }
+                Image("accidentals")
+                    .resizable()
+                    .scaledToFit()
             }
             HStack{
                 NavigationLink{
