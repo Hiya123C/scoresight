@@ -10,9 +10,9 @@ import SwiftUI
 struct KeySignaturesAccidentalsLearn5View: View {
     var body: some View {
         HStack {
-            Button(action:{
-                
-            }){
+            NavigationLink{
+                KeySignaturesAccidentalsView()
+            } label:{
                 Image(systemName: "x.circle")
                     .symbolRenderingMode(.palette)
                     .foregroundStyle(.black, .white)
@@ -25,10 +25,9 @@ struct KeySignaturesAccidentalsLearn5View: View {
             .frame(alignment: .center)
         // figure out the single bold letters in a word thing
         HStack{
-            Button(action: {
-                
-            })
-            {
+            NavigationLink{
+                KeySignaturesAccidentalsLearn4View()
+            } label:{
                 Text("back")
                     .padding()
                     .background(
@@ -42,10 +41,9 @@ struct KeySignaturesAccidentalsLearn5View: View {
                 Spacer()
                 
             }
-            Button(action: {
-                
-            })
-            {
+            NavigationLink{
+                KeySignaturesAccidentalsLearn6View()
+            } label:{
                 Text("next")
                     .padding()
                     .background(

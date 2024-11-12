@@ -553,15 +553,12 @@
 				D900AD022CE1F6B000DC1959 /* DynamicsLearn7View.swift in Sources */,
 				D900AD032CE1F6B000DC1959 /* DynamicsLearn8View.swift in Sources */,
 				D900AD042CE1F6B000DC1959 /* DynamicsReview1View.swift in Sources */,
-<<<<<<< Updated upstream
-=======
 				D900AE042CE1FCE100DC1959 /* SheetMusicOrganisationLearn9View.swift in Sources */,
 				D900AE052CE1FCE100DC1959 /* SheetMusicOrganisationLearn8View.swift in Sources */,
 				D900AE062CE1FCE100DC1959 /* SheetMusicOrganisationLearn10View.swift in Sources */,
 				D900AD052CE1F6B000DC1959 /* DynamicsReview2View.swift in Sources */,
 				D900AD062CE1F6B000DC1959 /* DynamicsReview3View.swift in Sources */,
 				D900AD072CE1F6B000DC1959 /* DynamicsReview4View.swift in Sources */,
->>>>>>> Stashed changes
 				D900AD082CE1F6B000DC1959 /* DynamicsView.swift in Sources */,
 				D900ACE22CE1F6AD00DC1959 /* ClefsPitchedNotesView.swift in Sources */,
 				D900ACB72CE1F6AB00DC1959 /* TimeSignaturesLearnView.swift in Sources */,

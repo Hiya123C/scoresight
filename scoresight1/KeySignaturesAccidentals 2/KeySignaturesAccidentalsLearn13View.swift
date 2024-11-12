@@ -11,9 +11,9 @@ struct KeySignaturesAccidentalsLearn13View: View {
     var body: some View {
         VStack {
             HStack {
-                Button(action:{
-                    
-                }){
+                NavigationLink{
+                    KeySignaturesAccidentalsView()
+                } label:{
                     Image(systemName: "x.circle")
                         .symbolRenderingMode(.palette)
                         .foregroundStyle(.black, .white)
@@ -34,10 +34,9 @@ struct KeySignaturesAccidentalsLearn13View: View {
                 //  .scaledToFit()
             }
             HStack{
-                Button(action: {
-                    
-                })
-                {
+                NavigationLink{
+                    KeySignaturesAccidentalsLearn12View()
+                } label:{
                     Text("back")
                         .padding()
                         .background(
@@ -51,10 +50,9 @@ struct KeySignaturesAccidentalsLearn13View: View {
                     Spacer()
                     
                 }
-                Button(action: {
-                    
-                })
-                {
+                NavigationLink{
+                    KeySignaturesAccidentalsLearn14View()
+                } label:{
                     Text("next")
                         .padding()
                         .background(
