@@ -39,11 +39,11 @@
 		D900ACAD2CE1F6AA00DC1959 /* RhythmNotesRestsLearn4View.swift in Sources */ = {isa = PBXBuildFile; fileRef = D900ACA42CE1F6AA00DC1959 /* RhythmNotesRestsLearn4View.swift */; };
 		D900ACAE2CE1F6AA00DC1959 /* RhythmNotesRestsLearn5View.swift in Sources */ = {isa = PBXBuildFile; fileRef = D900ACA52CE1F6AA00DC1959 /* RhythmNotesRestsLearn5View.swift */; };
 		D900ACAF2CE1F6AA00DC1959 /* RhythmNotesRestsLearn6View.swift in Sources */ = {isa = PBXBuildFile; fileRef = D900ACA62CE1F6AA00DC1959 /* RhythmNotesRestsLearn6View.swift */; };
-		D900ACB02CE1F6AA00DC1959 /* RhythmNotesRestsLearnview.swift in Sources */ = {isa = PBXBuildFile; fileRef = D900ACA72CE1F6AA00DC1959 /* RhythmNotesRestsLearnview.swift */; };
-		D900ACB12CE1F6AA00DC1959 /* RhythmNotesRestsReviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D900ACA82CE1F6AA00DC1959 /* RhythmNotesRestsReviewView.swift */; };
+		D900ACB02CE1F6AA00DC1959 /* RhythmNotesRestsLearn1View.swift in Sources */ = {isa = PBXBuildFile; fileRef = D900ACA72CE1F6AA00DC1959 /* RhythmNotesRestsLearn1View.swift */; };
+		D900ACB12CE1F6AA00DC1959 /* RhythmNotesRestsReview1View.swift in Sources */ = {isa = PBXBuildFile; fileRef = D900ACA82CE1F6AA00DC1959 /* RhythmNotesRestsReview1View.swift */; };
 		D900ACB22CE1F6AA00DC1959 /* RhythmNotesRestsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D900ACA92CE1F6AA00DC1959 /* RhythmNotesRestsView.swift */; };
-		D900ACB72CE1F6AB00DC1959 /* TimeSignaturesLearnView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D900ACB32CE1F6AB00DC1959 /* TimeSignaturesLearnView.swift */; };
-		D900ACB82CE1F6AB00DC1959 /* TimeSignaturesReviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D900ACB42CE1F6AB00DC1959 /* TimeSignaturesReviewView.swift */; };
+		D900ACB72CE1F6AB00DC1959 /* TimeSignaturesLearn1View.swift in Sources */ = {isa = PBXBuildFile; fileRef = D900ACB32CE1F6AB00DC1959 /* TimeSignaturesLearn1View.swift */; };
+		D900ACB82CE1F6AB00DC1959 /* TimeSignaturesReview1View.swift in Sources */ = {isa = PBXBuildFile; fileRef = D900ACB42CE1F6AB00DC1959 /* TimeSignaturesReview1View.swift */; };
 		D900ACB92CE1F6AB00DC1959 /* TimeSignaturesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D900ACB52CE1F6AB00DC1959 /* TimeSignaturesView.swift */; };
 		D900ACCF2CE1F6AD00DC1959 /* ClefsPitchedNotesLearn1View.swift in Sources */ = {isa = PBXBuildFile; fileRef = D900ACBA2CE1F6AD00DC1959 /* ClefsPitchedNotesLearn1View.swift */; };
 		D900ACD02CE1F6AD00DC1959 /* ClefsPitchedNotesLearn2View.swift in Sources */ = {isa = PBXBuildFile; fileRef = D900ACBB2CE1F6AD00DC1959 /* ClefsPitchedNotesLearn2View.swift */; };
@@ -136,11 +136,11 @@
 		D900ACA42CE1F6AA00DC1959 /* RhythmNotesRestsLearn4View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RhythmNotesRestsLearn4View.swift; sourceTree = "<group>"; };
 		D900ACA52CE1F6AA00DC1959 /* RhythmNotesRestsLearn5View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RhythmNotesRestsLearn5View.swift; sourceTree = "<group>"; };
 		D900ACA62CE1F6AA00DC1959 /* RhythmNotesRestsLearn6View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RhythmNotesRestsLearn6View.swift; sourceTree = "<group>"; };
-		D900ACA72CE1F6AA00DC1959 /* RhythmNotesRestsLearnview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RhythmNotesRestsLearnview.swift; sourceTree = "<group>"; };
-		D900ACA82CE1F6AA00DC1959 /* RhythmNotesRestsReviewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RhythmNotesRestsReviewView.swift; sourceTree = "<group>"; };
+		D900ACA72CE1F6AA00DC1959 /* RhythmNotesRestsLearn1View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RhythmNotesRestsLearn1View.swift; sourceTree = "<group>"; };
+		D900ACA82CE1F6AA00DC1959 /* RhythmNotesRestsReview1View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RhythmNotesRestsReview1View.swift; sourceTree = "<group>"; };
 		D900ACA92CE1F6AA00DC1959 /* RhythmNotesRestsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RhythmNotesRestsView.swift; sourceTree = "<group>"; };
-		D900ACB32CE1F6AB00DC1959 /* TimeSignaturesLearnView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeSignaturesLearnView.swift; sourceTree = "<group>"; };
-		D900ACB42CE1F6AB00DC1959 /* TimeSignaturesReviewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeSignaturesReviewView.swift; sourceTree = "<group>"; };
+		D900ACB32CE1F6AB00DC1959 /* TimeSignaturesLearn1View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeSignaturesLearn1View.swift; sourceTree = "<group>"; };
+		D900ACB42CE1F6AB00DC1959 /* TimeSignaturesReview1View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeSignaturesReview1View.swift; sourceTree = "<group>"; };
 		D900ACB52CE1F6AB00DC1959 /* TimeSignaturesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeSignaturesView.swift; sourceTree = "<group>"; };
 		D900ACBA2CE1F6AD00DC1959 /* ClefsPitchedNotesLearn1View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClefsPitchedNotesLearn1View.swift; sourceTree = "<group>"; };
 		D900ACBB2CE1F6AD00DC1959 /* ClefsPitchedNotesLearn2View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClefsPitchedNotesLearn2View.swift; sourceTree = "<group>"; };
@@ -264,8 +264,8 @@
 				D900ACA42CE1F6AA00DC1959 /* RhythmNotesRestsLearn4View.swift */,
 				D900ACA52CE1F6AA00DC1959 /* RhythmNotesRestsLearn5View.swift */,
 				D900ACA62CE1F6AA00DC1959 /* RhythmNotesRestsLearn6View.swift */,
-				D900ACA72CE1F6AA00DC1959 /* RhythmNotesRestsLearnview.swift */,
-				D900ACA82CE1F6AA00DC1959 /* RhythmNotesRestsReviewView.swift */,
+				D900ACA72CE1F6AA00DC1959 /* RhythmNotesRestsLearn1View.swift */,
+				D900ACA82CE1F6AA00DC1959 /* RhythmNotesRestsReview1View.swift */,
 				D900ACA92CE1F6AA00DC1959 /* RhythmNotesRestsView.swift */,
 			);
 			path = Rhythm;
@@ -274,8 +274,8 @@
 		D900ACB62CE1F6AB00DC1959 /* TimeSignature */ = {
 			isa = PBXGroup;
 			children = (
-				D900ACB32CE1F6AB00DC1959 /* TimeSignaturesLearnView.swift */,
-				D900ACB42CE1F6AB00DC1959 /* TimeSignaturesReviewView.swift */,
+				D900ACB32CE1F6AB00DC1959 /* TimeSignaturesLearn1View.swift */,
+				D900ACB42CE1F6AB00DC1959 /* TimeSignaturesReview1View.swift */,
 				D900ACB52CE1F6AB00DC1959 /* TimeSignaturesView.swift */,
 			);
 			path = TimeSignature;
@@ -486,8 +486,8 @@
 				D900ACAD2CE1F6AA00DC1959 /* RhythmNotesRestsLearn4View.swift in Sources */,
 				D900ACAE2CE1F6AA00DC1959 /* RhythmNotesRestsLearn5View.swift in Sources */,
 				D900ACAF2CE1F6AA00DC1959 /* RhythmNotesRestsLearn6View.swift in Sources */,
-				D900ACB02CE1F6AA00DC1959 /* RhythmNotesRestsLearnview.swift in Sources */,
-				D900ACB12CE1F6AA00DC1959 /* RhythmNotesRestsReviewView.swift in Sources */,
+				D900ACB02CE1F6AA00DC1959 /* RhythmNotesRestsLearn1View.swift in Sources */,
+				D900ACB12CE1F6AA00DC1959 /* RhythmNotesRestsReview1View.swift in Sources */,
 				D900ACB22CE1F6AA00DC1959 /* RhythmNotesRestsView.swift in Sources */,
 				D900ACE92CE1F6B000DC1959 /* Sandbox1View.swift in Sources */,
 				D900ACEA2CE1F6B000DC1959 /* Sandbox2View.swift in Sources */,
@@ -556,13 +556,10 @@
 				D900AE042CE1FCE100DC1959 /* SheetMusicOrganisationLearn9View.swift in Sources */,
 				D900AE052CE1FCE100DC1959 /* SheetMusicOrganisationLearn8View.swift in Sources */,
 				D900AE062CE1FCE100DC1959 /* SheetMusicOrganisationLearn10View.swift in Sources */,
-				D900AD052CE1F6B000DC1959 /* DynamicsReview2View.swift in Sources */,
-				D900AD062CE1F6B000DC1959 /* DynamicsReview3View.swift in Sources */,
-				D900AD072CE1F6B000DC1959 /* DynamicsReview4View.swift in Sources */,
 				D900AD082CE1F6B000DC1959 /* DynamicsView.swift in Sources */,
 				D900ACE22CE1F6AD00DC1959 /* ClefsPitchedNotesView.swift in Sources */,
-				D900ACB72CE1F6AB00DC1959 /* TimeSignaturesLearnView.swift in Sources */,
-				D900ACB82CE1F6AB00DC1959 /* TimeSignaturesReviewView.swift in Sources */,
+				D900ACB72CE1F6AB00DC1959 /* TimeSignaturesLearn1View.swift in Sources */,
+				D900ACB82CE1F6AB00DC1959 /* TimeSignaturesReview1View.swift in Sources */,
 				D900ACB92CE1F6AB00DC1959 /* TimeSignaturesView.swift in Sources */,
 				D9E035FB2CDF12AC00220F1F /* scoresight1App.swift in Sources */,
 				31B8246F2CDF2DD50031E923 /* StartView.swift in Sources */,

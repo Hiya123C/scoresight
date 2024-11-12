@@ -7,6 +7,17 @@ struct SheetMusicOrganisationView: View {
     var body: some View {
         NavigationStack{
             VStack {
+                HStack{
+                    NavigationLink{
+                        ContentView()
+                    } label:{
+                        Image(systemName: "x.circle")
+                            .symbolRenderingMode(.palette)
+                            .foregroundStyle(.black, .white)
+                            .font(.system(size:50))
+                    }
+                    Spacer()
+                }
                 Spacer()
                 Text("sheet music\norganisation")
                     .fontWeight(.bold)

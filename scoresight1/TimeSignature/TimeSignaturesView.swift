@@ -8,19 +8,26 @@
 import SwiftUI
 
 struct TimeSignaturesView: View {
-    
-    @State private var isFullScreenPresented = false
-    @State private var isFullScreenPresented2 = false
-    
     var body: some View {
         VStack {
+            HStack{
+                NavigationLink{
+                    ContentView()
+                } label:{
+                    Image(systemName: "x.circle")
+                        .symbolRenderingMode(.palette)
+                        .foregroundStyle(.black, .white)
+                        .font(.system(size:50))
+                }
+                Spacer()
+            }
             Text("time\nsignatures")
                 .fontWeight(.bold)
                 .font(.system(size:100)).environment(\._lineHeightMultiple, 0.75)
                 
-            Button(action: {
-                isFullScreenPresented = true
-            }) {
+            NavigationLink{
+                TimeSignaturesLearnView()
+            } label:{
                 ZStack {
                     Text("learn")
                         .font(.system(size: 30))
@@ -32,9 +39,9 @@ struct TimeSignaturesView: View {
                 }
                 .padding()
             }
-            Button(action: {
-                isFullScreenPresented2 = true
-            }) {
+            NavigationLink{
+                TimeSignaturesReviewView()
+            } label:{
                 ZStack {
                     Text("review")
                         .font(.system(size: 30))

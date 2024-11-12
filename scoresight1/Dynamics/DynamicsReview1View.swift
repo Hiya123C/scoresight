@@ -11,9 +11,9 @@ struct DynamicsReviewView: View {
     var body: some View {
         VStack {
             HStack {
-                Button(action:{
-                    
-                }){
+                NavigationLink{
+                    DynamicsView()
+                } label:{
                     Image(systemName: "x.circle")
                         .symbolRenderingMode(.palette)
                         .foregroundStyle(.black, .white)
@@ -25,10 +25,9 @@ struct DynamicsReviewView: View {
                 .fontWeight(.bold)
                 .font(.system(size:100)).environment(\._lineHeightMultiple, 0.75)
             HStack{
-                Button(action: {
-                    
-                })
-                {
+                NavigationLink{
+                    DynamicsLearn8View()
+                } label:{
                     Text("back")
                         .padding()
                         .background(
@@ -42,10 +41,9 @@ struct DynamicsReviewView: View {
                     Spacer()
                     
                 }
-                Button(action: {
-                    
-                })
-                {
+                NavigationLink{
+//                    DynamicsView()
+                } label:{
                     Text("next")
                         .padding()
                         .background(

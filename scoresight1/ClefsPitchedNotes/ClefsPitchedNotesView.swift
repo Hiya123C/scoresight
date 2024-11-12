@@ -9,11 +9,19 @@ import SwiftUI
 
 struct ClefsPitchedNotesView: View {
     
-    @State private var isFullScreenPresented = false
-    @State private var isFullScreenPresented2 = false
-    
     var body: some View {
         VStack {
+            HStack {
+                NavigationLink{
+                    ContentView()
+                }label:{
+                    Image(systemName: "x.circle")
+                        .symbolRenderingMode(.palette)
+                        .foregroundStyle(.black, .white)
+                        .font(.system(size:50))
+                }
+                Spacer()
+            }
             Text("clefs+\npitched notes")
                 .fontWeight(.bold)
                 .font(.system(size:100)).environment(\._lineHeightMultiple, 0.75)

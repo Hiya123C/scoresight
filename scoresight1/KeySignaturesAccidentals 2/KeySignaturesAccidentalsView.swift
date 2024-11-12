@@ -9,18 +9,26 @@ import SwiftUI
 
 struct KeySignaturesAccidentalsView: View {
     
-    @State private var isFullScreenPresented = false
-    @State private var isFullScreenPresented2 = false
-    
     var body: some View {
         VStack {
+            HStack {
+                NavigationLink{
+                    ContentView()
+                }label:{
+                    Image(systemName: "x.circle")
+                        .symbolRenderingMode(.palette)
+                        .foregroundStyle(.black, .white)
+                        .font(.system(size:50))
+                }
+                Spacer()
+            }
             Text("key signatures\n+accidentals")
                 .fontWeight(.bold)
                 .font(.system(size:100)).environment(\._lineHeightMultiple, 0.75)
                 
-            Button(action: {
-                isFullScreenPresented = true
-            }) {
+            NavigationLink{
+                KeySignaturesAccidentalsLearnView()
+            } label:{
                 ZStack {
                     Text("learn")
                         .font(.system(size: 30))
@@ -32,9 +40,9 @@ struct KeySignaturesAccidentalsView: View {
                 }
                 .padding()
             }
-            Button(action: {
-                isFullScreenPresented2 = true
-            }) {
+            NavigationLink{
+                KeySignaturesAccidentalsReviewView()
+            } label:{
                 ZStack {
                     Text("review")
                         .font(.system(size: 30))

@@ -14,6 +14,7 @@ struct TimeSignaturesReviewView: View {
                 .fontWeight(.bold)
                 .font(.system(size:100)).environment(\._lineHeightMultiple, 0.75)
         }
+        .navigationBarBackButtonHidden(true)
     }
 }
 

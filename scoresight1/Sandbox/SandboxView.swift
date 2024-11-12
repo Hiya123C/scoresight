@@ -4,29 +4,27 @@
 import SwiftUI
 
 struct SandboxView: View {
-    
-    @State private var isFullScreenPresented = false
-    @State private var isPresented = false
-    
     var body: some View {
         VStack {
-            Button(action:{print("try")
-                isPresented = true
-            }){
-                Image(systemName: "x.circle")
-                    .symbolRenderingMode(.palette)
-                    .foregroundStyle(.black, .white)
-                    .font(.system(size:50))
-                    .position(x:0,y:50)//find out how to replace position
+            HStack {
+                NavigationLink{
+                    ContentView()
+                }label:{
+                    Image(systemName: "x.circle")
+                        .symbolRenderingMode(.palette)
+                        .foregroundStyle(.black, .white)
+                        .font(.system(size:50))
+                }
+                Spacer()
             }
             Text("sandbox")
                 .fontWeight(.bold)
                 .font(.system(size: 100))
                 .multilineTextAlignment(.center)
             
-            Button(action: {
-                isFullScreenPresented = true
-            }) {
+            NavigationLink{
+                Sandbox1View()
+            }label:{
                 Text("start")
                     .bold()
                     .padding()

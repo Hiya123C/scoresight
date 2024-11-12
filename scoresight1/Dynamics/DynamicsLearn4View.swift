@@ -11,9 +11,9 @@ struct DynamicsLearn4View: View {
     var body: some View {
         VStack {
             HStack {
-                Button(action:{
-                    
-                }){
+                NavigationLink{
+                    DynamicsView()
+                } label:{
                     Image(systemName: "x.circle")
                         .symbolRenderingMode(.palette)
                         .foregroundStyle(.black, .white)
@@ -30,10 +30,9 @@ struct DynamicsLearn4View: View {
                 .font(.system(size:80))
                 .bold()
             HStack{
-                Button(action: {
-                    
-                })
-                {
+                NavigationLink{
+                    DynamicsLearn3View()
+                } label:{
                     Text("back")
                         .padding()
                         .background(
@@ -47,10 +46,9 @@ struct DynamicsLearn4View: View {
                     Spacer()
                     
                 }
-                Button(action: {
-                    
-                })
-                {
+                NavigationLink{
+                    DynamicsLearn5View()
+                } label:{
                     Text("next")
                         .padding()
                         .background(
