@@ -23,9 +23,9 @@ struct ArticulationsOrnamentsLearn11View: View {
             }
             
             HStack {
-//                Image("upper mordent")
-//                    .resizable()
-//                    .scaledToFit()
+                Image("upper mordent")
+                    .resizable()
+                    .scaledToFit()
                 VStack(alignment: .trailing) {
                     Text("this is an")
                         .font(.system(size: 40))

@@ -23,9 +23,9 @@ struct ArticulationsOrnamentsLearn4View: View {
             }
             
             HStack {
-//                Image("turn")
-//                    .resizable()
-//                    .scaledToFit()
+                Image("turn")
+                    .resizable()
+                    .scaledToFit()
                 VStack(alignment: .trailing) {
                     Text("this is a")
                         .font(.system(size: 40))

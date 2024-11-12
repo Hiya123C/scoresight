@@ -23,9 +23,9 @@ struct ArticulationsOrnamentsLearn14View: View {
             }
             
             HStack {
-                //                Image("acciacatura")
-                //                    .resizable()
-                //                    .scaledToFit()
+                Image("acciacatura")
+                    .resizable()
+                    .scaledToFit()
                 VStack(alignment: .trailing) {
                     Text("this is an")
                         .font(.system(size: 40))
