@@ -21,9 +21,9 @@ struct DynamicsLearn8View: View {
                 }
                 Spacer()
             }
-            //Image("pedal")
-            //  .resizable()
-            //  .scaledToFit()
+            Image("pedal")
+              .resizable()
+              .scaledToFit()
             Text("use the sustain pedal on the piano (right pedal)")
                 .font(.system(size: 25))
             Text("pedal")

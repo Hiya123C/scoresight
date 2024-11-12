@@ -21,9 +21,9 @@ struct DynamicsLearn7View: View {
                 }
                 Spacer()
             }
-            //Image("pianoforte")
-            //  .resizable()
-            //  .scaledToFit()
+            Image("pianoforte")
+              .resizable()
+              .scaledToFit()
             Text("softly then immediately loudly")
                 .font(.system(size: 25))
             Text("pianoforte")

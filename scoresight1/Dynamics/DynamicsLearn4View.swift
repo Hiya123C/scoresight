@@ -21,9 +21,9 @@ struct DynamicsLearn4View: View {
                 }
                 Spacer()
             }
-            //Image("sforzando")
-            //  .resizable()
-            //  .scaledToFit()
+            Image("sforzando")
+              .resizable()
+              .scaledToFit()
             Text("with a sudden emphasis (only for a beat)")
                 .font(.system(size: 25))
             Text("sforzando")

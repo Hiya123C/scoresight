@@ -21,9 +21,9 @@ struct DynamicsLearn3View: View {
                 }
                 Spacer()
             }
-            //Image("decrescendo")
-            //  .resizable()
-            //  .scaledToFit()
+            Image("decrescendo")
+              .resizable()
+              .scaledToFit()
             Text("gradually getting softer")
                 .font(.system(size: 25))
             Text("decrescendo")
