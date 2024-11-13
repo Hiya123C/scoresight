@@ -1,10 +1,10 @@
-//add play button
+//so weird.**
 
 import SwiftUI
 
-struct SheetMusicOrganisationLearn10View: View {
+struct SheetMusicOrganisationReview2View: View {
     var body: some View {
-        VStack{
+        VStack {
             NavigationStack{
                 HStack{
                     NavigationLink{
@@ -18,48 +18,42 @@ struct SheetMusicOrganisationLearn10View: View {
                     Spacer()
                 }
                 Spacer()
-                ZStack{
-                    HStack{
-                        Image("tempo marking")
-                            .resizable()
-                            .scaledToFit()
-                    }
-                    VStack{
-                        HStack(alignment:.center){
-                            Text("this is a")
-                                .font(.system(size: 30))
-                            Text("tempo marking")
-                                .font(.system(size:40))
-                                .bold()
-                            Spacer()
-                        }
-                        Spacer()
-                    }
-                    //click play button to play audio**
-                    
-                }
                 
-                
-                HStack{
-                    NavigationLink{
-                        SheetMusicOrganisationLearn9View()
-                    }label:{
-                        Text("back")
-                            .padding()
-                            .background(
-                                RoundedRectangle(cornerRadius: 10)
-                                    .stroke(.black, lineWidth: 3)
-                                    .frame(width:100,height:50)
-                                
-                            )
-                            .foregroundStyle(.black)
-                            .font(.system(size: 25))
-                    }
+                VStack{
+                    Image("single bar")
+                        .resizable()
+                        .scaledToFit()
                     
                     Spacer()
                     
+                    HStack{
+                        Image("44")
+                            .resizable()
+                            .scaledToFit()
+                        
+                        Image("single treble") //make larger
+                            .resizable()
+                            .scaledToFit()
+                        
+                        Image("single tempo") //make smaller
+                            .resizable()
+                            .scaledToFit()
+                        
+                        Image("flat")
+                            .resizable()
+                            .scaledToFit()
+                    }
+                    
+                    
+                }
+                
+                Spacer()
+                
+                HStack{
+                    Spacer()
+                    
                     NavigationLink{
-                        SheetMusicOrganisationReview1View()
+                        SheetMusicOrganisationReview3View()
                     }label:{
                         Text("next")
                             .padding()
@@ -76,12 +70,10 @@ struct SheetMusicOrganisationLearn10View: View {
             }
             
         }
-        .frame(maxWidth:.infinity, maxHeight:.infinity)
         .navigationBarBackButtonHidden(true)
-        
     }
 }
 
 #Preview {
-    SheetMusicOrganisationLearn10View()
+    SheetMusicOrganisationReview2View()
 }

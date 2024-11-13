@@ -1,7 +1,11 @@
 {
   "images" : [
     {
+<<<<<<< Updated upstream
       "filename" : "Screenshot_2024-11-12_at_12.00.24-removebg-preview.png",
+=======
+      "filename" : "Screenshot 2024-11-12 at 9.52.56 PM.png",
+>>>>>>> Stashed changes
       "idiom" : "universal",
       "scale" : "1x"
     },

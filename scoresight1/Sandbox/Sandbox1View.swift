@@ -1,159 +1,221 @@
-//is there a way to maintain what user is creating (line) when they click next (ie: only move the options below)
-//might need mvvm?
+//find a way to only move the note values + keep content
+//find a way to make crotchet rests smaller, note options larger
 
 import SwiftUI
 
 struct Sandbox1View: View {
-    
-    @State private var isFullScreenPresented = false
+    @State private var currentStage: Int = 1
     @StateObject private var viewModel = SandboxViewModel()
-    
     var body: some View {
-        ZStack{
+        NavigationStack{
             VStack{
-                HStack(alignment: .top ){
-                    VStack{
-                        Button(action:{ //click any top, button also can work :(
-                            print("im working")
-                            isFullScreenPresented = true
-                        }){
-                            Image(systemName: "x.circle")
-                                .foregroundStyle(.black, .white)
-                                .font(.system(size:50))
-                                .position(x:0,y:50)
-                        }
-                        
-                        Text("move the note up and down the bar lines to adjust pitch")
-                            .padding()
-                            .font(.system(size:25))
-                            .position(x:380, y:-20)
-                        
-                    }
-                    .fullScreenCover(isPresented: $isFullScreenPresented) {
+                Spacer(minLength: 70)
+                HStack{
+                    NavigationLink{
                         SandboxView()
+                    }label:{
+                        Image(systemName: "x.circle")
+                            .foregroundStyle(.black, .white)
+                            .font(.system(size:50))
                     }
+                    Spacer()
+                    
+                    Button(action:{
+                        //reset all changes
+                        viewModel.replaceRest(with: "default")
+                    }){
+                        Image(systemName: "repeat.circle.fill")
+                            .foregroundStyle(.black, .white)
+                            .font(.system(size:50))
+                    }
+                    
                 }
                 
+                Text("move the note up and down the bar lines to adjust pitch")
+                    .font(.system(size:25))
+                
                 VStack{
-                    HStack{ //main content
-                        Image("sandbox original")
-                            .resizable()
-                            .frame(width: 650, height: 190, alignment: .center)
-                            .padding()
-                        
+                    Spacer()
+                    HStack{
+                        Spacer()
+                        ZStack{
+                            Image("sandbox original")
+                                .resizable()
+                                .scaledToFit()
+                                .scaleEffect(1)
+                            
+                            VStack{
+                                HStack{
+                                    //**
+                                    ForEach(viewModel.restImages, id: \.self) { restImage in
+                                        Image(restImage)
+                                            .resizable()
+                                            .scaledToFill()
+                                            .scaleEffect(restImage == "minim rest" ? 0.1 : 0.8)
+                                            .scaleEffect(restImage == "quaver rest" ? 0.4 : 0.8)
+                                        //**
+                                    }
+                                }.frame(maxWidth:400, maxHeight: 280) //allowed?
+                                Spacer()
+                            }
+                            //*
+                            ForEach(viewModel.notes) { note in
+                                    Image(note.type)
+                                        .resizable()
+                                        .scaledToFit()
+                                        .position(note.position)
+                                        .gesture(
+                                            DragGesture()
+                                                .onChanged { value in
+                                                    viewModel.updatePitch(for: note, at: value.location)
+                                                }
+                                        )
+                                } //haha
+                            //*
+                            
+                        }
+                        Spacer()
                         Button(action:{
                             print("play line")
                             //play
                         }){
                             Image(systemName: "play.square")//looks abit ugly...
                                 .foregroundStyle(.black, .black)
-                                .font(.system(size:70))
+                                .font(.system(size:60))
                         }
                     }
+                    Spacer()
+                }.frame(maxHeight:.infinity)
+                
+                Spacer()
+                
+                if currentStage == 1{
+                    HStack{ //3 note values
+                        Spacer()
+                        Button(action: {
+                            viewModel.replaceRest(with: "minim")
+                        }) {
+                            Image("minim")
+                                .resizable()
+                                .scaledToFit()
+                                .background(
+                                    RoundedRectangle(cornerRadius: 10)
+                                        .stroke(.black, lineWidth: 3)
+                                        .frame(width: 80, height: 90)
+                                )
+                        }
+                        Spacer()
+                        Button(action:{
+                            viewModel.replaceRest(with:"default")
+                        }){
+                            Image("crochet")
+                                .resizable()
+                                .scaledToFit()//haha :(
+                                .background(
+                                    RoundedRectangle(cornerRadius: 10)
+                                        .stroke(.black, lineWidth: 3)
+                                        .frame(width:80,height:90)
+                                )
+                        }
+                        Spacer()
+                        
+                        Button(action: {
+                            viewModel.replaceRest(with: "quaver")
+                        }) {
+                            Image("quaver")
+                                .resizable()
+                                .scaledToFit()
+                                .background(
+                                    RoundedRectangle(cornerRadius: 10)
+                                        .stroke(.black, lineWidth: 3)
+                                        .frame(width: 80, height: 90)
+                                )
+                        }
+                        Spacer()
+                    }
+                }else if currentStage == 2{
+                    HStack{
+                        Spacer()
+                        Button(action:{
+                            
+                        }) {
+                            Image("natural")
+                                .resizable()
+                                .scaledToFit()
+                                .background(
+                                    RoundedRectangle(cornerRadius: 10)
+                                        .stroke(.black, lineWidth: 3)
+                                        .frame(width: 80, height: 90)
+                                )
+                        }
+                        Spacer()
+                        Button(action:{
+                        }) {
+                            Image("sharp")
+                                .resizable()
+                                .scaledToFit()
+                                .background(
+                                    RoundedRectangle(cornerRadius: 10)
+                                        .stroke(.black, lineWidth: 3)
+                                        .frame(width: 80, height: 90)
+                                )
+                        }
+                        Spacer()
+                        Button(action:{
+                            
+                        }) {
+                            Image("flat")
+                                .resizable()
+                                .scaledToFit()
+                                .background(
+                                    RoundedRectangle(cornerRadius: 10)
+                                        .stroke(.black, lineWidth: 3)
+                                        .frame(width: 80, height: 90)
+                                )
+                        }
+                        Spacer()
+                    }
                 }
-                .position(x:370,y:20)
                 
                 HStack{
-                    Spacer()
-                    Button(action: {})
-                    {
-                        Text("next") //perharps change to arrow?
+                    if currentStage == 2 {
+                            Button("back") {
+                                currentStage = 1
+                            }
                             .padding()
-                            .background(
-                                RoundedRectangle(cornerRadius: 10)
-                                    .stroke(.black, lineWidth: 3)
-                                    .frame(width:100,height:50)
-                                
-                            )
                             .foregroundStyle(.black)
+                            .background(
+                                RoundedRectangle(cornerRadius: 10)
+                                    .stroke(.black, lineWidth: 3)
+                                    .frame(width: 100, height: 50)
+                            )
                             .font(.system(size: 25))
+                        }
+
+                        Spacer()
                         
-                        
-                    }
-                }
-            }
-//crotchet vs minim vs quaver space restriction
-//when selected, note/rest become blue
-//when
-            VStack{
-                Spacer()
-                Spacer()
-                Spacer()
-                Spacer()
-                Spacer()
-                HStack(alignment:.bottom){
-                    Spacer()
-                    Spacer()
-                    Spacer()
-                    ForEach(viewModel.restImages, id: \.self) { restImage in
-                                                Image(restImage)
-                                                    .resizable()
-                                                    .frame(width: 65, height: 110, alignment: .center)
-                                                    .padding()
-                                            }
-                    Spacer()
-                    Spacer()
-                    Spacer()
-                }
-                Spacer()
-                HStack{
-                    //add the note values (3)
-                    Spacer()
-                    Button(action:{
-                        print("minim.")
-                    }){
-                        Image("minim")
-                            .resizable()
-                            .frame(width: 70, height: 120, alignment: .center)
+                        if currentStage == 1 {
+                            Button("next") {
+                                currentStage = 2
+                            }
+                            .padding()
+                            .foregroundStyle(.black)
                             .background(
                                 RoundedRectangle(cornerRadius: 10)
                                     .stroke(.black, lineWidth: 3)
-                                    .frame(width:100,height:120)
-                                    .onTapGesture {
-                                        viewModel.replaceRest(with: "minim rest")
-                                    }
-                                )
-                    }
-                    Spacer()
-                    Spacer()
-                    Button(action:{
-                        print("crochet.")
-                    }){
-                        Image("crochet")
-                            .resizable()
-                            .frame(width: 35, height: 100, alignment: .center)
-                            .background(
-                                RoundedRectangle(cornerRadius: 10)
-                                    .stroke(.black, lineWidth: 3)
-                                    .frame(width:100,height:120)
-                                )
-                    }
-                    Spacer()
-                    Spacer()
-                    
-                    Button(action:{
-                        print("quaver.")
-                    }){
-                        Image("quaver")
-                            .resizable()
-                            .frame(width: 80, height: 110, alignment: .center)
-                            .background(
-                                RoundedRectangle(cornerRadius: 10)
-                                    .stroke(.black, lineWidth: 3)
-                                    .frame(width:100,height:120)
-                                )
-                    }
-                    Spacer()
-                    Spacer()
+                                    .frame(width: 100, height: 50)
+                            )
+                            .font(.system(size: 25))
+                        }
                     
                 }
-            }
-        }
+                Spacer(minLength: 50)
+                
+                
+            }//1st vstack
+        }//nav stack
     }
 }
-
-
-
 
 #Preview {
     Sandbox1View()

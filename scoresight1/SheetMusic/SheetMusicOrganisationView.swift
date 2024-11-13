@@ -41,7 +41,7 @@ struct SheetMusicOrganisationView: View {
                 Spacer()
                 
                 NavigationLink{
-                    SheetMusicOrganisationReviewView()
+                    SheetMusicOrganisationReview1View()
                 }label:{
                     Text("review")
                         .font(.system(size: 30))
