@@ -25,6 +25,7 @@
 		316BA2E32CE1FAD100BAF59C /* KeySignaturesAccidentalsLearn12View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 316BA2C62CE1FAD000BAF59C /* KeySignaturesAccidentalsLearn12View.swift */; };
 		316BA2E42CE1FAD100BAF59C /* KeySignaturesAccidentalsLearn13View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 316BA2C72CE1FAD000BAF59C /* KeySignaturesAccidentalsLearn13View.swift */; };
 		316BA2E52CE1FAD100BAF59C /* KeySignaturesAccidentalsLearn15View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 316BA2C92CE1FAD000BAF59C /* KeySignaturesAccidentalsLearn15View.swift */; };
+		316BA2E72CE47BFA00BAF59C /* ClefsPitchedNotesReview2View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 316BA2E62CE47BFA00BAF59C /* ClefsPitchedNotesReview2View.swift */; };
 		31B8246F2CDF2DD50031E923 /* StartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31B8246E2CDF2DD50031E923 /* StartView.swift */; };
 		D900AC9A2CE1F6A800DC1959 /* SheetMusicOrganisationLearnView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D900AC912CE1F6A800DC1959 /* SheetMusicOrganisationLearnView.swift */; };
 		D900AC9B2CE1F6A800DC1959 /* SheetMusicOrganisationLearn2View.swift in Sources */ = {isa = PBXBuildFile; fileRef = D900AC922CE1F6A800DC1959 /* SheetMusicOrganisationLearn2View.swift */; };
@@ -122,6 +123,7 @@
 		316BA2CA2CE1FAD000BAF59C /* KeySignaturesAccidentalsLearn16View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeySignaturesAccidentalsLearn16View.swift; sourceTree = "<group>"; };
 		316BA2CB2CE1FAD000BAF59C /* KeySignaturesAccidentalsReview1View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeySignaturesAccidentalsReview1View.swift; sourceTree = "<group>"; };
 		316BA2CF2CE1FAD000BAF59C /* KeySignaturesAccidentalsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeySignaturesAccidentalsView.swift; sourceTree = "<group>"; };
+		316BA2E62CE47BFA00BAF59C /* ClefsPitchedNotesReview2View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClefsPitchedNotesReview2View.swift; sourceTree = "<group>"; };
 		31B8246E2CDF2DD50031E923 /* StartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartView.swift; sourceTree = "<group>"; };
 		D900AC912CE1F6A800DC1959 /* SheetMusicOrganisationLearnView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SheetMusicOrganisationLearnView.swift; sourceTree = "<group>"; };
 		D900AC922CE1F6A800DC1959 /* SheetMusicOrganisationLearn2View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SheetMusicOrganisationLearn2View.swift; sourceTree = "<group>"; };
@@ -299,6 +301,7 @@
 				D900ACC62CE1F6AD00DC1959 /* ClefsPitchedNotesLearn13View.swift */,
 				D900ACC72CE1F6AD00DC1959 /* ClefsPitchedNotesLearn14View.swift */,
 				D900ACC82CE1F6AD00DC1959 /* ClefsPitchedNotesReview1View.swift */,
+				316BA2E62CE47BFA00BAF59C /* ClefsPitchedNotesReview2View.swift */,
 				D900ACCD2CE1F6AD00DC1959 /* ClefsPitchedNotesView.swift */,
 			);
 			path = ClefsPitchedNotes;
@@ -475,6 +478,7 @@
 				D9E035FD2CDF12AC00220F1F /* ContentView.swift in Sources */,
 				D900AC9A2CE1F6A800DC1959 /* SheetMusicOrganisationLearnView.swift in Sources */,
 				D900AC9B2CE1F6A800DC1959 /* SheetMusicOrganisationLearn2View.swift in Sources */,
+				316BA2E72CE47BFA00BAF59C /* ClefsPitchedNotesReview2View.swift in Sources */,
 				D900AC9C2CE1F6A800DC1959 /* SheetMusicOrganisationLearn3View.swift in Sources */,
 				D900AC9D2CE1F6A800DC1959 /* SheetMusicOrganisationLearn4View.swift in Sources */,
 				D900AC9E2CE1F6A800DC1959 /* SheetMusicOrganisationLearn5View.swift in Sources */,

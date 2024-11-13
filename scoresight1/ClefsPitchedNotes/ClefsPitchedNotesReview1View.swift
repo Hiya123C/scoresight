@@ -42,7 +42,7 @@ struct ClefsPitchedNotesReviewView: View {
                     
                 }
                 NavigationLink{
-//                    ClefsPitchedNotesReview2View()
+                    ClefsPitchedNotesReview2View()
                 }label:{
                     Text("next")
                         .padding()
