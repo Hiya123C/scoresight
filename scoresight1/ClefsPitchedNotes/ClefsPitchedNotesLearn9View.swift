@@ -20,8 +20,8 @@ struct ClefsPitchedNotesLearn9View: View {
             }
             Spacer()
         }
-        Text("Cows Do Eat Fresh/nGrass And Barley")
-            .font(.system(size: 100))
+        Text("Cows Do Eat Fresh\nGrass And Barley")
+            .font(.system(size: 70))
             .frame(alignment: .center)
         // figure out the single bold letters in a word thing
         HStack{

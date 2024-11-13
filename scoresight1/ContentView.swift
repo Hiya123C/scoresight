@@ -4,6 +4,7 @@ import SwiftUI
 
 struct ContentView: View {
     var body: some View {
+        // find out how to make the scrollview landscape
         ScrollView {
             NavigationLink{
                 SheetMusicOrganisationView()

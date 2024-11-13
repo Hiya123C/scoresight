@@ -13,10 +13,9 @@ struct StartView: View {
         VStack {
             Spacer()
             
-            Text("score\nsight")
-                .fontWeight(.bold)
-                .font(.system(size:100)).environment(\._lineHeightMultiple, 0.75)
-            
+                Text("score\nsight")
+                    .fontWeight(.bold)
+                    .font(.system(size:100)).environment(\._lineHeightMultiple, 0.75)
             Spacer()
             
             NavigationLink{
@@ -33,6 +32,7 @@ struct StartView: View {
                     )
             }
             Spacer()
+            Text("Tip: sound on! make sure your phone is in landscape mode.")
         }
         .navigationBarBackButtonHidden(true)
     }

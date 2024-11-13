@@ -20,8 +20,8 @@ struct KeySignaturesAccidentalsLearn5View: View {
             }
             Spacer()
         }
-        Text("Father Charles Goes Down And Ends Battle")
-            .font(.system(size: 100))
+        Text("Father Charles Goes\nDown And Ends Battle")
+            .font(.system(size: 70))
             .frame(alignment: .center)
         // figure out the single bold letters in a word thing
         HStack{
