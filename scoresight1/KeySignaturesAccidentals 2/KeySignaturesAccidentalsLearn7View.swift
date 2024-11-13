@@ -8,6 +8,12 @@
 import SwiftUI
 
 struct KeySignaturesAccidentalsLearn7View: View {
+    
+    let sharps = ["F", "C", "G", "D", "A", "E", "B"]
+    let timer = Timer.publish(every: 1.0, on: .main, in: .common).autoconnect()
+    @State private var counter = 0
+    // ask how to make them appear at a specific place
+    
     var body: some View {
         VStack {
             HStack {
@@ -22,45 +28,62 @@ struct KeySignaturesAccidentalsLearn7View: View {
                 Spacer()
             }
             
-            HStack {
-//                Image("sharps")
-//                    .resizable()
-//                    .scaledToFit()
-            }
-            HStack{
-                NavigationLink{
-                    KeySignaturesAccidentalsLearn6View()
-                } label:{
-                    Text("back")
-                        .padding()
-                        .background(
-                            RoundedRectangle(cornerRadius: 10)
-                                .stroke(.black, lineWidth: 3)
-                                .frame(width:100,height:50)
-                            
-                        )
-                        .foregroundStyle(.black)
-                        .font(.system(size: 25))
-                    Spacer()
-                    
+            ZStack {
+                Image("treble sharp")
+                    .resizable()
+                    .scaledToFit()
+                HStack {
+                    ForEach(0...counter, id: \.self) { index in
+                        Text(sharps[index])
+                            .font(.largeTitle)
+                            .bold()
+                            .foregroundStyle(.red)
+                    }
                 }
-                NavigationLink{
-                    KeySignaturesAccidentalsLearn8View()
-                } label:{
-                    Text("next")
-                        .padding()
-                        .background(
-                            RoundedRectangle(cornerRadius: 10)
-                                .stroke(.black, lineWidth: 3)
-                                .frame(width:100,height:50)
-                            
-                        )
-                        .foregroundStyle(.black)
-                        .font(.system(size: 25))
-                    
-                    
+                .onReceive(timer) { _ in
+                    withAnimation {
+                        if counter < sharps.count - 1 {
+                            counter = counter + 1
+                        } else {
+                            timer.upstream.connect().cancel()
+                        }
+                    }
                 }
             }
+                HStack{
+                    NavigationLink{
+                        KeySignaturesAccidentalsLearn6View()
+                    } label:{
+                        Text("back")
+                            .padding()
+                            .background(
+                                RoundedRectangle(cornerRadius: 10)
+                                    .stroke(.black, lineWidth: 3)
+                                    .frame(width:100,height:50)
+                                
+                            )
+                            .foregroundStyle(.black)
+                            .font(.system(size: 25))
+                        Spacer()
+                        
+                    }
+                    NavigationLink{
+                        KeySignaturesAccidentalsLearn8View()
+                    } label:{
+                        Text("next")
+                            .padding()
+                            .background(
+                                RoundedRectangle(cornerRadius: 10)
+                                    .stroke(.black, lineWidth: 3)
+                                    .frame(width:100,height:50)
+                                
+                            )
+                            .foregroundStyle(.black)
+                            .font(.system(size: 25))
+                        
+                        
+                    }
+                }
         }
         .navigationBarBackButtonHidden(true)
     }

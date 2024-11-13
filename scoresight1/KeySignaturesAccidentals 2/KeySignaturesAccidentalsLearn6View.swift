@@ -25,7 +25,7 @@ struct KeySignaturesAccidentalsLearn6View: View {
                 .font(.system(size: 40))
             Text("F C G D A E B")
                 .font(.system(size: 100))
-                .bold()
+                .fontWeight(.bold)
             HStack{
                 NavigationLink{
                     KeySignaturesAccidentalsLearn5View()

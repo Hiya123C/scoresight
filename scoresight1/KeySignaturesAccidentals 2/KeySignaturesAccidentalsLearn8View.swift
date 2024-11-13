@@ -21,11 +21,11 @@ struct KeySignaturesAccidentalsLearn8View: View {
                 }
                 Spacer()
             }
-            Text("flats are in this order:")
+            Text("flats are in the opposite order:")
                 .font(.system(size: 40))
             Text("B E A D G C F")
                 .font(.system(size: 100))
-                .bold()
+                .fontWeight(.bold)
             HStack{
                 NavigationLink{
                     KeySignaturesAccidentalsLearn7View()

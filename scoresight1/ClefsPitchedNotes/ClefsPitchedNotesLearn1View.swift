@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct ClefsPitchedNotesLearnView: View {
+    // ask why i can't press the buttons
     var body: some View {
         VStack {
             HStack {
@@ -35,27 +36,25 @@ struct ClefsPitchedNotesLearnView: View {
                     Text("clef")
                         .font(.system(size: 40))
                 }
-                // ask about separating the image and text
             }
-            HStack{
-                Spacer()
-                NavigationLink{
-                    ClefsPitchedNotesLearn2View()
-                }label:{
-                    Text("next")
-                        .padding()
-                        .background(
-                            RoundedRectangle(cornerRadius: 10)
-                                .stroke(.black, lineWidth: 3)
-                                .frame(width:100,height:50)
-                            
-                        )
-                        .foregroundStyle(.black)
-                        .font(.system(size: 25))
-                    
-                    
+                HStack{
+                    Spacer()
+                    NavigationLink{
+                        ClefsPitchedNotesLearn2View()
+                    }label:{
+                        Text("next")
+                            .padding()
+                            .background(
+                                RoundedRectangle(cornerRadius: 10)
+                                    .stroke(.black, lineWidth: 3)
+                                    .frame(width:100,height:50)
+                                
+                            )
+                            .foregroundStyle(.black)
+                            .font(.system(size: 25))
+                        
+                    }
                 }
-            }
         }
         .navigationBarBackButtonHidden(true)
     }
