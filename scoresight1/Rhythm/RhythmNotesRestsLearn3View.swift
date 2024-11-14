@@ -62,13 +62,13 @@ struct RhythmNotesRestsLearn3View: View {
                         .simultaneousGesture(LongPressGesture(minimumDuration: 0.1)
                             .onEnded { _ in
                                 isHolding = false
-                                startMetronomeForTwoBeats()
+                                startMetronomeForFourBeats()
                             }
                             .onChanged { pressing in
                                 if pressing {
                                     isHolding = true
                                     if !metronomeIsPlaying {
-                                        startMetronomeForTwoBeats()
+                                        startMetronomeForFourBeats()
                                     }
                                 }
                             })
@@ -109,7 +109,7 @@ struct RhythmNotesRestsLearn3View: View {
 
                 HStack {
                     NavigationLink(destination: RhythmNotesRestsLearn2View()) {
-                        Text("Back")
+                        Text("back")
                             .padding()
                             .background(
                                 RoundedRectangle(cornerRadius: 10)
@@ -124,7 +124,7 @@ struct RhythmNotesRestsLearn3View: View {
                     Spacer()
                     
                     NavigationLink(destination: RhythmNotesRestsLearn4View()) {
-                        Text("Next")
+                        Text("next")
                             .padding()
                             .background(
                                 RoundedRectangle(cornerRadius: 10)
@@ -142,15 +142,20 @@ struct RhythmNotesRestsLearn3View: View {
         .navigationBarBackButtonHidden(true)
     }
 
-    private func startMetronomeForTwoBeats() {
+    private func startMetronomeForFourBeats() {
         buttonFillAmount = 0.0
         beatCount = 0
         metronomeIsPlaying = true
+        
+        // Start metronome once
         playMetronome()
+        
+        // Cancel any existing timer
+        timer?.invalidate()
         
         timer = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true) { _ in
             beatCount += 1
-            
+
             if beatCount <= 2 {
                 buttonFillAmount += 0.5
             }
@@ -164,7 +169,7 @@ struct RhythmNotesRestsLearn3View: View {
 
 
     private func playMetronome() {
-        guard let url = Bundle.main.url(forResource: "metronome", withExtension: "m4a") else { return }
+        guard let url = Bundle.main.url(forResource: "metronome1", withExtension: "m4a") else { return }
         do {
             audioPlayer = try AVAudioPlayer(contentsOf: url)
             audioPlayer?.numberOfLoops = 4

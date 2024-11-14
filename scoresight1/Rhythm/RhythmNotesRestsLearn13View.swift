@@ -1,13 +1,13 @@
 //
-//  RhythmNotesRestsLearn5View.swift
+//  RhythmNotesRestsLearn13View.swift
 //  scoresight1
 //
-//  Created by T Krobot on 11/11/24.
+//  Created by T Krobot on 12/11/24.
 //
 
 import SwiftUI
 
-struct RhythmNotesRestsLearn5View: View {
+struct RhythmNotesRestsLearn13View: View {
     var body: some View {
         NavigationView {
             VStack {
@@ -25,23 +25,23 @@ struct RhythmNotesRestsLearn5View: View {
                     
                 }
                 
-                HStack {
-                    Image("quaver")
+                HStack(spacing: 10) {
+                    Image("duplet")
                         .resizable()
-                        .scaledToFit()
-                    VStack(alignment: .trailing) {
+                        .frame(maxHeight: 400)
+                        .frame(maxWidth: 250 )
+                    
+                    VStack(alignment: .trailing, spacing: -10) {
                         Text("this is a")
-                            .font(.system(size: 40))
-                        Text("quaver")
-                            .font(.system(size: 80))
+                            .font(.system(size: 50))
+                        Text("duplet")
+                            .font(.system(size: 90))
                             .bold()
-                        Text("note")
-                            .font(.system(size: 40))
                     }
                 }
-                
+
                 HStack {
-                    NavigationLink(destination: RhythmNotesRestsLearn4View()) {
+                    NavigationLink(destination: RhythmNotesRestsLearn12View()) {
                         Text("back")
                             .padding()
                             .background(
@@ -53,7 +53,7 @@ struct RhythmNotesRestsLearn5View: View {
                             .font(.system(size: 25))
                     }
                     Spacer()
-                    NavigationLink(destination: RhythmNotesRestsLearn6View()) {
+                    NavigationLink(destination: RhythmNotesRestsReviewView()) {
                         Text("next")
                             .padding()
                             .background(
@@ -73,8 +73,7 @@ struct RhythmNotesRestsLearn5View: View {
     }
 }
 
-struct RhythmNotesRestsLearn5View_Previews: PreviewProvider {
-    static var previews: some View {
-        RhythmNotesRestsLearn5View()
-    }
+#Preview {
+    RhythmNotesRestsLearn13View()
 }
+

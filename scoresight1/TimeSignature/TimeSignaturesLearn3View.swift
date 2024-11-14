@@ -1,20 +1,20 @@
 //
-//  RhythmNotesRestsLearn5View.swift
+//  TimeSignaturesLearn3View.swift
 //  scoresight1
 //
-//  Created by T Krobot on 11/11/24.
+//  Created by T Krobot on 13/11/24.
 //
+
 
 import SwiftUI
 
-struct RhythmNotesRestsLearn5View: View {
+struct TimeSignaturesLearn3View: View {
     var body: some View {
         NavigationView {
-            VStack {
+            VStack(spacing: 20) {
                 HStack {
-                    Button(action: {
-                    }) {
-                        NavigationLink(destination: RhythmNotesRestsView()) {
+                    Button(action: {}) {
+                        NavigationLink(destination: TimeSignaturesView()) {
                             Image(systemName: "x.circle")
                                 .symbolRenderingMode(.palette)
                                 .foregroundStyle(.black, .white)
@@ -22,50 +22,46 @@ struct RhythmNotesRestsLearn5View: View {
                         }
                     }
                     Spacer()
-                    
                 }
-                
+                .padding([.top, .leading])
+
                 HStack {
-                    Image("quaver")
+                    Image("common time")
                         .resizable()
                         .scaledToFit()
-                    VStack(alignment: .trailing) {
-                        Text("this is a")
-                            .font(.system(size: 40))
-                        Text("quaver")
-                            .font(.system(size: 80))
-                            .bold()
-                        Text("note")
-                            .font(.system(size: 40))
-                    }
+
+                    Image("4 crochets")
+                        .resizable()
+                        .scaledToFit()
                 }
-                
+                .padding()
+
                 HStack {
-                    NavigationLink(destination: RhythmNotesRestsLearn4View()) {
+                    NavigationLink(destination: TimeSignaturesLearn2View()) {
                         Text("back")
                             .padding()
+                            .frame(width: 100, height: 50)
                             .background(
                                 RoundedRectangle(cornerRadius: 10)
                                     .stroke(.black, lineWidth: 3)
-                                    .frame(width: 100, height: 50)
                             )
                             .foregroundStyle(.black)
                             .font(.system(size: 25))
                     }
                     Spacer()
-                    NavigationLink(destination: RhythmNotesRestsLearn6View()) {
+                    NavigationLink(destination:  TimeSignaturesLearn4View()) {
                         Text("next")
                             .padding()
+                            .frame(width: 100, height: 50)
                             .background(
                                 RoundedRectangle(cornerRadius: 10)
                                     .stroke(.black, lineWidth: 3)
-                                    .frame(width: 100, height: 50)
                             )
                             .foregroundStyle(.black)
                             .font(.system(size: 25))
                     }
                 }
-                .padding()
+                .padding(.horizontal)
             }
             .navigationBarHidden(true)
         }
@@ -73,8 +69,6 @@ struct RhythmNotesRestsLearn5View: View {
     }
 }
 
-struct RhythmNotesRestsLearn5View_Previews: PreviewProvider {
-    static var previews: some View {
-        RhythmNotesRestsLearn5View()
-    }
+#Preview {
+    TimeSignaturesLearn3View()
 }

@@ -8,52 +8,71 @@
 import SwiftUI
 
 struct RhythmNotesRestsView: View {
+    
+    @State private var isFullScreenPresented = false
+    @State private var isFullScreenPresented2 = false
+    
     var body: some View {
         VStack {
             HStack {
-                NavigationLink{
-                    ContentView()
-                }label:{
-                    Image(systemName: "x.circle")
-                        .symbolRenderingMode(.palette)
-                        .foregroundStyle(.black, .white)
-                        .font(.system(size:50))
+                NavigationLink(destination: ContentView()) {
+                    Image(systemName: "xmark")
+                        .font(.system(size: 24, weight: .bold))
+                        .foregroundColor(.black)
                 }
                 Spacer()
             }
+            .padding(.horizontal)
+            .padding(.top)
+            
+            Spacer()
+            
             Text("rhythm\nnotes+rests")
-                .fontWeight(.bold)
-                .font(.system(size:100)).environment(\._lineHeightMultiple, 0.75)
-                
-                NavigationLink{
-                    RhythmNotesRestsLearnView()
-                }label:{
-                ZStack {
+                .font(.system(size: min(UIScreen.main.bounds.width * 0.12, 60), weight: .bold))
+                .multilineTextAlignment(.center)
+                .lineSpacing(-8)
+                .foregroundColor(.black)
+                .padding(.horizontal)
+            
+            Spacer()
+            
+            VStack(spacing: 15) {
+                Button(action: {
+                    isFullScreenPresented = true
+                }) {
                     Text("learn")
-                        .font(.system(size: 30))
-                        .foregroundStyle(.black)
-                        .bold()
-                        RoundedRectangle(cornerRadius: 15)
-                                .stroke(.black, lineWidth: 3)
-                                .frame(width: 200, height: 50)
+                        .font(.system(size: 25, weight: .bold))
+                        .frame(width: 150, height: 50)
+                        .overlay(
+                            RoundedRectangle(cornerRadius: 10)
+                                .stroke(Color.black, lineWidth: 3)
+                        )
+                        .foregroundColor(.black)
                 }
-                .padding()
-            }
-            NavigationLink{
-                RhythmNotesRestsReviewView()
-            }label:{
-                ZStack {
+                
+                Button(action: {
+                    isFullScreenPresented2 = true
+                }) {
                     Text("review")
-                        .font(.system(size: 30))
-                        .foregroundStyle(.black)
-                        .bold()
-                        RoundedRectangle(cornerRadius: 15)
-                            .stroke(.black, lineWidth: 3)
-                            .frame(width: 200, height: 50)
+                        .font(.system(size: 25, weight: .bold))
+                        .frame(width: 150, height: 50)
+                        .overlay(
+                            RoundedRectangle(cornerRadius: 10)
+                                .stroke(Color.black, lineWidth: 3)
+                        )
+                        .foregroundColor(.black)
                 }
             }
+            .padding(.bottom, 40)
         }
-        .navigationBarBackButtonHidden(true)
+        .background(Color.white.ignoresSafeArea())
+        .fullScreenCover(isPresented: $isFullScreenPresented) {
+            RhythmNotesRestsLearnView()
+        }
+        .fullScreenCover(isPresented: $isFullScreenPresented2) {
+            RhythmNotesRestsReviewView()
+        }
+        .navigationBarHidden(true)
     }
 }
 

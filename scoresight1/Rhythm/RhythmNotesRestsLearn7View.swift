@@ -1,13 +1,13 @@
 //
-//  RhythmNotesRestsLearn5View.swift
+//  RhythmNotesRestsLearn7View.swift
 //  scoresight1
 //
-//  Created by T Krobot on 11/11/24.
+//  Created by T Krobot on 12/11/24.
 //
 
 import SwiftUI
 
-struct RhythmNotesRestsLearn5View: View {
+struct RhythmNotesRestsLearn7View: View {
     var body: some View {
         NavigationView {
             VStack {
@@ -26,13 +26,13 @@ struct RhythmNotesRestsLearn5View: View {
                 }
                 
                 HStack {
-                    Image("quaver")
+                    Image("semiquaver")
                         .resizable()
                         .scaledToFit()
                     VStack(alignment: .trailing) {
                         Text("this is a")
                             .font(.system(size: 40))
-                        Text("quaver")
+                        Text("semiquaver")
                             .font(.system(size: 80))
                             .bold()
                         Text("note")
@@ -41,7 +41,7 @@ struct RhythmNotesRestsLearn5View: View {
                 }
                 
                 HStack {
-                    NavigationLink(destination: RhythmNotesRestsLearn4View()) {
+                    NavigationLink(destination: RhythmNotesRestsLearn5View()) {
                         Text("back")
                             .padding()
                             .background(
@@ -53,7 +53,7 @@ struct RhythmNotesRestsLearn5View: View {
                             .font(.system(size: 25))
                     }
                     Spacer()
-                    NavigationLink(destination: RhythmNotesRestsLearn6View()) {
+                    NavigationLink(destination: RhythmNotesRestsLearn8View()) {
                         Text("next")
                             .padding()
                             .background(
@@ -73,8 +73,7 @@ struct RhythmNotesRestsLearn5View: View {
     }
 }
 
-struct RhythmNotesRestsLearn5View_Previews: PreviewProvider {
-    static var previews: some View {
-        RhythmNotesRestsLearn5View()
-    }
+#Preview {
+    RhythmNotesRestsLearn7View()
 }
+

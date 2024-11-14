@@ -19,7 +19,7 @@ struct RhythmNotesRestsLearnView: View {
     @State private var metronomeStopped: Bool = false
     
     func setupMetronome() {
-        if let soundURL = Bundle.main.url(forResource: "metronome", withExtension: "m4a") {
+        if let soundURL = Bundle.main.url(forResource: "metronome1", withExtension: "m4a") {
             metronomePlayer = try? AVAudioPlayer(contentsOf: soundURL)
             metronomePlayer?.numberOfLoops = -1
             metronomePlayer?.prepareToPlay()

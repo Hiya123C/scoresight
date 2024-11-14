@@ -1,47 +1,36 @@
 //
-//  RhythmNotesRestsLearn6View.swift
+//  RhythmNotesRestsReviewView.swift
 //  scoresight1
 //
-//  Created by T Krobot on 11/11/24.
+//  Created by Li Jiansheng on 9/11/24.
 //
 
 import SwiftUI
 
-struct RhythmNotesRestsLearn6View: View {
+struct RhythmNotesRestsReviewView: View {
     var body: some View {
         NavigationView {
             VStack {
                 HStack {
-                    Button(action: {
-                    }) {
-                        NavigationLink(destination: RhythmNotesRestsView()) {
-                            Image(systemName: "x.circle")
-                                .symbolRenderingMode(.palette)
-                                .foregroundStyle(.black, .white)
-                                .font(.system(size: 50))
-                        }
+                    NavigationLink(destination: RhythmNotesRestsView()) {
+                        Image(systemName: "x.circle")
+                            .symbolRenderingMode(.palette)
+                            .foregroundStyle(.black, .white)
+                            .font(.system(size: 50))
                     }
                     Spacer()
-                    
                 }
+                .padding([.leading, .top], 10)
+                Spacer()
+                Text("test your\nknowledge!")
+                    .fontWeight(.bold)
+                    .font(.system(size: 100))
+                    .environment(\._lineHeightMultiple, 0.75)
+                
+                Spacer()
                 
                 HStack {
-                    Image("quaver rest")
-                        .resizable()
-                        .scaledToFit()
-                    VStack(alignment: .trailing) {
-                        Text("this is a")
-                            .font(.system(size: 40))
-                        Text("quaver")
-                            .font(.system(size: 80))
-                            .bold()
-                        Text("rest")
-                            .font(.system(size: 40))
-                    }
-                }
-                
-                HStack {
-                    NavigationLink(destination: RhythmNotesRestsLearn5View()) {
+                    NavigationLink(destination: RhythmNotesRestsLearn13View()) {
                         Text("back")
                             .padding()
                             .background(
@@ -52,8 +41,11 @@ struct RhythmNotesRestsLearn6View: View {
                             .foregroundStyle(.black)
                             .font(.system(size: 25))
                     }
+                    
                     Spacer()
-                    NavigationLink(destination: RhythmNotesRestsLearn7View()) {
+                    
+                    Button(action: {
+                    }) {                    NavigationLink(destination: RhythmNotesRestsReview2View()){
                         Text("next")
                             .padding()
                             .background(
@@ -64,16 +56,16 @@ struct RhythmNotesRestsLearn6View: View {
                             .foregroundStyle(.black)
                             .font(.system(size: 25))
                     }
+                    }
                 }
-                .padding()
+                .padding([.leading, .trailing, .bottom], 20)
             }
             .navigationBarHidden(true)
         }
-        .navigationBarHidden(true)
+        .navigationBarBackButtonHidden(true)
     }
 }
 
 #Preview {
-    RhythmNotesRestsLearn6View()
+    RhythmNotesRestsReviewView()
 }
-
