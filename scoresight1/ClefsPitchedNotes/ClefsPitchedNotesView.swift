@@ -35,9 +35,11 @@ struct ClefsPitchedNotesView: View {
                         .font(.system(size: 30))
                         .foregroundStyle(.black)
                         .bold()
+                        .background (
                         RoundedRectangle(cornerRadius: 15)
                                 .stroke(.black, lineWidth: 3)
                                 .frame(width: 200, height: 50)
+                        )
                 }
                 .padding()
             }
