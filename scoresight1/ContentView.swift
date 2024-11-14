@@ -17,9 +17,9 @@ struct ContentView: View {
             Spacer()
         }
         // find out how to make the scrollview landscape
-        ScrollView {
-            VStack(alignment: .center) {
-                NavigationStack{
+        NavigationStack{
+            ScrollView {
+                VStack(alignment: .center) {
                     NavigationLink{
                         SheetMusicOrganisationView()
                     }label:{
@@ -132,10 +132,9 @@ struct ContentView: View {
                                     .frame(width: 350, height: 55)
                             )
                     }
-                }
-                
-            }.frame(maxWidth: .infinity, alignment: .center)
-                .navigationBarBackButtonHidden(true)
+                }.frame(maxWidth: .infinity, alignment: .center)
+                    .navigationBarBackButtonHidden(true)
+            }
         }
     }
 }
