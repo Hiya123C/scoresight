@@ -13,7 +13,7 @@ struct SheeMusicOrganisationReview6View: View {
             NavigationStack{
                 Spacer()
                 Text("Great job!")
-                    .font(.system(size: 80))
+                    .font(.system(size: 100))
                     .bold()
                     
                 

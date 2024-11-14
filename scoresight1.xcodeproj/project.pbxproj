@@ -26,6 +26,9 @@
 		316BA2E42CE1FAD100BAF59C /* KeySignaturesAccidentalsLearn13View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 316BA2C72CE1FAD000BAF59C /* KeySignaturesAccidentalsLearn13View.swift */; };
 		316BA2E52CE1FAD100BAF59C /* KeySignaturesAccidentalsLearn15View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 316BA2C92CE1FAD000BAF59C /* KeySignaturesAccidentalsLearn15View.swift */; };
 		316BA2E72CE47BFA00BAF59C /* ClefsPitchedNotesReview2View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 316BA2E62CE47BFA00BAF59C /* ClefsPitchedNotesReview2View.swift */; };
+		316BA2E92CE5CADD00BAF59C /* ClefsPitchedNotesReview3View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 316BA2E82CE5CADD00BAF59C /* ClefsPitchedNotesReview3View.swift */; };
+		316BA2EB2CE5CB9000BAF59C /* ClefsPitchedNotesReview4View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 316BA2EA2CE5CB9000BAF59C /* ClefsPitchedNotesReview4View.swift */; };
+		316BA2ED2CE5CDFC00BAF59C /* ClefsPitchedNotesReview5View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 316BA2EC2CE5CDFC00BAF59C /* ClefsPitchedNotesReview5View.swift */; };
 		31B8246F2CDF2DD50031E923 /* StartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31B8246E2CDF2DD50031E923 /* StartView.swift */; };
 		D900AC9A2CE1F6A800DC1959 /* SheetMusicOrganisationLearnView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D900AC912CE1F6A800DC1959 /* SheetMusicOrganisationLearnView.swift */; };
 		D900AC9B2CE1F6A800DC1959 /* SheetMusicOrganisationLearn2View.swift in Sources */ = {isa = PBXBuildFile; fileRef = D900AC922CE1F6A800DC1959 /* SheetMusicOrganisationLearn2View.swift */; };
@@ -130,6 +133,9 @@
 		316BA2CB2CE1FAD000BAF59C /* KeySignaturesAccidentalsReview1View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeySignaturesAccidentalsReview1View.swift; sourceTree = "<group>"; };
 		316BA2CF2CE1FAD000BAF59C /* KeySignaturesAccidentalsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeySignaturesAccidentalsView.swift; sourceTree = "<group>"; };
 		316BA2E62CE47BFA00BAF59C /* ClefsPitchedNotesReview2View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClefsPitchedNotesReview2View.swift; sourceTree = "<group>"; };
+		316BA2E82CE5CADD00BAF59C /* ClefsPitchedNotesReview3View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClefsPitchedNotesReview3View.swift; sourceTree = "<group>"; };
+		316BA2EA2CE5CB9000BAF59C /* ClefsPitchedNotesReview4View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClefsPitchedNotesReview4View.swift; sourceTree = "<group>"; };
+		316BA2EC2CE5CDFC00BAF59C /* ClefsPitchedNotesReview5View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClefsPitchedNotesReview5View.swift; sourceTree = "<group>"; };
 		31B8246E2CDF2DD50031E923 /* StartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartView.swift; sourceTree = "<group>"; };
 		D900AC912CE1F6A800DC1959 /* SheetMusicOrganisationLearnView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SheetMusicOrganisationLearnView.swift; sourceTree = "<group>"; };
 		D900AC922CE1F6A800DC1959 /* SheetMusicOrganisationLearn2View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SheetMusicOrganisationLearn2View.swift; sourceTree = "<group>"; };
@@ -319,6 +325,9 @@
 				D900ACC72CE1F6AD00DC1959 /* ClefsPitchedNotesLearn14View.swift */,
 				D900ACC82CE1F6AD00DC1959 /* ClefsPitchedNotesReview1View.swift */,
 				316BA2E62CE47BFA00BAF59C /* ClefsPitchedNotesReview2View.swift */,
+				316BA2E82CE5CADD00BAF59C /* ClefsPitchedNotesReview3View.swift */,
+				316BA2EA2CE5CB9000BAF59C /* ClefsPitchedNotesReview4View.swift */,
+				316BA2EC2CE5CDFC00BAF59C /* ClefsPitchedNotesReview5View.swift */,
 				D900ACCD2CE1F6AD00DC1959 /* ClefsPitchedNotesView.swift */,
 			);
 			path = ClefsPitchedNotes;
@@ -497,6 +506,7 @@
 				D900AC9A2CE1F6A800DC1959 /* SheetMusicOrganisationLearnView.swift in Sources */,
 				D900AC9B2CE1F6A800DC1959 /* SheetMusicOrganisationLearn2View.swift in Sources */,
 				316BA2E72CE47BFA00BAF59C /* ClefsPitchedNotesReview2View.swift in Sources */,
+				316BA2E92CE5CADD00BAF59C /* ClefsPitchedNotesReview3View.swift in Sources */,
 				D900AC9C2CE1F6A800DC1959 /* SheetMusicOrganisationLearn3View.swift in Sources */,
 				D900AC9D2CE1F6A800DC1959 /* SheetMusicOrganisationLearn4View.swift in Sources */,
 				D900AE202CE56BFD00DC1959 /* SheeMusicOrganisationReview6View.swift in Sources */,
@@ -525,8 +535,10 @@
 				D900ACD32CE1F6AD00DC1959 /* ClefsPitchedNotesLearn5View.swift in Sources */,
 				D900AD1D2CE1F6B000DC1959 /* ArticulationsOrnamentsLearn1View.swift in Sources */,
 				D900AD1E2CE1F6B000DC1959 /* ArticulationsOrnamentsLearn2View.swift in Sources */,
+				316BA2EB2CE5CB9000BAF59C /* ClefsPitchedNotesReview4View.swift in Sources */,
 				D900AE002CE1FCD400DC1959 /* SheetMusicOrganisationLearn7View.swift in Sources */,
 				D900AD1F2CE1F6B000DC1959 /* ArticulationsOrnamentsLearn3View.swift in Sources */,
+				316BA2ED2CE5CDFC00BAF59C /* ClefsPitchedNotesReview5View.swift in Sources */,
 				D900AD202CE1F6B000DC1959 /* ArticulationsOrnamentsLearn4View.swift in Sources */,
 				D900AD212CE1F6B000DC1959 /* ArticulationsOrnamentsLearn5View.swift in Sources */,
 				D900AD222CE1F6B000DC1959 /* ArticulationsOrnamentsLearn6View.swift in Sources */,

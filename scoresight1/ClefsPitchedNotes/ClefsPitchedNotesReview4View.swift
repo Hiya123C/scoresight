@@ -1,8 +1,13 @@
 //
+//  ClefsPitchedNotesReview4View.swift
+//  scoresight1
+//
+//  Created by Li Jiansheng on 14/11/24.
+//
 
 import SwiftUI
 
-struct SheetMusicOrganisationReview3View: View {
+struct ClefsPitchedNotesReview4View: View {
     
     @State private var selectedAnswer: String? = nil
     @State private var correctAnswer: Bool = false
@@ -14,7 +19,7 @@ struct SheetMusicOrganisationReview3View: View {
                 VStack {
                     HStack {
                         NavigationLink {
-                            SheetMusicOrganisationView()
+                            ClefsPitchedNotesView()
                         } label: {
                             Image(systemName: "x.circle")
                                 .symbolRenderingMode(.palette)
@@ -26,36 +31,30 @@ struct SheetMusicOrganisationReview3View: View {
                     Spacer()
                     
                     VStack {
-                        Text("Which direction should the stave be pointing at?")
+                        Text("Are there any octaves present in this bar?")
                             .font(.system(size: 40))
                         
-                        Image("treble A")
-                            .resizable()
-                            .scaledToFit()
-                        
                         HStack {
-                            Spacer()
-                            AnswerButton(label: "up", isSelected: selectedAnswer == "up", isCorrect: true) {
-                                selectedAnswer = "up"
-                                correctAnswer = true
-                                wrongAnswer = false
-                                print("correct")
+                            VStack {
+                                Spacer()
+                                AnswerButton(label: "yes", isSelected: selectedAnswer == "yes", isCorrect: false) {
+                                    selectedAnswer = "yes"
+                                    correctAnswer = false
+                                    wrongAnswer = true
+                                    print("wrong")
+                                }
+                                Spacer()
+                                AnswerButton(label: "no", isSelected: selectedAnswer == "no", isCorrect: true) {
+                                    selectedAnswer = "no"
+                                    correctAnswer = true
+                                    wrongAnswer = false
+                                    print("correct")
+                                }
+                                Spacer()
                             }
-                            Spacer()
-                            AnswerButton(label: "down", isSelected: selectedAnswer == "down", isCorrect: false) {
-                                selectedAnswer = "down"
-                                correctAnswer = false
-                                wrongAnswer = true
-                                print("wrong")
-                            }
-                            Spacer()
-                            AnswerButton(label: "up or down", isSelected: selectedAnswer == "up or down", isCorrect: false) {
-                                selectedAnswer = "up or down"
-                                correctAnswer = false
-                                wrongAnswer = true
-                                print("wrong")
-                            }
-                            Spacer()
+                            Image("cpn3")
+                                .resizable()
+                                .scaledToFit()
                         }
                     }
                     
@@ -64,7 +63,7 @@ struct SheetMusicOrganisationReview3View: View {
                         HStack {
                             Spacer()
                             NavigationLink {
-                                SheetMusicOrganisationReview4View()
+                                ClefsPitchedNotesReview5View()
                             } label: {
                                 Text("next")
                                     .padding()
@@ -78,10 +77,10 @@ struct SheetMusicOrganisationReview3View: View {
                             }
                         }
                         if correctAnswer {
-                            Text("Correct! The stave should be pointing up.")
+                            Text("Correct! None of the notes are eight notes apart.")
                                 .font(.system(size: 20))
                                 .foregroundColor(.green)
-                                
+                            
                                 .padding(.top, 10)
                         }
                         if wrongAnswer {
@@ -92,6 +91,8 @@ struct SheetMusicOrganisationReview3View: View {
                         }
                     }
                 }
+                
+                
             }
         }
         .navigationBarBackButtonHidden(true)
@@ -99,5 +100,5 @@ struct SheetMusicOrganisationReview3View: View {
 }
 
 #Preview {
-    SheetMusicOrganisationReview3View()
+    ClefsPitchedNotesReview4View()
 }

@@ -26,7 +26,7 @@ struct SheetMusicOrganisationReview5View: View {
                     
                     VStack {
                         Text("What is this?")
-                            .font(.system(size: 30))
+                            .font(.system(size: 40))
                         
                         Image("sharp")
                             .resizable()
