@@ -42,7 +42,7 @@ struct KeySignaturesAccidentalsReviewView: View {
                     
                 }
                 NavigationLink{
-//                    KeySignaturesAccidentalsView()
+                    KeySignaturesAccidentalsReview2View()
                 } label:{
                     Text("next")
                         .padding()

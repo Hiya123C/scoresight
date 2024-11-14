@@ -42,7 +42,7 @@ struct DynamicsReviewView: View {
                     
                 }
                 NavigationLink{
-//                    DynamicsView()
+                    DynamicsReview2View()
                 } label:{
                     Text("next")
                         .padding()

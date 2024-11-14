@@ -130,7 +130,7 @@ struct DynamicsLearnView: View {
             } onEditingChanged: { editing in
                 isEditing = editing
             }
-
+Text("Play around with the slider to see some common loud and soft dynamics!")
             HStack{
                 Spacer()
                 NavigationLink{

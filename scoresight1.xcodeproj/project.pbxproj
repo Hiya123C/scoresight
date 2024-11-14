@@ -33,6 +33,10 @@
 		316BA2F12CE5D31A00BAF59C /* KeySignaturesAccidentalsReview3View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 316BA2F02CE5D31A00BAF59C /* KeySignaturesAccidentalsReview3View.swift */; };
 		316BA2F32CE5D33300BAF59C /* KeySignaturesAccidentalsReview4View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 316BA2F22CE5D33300BAF59C /* KeySignaturesAccidentalsReview4View.swift */; };
 		316BA2F52CE5D34600BAF59C /* KeySignaturesAccidentalsReview5View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 316BA2F42CE5D34600BAF59C /* KeySignaturesAccidentalsReview5View.swift */; };
+		316BA2F72CE5DAAB00BAF59C /* DynamicsReview2View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 316BA2F62CE5DAAB00BAF59C /* DynamicsReview2View.swift */; };
+		316BA2F92CE5DAD900BAF59C /* DynamicsReview3View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 316BA2F82CE5DAD900BAF59C /* DynamicsReview3View.swift */; };
+		316BA2FB2CE5DAE900BAF59C /* DynamicsReview4View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 316BA2FA2CE5DAE900BAF59C /* DynamicsReview4View.swift */; };
+		316BA2FD2CE5DAF700BAF59C /* DynamicsReview5View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 316BA2FC2CE5DAF700BAF59C /* DynamicsReview5View.swift */; };
 		31B8246F2CDF2DD50031E923 /* StartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31B8246E2CDF2DD50031E923 /* StartView.swift */; };
 		D900AC9A2CE1F6A800DC1959 /* SheetMusicOrganisationLearnView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D900AC912CE1F6A800DC1959 /* SheetMusicOrganisationLearnView.swift */; };
 		D900AC9B2CE1F6A800DC1959 /* SheetMusicOrganisationLearn2View.swift in Sources */ = {isa = PBXBuildFile; fileRef = D900AC922CE1F6A800DC1959 /* SheetMusicOrganisationLearn2View.swift */; };
@@ -144,6 +148,10 @@
 		316BA2F02CE5D31A00BAF59C /* KeySignaturesAccidentalsReview3View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeySignaturesAccidentalsReview3View.swift; sourceTree = "<group>"; };
 		316BA2F22CE5D33300BAF59C /* KeySignaturesAccidentalsReview4View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeySignaturesAccidentalsReview4View.swift; sourceTree = "<group>"; };
 		316BA2F42CE5D34600BAF59C /* KeySignaturesAccidentalsReview5View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeySignaturesAccidentalsReview5View.swift; sourceTree = "<group>"; };
+		316BA2F62CE5DAAB00BAF59C /* DynamicsReview2View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DynamicsReview2View.swift; sourceTree = "<group>"; };
+		316BA2F82CE5DAD900BAF59C /* DynamicsReview3View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DynamicsReview3View.swift; sourceTree = "<group>"; };
+		316BA2FA2CE5DAE900BAF59C /* DynamicsReview4View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DynamicsReview4View.swift; sourceTree = "<group>"; };
+		316BA2FC2CE5DAF700BAF59C /* DynamicsReview5View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DynamicsReview5View.swift; sourceTree = "<group>"; };
 		31B8246E2CDF2DD50031E923 /* StartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartView.swift; sourceTree = "<group>"; };
 		D900AC912CE1F6A800DC1959 /* SheetMusicOrganisationLearnView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SheetMusicOrganisationLearnView.swift; sourceTree = "<group>"; };
 		D900AC922CE1F6A800DC1959 /* SheetMusicOrganisationLearn2View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SheetMusicOrganisationLearn2View.swift; sourceTree = "<group>"; };
@@ -369,6 +377,10 @@
 				D900ACF42CE1F6B000DC1959 /* DynamicsLearn7View.swift */,
 				D900ACF52CE1F6B000DC1959 /* DynamicsLearn8View.swift */,
 				D900ACF62CE1F6B000DC1959 /* DynamicsReview1View.swift */,
+				316BA2F62CE5DAAB00BAF59C /* DynamicsReview2View.swift */,
+				316BA2F82CE5DAD900BAF59C /* DynamicsReview3View.swift */,
+				316BA2FA2CE5DAE900BAF59C /* DynamicsReview4View.swift */,
+				316BA2FC2CE5DAF700BAF59C /* DynamicsReview5View.swift */,
 				D900ACFA2CE1F6B000DC1959 /* DynamicsView.swift */,
 			);
 			path = Dynamics;
@@ -531,6 +543,7 @@
 				D900ACAC2CE1F6AA00DC1959 /* RhythmNotesRestsLearn3View.swift in Sources */,
 				D900AE0A2CE34E3100DC1959 /* Sandbox1View.swift in Sources */,
 				D900ACAD2CE1F6AA00DC1959 /* RhythmNotesRestsLearn4View.swift in Sources */,
+				316BA2F92CE5DAD900BAF59C /* DynamicsReview3View.swift in Sources */,
 				D900ACAE2CE1F6AA00DC1959 /* RhythmNotesRestsLearn5View.swift in Sources */,
 				D900ACAF2CE1F6AA00DC1959 /* RhythmNotesRestsLearn6View.swift in Sources */,
 				D900ACB02CE1F6AA00DC1959 /* RhythmNotesRestsLearn1View.swift in Sources */,
@@ -547,6 +560,7 @@
 				316BA2F32CE5D33300BAF59C /* KeySignaturesAccidentalsReview4View.swift in Sources */,
 				D900ACD32CE1F6AD00DC1959 /* ClefsPitchedNotesLearn5View.swift in Sources */,
 				D900AD1D2CE1F6B000DC1959 /* ArticulationsOrnamentsLearn1View.swift in Sources */,
+				316BA2FD2CE5DAF700BAF59C /* DynamicsReview5View.swift in Sources */,
 				D900AD1E2CE1F6B000DC1959 /* ArticulationsOrnamentsLearn2View.swift in Sources */,
 				316BA2EB2CE5CB9000BAF59C /* ClefsPitchedNotesReview4View.swift in Sources */,
 				316BA2EF2CE5D2DA00BAF59C /* KeySignaturesAccidentalsReview2View.swift in Sources */,
@@ -578,6 +592,7 @@
 				316BA2E02CE1FAD100BAF59C /* KeySignaturesAccidentalsLearn9View.swift in Sources */,
 				316BA2E12CE1FAD100BAF59C /* KeySignaturesAccidentalsLearn11View.swift in Sources */,
 				316BA2E22CE1FAD100BAF59C /* KeySignaturesAccidentalsLearn2View.swift in Sources */,
+				316BA2FB2CE5DAE900BAF59C /* DynamicsReview4View.swift in Sources */,
 				316BA2E32CE1FAD100BAF59C /* KeySignaturesAccidentalsLearn12View.swift in Sources */,
 				D900AE142CE4450700DC1959 /* Note.swift in Sources */,
 				316BA2E42CE1FAD100BAF59C /* KeySignaturesAccidentalsLearn13View.swift in Sources */,
@@ -602,6 +617,7 @@
 				D900ACFD2CE1F6B000DC1959 /* DynamicsLearn2View.swift in Sources */,
 				D900ACFE2CE1F6B000DC1959 /* DynamicsLearn3View.swift in Sources */,
 				D900ACFF2CE1F6B000DC1959 /* DynamicsLearn4View.swift in Sources */,
+				316BA2F72CE5DAAB00BAF59C /* DynamicsReview2View.swift in Sources */,
 				D900AD002CE1F6B000DC1959 /* DynamicsLearn5View.swift in Sources */,
 				D900AD012CE1F6B000DC1959 /* DynamicsLearn6View.swift in Sources */,
 				D900AD022CE1F6B000DC1959 /* DynamicsLearn7View.swift in Sources */,
