@@ -4,6 +4,18 @@ import SwiftUI
 
 struct ContentView: View {
     var body: some View {
+        
+        HStack {
+            NavigationLink{
+                StartView()
+            }label:{
+                Image(systemName: "x.circle")
+                    .symbolRenderingMode(.palette)
+                    .foregroundStyle(.black, .white)
+                    .font(.system(size:50))
+            }
+            Spacer()
+        }
         // find out how to make the scrollview landscape
         ScrollView {
             NavigationLink{

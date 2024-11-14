@@ -20,7 +20,7 @@ struct ClefsPitchedNotesLearn9View: View {
             }
             Spacer()
         }
-        Text("Cows Do Eat Fresh\nGrass And Barley")
+        Text("**C**ows **D**o **E**at **F**resh\n**G**rass **A**nd **B**arley")
             .font(.system(size: 70))
             .frame(alignment: .center)
         // figure out the single bold letters in a word thing

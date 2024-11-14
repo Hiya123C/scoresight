@@ -20,10 +20,9 @@ struct KeySignaturesAccidentalsLearn5View: View {
             }
             Spacer()
         }
-        Text("Father Charles Goes\nDown And Ends Battle")
+        Text("**F**ather **C**harles **G**oes\n**D**own **A**nd **E**nds **B**attle")
             .font(.system(size: 70))
             .frame(alignment: .center)
-        // figure out the single bold letters in a word thing
         HStack{
             NavigationLink{
                 KeySignaturesAccidentalsLearn4View()
