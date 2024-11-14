@@ -31,8 +31,8 @@ struct DynamicsReview4View: View {
                     Spacer()
                     
                     VStack {
-                        Text("Which pedal should you press if you see the Ped. symbol?")
-                            .font(.system(size: 30))
+                        Text("What is the difference between sforzando and rinforzando?")
+                            .font(.system(size: 40))
 
                             }
                             Spacer()
@@ -42,7 +42,7 @@ struct DynamicsReview4View: View {
                                 wrongAnswer = false
                                 print("correct")
                             }
-                
+                            .padding()
                     // ask abt padding
                             Spacer()
                             AnswerButton(label: "sforzando (sfz) is played only for a given phrase while rinforzando (rfz) is played only for a beat", isSelected: selectedAnswer == "sforzando (sfz) is played only for a given phrase while rinforzando (rfz) is played only for a beat", isCorrect: false) {
