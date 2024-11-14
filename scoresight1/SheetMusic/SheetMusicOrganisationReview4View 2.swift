@@ -1,8 +1,6 @@
-//
-
 import SwiftUI
 
-struct SheetMusicOrganisationReview3View: View {
+struct SheetMusicOrganisationReview4View: View {
     @State private var selectedAnswer: String? = nil
     @State private var correctAnswer: Bool = false
     @State private var wrongAnswer: Bool = false
@@ -25,31 +23,38 @@ struct SheetMusicOrganisationReview3View: View {
                     Spacer()
                     
                     VStack {
-                        Text("Which direction should the stave be pointing at?")
+                        Text("What is this?")
                             .font(.system(size: 30))
                         
-                        Image("treble A")
+                        Image("treble")
                             .resizable()
                             .scaledToFit()
                         
                         HStack {
                             Spacer()
-                            AnswerButton(label: "up", isSelected: selectedAnswer == "up", isCorrect: true) {
-                                selectedAnswer = "up"
-                                correctAnswer = true
-                                wrongAnswer = false
-                                print("correct")
-                            }
-                            Spacer()
-                            AnswerButton(label: "down", isSelected: selectedAnswer == "down", isCorrect: false) {
-                                selectedAnswer = "down"
+                            AnswerButton(label: "key signature", isSelected: selectedAnswer == "key signature", isCorrect: false) {
+                                selectedAnswer = "key signature"
                                 correctAnswer = false
                                 wrongAnswer = true
                                 print("wrong")
                             }
                             Spacer()
-                            AnswerButton(label: "up or down", isSelected: selectedAnswer == "up or down", isCorrect: false) {
-                                selectedAnswer = "up or down"
+                            AnswerButton(label: "time signature", isSelected: selectedAnswer == "time signature", isCorrect: false) {
+                                selectedAnswer = "time signature"
+                                correctAnswer = false
+                                wrongAnswer = true
+                                print("wrong")
+                            }
+                            Spacer()
+                            AnswerButton(label: "clef", isSelected: selectedAnswer == "clef", isCorrect: true) {
+                                selectedAnswer = "clef"
+                                correctAnswer = true
+                                wrongAnswer = false
+                                print("correct")
+                            }
+                            Spacer()
+                            AnswerButton(label: "flat", isSelected: selectedAnswer == "flat", isCorrect: false) {
+                                selectedAnswer = "flat"
                                 correctAnswer = false
                                 wrongAnswer = true
                                 print("wrong")
@@ -77,10 +82,9 @@ struct SheetMusicOrganisationReview3View: View {
                             }
                         }
                         if correctAnswer {
-                            Text("Correct! The stave should be pointing up.")
+                            Text("Correct! It's a clef!")
                                 .font(.system(size: 20))
                                 .foregroundColor(.green)
-                                
                                 .padding(.top, 10)
                         }
                         if wrongAnswer {
@@ -98,5 +102,5 @@ struct SheetMusicOrganisationReview3View: View {
 }
 
 #Preview {
-    SheetMusicOrganisationReview3View()
+    SheetMusicOrganisationReview4View()
 }

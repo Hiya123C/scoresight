@@ -30,7 +30,7 @@ struct SheetMusicOrganisationReview1View: View {
                 Spacer()
                 
                 NavigationLink{
-                    SheetMusicOrganisationReview2View()
+                    SheetMusicOrganisationReview3View()
                 }label:{
                     Text("next")
                         .padding()

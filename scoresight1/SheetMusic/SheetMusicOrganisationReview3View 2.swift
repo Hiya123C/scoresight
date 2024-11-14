@@ -80,7 +80,6 @@ struct SheetMusicOrganisationReview3View: View {
                             Text("Correct! The stave should be pointing up.")
                                 .font(.system(size: 20))
                                 .foregroundColor(.green)
-                                
                                 .padding(.top, 10)
                         }
                         if wrongAnswer {

@@ -24,7 +24,7 @@ struct SheetMusicOrganisationReview4View: View {
                     
                     VStack {
                         Text("What is this?")
-                            .font(.system(size: 30))
+                            .font(.system(size: 40))
                         
                         Image("treble")
                             .resizable()
@@ -68,7 +68,7 @@ struct SheetMusicOrganisationReview4View: View {
                         HStack {
                             Spacer()
                             NavigationLink {
-                                SheetMusicOrganisationReview4View()
+                                SheetMusicOrganisationReview5View()
                             } label: {
                                 Text("next")
                                     .padding()
@@ -84,7 +84,7 @@ struct SheetMusicOrganisationReview4View: View {
                         if correctAnswer {
                             Text("Correct! It's a clef!")
                                 .font(.system(size: 20))
-                                .foregroundColor(.green)
+                                .foregroundColor(.black)
                                 .padding(.top, 10)
                         }
                         if wrongAnswer {

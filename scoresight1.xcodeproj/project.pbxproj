@@ -65,7 +65,6 @@
 		D900ACEA2CE1F6B000DC1959 /* Sandbox2View.swift in Sources */ = {isa = PBXBuildFile; fileRef = D900ACE42CE1F6B000DC1959 /* Sandbox2View.swift */; };
 		D900ACEB2CE1F6B000DC1959 /* SandboxView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D900ACE52CE1F6B000DC1959 /* SandboxView.swift */; };
 		D900ACEC2CE1F6B000DC1959 /* SandboxViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D900ACE62CE1F6B000DC1959 /* SandboxViewModel.swift */; };
-		D900ACED2CE1F6B000DC1959 /* SwiftUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D900ACE72CE1F6B000DC1959 /* SwiftUIView.swift */; };
 		D900ACFC2CE1F6B000DC1959 /* DynamicsLearn1View.swift in Sources */ = {isa = PBXBuildFile; fileRef = D900ACEE2CE1F6B000DC1959 /* DynamicsLearn1View.swift */; };
 		D900ACFD2CE1F6B000DC1959 /* DynamicsLearn2View.swift in Sources */ = {isa = PBXBuildFile; fileRef = D900ACEF2CE1F6B000DC1959 /* DynamicsLearn2View.swift */; };
 		D900ACFE2CE1F6B000DC1959 /* DynamicsLearn3View.swift in Sources */ = {isa = PBXBuildFile; fileRef = D900ACF02CE1F6B000DC1959 /* DynamicsLearn3View.swift */; };
@@ -102,6 +101,8 @@
 		D900AE162CE471E100DC1959 /* SheetMusicOrganisationReview3View.swift in Sources */ = {isa = PBXBuildFile; fileRef = D900AE152CE471E100DC1959 /* SheetMusicOrganisationReview3View.swift */; };
 		D900AE182CE47BD300DC1959 /* AnswerButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = D900AE172CE47BD300DC1959 /* AnswerButton.swift */; };
 		D900AE1A2CE48EE900DC1959 /* SheetMusicOrganisationReview4View.swift in Sources */ = {isa = PBXBuildFile; fileRef = D900AE192CE48EE900DC1959 /* SheetMusicOrganisationReview4View.swift */; };
+		D900AE1C2CE4E11800DC1959 /* SheetMusicOrganisationReview5View.swift in Sources */ = {isa = PBXBuildFile; fileRef = D900AE1B2CE4E11800DC1959 /* SheetMusicOrganisationReview5View.swift */; };
+		D900AE202CE56BFD00DC1959 /* SheeMusicOrganisationReview6View.swift in Sources */ = {isa = PBXBuildFile; fileRef = D900AE1F2CE56BFD00DC1959 /* SheeMusicOrganisationReview6View.swift */; };
 		D9C232342CE0D8280032674D /* metronome.m4a in Resources */ = {isa = PBXBuildFile; fileRef = D9C232332CE0D8280032674D /* metronome.m4a */; };
 		D9E035FB2CDF12AC00220F1F /* scoresight1App.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9E035FA2CDF12AC00220F1F /* scoresight1App.swift */; };
 		D9E035FD2CDF12AC00220F1F /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9E035FC2CDF12AC00220F1F /* ContentView.swift */; };
@@ -168,7 +169,6 @@
 		D900ACE42CE1F6B000DC1959 /* Sandbox2View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sandbox2View.swift; sourceTree = "<group>"; };
 		D900ACE52CE1F6B000DC1959 /* SandboxView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SandboxView.swift; sourceTree = "<group>"; };
 		D900ACE62CE1F6B000DC1959 /* SandboxViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SandboxViewModel.swift; sourceTree = "<group>"; };
-		D900ACE72CE1F6B000DC1959 /* SwiftUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUIView.swift; sourceTree = "<group>"; };
 		D900ACEE2CE1F6B000DC1959 /* DynamicsLearn1View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DynamicsLearn1View.swift; sourceTree = "<group>"; };
 		D900ACEF2CE1F6B000DC1959 /* DynamicsLearn2View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DynamicsLearn2View.swift; sourceTree = "<group>"; };
 		D900ACF02CE1F6B000DC1959 /* DynamicsLearn3View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DynamicsLearn3View.swift; sourceTree = "<group>"; };
@@ -205,6 +205,8 @@
 		D900AE152CE471E100DC1959 /* SheetMusicOrganisationReview3View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SheetMusicOrganisationReview3View.swift; sourceTree = "<group>"; };
 		D900AE172CE47BD300DC1959 /* AnswerButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnswerButton.swift; sourceTree = "<group>"; };
 		D900AE192CE48EE900DC1959 /* SheetMusicOrganisationReview4View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SheetMusicOrganisationReview4View.swift; sourceTree = "<group>"; };
+		D900AE1B2CE4E11800DC1959 /* SheetMusicOrganisationReview5View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SheetMusicOrganisationReview5View.swift; sourceTree = "<group>"; };
+		D900AE1F2CE56BFD00DC1959 /* SheeMusicOrganisationReview6View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SheeMusicOrganisationReview6View.swift; sourceTree = "<group>"; };
 		D9C232332CE0D8280032674D /* metronome.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = metronome.m4a; sourceTree = "<group>"; };
 		D9E035F72CDF12AC00220F1F /* scoresight1.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = scoresight1.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D9E035FA2CDF12AC00220F1F /* scoresight1App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = scoresight1App.swift; sourceTree = "<group>"; };
@@ -267,6 +269,8 @@
 				D900AE072CE221D500DC1959 /* SheetMusicOrganisationReview2View.swift */,
 				D900AE152CE471E100DC1959 /* SheetMusicOrganisationReview3View.swift */,
 				D900AE192CE48EE900DC1959 /* SheetMusicOrganisationReview4View.swift */,
+				D900AE1B2CE4E11800DC1959 /* SheetMusicOrganisationReview5View.swift */,
+				D900AE1F2CE56BFD00DC1959 /* SheeMusicOrganisationReview6View.swift */,
 			);
 			path = SheetMusic;
 			sourceTree = "<group>";
@@ -328,7 +332,6 @@
 				D900ACE42CE1F6B000DC1959 /* Sandbox2View.swift */,
 				D900ACE52CE1F6B000DC1959 /* SandboxView.swift */,
 				D900ACE62CE1F6B000DC1959 /* SandboxViewModel.swift */,
-				D900ACE72CE1F6B000DC1959 /* SwiftUIView.swift */,
 			);
 			path = Sandbox;
 			sourceTree = "<group>";
@@ -496,6 +499,7 @@
 				316BA2E72CE47BFA00BAF59C /* ClefsPitchedNotesReview2View.swift in Sources */,
 				D900AC9C2CE1F6A800DC1959 /* SheetMusicOrganisationLearn3View.swift in Sources */,
 				D900AC9D2CE1F6A800DC1959 /* SheetMusicOrganisationLearn4View.swift in Sources */,
+				D900AE202CE56BFD00DC1959 /* SheeMusicOrganisationReview6View.swift in Sources */,
 				D900AE082CE221D500DC1959 /* SheetMusicOrganisationReview2View.swift in Sources */,
 				D900AC9E2CE1F6A800DC1959 /* SheetMusicOrganisationLearn5View.swift in Sources */,
 				D900AC9F2CE1F6A800DC1959 /* SheetMusicOrganisationLearn6View.swift in Sources */,
@@ -513,7 +517,6 @@
 				D900ACEA2CE1F6B000DC1959 /* Sandbox2View.swift in Sources */,
 				D900ACEB2CE1F6B000DC1959 /* SandboxView.swift in Sources */,
 				D900ACEC2CE1F6B000DC1959 /* SandboxViewModel.swift in Sources */,
-				D900ACED2CE1F6B000DC1959 /* SwiftUIView.swift in Sources */,
 				D900AE162CE471E100DC1959 /* SheetMusicOrganisationReview3View.swift in Sources */,
 				D900ACCF2CE1F6AD00DC1959 /* ClefsPitchedNotesLearn1View.swift in Sources */,
 				D900ACD02CE1F6AD00DC1959 /* ClefsPitchedNotesLearn2View.swift in Sources */,
@@ -558,6 +561,7 @@
 				D900AD2B2CE1F6B000DC1959 /* ArticulationsOrnamentsReview1View.swift in Sources */,
 				D900AD2F2CE1F6B000DC1959 /* ArticulationsOrnamentsView.swift in Sources */,
 				D900ACD42CE1F6AD00DC1959 /* ClefsPitchedNotesLearn6View.swift in Sources */,
+				D900AE1C2CE4E11800DC1959 /* SheetMusicOrganisationReview5View.swift in Sources */,
 				D900ACD52CE1F6AD00DC1959 /* ClefsPitchedNotesLearn7View.swift in Sources */,
 				D900ACD62CE1F6AD00DC1959 /* ClefsPitchedNotesLearn8View.swift in Sources */,
 				D900ACD72CE1F6AD00DC1959 /* ClefsPitchedNotesLearn9View.swift in Sources */,

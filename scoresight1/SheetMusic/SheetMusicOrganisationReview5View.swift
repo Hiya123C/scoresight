@@ -2,7 +2,7 @@
 
 import SwiftUI
 
-struct SheetMusicOrganisationReview3View: View {
+struct SheetMusicOrganisationReview5View: View {
     @State private var selectedAnswer: String? = nil
     @State private var correctAnswer: Bool = false
     @State private var wrongAnswer: Bool = false
@@ -25,31 +25,38 @@ struct SheetMusicOrganisationReview3View: View {
                     Spacer()
                     
                     VStack {
-                        Text("Which direction should the stave be pointing at?")
+                        Text("What is this?")
                             .font(.system(size: 30))
                         
-                        Image("treble A")
+                        Image("sharp")
                             .resizable()
                             .scaledToFit()
                         
                         HStack {
                             Spacer()
-                            AnswerButton(label: "up", isSelected: selectedAnswer == "up", isCorrect: true) {
-                                selectedAnswer = "up"
-                                correctAnswer = true
-                                wrongAnswer = false
-                                print("correct")
-                            }
-                            Spacer()
-                            AnswerButton(label: "down", isSelected: selectedAnswer == "down", isCorrect: false) {
-                                selectedAnswer = "down"
+                            AnswerButton(label: "time signature", isSelected: selectedAnswer == "time signature", isCorrect: false) {
+                                selectedAnswer = "time signature"
                                 correctAnswer = false
                                 wrongAnswer = true
                                 print("wrong")
                             }
                             Spacer()
-                            AnswerButton(label: "up or down", isSelected: selectedAnswer == "up or down", isCorrect: false) {
-                                selectedAnswer = "up or down"
+                            AnswerButton(label: "sharp", isSelected: selectedAnswer == "sharp", isCorrect: true) {
+                                selectedAnswer = "sharp"
+                                correctAnswer = true
+                                wrongAnswer = false
+                                print("true")
+                            }
+                            Spacer()
+                            AnswerButton(label: "tempo marking", isSelected: selectedAnswer == "tempo marking", isCorrect: false) {
+                                selectedAnswer = "tempo marking"
+                                correctAnswer = false
+                                wrongAnswer = true
+                                print("correct")
+                            }
+                            Spacer()
+                            AnswerButton(label: "bass", isSelected: selectedAnswer == "bass", isCorrect: false) {
+                                selectedAnswer = "bass"
                                 correctAnswer = false
                                 wrongAnswer = true
                                 print("wrong")
@@ -63,7 +70,7 @@ struct SheetMusicOrganisationReview3View: View {
                         HStack {
                             Spacer()
                             NavigationLink {
-                                SheetMusicOrganisationReview4View()
+                                SheetMusicOrganisationReview5View()
                             } label: {
                                 Text("next")
                                     .padding()
@@ -77,10 +84,9 @@ struct SheetMusicOrganisationReview3View: View {
                             }
                         }
                         if correctAnswer {
-                            Text("Correct! The stave should be pointing up.")
+                            Text("Correct! It's a sharp!")
                                 .font(.system(size: 20))
                                 .foregroundColor(.green)
-                                
                                 .padding(.top, 10)
                         }
                         if wrongAnswer {
@@ -98,5 +104,5 @@ struct SheetMusicOrganisationReview3View: View {
 }
 
 #Preview {
-    SheetMusicOrganisationReview3View()
+    SheetMusicOrganisationReview5View()
 }

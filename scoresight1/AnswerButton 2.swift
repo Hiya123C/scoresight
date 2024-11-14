@@ -10,7 +10,7 @@ struct AnswerButton: View {
         Button(action: action) {
             Text(label)
                 .padding()
-                .foregroundColor(isSelected ? .black : .black)
+                .foregroundColor(isSelected ? .white : .black)
                 .font(.system(size: 25))
                 .background(
                     RoundedRectangle(cornerRadius: 10)
