@@ -9,10 +9,7 @@ import SwiftUI
 
 struct KeySignaturesAccidentalsLearn7View: View {
     
-    let sharps = ["F", "C", "G", "D", "A", "E", "B"]
     let timer = Timer.publish(every: 1.0, on: .main, in: .common).autoconnect()
-    @State private var counter = 0
-    // ask how to make them appear at a specific place
     
     var body: some View {
         VStack {
@@ -32,24 +29,8 @@ struct KeySignaturesAccidentalsLearn7View: View {
                 Image("treble sharp")
                     .resizable()
                     .scaledToFit()
-                HStack {
-                    ForEach(0...counter, id: \.self) { index in
-                        Text(sharps[index])
-                            .font(.largeTitle)
-                            .bold()
-                            .foregroundStyle(.red)
+                
                     }
-                }
-                .onReceive(timer) { _ in
-                    withAnimation {
-                        if counter < sharps.count - 1 {
-                            counter = counter + 1
-                        } else {
-                            timer.upstream.connect().cancel()
-                        }
-                    }
-                }
-            }
                 HStack{
                     NavigationLink{
                         KeySignaturesAccidentalsLearn6View()
