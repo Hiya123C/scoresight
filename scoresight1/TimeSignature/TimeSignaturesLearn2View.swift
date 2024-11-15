@@ -6,6 +6,9 @@
 //
 
 import SwiftUI
+import AVFoundation
+
+private let synthesizer = AVSpeechSynthesizer()
 
 struct TimeSignaturesLearn2View: View {
     var body: some View {
@@ -23,18 +26,18 @@ struct TimeSignaturesLearn2View: View {
                     Spacer()
                 }
                 .padding([.top, .leading])
-
+                
                 HStack {
                     Image("44")
                         .resizable()
                         .scaledToFit()
-
+                    
                     Image("four crochets")
                         .resizable()
                         .scaledToFit()
                 }
                 .padding()
-
+                
                 HStack {
                     NavigationLink(destination: TimeSignaturesLearnView()) {
                         Text("back")
@@ -48,7 +51,14 @@ struct TimeSignaturesLearn2View: View {
                             .font(.system(size: 25))
                     }
                     Spacer()
-                    NavigationLink(destination:  TimeSignaturesLearn3View()) {
+                    Button(action: {
+                        replayAudio()
+                    }) {
+                        Image(systemName: "speaker.wave.2.fill")
+                            .font(.system(size: 30))
+                            .foregroundStyle(.black)
+                    }
+                    NavigationLink(destination: TimeSignaturesLearn3View()) {
                         Text("next")
                             .padding()
                             .frame(width: 100, height: 50)
@@ -63,8 +73,29 @@ struct TimeSignaturesLearn2View: View {
                 .padding(.horizontal)
             }
             .navigationBarHidden(true)
+            .onAppear {
+                speakText("The numerator represents the number of note value in a bar. In this case, there are 4 crotchets this bar")
+            }
+            .onDisappear {
+                stopAudio()
+            }
+            .navigationBarHidden(true)
         }
         .navigationBarHidden(true)
+    }
+    private func speakText(_ text: String) {
+        let utterance = AVSpeechUtterance(string: text)
+        utterance.voice = AVSpeechSynthesisVoice(language: "en-US")
+        utterance.rate = 0.5
+        synthesizer.speak(utterance)
+    }
+
+    private func replayAudio() {
+        speakText("The time signature with a C and a slash is called cut time, but it also represents 2/2.")
+    }
+    
+    private func stopAudio() {
+        synthesizer.stopSpeaking(at: .immediate)
     }
 }
 

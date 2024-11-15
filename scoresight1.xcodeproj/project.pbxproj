@@ -142,6 +142,7 @@
 		D900AE642CE706D600DC1959 /* TimeSignaturesReview2View.swift in Sources */ = {isa = PBXBuildFile; fileRef = D900AE632CE706D300DC1959 /* TimeSignaturesReview2View.swift */; };
 		D900AE662CE7071200DC1959 /* TimeSignaturesReview3View.swift in Sources */ = {isa = PBXBuildFile; fileRef = D900AE652CE7071000DC1959 /* TimeSignaturesReview3View.swift */; };
 		D900AE682CE7076C00DC1959 /* TimeSignaturesReview4View.swift in Sources */ = {isa = PBXBuildFile; fileRef = D900AE672CE7076000DC1959 /* TimeSignaturesReview4View.swift */; };
+		D900AE6C2CE72C5800DC1959 /* timesignaturesquestion1.m4a in Resources */ = {isa = PBXBuildFile; fileRef = D900AE6B2CE72C5800DC1959 /* timesignaturesquestion1.m4a */; };
 		D9C232342CE0D8280032674D /* metronome.m4a in Resources */ = {isa = PBXBuildFile; fileRef = D9C232332CE0D8280032674D /* metronome.m4a */; };
 		D9E035FB2CDF12AC00220F1F /* scoresight1App.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9E035FA2CDF12AC00220F1F /* scoresight1App.swift */; };
 		D9E035FD2CDF12AC00220F1F /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9E035FC2CDF12AC00220F1F /* ContentView.swift */; };
@@ -285,6 +286,7 @@
 		D900AE632CE706D300DC1959 /* TimeSignaturesReview2View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeSignaturesReview2View.swift; sourceTree = "<group>"; };
 		D900AE652CE7071000DC1959 /* TimeSignaturesReview3View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeSignaturesReview3View.swift; sourceTree = "<group>"; };
 		D900AE672CE7076000DC1959 /* TimeSignaturesReview4View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeSignaturesReview4View.swift; sourceTree = "<group>"; };
+		D900AE6B2CE72C5800DC1959 /* timesignaturesquestion1.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = timesignaturesquestion1.m4a; sourceTree = "<group>"; };
 		D9C232332CE0D8280032674D /* metronome.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = metronome.m4a; sourceTree = "<group>"; };
 		D9E035F72CDF12AC00220F1F /* scoresight1.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = scoresight1.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D9E035FA2CDF12AC00220F1F /* scoresight1App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = scoresight1App.swift; sourceTree = "<group>"; };
@@ -534,6 +536,7 @@
 			children = (
 				D9C232332CE0D8280032674D /* metronome.m4a */,
 				D900AE5B2CE5D37F00DC1959 /* metronome1.m4a */,
+				D900AE6B2CE72C5800DC1959 /* timesignaturesquestion1.m4a */,
 				D9E036012CDF12AD00220F1F /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
@@ -597,6 +600,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D900AE6C2CE72C5800DC1959 /* timesignaturesquestion1.m4a in Resources */,
 				D9E036022CDF12AD00220F1F /* Preview Assets.xcassets in Resources */,
 				D900AE5C2CE5D37F00DC1959 /* metronome1.m4a in Resources */,
 				D9C232342CE0D8280032674D /* metronome.m4a in Resources */,

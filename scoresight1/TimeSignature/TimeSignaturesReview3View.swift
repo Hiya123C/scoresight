@@ -35,17 +35,17 @@ struct TimeSignaturesReview3View: View {
                         .font(.system(size: 29))
                         .multilineTextAlignment(.center)
                         .padding()
-                    HStack{
+                    HStack(spacing:50){
                         HStack(spacing: 20) {
-                            AnswerButton1(imageName: "24", isSelected: selectedAnswer == "24", isCorrect: false) {
+                            AnswerButton1(imageName: "24", isSelected: selectedAnswer == "24", isCorrect: true) {
                                 selectedAnswer = "24"
-                                correctAnswer = false
-                                wrongAnswer = true
-                            }
-                            AnswerButton1(imageName: "34", isSelected: selectedAnswer == "34", isCorrect: true) {
-                                selectedAnswer = "34"
                                 correctAnswer = true
                                 wrongAnswer = false
+                            }
+                            AnswerButton1(imageName: "34", isSelected: selectedAnswer == "34", isCorrect: false) {
+                                selectedAnswer = "34"
+                                correctAnswer = false
+                                wrongAnswer = true
                             }
                             AnswerButton1(imageName: "cut time", isSelected: selectedAnswer == "cut time", isCorrect: false) {
                                 selectedAnswer = "cut time"
@@ -60,10 +60,6 @@ struct TimeSignaturesReview3View: View {
                                 .scaledToFit()
                                 .frame(width: 50, height: 80)
                             Image("crochet rest")
-                                .resizable()
-                                .scaledToFit()
-                                .frame(width: 50, height: 80)
-                            Image("crochet")
                                 .resizable()
                                 .scaledToFit()
                                 .frame(width: 50, height: 80)

@@ -8,6 +8,8 @@
 import SwiftUI
 import AVFoundation
 
+private let synthesizer = AVSpeechSynthesizer()
+
 struct TimeSignaturesLearn9View: View {
     // Timer properties
     @State private var currentBeat = 0
@@ -32,7 +34,7 @@ struct TimeSignaturesLearn9View: View {
             VStack {
                 // Header with close button, title, and skip button
                 HStack {
-                    NavigationLink(destination: TimeSignaturesReviewView()) {
+                    NavigationLink(destination: TimeSignaturesView()) {
                         Image(systemName: "x.circle")
                             .symbolRenderingMode(.palette)
                             .foregroundStyle(.black, .white)
@@ -44,13 +46,19 @@ struct TimeSignaturesLearn9View: View {
                         .foregroundColor(.black)
                     Spacer()
                     
-                    // Button that triggers navigation to TimeSignaturesReviewView on tap
-                    Button(action: {
-                        navigateToReview = true // Set state to trigger navigation
-                    }) {
-                        Text("Skip")
-                            .foregroundColor(.black)
-                            .font(.headline)
+                    // Speaker and Skip buttons
+                    HStack {
+                        Button(action: { replayAudio() }) {
+                            Image(systemName: "speaker.wave.2.fill")
+                                .font(.system(size: 30))
+                                .foregroundStyle(.black)
+                                .padding(.trailing, 10)
+                        }
+                        Button("Skip") {
+                            navigateToReview = true // Set state to trigger navigation
+                        }
+                        .foregroundColor(.black)
+                        .font(.headline)
                     }
                 }
                 .padding(.horizontal)
@@ -73,7 +81,7 @@ struct TimeSignaturesLearn9View: View {
                     HStack(spacing: 24) {
                         ForEach(0..<beatsInMeasure, id: \.self) { index in
                             ZStack {
-                                // Circle starts as white and turns yellow on tap
+                                // Circle starts as white and turns green or red based on tap
                                 Circle()
                                     .fill(tappedCircles[index] == nil ? Color.white : (tappedCircles[index] == "Perfect" ? Color.green : Color.red))
                                     .frame(width: onBeats.contains(index) ? 100 : 50, height: onBeats.contains(index) ? 100 : 50)
@@ -116,12 +124,16 @@ struct TimeSignaturesLearn9View: View {
             }
             .navigationBarHidden(true)
             .navigationBarBackButtonHidden(true)
+            .onAppear {
+                speakText("Here’s a tutorial to differentiate on beat and off beat notes. The largest circles represent the on-beats. The smaller circles represent off beats. Tap on all on beats! Do not tap on off beats. Press skip to go to the review.")
+            }
             .onReceive(metronomeTimer) { _ in
-                if metronomeStarted && beatCount < beatsInMeasure { // Only play for the first 6 beats
+                if metronomeStarted && beatCount < beatsInMeasure {
                     playMetronomeSound()
                     advanceBeat()
                 } else if beatCount >= beatsInMeasure {
                     metronomeTimer.upstream.connect().cancel() // Stop the timer after 6 beats
+                    beatCount = 0 // Reset beat count for the next session
                 }
             }
             // Navigate to the TimeSignaturesReviewView when navigateToReview is true
@@ -157,6 +169,17 @@ struct TimeSignaturesLearn9View: View {
     func advanceBeat() {
         currentBeat = (currentBeat + 1) % beatsInMeasure
         beatCount += 1 // Increment beat counter
+    }
+    
+    private func speakText(_ text: String) {
+        let utterance = AVSpeechUtterance(string: text)
+        utterance.voice = AVSpeechSynthesisVoice(language: "en-US")
+        utterance.rate = 0.5
+        synthesizer.speak(utterance)
+    }
+
+    private func replayAudio() {
+        speakText("Here’s a tutorial to differentiate on beat and off beat notes. The largest circles represent the on-beats. The smaller circles represent off beats. Tap on all on beats! Do not tap on off beats. Press skip to go to the review.")
     }
 }
 

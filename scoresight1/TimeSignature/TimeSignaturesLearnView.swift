@@ -26,7 +26,7 @@ struct TimeSignaturesLearnView: View {
                     Spacer()
                 }
                 .padding([.top, .leading])
-
+                
                 HStack {
                     Image("44")
                         .resizable()
@@ -44,7 +44,7 @@ struct TimeSignaturesLearnView: View {
                     }
                 }
                 .padding()
-
+                
                 HStack {
                     Spacer()
                     Button(action: {
@@ -55,7 +55,7 @@ struct TimeSignaturesLearnView: View {
                             .foregroundStyle(.black)
                             .padding(.trailing, 10)
                     }
-
+                    
                     NavigationLink(destination: TimeSignaturesLearn3View()) {
                         Text("next")
                             .padding()
@@ -74,6 +74,10 @@ struct TimeSignaturesLearnView: View {
             .onAppear {
                 speakText("This is the time signature 4/4. The number below determines the type of note value. In this case, 4 represents a crotchet!")
             }
+            .onDisappear {
+                stopAudio()
+            }
+            .navigationBarHidden(true)
         }
         .navigationBarHidden(true)
     }
@@ -88,8 +92,11 @@ struct TimeSignaturesLearnView: View {
     private func replayAudio() {
         speakText("This is the time signature 4/4. The number below determines the type of note value. In this case, 4 represents a crotchet!")
     }
+    
+    private func stopAudio() {
+        synthesizer.stopSpeaking(at: .immediate)
+    }
 }
-
 #Preview {
     TimeSignaturesLearnView()
 }

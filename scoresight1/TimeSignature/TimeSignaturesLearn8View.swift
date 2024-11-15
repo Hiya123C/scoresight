@@ -6,7 +6,8 @@
 //
 
 import SwiftUI
-
+import AVFoundation
+private let synthesizer = AVSpeechSynthesizer()
 struct TimeSignaturesLearn8View: View {
     @State private var topNumber: Int = 3
     
@@ -82,7 +83,13 @@ struct TimeSignaturesLearn8View: View {
                     }
                     
                     Spacer()
-                    
+                    Button(action: {
+                        replayAudio()
+                    }) {
+                        Image(systemName: "speaker.wave.2.fill")
+                            .font(.system(size: 30))
+                            .foregroundStyle(.black)
+                    }
                     NavigationLink(destination: TimeSignaturesLearn9View()) {
                         Text("next")
                             .padding()
@@ -97,9 +104,29 @@ struct TimeSignaturesLearn8View: View {
                 }
                 .padding()
             }
+            .onAppear {
+                speakText(" Find out how the bar changes when you press the plus and minus buttons! The limit is 3 to 8")
+            }
+            .onDisappear {
+                stopAudio()
+            }
             .padding()
         }
         .navigationBarHidden(true)
+    }
+    private func speakText(_ text: String) {
+        let utterance = AVSpeechUtterance(string: text)
+        utterance.voice = AVSpeechSynthesisVoice(language: "en-US")
+        utterance.rate = 0.5
+        synthesizer.speak(utterance)
+    }
+
+    private func replayAudio() {
+        speakText(" Find out how the bar changes when you press the plus and minus buttons! The limit is 3 to 8")
+    }
+    
+    private func stopAudio() {
+        synthesizer.stopSpeaking(at: .immediate)
     }
 }
 
