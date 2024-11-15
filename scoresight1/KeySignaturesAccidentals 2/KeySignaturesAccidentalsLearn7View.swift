@@ -8,9 +8,6 @@
 import SwiftUI
 
 struct KeySignaturesAccidentalsLearn7View: View {
-    
-    let timer = Timer.publish(every: 1.0, on: .main, in: .common).autoconnect()
-    
     var body: some View {
         VStack {
             HStack {
@@ -29,7 +26,27 @@ struct KeySignaturesAccidentalsLearn7View: View {
                 Image("treble sharp")
                     .resizable()
                     .scaledToFit()
-                
+                Image("treble sharp f")
+                    .resizable()
+                    .scaledToFit()
+                Image("treble sharp c")
+                    .resizable()
+                    .scaledToFit()
+                Image("treble sharp g")
+                    .resizable()
+                    .scaledToFit()
+                Image("treble sharp d")
+                    .resizable()
+                    .scaledToFit()
+                Image("treble sharp a")
+                    .resizable()
+                    .scaledToFit()
+                Image("treble sharp e")
+                    .resizable()
+                    .scaledToFit()
+                Image("treble sharp b")
+                    .resizable()
+                    .scaledToFit()
                     }
                 HStack{
                     NavigationLink{
