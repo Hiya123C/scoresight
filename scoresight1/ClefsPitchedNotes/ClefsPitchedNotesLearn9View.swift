@@ -6,6 +6,9 @@
 //
 
 import SwiftUI
+import AVFoundation
+
+private let synthesizer = AVSpeechSynthesizer()
 
 struct ClefsPitchedNotesLearn9View: View {
     var body: some View {
@@ -23,7 +26,7 @@ struct ClefsPitchedNotesLearn9View: View {
         Text("**C**ows **D**o **E**at **F**resh\n**G**rass **A**nd **B**arley")
             .font(.system(size: 70))
             .frame(alignment: .center)
-        // figure out the single bold letters in a word thing
+
         HStack{
             NavigationLink{
                 ClefsPitchedNotesLearn8View()
@@ -39,7 +42,13 @@ struct ClefsPitchedNotesLearn9View: View {
                     .foregroundStyle(.black)
                     .font(.system(size: 25))
                 Spacer()
-                
+                Button(action: {
+                    replayAudio()
+                }) {
+                    Image(systemName: "speaker.wave.2.fill")
+                        .font(.system(size: 30))
+                        .foregroundStyle(.black)
+                }
             }
             NavigationLink{
                 ClefsPitchedNotesLearn10View()
@@ -57,8 +66,29 @@ struct ClefsPitchedNotesLearn9View: View {
                 
                 
             }
+            .padding(.horizontal)
         }
-        .navigationBarBackButtonHidden(true)
+        .onAppear {
+            speakText("There are seven different pitched notes. C, D, E, F, G, A and B. their order of pitch can be remembered by the phrase “cows do eat fresh grass and barley”.")
+        }
+        .onDisappear {
+            stopAudio()
+        }
+        .navigationBarHidden(true)
+    }
+    private func speakText(_ text: String) {
+        let utterance = AVSpeechUtterance(string: text)
+        utterance.voice = AVSpeechSynthesisVoice(language: "en-US")
+        utterance.rate = 0.5
+        synthesizer.speak(utterance)
+    }
+    
+    private func replayAudio() {
+        speakText("There are seven different pitched notes. C, D, E, F, G, A and B. their order of pitch can be remembered by the phrase “cows do eat fresh grass and barley”.")
+    }
+    
+    private func stopAudio() {
+        synthesizer.stopSpeaking(at: .immediate)
     }
 }
 

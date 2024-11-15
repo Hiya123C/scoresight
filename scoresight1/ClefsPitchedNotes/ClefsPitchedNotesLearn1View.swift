@@ -6,9 +6,11 @@
 //
 
 import SwiftUI
+import AVFoundation
+
+private let synthesizer = AVSpeechSynthesizer()
 
 struct ClefsPitchedNotesLearnView: View {
-    // ask why i can't press the buttons
     var body: some View {
         VStack {
             HStack {
@@ -39,6 +41,13 @@ struct ClefsPitchedNotesLearnView: View {
             }
                 HStack{
                     Spacer()
+                    Button(action: {
+                        replayAudio()
+                    }) {
+                        Image(systemName: "speaker.wave.2.fill")
+                            .font(.system(size: 30))
+                            .foregroundStyle(.black)
+                    }
                     NavigationLink{
                         ClefsPitchedNotesLearn2View()
                     }label:{
@@ -55,9 +64,30 @@ struct ClefsPitchedNotesLearnView: View {
                         
                     }
                 }
-        }
-        .navigationBarBackButtonHidden(true)
+                .padding(.horizontal)
+            }
+            .onAppear {
+                speakText("This is a treble clef. it is usually used as the clef for the righthanded bars of piano and other common instruments such as violin, guitar, oboe, trumpet and clarinet.")
+            }
+            .onDisappear {
+                stopAudio()
+            }
+            .navigationBarHidden(true)
     }
+    private func speakText(_ text: String) {
+        let utterance = AVSpeechUtterance(string: text)
+        utterance.voice = AVSpeechSynthesisVoice(language: "en-US")
+        utterance.rate = 0.5
+        synthesizer.speak(utterance)
+    }
+
+    private func replayAudio() {
+        speakText("This is a treble clef. it is usually used as the clef for the righthanded bars of piano and other common instruments such as violin, guitar, oboe, trumpet and clarinet.")
+    }
+    
+    private func stopAudio() {
+        synthesizer.stopSpeaking(at: .immediate)
+        }
 }
 
 #Preview {

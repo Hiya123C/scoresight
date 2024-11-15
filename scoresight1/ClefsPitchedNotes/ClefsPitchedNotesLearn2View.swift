@@ -6,62 +6,92 @@
 //
 
 import SwiftUI
+import AVFoundation
+
+private let synthesizer = AVSpeechSynthesizer()
 
 struct ClefsPitchedNotesLearn2View: View {
     var body: some View {
-            VStack {
-                HStack {
-                    NavigationLink{
-                        ClefsPitchedNotesView()
-                    }label:{
-                        Image(systemName: "x.circle")
-                            .symbolRenderingMode(.palette)
-                            .foregroundStyle(.black, .white)
-                            .font(.system(size:50))
-                    }
+        VStack {
+            HStack {
+                NavigationLink{
+                    ClefsPitchedNotesView()
+                }label:{
+                    Image(systemName: "x.circle")
+                        .symbolRenderingMode(.palette)
+                        .foregroundStyle(.black, .white)
+                        .font(.system(size:50))
+                }
+                Spacer()
+            }
+            Text("middle C on the treble clef")
+                .font(.system(size: 40))
+            Image("treble middle c")
+                .resizable()
+                .scaledToFit()
+            HStack{
+                NavigationLink{
+                    ClefsPitchedNotesLearnView()
+                }label:{
+                    Text("back")
+                        .padding()
+                        .background(
+                            RoundedRectangle(cornerRadius: 10)
+                                .stroke(.black, lineWidth: 3)
+                                .frame(width:100,height:50)
+                            
+                        )
+                        .foregroundStyle(.black)
+                        .font(.system(size: 25))
                     Spacer()
-                }
-                Text("middle C on the treble clef")
-                    .font(.system(size: 40))
-                    Image("treble middle c")
-                        .resizable()
-                        .scaledToFit()
-                HStack{
-                    NavigationLink{
-                        ClefsPitchedNotesLearnView()
-                    }label:{
-                        Text("back")
-                            .padding()
-                            .background(
-                                RoundedRectangle(cornerRadius: 10)
-                                    .stroke(.black, lineWidth: 3)
-                                    .frame(width:100,height:50)
-                                
-                            )
+                    Button(action: {
+                        replayAudio()
+                    }) {
+                        Image(systemName: "speaker.wave.2.fill")
+                            .font(.system(size: 30))
                             .foregroundStyle(.black)
-                            .font(.system(size: 25))
-                        Spacer()
-                        
-                    }
-                    NavigationLink{
-                        ClefsPitchedNotesLearn3View()
-                    }label:{
-                        Text("next")
-                            .padding()
-                            .background(
-                                RoundedRectangle(cornerRadius: 10)
-                                    .stroke(.black, lineWidth: 3)
-                                    .frame(width:100,height:50)
-                                
-                            )
-                            .foregroundStyle(.black)
-                            .font(.system(size: 25))
-                        
-                        
                     }
                 }
+                NavigationLink{
+                    ClefsPitchedNotesLearn3View()
+                }label:{
+                    Text("next")
+                        .padding()
+                        .background(
+                            RoundedRectangle(cornerRadius: 10)
+                                .stroke(.black, lineWidth: 3)
+                                .frame(width:100,height:50)
+                            
+                        )
+                        .foregroundStyle(.black)
+                        .font(.system(size: 25))
+                    
+                    
+                }
+            }
+            .padding(.horizontal)
         }
-            .navigationBarBackButtonHidden(true)
+        .onAppear {
+            speakText("This is where middle C is located on the treble clef. it is named this way as it is the C key in the located middle of the piano.")
+        }
+        .onDisappear {
+            stopAudio()
+        }
+        .navigationBarHidden(true)
+}
+private func speakText(_ text: String) {
+    let utterance = AVSpeechUtterance(string: text)
+    utterance.voice = AVSpeechSynthesisVoice(language: "en-US")
+    utterance.rate = 0.5
+    synthesizer.speak(utterance)
+}
+
+private func replayAudio() {
+    speakText("This is where middle C is located on the treble clef. it is named this way as it is the C key in the located middle of the piano.")
+}
+
+private func stopAudio() {
+    synthesizer.stopSpeaking(at: .immediate)
     }
 }
 

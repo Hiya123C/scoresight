@@ -6,6 +6,9 @@
 //
 
 import SwiftUI
+import AVFoundation
+
+private let synthesizer = AVSpeechSynthesizer()
 
 struct ClefsPitchedNotesLearn3View: View {
     var body: some View {
@@ -35,7 +38,7 @@ struct ClefsPitchedNotesLearn3View: View {
                     Text("clef")
                         .font(.system(size: 40))
                 }
-                // ask about separating the image and text
+                
             }
             HStack{
                 NavigationLink{
@@ -52,27 +55,55 @@ struct ClefsPitchedNotesLearn3View: View {
                         .foregroundStyle(.black)
                         .font(.system(size: 25))
                     Spacer()
-                    
-                }
-                NavigationLink{
-                    ClefsPitchedNotesLearn4View()
-                }label:{
-                    Text("next")
-                        .padding()
-                        .background(
-                            RoundedRectangle(cornerRadius: 10)
-                                .stroke(.black, lineWidth: 3)
-                                .frame(width:100,height:50)
-                            
-                        )
-                        .foregroundStyle(.black)
-                        .font(.system(size: 25))
-                    
-                    
+                    Button(action: {
+                        replayAudio()
+                    }) {
+                        Image(systemName: "speaker.wave.2.fill")
+                            .font(.system(size: 30))
+                            .foregroundStyle(.black)
+                    }
                 }
             }
+            NavigationLink{
+                ClefsPitchedNotesLearn4View()
+            }label:{
+                Text("next")
+                    .padding()
+                    .background(
+                        RoundedRectangle(cornerRadius: 10)
+                            .stroke(.black, lineWidth: 3)
+                            .frame(width:100,height:50)
+                        
+                    )
+                    .foregroundStyle(.black)
+                    .font(.system(size: 25))
+                
+                
+                
+            }
+            .padding(.horizontal)
         }
-        .navigationBarBackButtonHidden(true)
+        .onAppear {
+            speakText("This is a bass clef. it is usually used as the clef for the left-handed bars of piano and other common instruments such as cello, bassoon, timpani, trombone.")
+        }
+        .onDisappear {
+            stopAudio()
+        }
+        .navigationBarHidden(true)
+    }
+    private func speakText(_ text: String) {
+        let utterance = AVSpeechUtterance(string: text)
+        utterance.voice = AVSpeechSynthesisVoice(language: "en-US")
+        utterance.rate = 0.5
+        synthesizer.speak(utterance)
+    }
+    
+    private func replayAudio() {
+        speakText("This is a bass clef. it is usually used as the clef for the left-handed bars of piano and other common instruments such as cello, bassoon, timpani, trombone.")
+    }
+    
+    private func stopAudio() {
+        synthesizer.stopSpeaking(at: .immediate)
     }
 }
 
