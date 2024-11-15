@@ -23,8 +23,11 @@ struct KeySignaturesAccidentalsView: View {
                 Spacer()
             }
             
-            
+            Spacer()
             ViewThatFits{
+                Text("key signatures\n+accidentals")
+                    .fontWeight(.bold)
+                    .font(.system(size:90)).environment(\._lineHeightMultiple, 0.75)
                 Text("key signatures\n+accidentals")
                     .fontWeight(.bold)
                     .font(.system(size:75)).environment(\._lineHeightMultiple, 0.75)
@@ -39,6 +42,7 @@ struct KeySignaturesAccidentalsView: View {
                     .font(.system(size:50)).environment(\._lineHeightMultiple, 0.75)
             }
                 
+            Spacer()
             NavigationLink{
                 KeySignaturesAccidentalsLearnView()
             } label:{
@@ -55,6 +59,7 @@ struct KeySignaturesAccidentalsView: View {
                 }
                 .padding()
             }
+            Spacer()
             NavigationLink{
                 KeySignaturesAccidentalsReviewView()
             } label:{
@@ -68,6 +73,7 @@ struct KeySignaturesAccidentalsView: View {
                             .frame(width: 200, height: 50)
                 }
             }
+            Spacer()
         }
         .navigationBarBackButtonHidden(true)
     }

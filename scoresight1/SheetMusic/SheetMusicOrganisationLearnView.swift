@@ -1,61 +1,97 @@
-//possible to move to next view without transition animation?
+//
 
 import SwiftUI
-
+import AVFoundation
 
 struct SheetMusicOrganisationLearnView: View {
+    private let synthesizer = AVSpeechSynthesizer()
+    
+    @State private var isSpeaking = false
+    
     var body: some View {
-        VStack{
-            NavigationStack{
-                HStack{
-                    NavigationLink{
+        NavigationStack {
+            VStack {
+                HStack {
+                    NavigationLink {
                         SheetMusicOrganisationView()
-                    } label:{
+                    } label: {
                         Image(systemName: "x.circle")
                             .symbolRenderingMode(.palette)
                             .foregroundStyle(.black, .white)
-                            .font(.system(size:50))
+                            .font(.system(size: 50))
                     }
                     Spacer()
                 }
-                VStack{
-                    Spacer()//no work
-                    HStack(alignment: .center){
+                
+                VStack {
+                    Spacer()
+                    HStack(alignment: .center) {
                         Image("bar")
                             .resizable()
                             .scaledToFit()
-                        VStack{
+                        VStack {
                             Text("this is a")
                                 .font(.system(size: 40))
                             Text("bar")
-                                .font(.system(size:80))
+                                .font(.system(size: 80))
                                 .bold()
                         }
                     }
                 }
-                .frame(maxHeight:.infinity)
+                .frame(maxHeight: .infinity)
                 
-                
-                HStack{
+                HStack {
                     Spacer()
-                    NavigationLink{
+                    NavigationLink {
                         SheetMusicOrganisationLearn2View()
-                    }label:{
-                        Text("next")
-                            .padding()
-                            .background(
-                                RoundedRectangle(cornerRadius: 10)
-                                    .stroke(.black, lineWidth: 3)
-                                    .frame(width:100,height:50)
-                                
-                            )
-                            .foregroundStyle(.black)
-                            .font(.system(size: 25))
+                    } label: {
+                        HStack {
+                            Image(systemName: "speaker.wave.2.fill")
+                                .font(.system(size: 25))
+                                .padding(.trailing, 20)
+                                .onTapGesture {
+                                    if isSpeaking {
+                                        stopSpeech()
+                                    } else {
+                                        speakText("This is a bar. It is the basis of every musical score.")
+                                    }
+                                    isSpeaking.toggle()
+                                }
+                            Text("next")
+                                .padding()
+                                .background(
+                                    RoundedRectangle(cornerRadius: 10)
+                                        .stroke(.black, lineWidth: 3)
+                                        .frame(width: 100, height: 50)
+                                )
+                                .foregroundStyle(.black)
+                                .font(.system(size: 25))
+                        }
                     }
                 }
             }
+            .onAppear {
+                speakText("This is a bar. It is the basis of every musical score.")
+            }
+            .onDisappear {
+                stopSpeech()
+            }
+            .navigationBarBackButtonHidden(true)
         }
-        .navigationBarBackButtonHidden(true)
+    }
+    
+    private func speakText(_ text: String) {
+        let utterance = AVSpeechUtterance(string: text)
+        utterance.voice = AVSpeechSynthesisVoice(language: "en-US")
+        utterance.rate = 0.5
+        synthesizer.speak(utterance)
+    }
+    
+    private func stopSpeech() {
+        if synthesizer.isSpeaking {
+            synthesizer.stopSpeaking(at: .immediate)
+        }
+        isSpeaking = false
     }
 }
 

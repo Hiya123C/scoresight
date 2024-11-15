@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct SheeMusicOrganisationReview6View: View {
+struct SheetMusicOrganisationReview6View: View {
     var body: some View {
         VStack{
             NavigationStack{
@@ -40,10 +40,10 @@ struct SheeMusicOrganisationReview6View: View {
                 }
                 Spacer()
             }
-        }
+        }.navigationBarBackButtonHidden(true)
     }
 }
 
 #Preview {
-    SheeMusicOrganisationReview6View()
+    SheetMusicOrganisationReview6View()
 }

@@ -70,7 +70,7 @@ struct SheetMusicOrganisationReview5View: View {
                         HStack {
                             Spacer()
                             NavigationLink {
-                                SheetMusicOrganisationReview5View()
+                                SheetMusicOrganisationReview6View()
                             } label: {
                                 Text("next")
                                     .padding()

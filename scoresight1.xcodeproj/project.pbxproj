@@ -130,14 +130,13 @@
 		D900AE042CE1FCE100DC1959 /* SheetMusicOrganisationLearn9View.swift in Sources */ = {isa = PBXBuildFile; fileRef = D900AE022CE1FCE100DC1959 /* SheetMusicOrganisationLearn9View.swift */; };
 		D900AE052CE1FCE100DC1959 /* SheetMusicOrganisationLearn8View.swift in Sources */ = {isa = PBXBuildFile; fileRef = D900AE012CE1FCE100DC1959 /* SheetMusicOrganisationLearn8View.swift */; };
 		D900AE062CE1FCE100DC1959 /* SheetMusicOrganisationLearn10View.swift in Sources */ = {isa = PBXBuildFile; fileRef = D900AE032CE1FCE100DC1959 /* SheetMusicOrganisationLearn10View.swift */; };
-		D900AE082CE221D500DC1959 /* SheetMusicOrganisationReview2View.swift in Sources */ = {isa = PBXBuildFile; fileRef = D900AE072CE221D500DC1959 /* SheetMusicOrganisationReview2View.swift */; };
 		D900AE0A2CE34E3100DC1959 /* Sandbox1View.swift in Sources */ = {isa = PBXBuildFile; fileRef = D900AE092CE34E3100DC1959 /* Sandbox1View.swift */; };
 		D900AE142CE4450700DC1959 /* Note.swift in Sources */ = {isa = PBXBuildFile; fileRef = D900AE132CE4450700DC1959 /* Note.swift */; };
 		D900AE162CE471E100DC1959 /* SheetMusicOrganisationReview3View.swift in Sources */ = {isa = PBXBuildFile; fileRef = D900AE152CE471E100DC1959 /* SheetMusicOrganisationReview3View.swift */; };
 		D900AE182CE47BD300DC1959 /* AnswerButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = D900AE172CE47BD300DC1959 /* AnswerButton.swift */; };
 		D900AE1A2CE48EE900DC1959 /* SheetMusicOrganisationReview4View.swift in Sources */ = {isa = PBXBuildFile; fileRef = D900AE192CE48EE900DC1959 /* SheetMusicOrganisationReview4View.swift */; };
 		D900AE1C2CE4E11800DC1959 /* SheetMusicOrganisationReview5View.swift in Sources */ = {isa = PBXBuildFile; fileRef = D900AE1B2CE4E11800DC1959 /* SheetMusicOrganisationReview5View.swift */; };
-		D900AE202CE56BFD00DC1959 /* SheeMusicOrganisationReview6View.swift in Sources */ = {isa = PBXBuildFile; fileRef = D900AE1F2CE56BFD00DC1959 /* SheeMusicOrganisationReview6View.swift */; };
+		D900AE202CE56BFD00DC1959 /* SheetMusicOrganisationReview6View.swift in Sources */ = {isa = PBXBuildFile; fileRef = D900AE1F2CE56BFD00DC1959 /* SheetMusicOrganisationReview6View.swift */; };
 		D900AE332CE5D23000DC1959 /* RhythmNotesRestsLearn2View.swift in Sources */ = {isa = PBXBuildFile; fileRef = D900AE232CE5D23000DC1959 /* RhythmNotesRestsLearn2View.swift */; };
 		D900AE342CE5D23000DC1959 /* RhythmNotesRestsReviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D900AE312CE5D23000DC1959 /* RhythmNotesRestsReviewView.swift */; };
 		D900AE352CE5D23000DC1959 /* RhythmNotesRestsReview2View.swift in Sources */ = {isa = PBXBuildFile; fileRef = D900AE302CE5D23000DC1959 /* RhythmNotesRestsReview2View.swift */; };
@@ -174,6 +173,18 @@
 		D900AE662CE7071200DC1959 /* TimeSignaturesReview3View.swift in Sources */ = {isa = PBXBuildFile; fileRef = D900AE652CE7071000DC1959 /* TimeSignaturesReview3View.swift */; };
 		D900AE682CE7076C00DC1959 /* TimeSignaturesReview4View.swift in Sources */ = {isa = PBXBuildFile; fileRef = D900AE672CE7076000DC1959 /* TimeSignaturesReview4View.swift */; };
 		D900AE6C2CE72C5800DC1959 /* timesignaturesquestion1.m4a in Resources */ = {isa = PBXBuildFile; fileRef = D900AE6B2CE72C5800DC1959 /* timesignaturesquestion1.m4a */; };
+		D9116A0F2CE7601700804AC1 /* AudioManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9116A0E2CE7601700804AC1 /* AudioManager.swift */; };
+		D9116A112CE779C400804AC1 /* D3.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = D9116A102CE779C400804AC1 /* D3.mp3 */; };
+		D9116A132CE77A8B00804AC1 /* E3.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = D9116A122CE77A8B00804AC1 /* E3.mp3 */; };
+		D9116A152CE77AAB00804AC1 /* G3.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = D9116A142CE77AAB00804AC1 /* G3.mp3 */; };
+		D9116A172CE77ACE00804AC1 /* A3.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = D9116A162CE77ACE00804AC1 /* A3.mp3 */; };
+		D9116A192CE77AE500804AC1 /* D4.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = D9116A182CE77AE500804AC1 /* D4.mp3 */; };
+		D9116A1B2CE77AF400804AC1 /* G4.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = D9116A1A2CE77AF400804AC1 /* G4.mp3 */; };
+		D9116A1D2CE77DAE00804AC1 /* F3.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = D9116A1C2CE77DAE00804AC1 /* F3.mp3 */; };
+		D9116A1F2CE77DBF00804AC1 /* B3.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = D9116A1E2CE77DBF00804AC1 /* B3.mp3 */; };
+		D9116A212CE77DE400804AC1 /* C4.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = D9116A202CE77DE400804AC1 /* C4.mp3 */; };
+		D9116A232CE77E0C00804AC1 /* E4.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = D9116A222CE77E0C00804AC1 /* E4.mp3 */; };
+		D9116A252CE77E2300804AC1 /* F4.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = D9116A242CE77E2300804AC1 /* F4.mp3 */; };
 		D9C232342CE0D8280032674D /* metronome.m4a in Resources */ = {isa = PBXBuildFile; fileRef = D9C232332CE0D8280032674D /* metronome.m4a */; };
 		D9E035FB2CDF12AC00220F1F /* scoresight1App.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9E035FA2CDF12AC00220F1F /* scoresight1App.swift */; };
 		D9E035FD2CDF12AC00220F1F /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9E035FC2CDF12AC00220F1F /* ContentView.swift */; };
@@ -305,14 +316,13 @@
 		D900AE012CE1FCE100DC1959 /* SheetMusicOrganisationLearn8View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SheetMusicOrganisationLearn8View.swift; sourceTree = "<group>"; };
 		D900AE022CE1FCE100DC1959 /* SheetMusicOrganisationLearn9View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SheetMusicOrganisationLearn9View.swift; sourceTree = "<group>"; };
 		D900AE032CE1FCE100DC1959 /* SheetMusicOrganisationLearn10View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SheetMusicOrganisationLearn10View.swift; sourceTree = "<group>"; };
-		D900AE072CE221D500DC1959 /* SheetMusicOrganisationReview2View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SheetMusicOrganisationReview2View.swift; sourceTree = "<group>"; };
 		D900AE092CE34E3100DC1959 /* Sandbox1View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sandbox1View.swift; sourceTree = "<group>"; };
 		D900AE132CE4450700DC1959 /* Note.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Note.swift; sourceTree = "<group>"; };
 		D900AE152CE471E100DC1959 /* SheetMusicOrganisationReview3View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SheetMusicOrganisationReview3View.swift; sourceTree = "<group>"; };
 		D900AE172CE47BD300DC1959 /* AnswerButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnswerButton.swift; sourceTree = "<group>"; };
 		D900AE192CE48EE900DC1959 /* SheetMusicOrganisationReview4View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SheetMusicOrganisationReview4View.swift; sourceTree = "<group>"; };
 		D900AE1B2CE4E11800DC1959 /* SheetMusicOrganisationReview5View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SheetMusicOrganisationReview5View.swift; sourceTree = "<group>"; };
-		D900AE1F2CE56BFD00DC1959 /* SheeMusicOrganisationReview6View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SheeMusicOrganisationReview6View.swift; sourceTree = "<group>"; };
+		D900AE1F2CE56BFD00DC1959 /* SheetMusicOrganisationReview6View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SheetMusicOrganisationReview6View.swift; sourceTree = "<group>"; };
 		D900AE212CE5D23000DC1959 /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
 		D900AE222CE5D23000DC1959 /* Memory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Memory.swift; sourceTree = "<group>"; };
 		D900AE232CE5D23000DC1959 /* RhythmNotesRestsLearn2View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RhythmNotesRestsLearn2View.swift; sourceTree = "<group>"; };
@@ -349,6 +359,18 @@
 		D900AE652CE7071000DC1959 /* TimeSignaturesReview3View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeSignaturesReview3View.swift; sourceTree = "<group>"; };
 		D900AE672CE7076000DC1959 /* TimeSignaturesReview4View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeSignaturesReview4View.swift; sourceTree = "<group>"; };
 		D900AE6B2CE72C5800DC1959 /* timesignaturesquestion1.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = timesignaturesquestion1.m4a; sourceTree = "<group>"; };
+		D9116A0E2CE7601700804AC1 /* AudioManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioManager.swift; sourceTree = "<group>"; };
+		D9116A102CE779C400804AC1 /* D3.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = D3.mp3; sourceTree = "<group>"; };
+		D9116A122CE77A8B00804AC1 /* E3.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = E3.mp3; sourceTree = "<group>"; };
+		D9116A142CE77AAB00804AC1 /* G3.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = G3.mp3; sourceTree = "<group>"; };
+		D9116A162CE77ACE00804AC1 /* A3.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = A3.mp3; sourceTree = "<group>"; };
+		D9116A182CE77AE500804AC1 /* D4.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = D4.mp3; sourceTree = "<group>"; };
+		D9116A1A2CE77AF400804AC1 /* G4.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = G4.mp3; sourceTree = "<group>"; };
+		D9116A1C2CE77DAE00804AC1 /* F3.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = F3.mp3; sourceTree = "<group>"; };
+		D9116A1E2CE77DBF00804AC1 /* B3.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = B3.mp3; sourceTree = "<group>"; };
+		D9116A202CE77DE400804AC1 /* C4.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = C4.mp3; sourceTree = "<group>"; };
+		D9116A222CE77E0C00804AC1 /* E4.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = E4.mp3; sourceTree = "<group>"; };
+		D9116A242CE77E2300804AC1 /* F4.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = F4.mp3; sourceTree = "<group>"; };
 		D9C232332CE0D8280032674D /* metronome.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = metronome.m4a; sourceTree = "<group>"; };
 		D9E035F72CDF12AC00220F1F /* scoresight1.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = scoresight1.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D9E035FA2CDF12AC00220F1F /* scoresight1App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = scoresight1App.swift; sourceTree = "<group>"; };
@@ -412,11 +434,10 @@
 				D900AE022CE1FCE100DC1959 /* SheetMusicOrganisationLearn9View.swift */,
 				D900AE032CE1FCE100DC1959 /* SheetMusicOrganisationLearn10View.swift */,
 				D900AC972CE1F6A800DC1959 /* SheetMusicOrganisationReview1View.swift */,
-				D900AE072CE221D500DC1959 /* SheetMusicOrganisationReview2View.swift */,
 				D900AE152CE471E100DC1959 /* SheetMusicOrganisationReview3View.swift */,
 				D900AE192CE48EE900DC1959 /* SheetMusicOrganisationReview4View.swift */,
 				D900AE1B2CE4E11800DC1959 /* SheetMusicOrganisationReview5View.swift */,
-				D900AE1F2CE56BFD00DC1959 /* SheeMusicOrganisationReview6View.swift */,
+				D900AE1F2CE56BFD00DC1959 /* SheetMusicOrganisationReview6View.swift */,
 			);
 			path = SheetMusic;
 			sourceTree = "<group>";
@@ -559,6 +580,7 @@
 		D9E035EE2CDF12AC00220F1F = {
 			isa = PBXGroup;
 			children = (
+				D9116A0E2CE7601700804AC1 /* AudioManager.swift */,
 				D9E035F92CDF12AC00220F1F /* scoresight1 */,
 				D9E035F82CDF12AC00220F1F /* Products */,
 			);
@@ -596,6 +618,17 @@
 		D9E036002CDF12AD00220F1F /* Preview Content */ = {
 			isa = PBXGroup;
 			children = (
+				D9116A102CE779C400804AC1 /* D3.mp3 */,
+				D9116A122CE77A8B00804AC1 /* E3.mp3 */,
+				D9116A1C2CE77DAE00804AC1 /* F3.mp3 */,
+				D9116A142CE77AAB00804AC1 /* G3.mp3 */,
+				D9116A162CE77ACE00804AC1 /* A3.mp3 */,
+				D9116A1E2CE77DBF00804AC1 /* B3.mp3 */,
+				D9116A202CE77DE400804AC1 /* C4.mp3 */,
+				D9116A182CE77AE500804AC1 /* D4.mp3 */,
+				D9116A222CE77E0C00804AC1 /* E4.mp3 */,
+				D9116A242CE77E2300804AC1 /* F4.mp3 */,
+				D9116A1A2CE77AF400804AC1 /* G4.mp3 */,
 				31F1FA4C2CE79316001B3AA2 /* treblepitched.mp3 */,
 				31F1FA4E2CE79373001B3AA2 /* basspitched.mp3 */,
 				31F1FA522CE794B2001B3AA2 /* ppp.mp3 */,
@@ -693,42 +726,25 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				31F1FA7F2CE79D48001B3AA2 /* pf.mp3 in Resources */,
-				31F1FA912CE7A337001B3AA2 /* slur.mp3 in Resources */,
-				31F1FA792CE79D0E001B3AA2 /* sfz.mp3 in Resources */,
-				31F1FA952CE7A373001B3AA2 /* portato.mp3 in Resources */,
-				31F1FA8B2CE7A15C001B3AA2 /* staccato.mp3 in Resources */,
-				31F1FA852CE79F22001B3AA2 /* tenuto.mp3 in Resources */,
-				31F1FA592CE795EC001B3AA2 /* mezzoforte.mp3 in Resources */,
-				31F1FA4F2CE79373001B3AA2 /* basspitched.mp3 in Resources */,
+				D9116A232CE77E0C00804AC1 /* E4.mp3 in Resources */,
 				D900AE6C2CE72C5800DC1959 /* timesignaturesquestion1.m4a in Resources */,
-				31F1FA812CE79D59001B3AA2 /* pedal.mp3 in Resources */,
-				31F1FA7B2CE79D22001B3AA2 /* rfz.mp3 in Resources */,
-				31F1FA5D2CE7961A001B3AA2 /* ff.mp3 in Resources */,
-				31F1FA932CE7A361001B3AA2 /* marcato.mp3 in Resources */,
-				31F1FA5F2CE7967E001B3AA2 /* mezzopiano.mp3 in Resources */,
-				31F1FA5B2CE79604001B3AA2 /* forte.mp3 in Resources */,
-				31F1FA4D2CE79316001B3AA2 /* treblepitched.mp3 in Resources */,
-				31F1FA972CE7A5B2001B3AA2 /* upper mordent.mp3 in Resources */,
+				D9116A1B2CE77AF400804AC1 /* G4.mp3 in Resources */,
+				D9116A192CE77AE500804AC1 /* D4.mp3 in Resources */,
+				D9116A112CE779C400804AC1 /* D3.mp3 in Resources */,
 				D9E036022CDF12AD00220F1F /* Preview Assets.xcassets in Resources */,
 				31F1FA8D2CE7A17D001B3AA2 /* fermata.mp3 in Resources */,
 				31F1FA572CE79513001B3AA2 /* piano.mp3 in Resources */,
 				31F1FA832CE79DF3001B3AA2 /* accent.mp3 in Resources */,
 				D900AE5C2CE5D37F00DC1959 /* metronome1.m4a in Resources */,
-				31F1FA892CE7A032001B3AA2 /* turn.mp3 in Resources */,
-				31F1FA9D2CE7A5E8001B3AA2 /* acciaccatura.mp3 in Resources */,
-				31F1FA8F2CE7A18B001B3AA2 /* glissando.mp3 in Resources */,
-				31F1FA652CE797B3001B3AA2 /* decrescendo.mp3 in Resources */,
-				31F1FA552CE794FF001B3AA2 /* pp.mp3 in Resources */,
-				31F1FA7D2CE79D32001B3AA2 /* fp.mp3 in Resources */,
-				31F1FA992CE7A5C3001B3AA2 /* lower mordent.mp3 in Resources */,
-				31F1FA872CE7A013001B3AA2 /* trill.mp3 in Resources */,
+				D9116A252CE77E2300804AC1 /* F4.mp3 in Resources */,
 				D9C232342CE0D8280032674D /* metronome.m4a in Resources */,
-				31F1FA532CE794B2001B3AA2 /* ppp.mp3 in Resources */,
+				D9116A172CE77ACE00804AC1 /* A3.mp3 in Resources */,
 				D9E035FF2CDF12AD00220F1F /* Assets.xcassets in Resources */,
-				31F1FA632CE79781001B3AA2 /* crescendo.mp3 in Resources */,
-				31F1FA612CE79693001B3AA2 /* fff.mp3 in Resources */,
-				31F1FA9B2CE7A5D8001B3AA2 /* apoggiatura.mp3 in Resources */,
+				D9116A132CE77A8B00804AC1 /* E3.mp3 in Resources */,
+				D9116A152CE77AAB00804AC1 /* G3.mp3 in Resources */,
+				D9116A1F2CE77DBF00804AC1 /* B3.mp3 in Resources */,
+				D9116A1D2CE77DAE00804AC1 /* F3.mp3 in Resources */,
+				D9116A212CE77DE400804AC1 /* C4.mp3 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -746,8 +762,7 @@
 				316BA2E92CE5CADD00BAF59C /* ClefsPitchedNotesReview3View.swift in Sources */,
 				D900AC9C2CE1F6A800DC1959 /* SheetMusicOrganisationLearn3View.swift in Sources */,
 				D900AC9D2CE1F6A800DC1959 /* SheetMusicOrganisationLearn4View.swift in Sources */,
-				D900AE202CE56BFD00DC1959 /* SheeMusicOrganisationReview6View.swift in Sources */,
-				D900AE082CE221D500DC1959 /* SheetMusicOrganisationReview2View.swift in Sources */,
+				D900AE202CE56BFD00DC1959 /* SheetMusicOrganisationReview6View.swift in Sources */,
 				D900AC9E2CE1F6A800DC1959 /* SheetMusicOrganisationLearn5View.swift in Sources */,
 				D900AE502CE5D29500DC1959 /* TimeSignaturesView.swift in Sources */,
 				D900AE512CE5D29500DC1959 /* TimeSignaturesLearn5View.swift in Sources */,
@@ -755,6 +770,7 @@
 				D900AE522CE5D29500DC1959 /* TimeSignaturesLearn7View.swift in Sources */,
 				D900AE532CE5D29500DC1959 /* TimeSignaturesLearn2View.swift in Sources */,
 				D900AE542CE5D29500DC1959 /* TimeSignaturesLearnView.swift in Sources */,
+				D9116A0F2CE7601700804AC1 /* AudioManager.swift in Sources */,
 				D900AE552CE5D29500DC1959 /* TimeSignaturesLearn3View.swift in Sources */,
 				D900AE562CE5D29500DC1959 /* TimeSignaturesLearn6View.swift in Sources */,
 				D900AE572CE5D29500DC1959 /* TimeSignaturesReviewView.swift in Sources */,
