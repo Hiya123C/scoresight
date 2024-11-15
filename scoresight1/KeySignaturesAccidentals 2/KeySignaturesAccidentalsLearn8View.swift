@@ -6,6 +6,9 @@
 //
 
 import SwiftUI
+import AVFoundation
+
+private let synthesizer = AVSpeechSynthesizer()
 
 struct KeySignaturesAccidentalsLearn8View: View {
     var body: some View {
@@ -41,7 +44,13 @@ struct KeySignaturesAccidentalsLearn8View: View {
                         .foregroundStyle(.black)
                         .font(.system(size: 25))
                     Spacer()
-                    
+                    Button(action: {
+                        replayAudio()
+                    }) {
+                        Image(systemName: "speaker.wave.2.fill")
+                            .font(.system(size: 30))
+                            .foregroundStyle(.black)
+                    }
                 }
                 NavigationLink{
                     KeySignaturesAccidentalsLearn9View()
@@ -61,11 +70,31 @@ struct KeySignaturesAccidentalsLearn8View: View {
                 }
             }
             
+            .padding(.horizontal)
         }
-        .navigationBarBackButtonHidden(true)
+        .onAppear {
+            speakText("sharps are always arranged oppositely of the sharps in the order B, E, A, D, G, C, F.")
+        }
+        .onDisappear {
+            stopAudio()
+        }
+        .navigationBarHidden(true)
+    }
+    private func speakText(_ text: String) {
+        let utterance = AVSpeechUtterance(string: text)
+        utterance.voice = AVSpeechSynthesisVoice(language: "en-US")
+        utterance.rate = 0.5
+        synthesizer.speak(utterance)
+    }
+    
+    private func replayAudio() {
+        speakText("sharps are always arranged oppositely of the sharps in the order B, E, A, D, G, C, F.")
+    }
+    
+    private func stopAudio() {
+        synthesizer.stopSpeaking(at: .immediate)
     }
 }
-
 #Preview {
     KeySignaturesAccidentalsLearn8View()
 }

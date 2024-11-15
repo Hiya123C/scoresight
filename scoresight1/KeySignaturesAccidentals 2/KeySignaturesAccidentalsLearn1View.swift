@@ -6,6 +6,9 @@
 //
 
 import SwiftUI
+import AVFoundation
+
+private let synthesizer = AVSpeechSynthesizer()
 
 struct KeySignaturesAccidentalsLearnView: View {
     var body: some View {
@@ -36,6 +39,13 @@ struct KeySignaturesAccidentalsLearnView: View {
             }
             HStack{
                 Spacer()
+                Button(action: {
+                    replayAudio()
+                }) {
+                    Image(systemName: "speaker.wave.2.fill")
+                        .font(.system(size: 30))
+                        .foregroundStyle(.black)
+                }
                 NavigationLink{
                     KeySignaturesAccidentalsLearn2View()
                 } label:{
@@ -53,8 +63,29 @@ struct KeySignaturesAccidentalsLearnView: View {
                     
                 }
             }
+            .padding(.horizontal)
         }
-        .navigationBarBackButtonHidden(true)
+        .onAppear {
+            speakText("This is a sharp. it a sign that indicates a note is played higher in pitch, by a semitone or half step.")
+        }
+        .onDisappear {
+            stopAudio()
+        }
+        .navigationBarHidden(true)
+    }
+    private func speakText(_ text: String) {
+        let utterance = AVSpeechUtterance(string: text)
+        utterance.voice = AVSpeechSynthesisVoice(language: "en-US")
+        utterance.rate = 0.5
+        synthesizer.speak(utterance)
+    }
+    
+    private func replayAudio() {
+        speakText("This is a sharp. it a sign that indicates a note is played higher in pitch, by a semitone or half step.")
+    }
+    
+    private func stopAudio() {
+        synthesizer.stopSpeaking(at: .immediate)
     }
 }
 

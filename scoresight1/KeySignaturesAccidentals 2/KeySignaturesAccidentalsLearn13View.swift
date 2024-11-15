@@ -6,6 +6,9 @@
 //
 
 import SwiftUI
+import AVFoundation
+
+private let synthesizer = AVSpeechSynthesizer()
 
 struct KeySignaturesAccidentalsLearn13View: View {
     var body: some View {
@@ -50,7 +53,13 @@ struct KeySignaturesAccidentalsLearn13View: View {
                         .foregroundStyle(.black)
                         .font(.system(size: 25))
                     Spacer()
-                    
+                    Button(action: {
+                        replayAudio()
+                    }) {
+                        Image(systemName: "speaker.wave.2.fill")
+                            .font(.system(size: 30))
+                            .foregroundStyle(.black)
+                    }
                 }
                 NavigationLink{
                     KeySignaturesAccidentalsLearn14View()
@@ -69,7 +78,29 @@ struct KeySignaturesAccidentalsLearn13View: View {
                     
                 }
             }
+            .padding(.horizontal)
         }
+        .onAppear {
+            speakText("as you have learnt earlier, a sharp goes up one semitone. this is an example of a sharp on the piano keyboard.")
+        }
+        .onDisappear {
+            stopAudio()
+        }
+        .navigationBarHidden(true)
+    }
+    private func speakText(_ text: String) {
+        let utterance = AVSpeechUtterance(string: text)
+        utterance.voice = AVSpeechSynthesisVoice(language: "en-US")
+        utterance.rate = 0.5
+        synthesizer.speak(utterance)
+    }
+    
+    private func replayAudio() {
+        speakText("as you have learnt earlier, a sharp goes up one semitone. this is an example of a sharp on the piano keyboard.")
+    }
+    
+    private func stopAudio() {
+        synthesizer.stopSpeaking(at: .immediate)
     }
 }
 

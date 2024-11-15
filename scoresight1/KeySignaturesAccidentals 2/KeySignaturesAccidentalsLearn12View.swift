@@ -6,6 +6,9 @@
 //
 
 import SwiftUI
+import AVFoundation
+
+private let synthesizer = AVSpeechSynthesizer()
 
 struct KeySignaturesAccidentalsLearn12View: View {
     var body: some View {
@@ -48,7 +51,13 @@ struct KeySignaturesAccidentalsLearn12View: View {
                         .foregroundStyle(.black)
                         .font(.system(size: 25))
                     Spacer()
-                    
+                    Button(action: {
+                        replayAudio()
+                    }) {
+                        Image(systemName: "speaker.wave.2.fill")
+                            .font(.system(size: 30))
+                            .foregroundStyle(.black)
+                    }
                 }
                 NavigationLink{
                     KeySignaturesAccidentalsLearn13View()
@@ -67,8 +76,29 @@ struct KeySignaturesAccidentalsLearn12View: View {
                     
                 }
             }
+            .padding(.horizontal)
         }
-        .navigationBarBackButtonHidden(true)
+        .onAppear {
+            speakText("this is a semitone, sometimes called a half tone or half step. it is the distance from a white key to a neighbouring black key on the piano keyboard.")
+        }
+        .onDisappear {
+            stopAudio()
+        }
+        .navigationBarHidden(true)
+    }
+    private func speakText(_ text: String) {
+        let utterance = AVSpeechUtterance(string: text)
+        utterance.voice = AVSpeechSynthesisVoice(language: "en-US")
+        utterance.rate = 0.5
+        synthesizer.speak(utterance)
+    }
+    
+    private func replayAudio() {
+        speakText("this is a semitone, sometimes called a half tone or half step. it is the distance from a white key to a neighbouring black key on the piano keyboard.")
+    }
+    
+    private func stopAudio() {
+        synthesizer.stopSpeaking(at: .immediate)
     }
 }
 
