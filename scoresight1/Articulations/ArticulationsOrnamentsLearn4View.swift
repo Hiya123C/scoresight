@@ -6,6 +6,9 @@
 //
 
 import SwiftUI
+import AVFoundation
+
+private let synthesizer = AVSpeechSynthesizer()
 
 struct ArticulationsOrnamentsLearn4View: View {
     var body: some View {
@@ -49,7 +52,13 @@ struct ArticulationsOrnamentsLearn4View: View {
                         .foregroundStyle(.black)
                         .font(.system(size: 25))
                     Spacer()
-                    
+                    Button(action: {
+                        replayAudio()
+                    }) {
+                        Image(systemName: "speaker.wave.2.fill")
+                            .font(.system(size: 30))
+                            .foregroundStyle(.black)
+                    }
                 }
                 NavigationLink{
                     ArticulationsOrnamentsLearn5View()
@@ -68,8 +77,29 @@ struct ArticulationsOrnamentsLearn4View: View {
                     
                 }
             }
+            .padding(.horizontal)
         }
-        .navigationBarBackButtonHidden(true)
+        .onAppear {
+            speakText("this is a turn and an inverted turn respectively, and how the notes look like written out. they usually have four notes and end at the ‘core’ note which is the note that is displayed, like so:")
+        }
+        .onDisappear {
+            stopAudio()
+        }
+        .navigationBarHidden(true)
+    }
+    private func speakText(_ text: String) {
+        let utterance = AVSpeechUtterance(string: text)
+        utterance.voice = AVSpeechSynthesisVoice(language: "en-US")
+        utterance.rate = 0.5
+        synthesizer.speak(utterance)
+    }
+    
+    private func replayAudio() {
+        speakText("this is a turn and an inverted turn respectively, and how the notes look like written out. they usually have four notes and end at the ‘core’ note which is the note that is displayed, like so:")
+    }
+    
+    private func stopAudio() {
+        synthesizer.stopSpeaking(at: .immediate)
     }
 }
 

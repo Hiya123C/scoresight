@@ -6,6 +6,9 @@
 //
 
 import SwiftUI
+import AVFoundation
+
+private let synthesizer = AVSpeechSynthesizer()
 
 struct ArticulationsOrnamentsLearn14View: View {
     var body: some View {
@@ -49,7 +52,13 @@ struct ArticulationsOrnamentsLearn14View: View {
                         .foregroundStyle(.black)
                         .font(.system(size: 25))
                     Spacer()
-                    
+                    Button(action: {
+                        replayAudio()
+                    }) {
+                        Image(systemName: "speaker.wave.2.fill")
+                            .font(.system(size: 30))
+                            .foregroundStyle(.black)
+                    }
                 }
                 NavigationLink{
                     ArticulationsOrnamentsReviewView()
@@ -68,8 +77,29 @@ struct ArticulationsOrnamentsLearn14View: View {
                     
                 }
             }
+            .padding(.horizontal)
         }
-        .navigationBarBackButtonHidden(true)
+        .onAppear {
+            speakText("this is an acciaccatura. The  tiny note is always a demisemiquaver and the big note is the remaining value, which is why it’s called a ‘crush note’. it is drawn with a slash. it is played like so:")
+        }
+        .onDisappear {
+            stopAudio()
+        }
+        .navigationBarHidden(true)
+    }
+    private func speakText(_ text: String) {
+        let utterance = AVSpeechUtterance(string: text)
+        utterance.voice = AVSpeechSynthesisVoice(language: "en-US")
+        utterance.rate = 0.5
+        synthesizer.speak(utterance)
+    }
+    
+    private func replayAudio() {
+        speakText("this is an acciaccatura. The  tiny note is always a demisemiquaver and the big note is the remaining value, which is why it’s called a ‘crush note’. it is drawn with a slash. it is played like so:")
+    }
+    
+    private func stopAudio() {
+        synthesizer.stopSpeaking(at: .immediate)
     }
 }
 

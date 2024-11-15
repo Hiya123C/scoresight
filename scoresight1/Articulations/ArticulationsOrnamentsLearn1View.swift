@@ -6,6 +6,9 @@
 //
 
 import SwiftUI
+import AVFoundation
+
+private let synthesizer = AVSpeechSynthesizer()
 
 struct ArticulationsOrnamentsLearnView: View {
     var body: some View {
@@ -36,6 +39,13 @@ struct ArticulationsOrnamentsLearnView: View {
             }
             HStack{
                 Spacer()
+                Button(action: {
+                    replayAudio()
+                }) {
+                    Image(systemName: "speaker.wave.2.fill")
+                        .font(.system(size: 30))
+                        .foregroundStyle(.black)
+                }
                 NavigationLink{
                     ArticulationsOrnamentsLearn2View()
                 }label:{
@@ -53,10 +63,32 @@ struct ArticulationsOrnamentsLearnView: View {
                     
                 }
             }
+            .padding(.horizontal)
         }
-        .navigationBarBackButtonHidden(true)
+        .onAppear {
+            speakText("this is an accent. it is used to emphasise the note you are playing like so:")
+        }
+        .onDisappear {
+            stopAudio()
+        }
+        .navigationBarHidden(true)
+    }
+    private func speakText(_ text: String) {
+        let utterance = AVSpeechUtterance(string: text)
+        utterance.voice = AVSpeechSynthesisVoice(language: "en-US")
+        utterance.rate = 0.5
+        synthesizer.speak(utterance)
+    }
+    
+    private func replayAudio() {
+        speakText(" this is an accent. it is used to emphasise the note you are playing like so:")
+    }
+    
+    private func stopAudio() {
+        synthesizer.stopSpeaking(at: .immediate)
     }
 }
+
 
 #Preview {
     ArticulationsOrnamentsLearnView()
