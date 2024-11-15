@@ -6,6 +6,9 @@
 //
 
 import SwiftUI
+import AVFoundation
+
+private let synthesizer = AVSpeechSynthesizer()
 
 struct RhythmNotesRestsLearn2View: View {
     @State private var showAlert = false
@@ -37,7 +40,7 @@ struct RhythmNotesRestsLearn2View: View {
                     Spacer()
                     Spacer()
                 }
-
+                
                 Button(action: {
                     showAlert = true
                 }) {
@@ -60,7 +63,7 @@ struct RhythmNotesRestsLearn2View: View {
                 .alert(isPresented: $showAlert) {
                     Alert(title: Text("Warning"), message: Text("Do not play during a rest"), dismissButton: .default(Text("OK")))
                 }
-
+                
                 Spacer()
                 
                 HStack {
@@ -80,7 +83,14 @@ struct RhythmNotesRestsLearn2View: View {
                     .padding(.leading, 10)
                     
                     Spacer()
-                    
+                    Button(action: {
+                        replayAudio()
+                    }) {
+                        Image(systemName: "speaker.wave.2.fill")
+                            .font(.system(size: 30))
+                            .foregroundStyle(.black)
+                            .padding(.trailing, 10)
+                    }
                     NavigationLink(destination: RhythmNotesRestsLearn3View()) {
                         Text("Next")
                             .padding()
@@ -95,9 +105,31 @@ struct RhythmNotesRestsLearn2View: View {
                     .padding(.trailing, 10)
                 }
                 .padding(.bottom, 30)
+                .onAppear {
+                    speakText("this is a semibreve. you have to play it for four beats. Tap on the rectangular button and hold for four beats. Listen to the metronome to know the duration of the four beats.")
+                }
+            }
+            .navigationBarBackButtonHidden(true)
+            .onDisappear {
+                stopAudio()
             }
         }
         .navigationBarBackButtonHidden(true)
+    }
+    
+    private func speakText(_ text: String) {
+        let utterance = AVSpeechUtterance(string: text)
+        utterance.voice = AVSpeechSynthesisVoice(language: "en-US")
+        utterance.rate = 0.5
+        synthesizer.speak(utterance)
+    }
+    
+    private func replayAudio() {
+        speakText("This is a semibreve rest. similary to the semibreve note, it is four beats long. however, instead of holding the note, you dont play for 4 beats.")
+    }
+    
+    private func stopAudio() {
+        synthesizer.stopSpeaking(at: .immediate)
     }
 }
 

@@ -8,6 +8,8 @@
 import SwiftUI
 import AVFoundation
 
+private let synthesizer = AVSpeechSynthesizer()
+
 struct RhythmNotesRestsLearnView: View {
     @State private var progress: CGFloat = 0.0
     @State private var beatCount = 0
@@ -29,14 +31,14 @@ struct RhythmNotesRestsLearnView: View {
     var body: some View {
         NavigationView {
             VStack {
-                NavigationLink{
+                NavigationLink {
                     RhythmNotesRestsView()
-                } label:{
+                } label: {
                     Image(systemName: "x.circle")
                         .symbolRenderingMode(.palette)
                         .foregroundStyle(.black, .white)
-                        .font(.system(size:50))
-                        .position(x:0,y:50)//find out how to replace position
+                        .font(.system(size: 50))
+                        .position(x: 0, y: 50)
                 }
                 
                 HStack {
@@ -57,7 +59,7 @@ struct RhythmNotesRestsLearnView: View {
                             .fill(Color.blue)
                             .frame(width: min(progress, 600), height: 100)
                             .clipShape(RoundedRectangle(cornerRadius: 15))
-
+                        
                         Text("HOLD!")
                             .font(.title)
                             .fontWeight(.bold)
@@ -69,13 +71,11 @@ struct RhythmNotesRestsLearnView: View {
                             .stroke(Color.black, lineWidth: 2)
                     )
                 }
-                .onLongPressGesture(minimumDuration: 0.1, perform: {
+                .onLongPressGesture(minimumDuration: 0.1) {
                     startHolding()
-                })
+                }
                 .onLongPressGesture(maximumDistance: 10) {
-                    
                 } onPressingChanged: { pressed in
-                    print("isPressed", isPressed)
                     isPressed = pressed
                     startMetronome()
                 }
@@ -90,7 +90,14 @@ struct RhythmNotesRestsLearnView: View {
                 
                 HStack {
                     Spacer()
-                    
+                    Button(action: {
+                        replayAudio()
+                    }) {
+                        Image(systemName: "speaker.wave.2.fill")
+                            .font(.system(size: 30))
+                            .foregroundStyle(.black)
+                            .padding(.trailing, 10)
+                    }
                     NavigationLink(destination: RhythmNotesRestsLearn2View()) {
                         Text("Next")
                             .padding()
@@ -107,28 +114,29 @@ struct RhythmNotesRestsLearnView: View {
                 .padding(.bottom, 30)
             }
             .onAppear {
+                speakText("this is a semibreve. you have to play it for four beats. Tap on the rectangular button and hold for four beats. Listen to the metronome to know the duration of the four beats.")
+            }
+            .onAppear {
                 setupMetronome()
             }
             .onDisappear {
                 stopMetronome()
             }
             .navigationBarBackButtonHidden(true)
+            .onDisappear{
+                stopAudio()
+            }
         }
         .navigationBarBackButtonHidden(true)
     }
     
     private func startHolding() {
         showError = false
-        print("startedHolding")
-        
         if beatCount % 4 == 0 {
             progress = 0
         } else {
             showError = true
         }
-    }
-    
-    private func stopHolding() {
     }
     
     private func startMetronome() {
@@ -155,7 +163,6 @@ struct RhythmNotesRestsLearnView: View {
                 progress = 0
             }
             
-            
             if isPressed && beatCount <= 4 {
                 progress = CGFloat(beatCount) * 150
             }
@@ -172,6 +179,21 @@ struct RhythmNotesRestsLearnView: View {
         metronomePlayer?.stop()
         metronomePlays = false
         metronomeStopped = true
+    }
+    
+    private func speakText(_ text: String) {
+        let utterance = AVSpeechUtterance(string: text)
+        utterance.voice = AVSpeechSynthesisVoice(language: "en-US")
+        utterance.rate = 0.5
+        synthesizer.speak(utterance)
+    }
+
+    private func replayAudio() {
+        speakText("this is a semibreve. you have to play it for four beats. tap on the rectangular button and hold for four beats. listen to the metronome to know the duration of the four beats.")
+    }
+
+    private func stopAudio() {
+        synthesizer.stopSpeaking(at: .immediate)
     }
 }
 

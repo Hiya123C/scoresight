@@ -8,6 +8,8 @@
 import SwiftUI
 import AVFoundation
 
+private let synthesizer = AVSpeechSynthesizer()
+
 struct RhythmNotesRestsLearn3View: View {
     @State private var showAlert = false
     @State private var audioPlayer: AVAudioPlayer?
@@ -16,7 +18,7 @@ struct RhythmNotesRestsLearn3View: View {
     @State private var beatCount = 0
     @State private var timer: Timer?
     @State private var metronomeIsPlaying = false
-
+    
     var body: some View {
         NavigationView {
             VStack {
@@ -31,7 +33,7 @@ struct RhythmNotesRestsLearn3View: View {
                 }
                 .padding(.leading, 10)
                 .padding(.top, 10)
-
+                
                 Spacer()
                 
                 HStack(spacing: 20) {
@@ -47,7 +49,7 @@ struct RhythmNotesRestsLearn3View: View {
                                     .fill(Color.blue)
                                     .frame(width: 150 * buttonFillAmount, height: 60)
                                     .clipShape(RoundedRectangle(cornerRadius: 15))
-
+                                
                                 Text("HOLD!")
                                     .font(.title)
                                     .fontWeight(.bold)
@@ -73,7 +75,7 @@ struct RhythmNotesRestsLearn3View: View {
                                 }
                             })
                     }
-
+                    
                     VStack {
                         Image("minim rest")
                             .resizable()
@@ -106,7 +108,7 @@ struct RhythmNotesRestsLearn3View: View {
                 }
                 
                 Spacer()
-
+                
                 HStack {
                     NavigationLink(destination: RhythmNotesRestsLearn2View()) {
                         Text("back")
@@ -122,7 +124,14 @@ struct RhythmNotesRestsLearn3View: View {
                     .padding(.leading, 20)
                     
                     Spacer()
-                    
+                    Button(action: {
+                        replayAudio()
+                    }) {
+                        Image(systemName: "speaker.wave.2.fill")
+                            .font(.system(size: 30))
+                            .foregroundStyle(.black)
+                            .padding(.trailing, 10)
+                    }
                     NavigationLink(destination: RhythmNotesRestsLearn4View()) {
                         Text("next")
                             .padding()
@@ -137,11 +146,18 @@ struct RhythmNotesRestsLearn3View: View {
                     .padding(.trailing, 20)
                 }
                 .padding(.bottom, 20)
+                .onAppear {
+                    speakText("this is a minim, followed by a minim rest. you have to play the minim for two beats. hold the rectangular button for two beats. do not play during the minim rest. Listen to the metronome to know the duration of the four beats.")
+                }
+            }
+            .navigationBarBackButtonHidden(true)
+            .onDisappear {
+                stopAudio()
             }
         }
         .navigationBarBackButtonHidden(true)
     }
-
+    
     private func startMetronomeForFourBeats() {
         buttonFillAmount = 0.0
         beatCount = 0
@@ -155,7 +171,7 @@ struct RhythmNotesRestsLearn3View: View {
         
         timer = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true) { _ in
             beatCount += 1
-
+            
             if beatCount <= 2 {
                 buttonFillAmount += 0.5
             }
@@ -166,8 +182,8 @@ struct RhythmNotesRestsLearn3View: View {
             }
         }
     }
-
-
+    
+    
     private func playMetronome() {
         guard let url = Bundle.main.url(forResource: "metronome1", withExtension: "m4a") else { return }
         do {
@@ -178,11 +194,26 @@ struct RhythmNotesRestsLearn3View: View {
             print("Failed to play audio: \(error.localizedDescription)")
         }
     }
-
+    
     private func stopMetronome() {
         audioPlayer?.stop()
         metronomeIsPlaying = false
     }
+    private func speakText(_ text: String) {
+        let utterance = AVSpeechUtterance(string: text)
+        utterance.voice = AVSpeechSynthesisVoice(language: "en-US")
+        utterance.rate = 0.5
+        synthesizer.speak(utterance)
+    }
+    
+    private func replayAudio() {
+        speakText("this is a minim, followed by a minim rest. you have to play the minim for two beats. hold the rectangular button for two beats. do not play during the minim rest. Listen to the metronome to know the duration of the four beats.")
+    }
+    
+    private func stopAudio() {
+        synthesizer.stopSpeaking(at: .immediate)
+    }
+    
 }
 
 #Preview {
