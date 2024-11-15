@@ -6,8 +6,11 @@
 //
 
 import SwiftUI
+import AVFoundation
 
 struct TimeSignaturesLearnView: View {
+    private let synthesizer = AVSpeechSynthesizer()
+    
     var body: some View {
         NavigationView {
             VStack(spacing: 20) {
@@ -39,14 +42,21 @@ struct TimeSignaturesLearnView: View {
                             .font(.system(size: 60))
                             .bold()
                     }
-
                 }
                 .padding()
 
                 HStack {
-                    
                     Spacer()
-                    NavigationLink(destination:  TimeSignaturesLearn3View()) {
+                    Button(action: {
+                        replayAudio()
+                    }) {
+                        Image(systemName: "speaker.wave.2.fill")
+                            .font(.system(size: 30))
+                            .foregroundStyle(.black)
+                            .padding(.trailing, 10)
+                    }
+
+                    NavigationLink(destination: TimeSignaturesLearn3View()) {
                         Text("next")
                             .padding()
                             .frame(width: 100, height: 50)
@@ -61,8 +71,22 @@ struct TimeSignaturesLearnView: View {
                 .padding(.horizontal)
             }
             .navigationBarHidden(true)
+            .onAppear {
+                speakText("This is the time signature 4/4. The number below determines the type of note value. In this case, 4 represents a crotchet!")
+            }
         }
         .navigationBarHidden(true)
+    }
+    
+    private func speakText(_ text: String) {
+        let utterance = AVSpeechUtterance(string: text)
+        utterance.voice = AVSpeechSynthesisVoice(language: "en-US")
+        utterance.rate = 0.5
+        synthesizer.speak(utterance)
+    }
+
+    private func replayAudio() {
+        speakText("This is the time signature 4/4. The number below determines the type of note value. In this case, 4 represents a crotchet!")
     }
 }
 

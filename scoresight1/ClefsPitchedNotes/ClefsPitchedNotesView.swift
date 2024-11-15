@@ -25,7 +25,7 @@ struct ClefsPitchedNotesView: View {
             
             Text("clefs+\npitched notes")
                 .fontWeight(.bold)
-                .font(.system(size:75)).environment(\._lineHeightMultiple, 0.75)
+                .font(.system(size:75)).environment(\._lineHeightMultiple, 0.75) //center 
                 
             NavigationLink{
                 ClefsPitchedNotesLearnView()

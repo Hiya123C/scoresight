@@ -1,20 +1,14 @@
-////to-dos
-////note function
-////are accidentals needed?
-////be able to drag the note up and down + stave moves accordingly
-////link note position to its pitch
+////offset
 //
 //import SwiftUI
 //
-//struct Sandbox2View: View {
-//    @State private var currentStage: Int = 1
-//    @StateObject private var viewModel = Sandbox2ViewModel()
-////    @State private var selectedRestIndex: Int? = nil
-//    
+//struct Sandbox1View: View {
+//    @StateObject private var viewModel = SandboxViewModel()
+//    @State private var selectedRestIndex: Int? = nil
 //    var body: some View {
 //        NavigationStack{
 //            VStack{
-//                Spacer(minLength: 70)
+//                Spacer()
 //                HStack{
 //                    NavigationLink{
 //                        SandboxView()
@@ -25,221 +19,156 @@
 //                    }
 //                    Spacer()
 //                    
-//                    Button(action:{ viewModel.resetRests()
+//                    Button(action:{ viewModel.resetNotes()
 //                    }){
 //                        Image(systemName: "repeat.circle.fill")
 //                            .foregroundStyle(.black, .white)
 //                            .font(.system(size:50))
 //                    }
-//                    
 //                }
 //                
 //                Text("move the note up and down the bar lines to adjust pitch")
 //                    .font(.system(size:25))
 //                
-//                VStack{
-//                    Spacer()
+//                VStack(alignment: .center){
+//                    
 //                    HStack{
-//                        Spacer()
-//                        ZStack{
-//                            Image("sandbox original")
-//                                .resizable()
-//                                .scaledToFit()
-//                                .scaleEffect(1)
+//
+//                        ZStack(alignment: .leading) {
+//                            HStack(spacing: 0) {
+//                                Rectangle()
+//                                    .frame(width: 4)
+//                                VStack(spacing: 21) {
+//                                    Rectangle()
+//                                        .frame(height: 4)
+//                                    Rectangle()
+//                                        .frame(height: 4)
+//                                    Rectangle()
+//                                        .frame(height: 4)
+//                                    Rectangle()
+//                                        .frame(height: 4)
+//                                    Rectangle()
+//                                        .frame(height: 4)
+//                                }
+//                                Rectangle()
+//                                    .frame(width: 4)
+//                            }
+//                            .frame(height: 104)
 //                            
-//                            VStack{
-//                                HStack{
+//                            HStack(spacing: 36) {
+//                                HStack(spacing: 4) {
+//                                    Image("single treble")
+//                                        .resizable()
+//                                        .scaledToFit()
+//                                        .frame(height: 160)
+//                                        .padding(.leading, 8)
 //                                    
-//                                    
-//                                    ForEach(viewModel.restImages.indices, id: \.self) { index in
-//                                        Image(viewModel.restImages[index])
+//                                    Image("common time")
+//                                        .resizable()
+//                                        .scaledToFit()
+//                                        .frame(width: 48)
+//                                }
+//                                
+//                                HStack(spacing: 0) {
+//                                    ForEach(viewModel.noteImages.indices, id: \.self) { index in
+//                                        Image(viewModel.noteImages[index])
 //                                            .resizable()
-//                                            .scaledToFill()
-//                                            .scaleEffect(viewModel.restImages[index] == "minim rest" ? 0.25 : 0.8)
-//                                            .scaleEffect(viewModel.restImages[index] == "quaver rest" ? 0.4 : 0.8)
-//                                            .padding()
+//                                            .scaledToFit()
+//                                            .frame(width: 32)
 //                                            .background(viewModel.selectedRestIndex == index ? Color.yellow.opacity(0.3) : Color.clear)
 //                                            .onTapGesture {
-//                                                viewModel.toggleSelectRest(at: index)
+//                                                viewModel.toggleSelectNote(at: index)
 //                                            }
+//                                        
+//                                        ForEach(0..<viewModel.notes[index].NoteLength.lengthMultiplier, id: \.self) { _ in
+//                                            Spacer()
+//                                        }
 //                                    }
-//                                }.frame(maxWidth:370, maxHeight: 280) //allowed?
-//                                Spacer()
+//                                }
 //                            }
 //                            
-//                            ForEach(viewModel.notes) { note in
-//                                Image(note.type)
-//                                    .resizable()
-//                                    .scaledToFit()
-//                                    .position(note.position)
-//                                    .gesture(
-//                                        DragGesture()
-//                                            .onChanged { value in
-//                                                viewModel.updatePitch(for: note, at: value.location)
-//                                            }
-//                                    )
-//                            }
+//                            
+////                            ForEach(viewModel.notes) { note in
+////                                Image(note.type)
+////                                    .frame(width:50)
+////                                    .scaledToFit()
+////                                    .position(note.position)
+////                                    .gesture(
+////                                        DragGesture()
+////                                            .onChanged { value in
+////                                                viewModel.updatePitch(for: note, at: value.location)
+////                                            }
+////                                    )
+////                            }
 //                            
 //                        }
-//                        Spacer()
-//                        VStack{
-//                            Button(action:{
-//                                viewModel.beatChange(with:"note")
-//                            }){
-//                                Text("note")
-//                                    .padding()
-//                                    .foregroundStyle(.black)
-//                                    .background(
-//                                        RoundedRectangle(cornerRadius: 7)
-//                                            .stroke(.black, lineWidth: 2)
-//                                            .frame(width: 50, height: 50)
-//                                    )
-//                                    .font(.system(size: 20))
-//                                
-//                            }
-//                            
-//                            Button(action:{
-//                                print("play line")
-//                                //play
-//                            }){
-//                                Image(systemName: "play.square")//looks abit ugly...
-//                                    .foregroundStyle(.black, .black)
-//                                    .font(.system(size:60))
-//                            }
+//                        
+//                        Button(action:{
+//                            print("play line")
+//                            //play
+//                        }){
+//                            Image(systemName: "play.square")//looks abit ugly...
+//                                .foregroundStyle(.black, .black)
+//                                .font(.system(size:60))
 //                        }
+//                        
 //                    }
-//                    Spacer()
-//                }.frame(maxHeight:.infinity)
+//                }.frame(maxWidth:.infinity, alignment: .center)
 //                
 //                Spacer()
 //                
-//                if currentStage == 1{
-//                    HStack{ //3 note values
-//                        Spacer()
-//                        Button(action: {
-//                            viewModel.replaceSelectedRest(with: "minim")
-//                        }) {
-//                            Image("minim")
-//                                .resizable()
-//                                .scaledToFit()
-//                                .background(
-//                                    RoundedRectangle(cornerRadius: 10)
-//                                        .stroke(.black, lineWidth: 3)
-//                                        .frame(width: 80, height: 90)
-//                                )
-//                        }
-//                        Spacer()
-//                        Button(action:{
-//                            viewModel.replaceSelectedRest(with: "crochet")
-//                        }){
-//                            Image("crochet")
-//                                .resizable()
-//                                .scaledToFit()
-//                                .background(
-//                                    RoundedRectangle(cornerRadius: 10)
-//                                        .stroke(.black, lineWidth: 3)
-//                                        .frame(width:80,height:90)
-//                                )
-//                        }
-//                        Spacer()
-//                        
-//                        Button(action: {
-//                            viewModel.replaceSelectedRest(with: "quaver")
-//                        }) {
-//                            Image("quaver")
-//                                .resizable()
-//                                .scaledToFit()
-//                                .background(
-//                                    RoundedRectangle(cornerRadius: 10)
-//                                        .stroke(.black, lineWidth: 3)
-//                                        .frame(width: 80, height: 90)
-//                                )
-//                        }
-//                        Spacer()
+//                HStack{ //3 note values
+//                    Spacer()
+//                    Button(action: {
+//                        viewModel.replaceNote(with: "minim")
+//                    }) {
+//                        Image("minim")
+//                            .resizable()
+//                            .scaledToFit()
+//                            .scaleEffect(0.6)
+//                            .background(
+//                                RoundedRectangle(cornerRadius: 10)
+//                                    .stroke(.black, lineWidth: 3)
+//                                    .frame(width: 80, height: 90)
+//                            )
 //                    }
-//                }else if currentStage == 2{//accidentals?
-//                    HStack{
-//                        Spacer()
-//                        Button(action:{
-//                            
-//                        }) {
-//                            Image("natural")
-//                                .resizable()
-//                                .scaledToFit()
-//                                .background(
-//                                    RoundedRectangle(cornerRadius: 10)
-//                                        .stroke(.black, lineWidth: 3)
-//                                        .frame(width: 80, height: 90)
-//                                )
-//                        }
-//                        Spacer()
-//                        Button(action:{
-//                        }) {
-//                            Image("sharp")
-//                                .resizable()
-//                                .scaledToFit()
-//                                .background(
-//                                    RoundedRectangle(cornerRadius: 10)
-//                                        .stroke(.black, lineWidth: 3)
-//                                        .frame(width: 80, height: 90)
-//                                )
-//                        }
-//                        Spacer()
-//                        Button(action:{
-//                            
-//                        }) {
-//                            Image("flat")
-//                                .resizable()
-//                                .scaledToFit()
-//                                .background(
-//                                    RoundedRectangle(cornerRadius: 10)
-//                                        .stroke(.black, lineWidth: 3)
-//                                        .frame(width: 80, height: 90)
-//                                )
-//                        }
-//                        Spacer()
+//                    Spacer()
+//                    Button(action:{
+//                        viewModel.replaceNote(with: "crochet")
+//                    }){
+//                        Image("crochet")
+//                            .resizable()
+//                            .scaleEffect(0.5)
+//                            .scaledToFit()//haha :(
+//                            .background(
+//                                RoundedRectangle(cornerRadius: 10)
+//                                    .stroke(.black, lineWidth: 3)
+//                                    .frame(width:80,height:90)
+//                            )
 //                    }
-//                }
-//                
-//                HStack{
-//                    if currentStage == 2 {
-//                        Button("back") {
-//                            currentStage = 1
-//                        }
-//                        .padding()
-//                        .foregroundStyle(.black)
-//                        .background(
-//                            RoundedRectangle(cornerRadius: 10)
-//                                .stroke(.black, lineWidth: 3)
-//                                .frame(width: 100, height: 50)
-//                        )
-//                        .font(.system(size: 25))
-//                    }
-//                    
 //                    Spacer()
 //                    
-//                    if currentStage == 1 {
-//                        Button("next") {
-//                            currentStage = 2
-//                        }
-//                        .padding()
-//                        .foregroundStyle(.black)
-//                        .background(
-//                            RoundedRectangle(cornerRadius: 10)
-//                                .stroke(.black, lineWidth: 3)
-//                                .frame(width: 100, height: 50)
-//                        )
-//                        .font(.system(size: 25))
+//                    Button(action: {
+//                        viewModel.replaceNote(with: "quaver")
+//                    }) {
+//                        Image("quaver")
+//                            .resizable()
+//                            .scaledToFit()
+//                            .scaleEffect(0.6)
+//                            .background(
+//                                RoundedRectangle(cornerRadius: 10)
+//                                    .stroke(.black, lineWidth: 3)
+//                                    .frame(width: 80, height: 90)
+//                            )
 //                    }
-//                    
+//                    Spacer()
 //                }
-//                Spacer(minLength: 50)
-//                
 //            }.navigationBarBackButtonHidden(true)
-//        }//nav stack
+//        }
 //    }
 //}
 //
+//
 //#Preview {
-//    Sandbox2View()
+//    Sandbox1View()
 //}

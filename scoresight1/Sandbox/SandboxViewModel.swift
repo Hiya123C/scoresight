@@ -4,29 +4,25 @@ import SwiftUI
 
 class SandboxViewModel: ObservableObject {
     @Published var noteImages: [String] = ["crochet", "crochet", "crochet", "crochet"]
-    @Published var notes: [Note] = []
+    @Published var notes: [Note] = [.init(position: .zero, NoteLength: .crochet, pitch: 0), .init(position: .zero, NoteLength: .crochet, pitch: 0), .init(position: .zero, NoteLength: .crochet, pitch: 0), .init(position: .zero, NoteLength: .crochet, pitch: 0)]
     @Published var selectedRestIndex: Int? = nil
 
     func resetNotes() {
         noteImages = ["crochet", "crochet", "crochet", "crochet"]
+        notes = [.init(position: .zero, NoteLength: .crochet, pitch: 0), .init(position: .zero, NoteLength: .crochet, pitch: 0), .init(position: .zero, NoteLength: .crochet, pitch: 0), .init(position: .zero, NoteLength: .crochet, pitch: 0)]
     }
-    
-    func toggleSelectNote(at index: Int) {
-            if selectedRestIndex == index {
-                selectedRestIndex = nil // Deselect if it's already selected
-            } else {
-                selectedRestIndex = index
-            }
-        }
     
     func replaceNote(with noteLength: String) {
         switch noteLength {
         case "minim":
             noteImages = ["minim","minim",] //all minim ?
+            notes = [.init(position: .zero, NoteLength: .minim, pitch: 0), .init(position: .zero, NoteLength: .minim, pitch: 0)]
         case "quaver":
             noteImages = ["quaver", "quaver", "quaver","quaver","quaver","quaver","quaver","quaver"]
+            notes = [.init(position: .zero, NoteLength: .quaver, pitch: 0), .init(position: .zero, NoteLength: .quaver, pitch: 0), .init(position: .zero, NoteLength: .quaver, pitch: 0), .init(position: .zero, NoteLength: .quaver, pitch: 0), .init(position: .zero, NoteLength: .quaver, pitch: 0), .init(position: .zero, NoteLength: .quaver, pitch: 0), .init(position: .zero, NoteLength: .quaver, pitch: 0), .init(position: .zero, NoteLength: .quaver, pitch: 0)]
         default:
             noteImages = ["crochet", "crochet","crochet","crochet"]
+            notes = [.init(position: .zero, NoteLength: .crochet, pitch: 0), .init(position: .zero, NoteLength: .crochet, pitch: 0), .init(position: .zero, NoteLength: .crochet, pitch: 0), .init(position: .zero, NoteLength: .crochet, pitch: 0)]
         }
     }
     //    func addNote(type: String, at position: CGPoint) {

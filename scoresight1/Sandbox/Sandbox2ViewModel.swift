@@ -1,37 +1,43 @@
 ////
-////  Sandbox2ViewModel.swift
-////  scoresight1
-////
-////  Created by Crystal on 14/11/24.
 //
 //import SwiftUI
 //
-//class Sandbox2ViewModel: ObservableObject {
-//    @Published var restImages: [String] = ["crochet rest", "crochet rest", "crochet rest", "crochet rest"]
-//    @Published var notes: [Note] = []
-//    
+//class SandboxViewModel: ObservableObject {
+//    @Published var noteImages: [String] = ["crochet", "crochet", "crochet", "crochet"]
+//    @Published var notes: [Note] = [.init(position: .zero, NoteLength: .crochet, pitch: 0), .init(position: .zero, NoteLength: .crochet, pitch: 0), .init(position: .zero, NoteLength: .crochet, pitch: 0), .init(position: .zero, NoteLength: .crochet, pitch: 0)]
+//    @Published var selectedRestIndex: Int? = nil
 //
-//    func resetRests() {
-//        restImages = ["crochet rest", "crochet rest", "crochet rest", "crochet rest"]
+//    func resetNotes() {
+//        noteImages = ["crochet", "crochet", "crochet", "crochet"]
+//        notes = [.init(position: .zero, NoteLength: .crochet, pitch: 0), .init(position: .zero, NoteLength: .crochet, pitch: 0), .init(position: .zero, NoteLength: .crochet, pitch: 0), .init(position: .zero, NoteLength: .crochet, pitch: 0)]
 //    }
-//
 //    
-//    func replaceRest(with noteLength: String) {
+//    func toggleSelectNote(at index: Int) {
+//            if selectedRestIndex == index {
+//                selectedRestIndex = nil // Deselect if it's already selected
+//            } else {
+//                selectedRestIndex = index
+//            }
+//        }
+//    
+//    func replaceNote(with noteLength: String) {
 //        switch noteLength {
 //        case "minim":
-//            restImages = ["minim rest","minim rest",] //all minim ?
+//            noteImages = ["minim","minim",] //all minim ?
+//            notes = [.init(position: .zero, NoteLength: .minim, pitch: 0), .init(position: .zero, NoteLength: .minim, pitch: 0)]
 //        case "quaver":
-//            restImages = ["quaver rest", "quaver rest", "quaver rest","quaver rest","quaver rest","quaver rest","quaver rest","quaver rest"]
+//            noteImages = ["quaver", "quaver", "quaver","quaver","quaver","quaver","quaver","quaver"]
+//            notes = [.init(position: .zero, NoteLength: .quaver, pitch: 0), .init(position: .zero, NoteLength: .quaver, pitch: 0), .init(position: .zero, NoteLength: .quaver, pitch: 0), .init(position: .zero, NoteLength: .quaver, pitch: 0), .init(position: .zero, NoteLength: .quaver, pitch: 0), .init(position: .zero, NoteLength: .quaver, pitch: 0), .init(position: .zero, NoteLength: .quaver, pitch: 0), .init(position: .zero, NoteLength: .quaver, pitch: 0)]
 //        default:
-//            restImages = ["crochet rest", "crochet rest","crochet rest","crochet rest"]
+//            noteImages = ["crochet", "crochet","crochet","crochet"]
+//            notes = [.init(position: .zero, NoteLength: .crochet, pitch: 0), .init(position: .zero, NoteLength: .crochet, pitch: 0), .init(position: .zero, NoteLength: .crochet, pitch: 0), .init(position: .zero, NoteLength: .crochet, pitch: 0)]
 //        }
 //    }
-////        func addNote(type: String, at position: CGPoint) {
-////            let newNote = Note(position: position, type: type, pitch: calculatePitch(for: position))
-////            notes.append(newNote)
-////        }
-//    
-//  //*
+//    //    func addNote(type: String, at position: CGPoint) {
+//    //        let newNote = Note(position: position, type: type, pitch: calculatePitch(for: position))
+//    //        notes.append(newNote)
+//    //    }
+//
 //    func updatePitch(for note: Note, at position: CGPoint) -> Note {
 //        var updatedNote = note
 //        updatedNote.position = position
@@ -42,7 +48,6 @@
 //    private func calculatePitch(for position: CGPoint) -> Int {
 //        return Int(position.y / 10)
 //    }
-//    //*
 //}
 //  
 //    

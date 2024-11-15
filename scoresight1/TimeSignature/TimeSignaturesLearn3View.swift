@@ -30,7 +30,7 @@ struct TimeSignaturesLearn3View: View {
                         .resizable()
                         .scaledToFit()
 
-                    Image("4 crochets")
+                    Image("four crochets")
                         .resizable()
                         .scaledToFit()
                 }

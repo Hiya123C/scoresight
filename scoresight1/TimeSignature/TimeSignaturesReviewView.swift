@@ -45,7 +45,7 @@ struct TimeSignaturesReviewView: View {
                     Spacer()
                     
                     Button(action: {
-                    }) {                    NavigationLink(destination: RhythmNotesRestsReview2View()){
+                    }) {                    NavigationLink(destination: TimeSignaturesReview2View()){
                         Text("next")
                             .padding()
                             .background(
