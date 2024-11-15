@@ -42,6 +42,37 @@
 		316BA3032CE5EACC00BAF59C /* ArticulationsOrnamentsReview4View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 316BA3022CE5EACC00BAF59C /* ArticulationsOrnamentsReview4View.swift */; };
 		316BA3052CE5EADA00BAF59C /* ArticulationsOrnamentsReview5View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 316BA3042CE5EADA00BAF59C /* ArticulationsOrnamentsReview5View.swift */; };
 		31B8246F2CDF2DD50031E923 /* StartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31B8246E2CDF2DD50031E923 /* StartView.swift */; };
+		31F1FA4D2CE79316001B3AA2 /* treblepitched.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 31F1FA4C2CE79316001B3AA2 /* treblepitched.mp3 */; };
+		31F1FA4F2CE79373001B3AA2 /* basspitched.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 31F1FA4E2CE79373001B3AA2 /* basspitched.mp3 */; };
+		31F1FA532CE794B2001B3AA2 /* ppp.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 31F1FA522CE794B2001B3AA2 /* ppp.mp3 */; };
+		31F1FA552CE794FF001B3AA2 /* pp.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 31F1FA542CE794FF001B3AA2 /* pp.mp3 */; };
+		31F1FA572CE79513001B3AA2 /* piano.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 31F1FA562CE79513001B3AA2 /* piano.mp3 */; };
+		31F1FA592CE795EC001B3AA2 /* mezzoforte.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 31F1FA582CE795EC001B3AA2 /* mezzoforte.mp3 */; };
+		31F1FA5B2CE79604001B3AA2 /* forte.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 31F1FA5A2CE79604001B3AA2 /* forte.mp3 */; };
+		31F1FA5D2CE7961A001B3AA2 /* ff.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 31F1FA5C2CE7961A001B3AA2 /* ff.mp3 */; };
+		31F1FA5F2CE7967E001B3AA2 /* mezzopiano.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 31F1FA5E2CE7967E001B3AA2 /* mezzopiano.mp3 */; };
+		31F1FA612CE79693001B3AA2 /* fff.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 31F1FA602CE79693001B3AA2 /* fff.mp3 */; };
+		31F1FA632CE79781001B3AA2 /* crescendo.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 31F1FA622CE79781001B3AA2 /* crescendo.mp3 */; };
+		31F1FA652CE797B3001B3AA2 /* decrescendo.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 31F1FA642CE797B3001B3AA2 /* decrescendo.mp3 */; };
+		31F1FA792CE79D0E001B3AA2 /* sfz.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 31F1FA782CE79D0E001B3AA2 /* sfz.mp3 */; };
+		31F1FA7B2CE79D22001B3AA2 /* rfz.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 31F1FA7A2CE79D22001B3AA2 /* rfz.mp3 */; };
+		31F1FA7D2CE79D32001B3AA2 /* fp.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 31F1FA7C2CE79D32001B3AA2 /* fp.mp3 */; };
+		31F1FA7F2CE79D48001B3AA2 /* pf.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 31F1FA7E2CE79D48001B3AA2 /* pf.mp3 */; };
+		31F1FA812CE79D59001B3AA2 /* pedal.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 31F1FA802CE79D59001B3AA2 /* pedal.mp3 */; };
+		31F1FA832CE79DF3001B3AA2 /* accent.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 31F1FA822CE79DF3001B3AA2 /* accent.mp3 */; };
+		31F1FA852CE79F22001B3AA2 /* tenuto.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 31F1FA842CE79F22001B3AA2 /* tenuto.mp3 */; };
+		31F1FA872CE7A013001B3AA2 /* trill.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 31F1FA862CE7A013001B3AA2 /* trill.mp3 */; };
+		31F1FA892CE7A032001B3AA2 /* turn.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 31F1FA882CE7A032001B3AA2 /* turn.mp3 */; };
+		31F1FA8B2CE7A15C001B3AA2 /* staccato.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 31F1FA8A2CE7A15C001B3AA2 /* staccato.mp3 */; };
+		31F1FA8D2CE7A17D001B3AA2 /* fermata.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 31F1FA8C2CE7A17D001B3AA2 /* fermata.mp3 */; };
+		31F1FA8F2CE7A18B001B3AA2 /* glissando.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 31F1FA8E2CE7A18B001B3AA2 /* glissando.mp3 */; };
+		31F1FA912CE7A337001B3AA2 /* slur.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 31F1FA902CE7A337001B3AA2 /* slur.mp3 */; };
+		31F1FA932CE7A361001B3AA2 /* marcato.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 31F1FA922CE7A361001B3AA2 /* marcato.mp3 */; };
+		31F1FA952CE7A373001B3AA2 /* portato.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 31F1FA942CE7A372001B3AA2 /* portato.mp3 */; };
+		31F1FA972CE7A5B2001B3AA2 /* upper mordent.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 31F1FA962CE7A5B2001B3AA2 /* upper mordent.mp3 */; };
+		31F1FA992CE7A5C3001B3AA2 /* lower mordent.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 31F1FA982CE7A5C3001B3AA2 /* lower mordent.mp3 */; };
+		31F1FA9B2CE7A5D8001B3AA2 /* apoggiatura.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 31F1FA9A2CE7A5D8001B3AA2 /* apoggiatura.mp3 */; };
+		31F1FA9D2CE7A5E8001B3AA2 /* acciaccatura.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 31F1FA9C2CE7A5E8001B3AA2 /* acciaccatura.mp3 */; };
 		D900AC9A2CE1F6A800DC1959 /* SheetMusicOrganisationLearnView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D900AC912CE1F6A800DC1959 /* SheetMusicOrganisationLearnView.swift */; };
 		D900AC9B2CE1F6A800DC1959 /* SheetMusicOrganisationLearn2View.swift in Sources */ = {isa = PBXBuildFile; fileRef = D900AC922CE1F6A800DC1959 /* SheetMusicOrganisationLearn2View.swift */; };
 		D900AC9C2CE1F6A800DC1959 /* SheetMusicOrganisationLearn3View.swift in Sources */ = {isa = PBXBuildFile; fileRef = D900AC932CE1F6A800DC1959 /* SheetMusicOrganisationLearn3View.swift */; };
@@ -186,6 +217,37 @@
 		316BA3022CE5EACC00BAF59C /* ArticulationsOrnamentsReview4View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticulationsOrnamentsReview4View.swift; sourceTree = "<group>"; };
 		316BA3042CE5EADA00BAF59C /* ArticulationsOrnamentsReview5View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticulationsOrnamentsReview5View.swift; sourceTree = "<group>"; };
 		31B8246E2CDF2DD50031E923 /* StartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartView.swift; sourceTree = "<group>"; };
+		31F1FA4C2CE79316001B3AA2 /* treblepitched.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = treblepitched.mp3; sourceTree = "<group>"; };
+		31F1FA4E2CE79373001B3AA2 /* basspitched.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = basspitched.mp3; sourceTree = "<group>"; };
+		31F1FA522CE794B2001B3AA2 /* ppp.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = ppp.mp3; sourceTree = "<group>"; };
+		31F1FA542CE794FF001B3AA2 /* pp.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = pp.mp3; sourceTree = "<group>"; };
+		31F1FA562CE79513001B3AA2 /* piano.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = piano.mp3; sourceTree = "<group>"; };
+		31F1FA582CE795EC001B3AA2 /* mezzoforte.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = mezzoforte.mp3; sourceTree = "<group>"; };
+		31F1FA5A2CE79604001B3AA2 /* forte.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = forte.mp3; sourceTree = "<group>"; };
+		31F1FA5C2CE7961A001B3AA2 /* ff.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = ff.mp3; sourceTree = "<group>"; };
+		31F1FA5E2CE7967E001B3AA2 /* mezzopiano.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = mezzopiano.mp3; sourceTree = "<group>"; };
+		31F1FA602CE79693001B3AA2 /* fff.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = fff.mp3; sourceTree = "<group>"; };
+		31F1FA622CE79781001B3AA2 /* crescendo.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = crescendo.mp3; sourceTree = "<group>"; };
+		31F1FA642CE797B3001B3AA2 /* decrescendo.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = decrescendo.mp3; sourceTree = "<group>"; };
+		31F1FA782CE79D0E001B3AA2 /* sfz.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = sfz.mp3; sourceTree = "<group>"; };
+		31F1FA7A2CE79D22001B3AA2 /* rfz.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = rfz.mp3; sourceTree = "<group>"; };
+		31F1FA7C2CE79D32001B3AA2 /* fp.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = fp.mp3; sourceTree = "<group>"; };
+		31F1FA7E2CE79D48001B3AA2 /* pf.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = pf.mp3; sourceTree = "<group>"; };
+		31F1FA802CE79D59001B3AA2 /* pedal.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = pedal.mp3; sourceTree = "<group>"; };
+		31F1FA822CE79DF3001B3AA2 /* accent.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = accent.mp3; sourceTree = "<group>"; };
+		31F1FA842CE79F22001B3AA2 /* tenuto.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = tenuto.mp3; sourceTree = "<group>"; };
+		31F1FA862CE7A013001B3AA2 /* trill.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = trill.mp3; sourceTree = "<group>"; };
+		31F1FA882CE7A032001B3AA2 /* turn.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = turn.mp3; sourceTree = "<group>"; };
+		31F1FA8A2CE7A15C001B3AA2 /* staccato.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = staccato.mp3; sourceTree = "<group>"; };
+		31F1FA8C2CE7A17D001B3AA2 /* fermata.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = fermata.mp3; sourceTree = "<group>"; };
+		31F1FA8E2CE7A18B001B3AA2 /* glissando.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = glissando.mp3; sourceTree = "<group>"; };
+		31F1FA902CE7A337001B3AA2 /* slur.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = slur.mp3; sourceTree = "<group>"; };
+		31F1FA922CE7A361001B3AA2 /* marcato.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = marcato.mp3; sourceTree = "<group>"; };
+		31F1FA942CE7A372001B3AA2 /* portato.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = portato.mp3; sourceTree = "<group>"; };
+		31F1FA962CE7A5B2001B3AA2 /* upper mordent.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "upper mordent.mp3"; sourceTree = "<group>"; };
+		31F1FA982CE7A5C3001B3AA2 /* lower mordent.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "lower mordent.mp3"; sourceTree = "<group>"; };
+		31F1FA9A2CE7A5D8001B3AA2 /* apoggiatura.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = apoggiatura.mp3; sourceTree = "<group>"; };
+		31F1FA9C2CE7A5E8001B3AA2 /* acciaccatura.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = acciaccatura.mp3; sourceTree = "<group>"; };
 		D900AC912CE1F6A800DC1959 /* SheetMusicOrganisationLearnView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SheetMusicOrganisationLearnView.swift; sourceTree = "<group>"; };
 		D900AC922CE1F6A800DC1959 /* SheetMusicOrganisationLearn2View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SheetMusicOrganisationLearn2View.swift; sourceTree = "<group>"; };
 		D900AC932CE1F6A800DC1959 /* SheetMusicOrganisationLearn3View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SheetMusicOrganisationLearn3View.swift; sourceTree = "<group>"; };
@@ -534,6 +596,37 @@
 		D9E036002CDF12AD00220F1F /* Preview Content */ = {
 			isa = PBXGroup;
 			children = (
+				31F1FA4C2CE79316001B3AA2 /* treblepitched.mp3 */,
+				31F1FA4E2CE79373001B3AA2 /* basspitched.mp3 */,
+				31F1FA522CE794B2001B3AA2 /* ppp.mp3 */,
+				31F1FA542CE794FF001B3AA2 /* pp.mp3 */,
+				31F1FA562CE79513001B3AA2 /* piano.mp3 */,
+				31F1FA5E2CE7967E001B3AA2 /* mezzopiano.mp3 */,
+				31F1FA582CE795EC001B3AA2 /* mezzoforte.mp3 */,
+				31F1FA5A2CE79604001B3AA2 /* forte.mp3 */,
+				31F1FA5C2CE7961A001B3AA2 /* ff.mp3 */,
+				31F1FA602CE79693001B3AA2 /* fff.mp3 */,
+				31F1FA622CE79781001B3AA2 /* crescendo.mp3 */,
+				31F1FA642CE797B3001B3AA2 /* decrescendo.mp3 */,
+				31F1FA782CE79D0E001B3AA2 /* sfz.mp3 */,
+				31F1FA7A2CE79D22001B3AA2 /* rfz.mp3 */,
+				31F1FA7C2CE79D32001B3AA2 /* fp.mp3 */,
+				31F1FA7E2CE79D48001B3AA2 /* pf.mp3 */,
+				31F1FA802CE79D59001B3AA2 /* pedal.mp3 */,
+				31F1FA822CE79DF3001B3AA2 /* accent.mp3 */,
+				31F1FA842CE79F22001B3AA2 /* tenuto.mp3 */,
+				31F1FA862CE7A013001B3AA2 /* trill.mp3 */,
+				31F1FA882CE7A032001B3AA2 /* turn.mp3 */,
+				31F1FA8A2CE7A15C001B3AA2 /* staccato.mp3 */,
+				31F1FA8C2CE7A17D001B3AA2 /* fermata.mp3 */,
+				31F1FA8E2CE7A18B001B3AA2 /* glissando.mp3 */,
+				31F1FA902CE7A337001B3AA2 /* slur.mp3 */,
+				31F1FA922CE7A361001B3AA2 /* marcato.mp3 */,
+				31F1FA942CE7A372001B3AA2 /* portato.mp3 */,
+				31F1FA962CE7A5B2001B3AA2 /* upper mordent.mp3 */,
+				31F1FA982CE7A5C3001B3AA2 /* lower mordent.mp3 */,
+				31F1FA9A2CE7A5D8001B3AA2 /* apoggiatura.mp3 */,
+				31F1FA9C2CE7A5E8001B3AA2 /* acciaccatura.mp3 */,
 				D9C232332CE0D8280032674D /* metronome.m4a */,
 				D900AE5B2CE5D37F00DC1959 /* metronome1.m4a */,
 				D900AE6B2CE72C5800DC1959 /* timesignaturesquestion1.m4a */,
@@ -600,11 +693,42 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				31F1FA7F2CE79D48001B3AA2 /* pf.mp3 in Resources */,
+				31F1FA912CE7A337001B3AA2 /* slur.mp3 in Resources */,
+				31F1FA792CE79D0E001B3AA2 /* sfz.mp3 in Resources */,
+				31F1FA952CE7A373001B3AA2 /* portato.mp3 in Resources */,
+				31F1FA8B2CE7A15C001B3AA2 /* staccato.mp3 in Resources */,
+				31F1FA852CE79F22001B3AA2 /* tenuto.mp3 in Resources */,
+				31F1FA592CE795EC001B3AA2 /* mezzoforte.mp3 in Resources */,
+				31F1FA4F2CE79373001B3AA2 /* basspitched.mp3 in Resources */,
 				D900AE6C2CE72C5800DC1959 /* timesignaturesquestion1.m4a in Resources */,
+				31F1FA812CE79D59001B3AA2 /* pedal.mp3 in Resources */,
+				31F1FA7B2CE79D22001B3AA2 /* rfz.mp3 in Resources */,
+				31F1FA5D2CE7961A001B3AA2 /* ff.mp3 in Resources */,
+				31F1FA932CE7A361001B3AA2 /* marcato.mp3 in Resources */,
+				31F1FA5F2CE7967E001B3AA2 /* mezzopiano.mp3 in Resources */,
+				31F1FA5B2CE79604001B3AA2 /* forte.mp3 in Resources */,
+				31F1FA4D2CE79316001B3AA2 /* treblepitched.mp3 in Resources */,
+				31F1FA972CE7A5B2001B3AA2 /* upper mordent.mp3 in Resources */,
 				D9E036022CDF12AD00220F1F /* Preview Assets.xcassets in Resources */,
+				31F1FA8D2CE7A17D001B3AA2 /* fermata.mp3 in Resources */,
+				31F1FA572CE79513001B3AA2 /* piano.mp3 in Resources */,
+				31F1FA832CE79DF3001B3AA2 /* accent.mp3 in Resources */,
 				D900AE5C2CE5D37F00DC1959 /* metronome1.m4a in Resources */,
+				31F1FA892CE7A032001B3AA2 /* turn.mp3 in Resources */,
+				31F1FA9D2CE7A5E8001B3AA2 /* acciaccatura.mp3 in Resources */,
+				31F1FA8F2CE7A18B001B3AA2 /* glissando.mp3 in Resources */,
+				31F1FA652CE797B3001B3AA2 /* decrescendo.mp3 in Resources */,
+				31F1FA552CE794FF001B3AA2 /* pp.mp3 in Resources */,
+				31F1FA7D2CE79D32001B3AA2 /* fp.mp3 in Resources */,
+				31F1FA992CE7A5C3001B3AA2 /* lower mordent.mp3 in Resources */,
+				31F1FA872CE7A013001B3AA2 /* trill.mp3 in Resources */,
 				D9C232342CE0D8280032674D /* metronome.m4a in Resources */,
+				31F1FA532CE794B2001B3AA2 /* ppp.mp3 in Resources */,
 				D9E035FF2CDF12AD00220F1F /* Assets.xcassets in Resources */,
+				31F1FA632CE79781001B3AA2 /* crescendo.mp3 in Resources */,
+				31F1FA612CE79693001B3AA2 /* fff.mp3 in Resources */,
+				31F1FA9B2CE7A5D8001B3AA2 /* apoggiatura.mp3 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
