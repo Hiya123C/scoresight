@@ -6,8 +6,29 @@
 //
 
 import SwiftUI
+import AVFoundation
 
 struct ClefsPitchedNotesLearn11View: View {
+    
+    @State private var audioPlayer: AVAudioPlayer?
+    
+    func playAudio() {
+        guard let soundURL = Bundle.main.url(forResource: "basspitched", withExtension: "mp3") else {
+            print("Audio fd.") //why audio file cant find
+            return
+        }
+        do {
+            if audioPlayer == nil {
+                audioPlayer = try AVAudioPlayer(contentsOf: soundURL)
+                audioPlayer?.numberOfLoops = 0
+            }
+            
+    
+        } catch {
+            print("Failed to play audio: \(error.localizedDescription)")
+        }
+    }
+    
     var body: some View {
         NavigationStack {
             VStack {
@@ -44,6 +65,14 @@ struct ClefsPitchedNotesLearn11View: View {
                         Spacer()
                         
                     }
+                    Button(action: {
+                        playAudio()
+                    }) {
+                        Image(systemName: "speaker.wave.2.fill")
+                            .font(.system(size: 30))
+                            .foregroundStyle(.black)
+                    }
+                    .padding()
                     NavigationLink{
                         ClefsPitchedNotesLearn12View()
                     }label:{
@@ -61,9 +90,15 @@ struct ClefsPitchedNotesLearn11View: View {
                         
                     }
                 }
+                .onDisappear {
+                    stopAudio()
+                }
+                .navigationBarBackButtonHidden(true)
             }
-            .navigationBarBackButtonHidden(true)
         }
+        private func stopAudio() {
+            audioPlayer?.stop()
+            audioPlayer = nil
     }
 }
 
