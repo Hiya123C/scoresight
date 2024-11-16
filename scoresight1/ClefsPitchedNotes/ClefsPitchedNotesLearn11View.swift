@@ -23,7 +23,7 @@ struct ClefsPitchedNotesLearn11View: View {
                 audioPlayer?.numberOfLoops = 0
             }
             
-    
+            
         } catch {
             print("Failed to play audio: \(error.localizedDescription)")
         }
@@ -99,6 +99,7 @@ struct ClefsPitchedNotesLearn11View: View {
         private func stopAudio() {
             audioPlayer?.stop()
             audioPlayer = nil
+        }
     }
 }
 

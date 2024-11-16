@@ -102,8 +102,7 @@ struct ClefsPitchedNotesLearn13View: View {
         audioPlayer = nil
     }
 }
-    }
-}
+
 
 #Preview {
     ClefsPitchedNotesLearn13View()
