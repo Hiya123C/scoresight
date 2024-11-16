@@ -21,10 +21,17 @@ struct DynamicsView: View {
                 }
                 Spacer()
             }
-            Text("dynamics")
-                .fontWeight(.bold)
-                .font(.system(size:100)).environment(\._lineHeightMultiple, 0.75)
+            Spacer()
+            ViewThatFits{
+                Text("dynamics")
+                    .fontWeight(.bold)
+                    .font(.system(size:100)).environment(\._lineHeightMultiple, 0.75)
+                Text("dynamics")
+                    .fontWeight(.bold)
+                    .font(.system(size:75)).environment(\._lineHeightMultiple, 0.75)
                 
+            }
+                Spacer()
             NavigationLink{
                 DynamicsLearnView()
             } label:{
@@ -56,6 +63,7 @@ struct DynamicsView: View {
                         )
                 }
             }
+            Spacer()
         }
         .navigationBarBackButtonHidden(true)
     }

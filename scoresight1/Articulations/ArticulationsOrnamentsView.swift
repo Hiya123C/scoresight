@@ -21,10 +21,20 @@ struct ArticulationsOrnamentsView: View {
                 }
                 Spacer()
             }
-            Text("articulations/n+ornaments")
-                .fontWeight(.bold)
-                .font(.system(size:100)).environment(\._lineHeightMultiple, 0.75)
+            Spacer()
+            ViewThatFits{
+                Text("articulations\n+ ornaments")
+                    .fontWeight(.bold)
+                    .font(.system(size:95)).environment(\._lineHeightMultiple, 0.75)
+                Text("articulations\n+ ornaments")
+                    .fontWeight(.bold)
+                    .font(.system(size:75)).environment(\._lineHeightMultiple, 0.75)
+                Text("articulations\n+ ornaments")
+                    .fontWeight(.bold)
+                    .font(.system(size:55)).environment(\._lineHeightMultiple, 0.75)
                 
+            }
+                Spacer()
             NavigationLink{
                 ArticulationsOrnamentsLearnView()
             }label:{
@@ -56,6 +66,7 @@ struct ArticulationsOrnamentsView: View {
                         )
                 }
             }
+            Spacer()
         }
         .navigationBarBackButtonHidden(true)
     }

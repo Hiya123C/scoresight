@@ -4,7 +4,7 @@ import SwiftUI
 
 struct ContentView: View {
     var body: some View {
-        
+        NavigationStack{
         HStack {
             NavigationLink{
                 StartView()
@@ -17,7 +17,6 @@ struct ContentView: View {
             Spacer()
         }
         // find out how to make the scrollview landscape
-        NavigationStack{
             ScrollView {
                 VStack(alignment: .center) {
                     NavigationLink{
@@ -27,11 +26,11 @@ struct ContentView: View {
                             .font(.system(size: 30))
                             .foregroundStyle(.black)
                             .bold()
-                            .padding()
-                            .overlay(
+                            .padding(30)
+                            .background(
                                 RoundedRectangle(cornerRadius: 15)
                                     .stroke(.black, lineWidth: 3)
-                                    .frame(width: 350, height: 55)
+                                    .frame(width: 500, height: 70)
                             )
                     }
                     NavigationLink{
@@ -41,11 +40,11 @@ struct ContentView: View {
                             .font(.system(size: 30))
                             .foregroundStyle(.black)
                             .bold()
-                            .padding()
-                            .overlay(
+                            .padding(30)
+                            .background(
                                 RoundedRectangle(cornerRadius: 15)
                                     .stroke(.black, lineWidth: 3)
-                                    .frame(width: 350, height: 55)
+                                    .frame(width: 500, height: 70)
                             )
                     }
                     NavigationLink{
@@ -55,11 +54,11 @@ struct ContentView: View {
                             .font(.system(size: 30))
                             .foregroundStyle(.black)
                             .bold()
-                            .padding()
-                            .overlay(
+                            .padding(30)
+                            .background(
                                 RoundedRectangle(cornerRadius: 15)
                                     .stroke(.black, lineWidth: 3)
-                                    .frame(width: 350, height: 55)
+                                    .frame(width: 500, height: 70)
                             )
                     }
                     NavigationLink{
@@ -69,11 +68,11 @@ struct ContentView: View {
                             .font(.system(size: 30))
                             .foregroundStyle(.black)
                             .bold()
-                            .padding()
-                            .overlay(
+                            .padding(30)
+                            .background(
                                 RoundedRectangle(cornerRadius: 15)
                                     .stroke(.black, lineWidth: 3)
-                                    .frame(width: 350, height: 55)
+                                    .frame(width: 500, height: 70)
                             )
                     }
                     NavigationLink{
@@ -83,11 +82,11 @@ struct ContentView: View {
                             .font(.system(size: 30))
                             .foregroundStyle(.black)
                             .bold()
-                            .padding()
-                            .overlay(
+                            .padding(30)
+                            .background(
                                 RoundedRectangle(cornerRadius: 15)
                                     .stroke(.black, lineWidth: 3)
-                                    .frame(width: 350, height: 55)
+                                    .frame(width: 500, height: 70)
                             )
                     }
                     NavigationLink{
@@ -97,11 +96,11 @@ struct ContentView: View {
                             .font(.system(size: 30))
                             .foregroundStyle(.black)
                             .bold()
-                            .padding()
-                            .overlay(
+                            .padding(30)
+                            .background(
                                 RoundedRectangle(cornerRadius: 15)
                                     .stroke(.black, lineWidth: 3)
-                                    .frame(width: 350, height: 55)
+                                    .frame(width: 500, height: 70)
                             )
                     }
                     NavigationLink{
@@ -111,11 +110,11 @@ struct ContentView: View {
                             .font(.system(size: 30))
                             .foregroundStyle(.black)
                             .bold()
-                            .padding()
-                            .overlay(
+                            .padding(30)
+                            .background(
                                 RoundedRectangle(cornerRadius: 15)
                                     .stroke(.black, lineWidth: 3)
-                                    .frame(width: 350, height: 55)
+                                    .frame(width: 500, height: 70)
                             )
                     }
                     NavigationLink{
@@ -125,11 +124,11 @@ struct ContentView: View {
                             .font(.system(size: 30))
                             .foregroundStyle(.black)
                             .bold()
-                            .padding()
+                            .padding(30)
                             .background(
                                 RoundedRectangle(cornerRadius: 15)
                                     .stroke(.black, lineWidth: 3)
-                                    .frame(width: 350, height: 55)
+                                    .frame(width: 500, height: 70)
                             )
                     }
                 }.frame(maxWidth: .infinity, alignment: .center)

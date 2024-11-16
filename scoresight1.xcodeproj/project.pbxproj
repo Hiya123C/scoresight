@@ -157,6 +157,7 @@
 		D9116A472CE8410D00804AC1 /* RhythmNotesRestsLearn13View.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9116A332CE8410D00804AC1 /* RhythmNotesRestsLearn13View.swift */; };
 		D9116A482CE8410D00804AC1 /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9116A262CE8410D00804AC1 /* CardView.swift */; };
 		D9116A492CE8410D00804AC1 /* RhythmNotesRestsLearn3View.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9116A292CE8410D00804AC1 /* RhythmNotesRestsLearn3View.swift */; };
+		D9116A512CE86F3600804AC1 /* endsign.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = D9116A4A2CE8469400804AC1 /* endsign.mp3 */; };
 		D9C232342CE0D8280032674D /* metronome.m4a in Resources */ = {isa = PBXBuildFile; fileRef = D9C232332CE0D8280032674D /* metronome.m4a */; };
 		D9E035FB2CDF12AC00220F1F /* scoresight1App.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9E035FA2CDF12AC00220F1F /* scoresight1App.swift */; };
 		D9E035FD2CDF12AC00220F1F /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9E035FC2CDF12AC00220F1F /* ContentView.swift */; };
@@ -705,6 +706,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D9116A232CE77E0C00804AC1 /* E4.mp3 in Resources */,
+				D9116A512CE86F3600804AC1 /* endsign.mp3 in Resources */,
 				D900AE6C2CE72C5800DC1959 /* timesignaturesquestion1.m4a in Resources */,
 				D9116A1B2CE77AF400804AC1 /* G4.mp3 in Resources */,
 				D9116A192CE77AE500804AC1 /* D4.mp3 in Resources */,

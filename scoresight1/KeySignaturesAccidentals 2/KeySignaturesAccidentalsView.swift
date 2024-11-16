@@ -31,15 +31,11 @@ struct KeySignaturesAccidentalsView: View {
                 Text("key signatures\n+accidentals")
                     .fontWeight(.bold)
                     .font(.system(size:75)).environment(\._lineHeightMultiple, 0.75)
-                Text("key signatures\n+accidentals")
-                    .fontWeight(.bold)
-                    .font(.system(size:70)).environment(\._lineHeightMultiple, 0.75)
+                
                 Text("key signatures\n+accidentals")
                     .fontWeight(.bold)
                     .font(.system(size:60)).environment(\._lineHeightMultiple, 0.75)
-                Text("key signatures\n+accidentals")
-                    .fontWeight(.bold)
-                    .font(.system(size:50)).environment(\._lineHeightMultiple, 0.75)
+                
             }
                 
             Spacer()

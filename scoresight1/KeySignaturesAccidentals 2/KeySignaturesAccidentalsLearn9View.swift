@@ -15,8 +15,8 @@ struct KeySignaturesAccidentalsLearn9View: View {
     // Define positions for each sharp relative to the staff
     let positions: [(x: CGFloat, y: CGFloat)] = [
         (x: 0, y: 0),
-        (x: 3, y: -3),
-        (x: 3, y: -3),
+        (x: 0, y: 9),
+        (x: -8, y: 7),
         (x: -1, y: -4),
         (x: 1, y: -3),
         (x: 2, y: -3),
@@ -26,13 +26,17 @@ struct KeySignaturesAccidentalsLearn9View: View {
     
     func startAnimation() {
         func animateNext() {
-            guard currentIndex < 8 else {
-                // Reset and start over
-                currentIndex = 0
-                opacities = Array(repeating: 0, count: 8)
-                startAnimation()
+            guard currentIndex != 8 else {
                 return
             }
+                guard currentIndex < 8 else {
+                    // Reset and start over
+                    currentIndex = 0
+                    opacities = Array(repeating: 0, count: 8)
+                    startAnimation()
+                    return
+                }
+            
             
             // Fade in current image
             withAnimation(.easeIn(duration: animationDuration)) {
@@ -41,9 +45,9 @@ struct KeySignaturesAccidentalsLearn9View: View {
             
             // If there's a previous image, fade it out after current image is fully visible
             DispatchQueue.main.asyncAfter(deadline: .now() + animationDuration) {
-                if currentIndex <= 7 {
+                if currentIndex != 0 && currentIndex <= 7 {
                     withAnimation(.easeOut(duration: animationDuration)) {
-                        opacities[currentIndex - 1] = 0
+                        opacities[currentIndex-1] = 0
                     }
                 }
                 

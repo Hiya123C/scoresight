@@ -23,11 +23,21 @@ struct ClefsPitchedNotesView: View {
                     }
                     Spacer()
                 }
-                
-                Text("clefs+\npitched notes")
-                    .fontWeight(.bold)
-                    .font(.system(size:75)).environment(\._lineHeightMultiple, 0.75) //center 
-                
+                Spacer()
+                ViewThatFits{
+                    Text("clefs +\npitched notes")
+                        .fontWeight(.bold)
+                        .font(.system(size:95)).environment(\._lineHeightMultiple, 0.75)
+                    Text("clefs +\npitched notes")
+                        .fontWeight(.bold)
+                        .font(.system(size:75)).environment(\._lineHeightMultiple, 0.75)
+                    
+                    Text("clefs\n+pitched notes")
+                        .fontWeight(.bold)
+                        .font(.system(size:60)).environment(\._lineHeightMultiple, 0.75)
+                    
+                }
+                Spacer()
                 NavigationLink{
                     ClefsPitchedNotesLearnView()
                 }label:{
@@ -44,6 +54,7 @@ struct ClefsPitchedNotesView: View {
                     }
                     .padding()
                 }
+                Spacer()
                 NavigationLink{
                     ClefsPitchedNotesReviewView()
                 }label:{
@@ -57,6 +68,7 @@ struct ClefsPitchedNotesView: View {
                             .frame(width: 200, height: 50)
                     }
                 }
+                Spacer()
             }
             .navigationBarBackButtonHidden(true)
         }
