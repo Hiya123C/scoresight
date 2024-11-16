@@ -10,54 +10,56 @@ import SwiftUI
 struct ClefsPitchedNotesView: View {
     
     var body: some View {
-        VStack {
-            HStack {
-                NavigationLink{
-                    ContentView()
-                }label:{
-                    Image(systemName: "x.circle")
-                        .symbolRenderingMode(.palette)
-                        .foregroundStyle(.black, .white)
-                        .font(.system(size:50))
+        NavigationStack {
+            VStack {
+                HStack {
+                    NavigationLink{
+                        ContentView()
+                    }label:{
+                        Image(systemName: "x.circle")
+                            .symbolRenderingMode(.palette)
+                            .foregroundStyle(.black, .white)
+                            .font(.system(size:50))
+                    }
+                    Spacer()
                 }
-                Spacer()
-            }
-            
-            Text("clefs+\npitched notes")
-                .fontWeight(.bold)
-                .font(.system(size:75)).environment(\._lineHeightMultiple, 0.75) //center 
                 
-            NavigationLink{
-                ClefsPitchedNotesLearnView()
-            }label:{
-                ZStack {
-                    Text("learn")
-                        .font(.system(size: 30))
-                        .foregroundStyle(.black)
-                        .bold()
-                        .background (
-                        RoundedRectangle(cornerRadius: 15)
-                                .stroke(.black, lineWidth: 3)
-                                .frame(width: 200, height: 50)
-                        )
+                Text("clefs+\npitched notes")
+                    .fontWeight(.bold)
+                    .font(.system(size:75)).environment(\._lineHeightMultiple, 0.75) //center 
+                
+                NavigationLink{
+                    ClefsPitchedNotesLearnView()
+                }label:{
+                    ZStack {
+                        Text("learn")
+                            .font(.system(size: 30))
+                            .foregroundStyle(.black)
+                            .bold()
+                            .background (
+                                RoundedRectangle(cornerRadius: 15)
+                                    .stroke(.black, lineWidth: 3)
+                                    .frame(width: 200, height: 50)
+                            )
+                    }
+                    .padding()
                 }
-                .padding()
-            }
-            NavigationLink{
-                ClefsPitchedNotesReviewView()
-            }label:{
-                ZStack {
-                    Text("review")
-                        .font(.system(size: 30))
-                        .foregroundStyle(.black)
-                        .bold()
+                NavigationLink{
+                    ClefsPitchedNotesReviewView()
+                }label:{
+                    ZStack {
+                        Text("review")
+                            .font(.system(size: 30))
+                            .foregroundStyle(.black)
+                            .bold()
                         RoundedRectangle(cornerRadius: 15)
                             .stroke(.black, lineWidth: 3)
                             .frame(width: 200, height: 50)
+                    }
                 }
             }
+            .navigationBarBackButtonHidden(true)
         }
-        .navigationBarBackButtonHidden(true)
     }
 }
 

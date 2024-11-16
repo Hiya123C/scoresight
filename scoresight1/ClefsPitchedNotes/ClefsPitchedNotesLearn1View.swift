@@ -12,33 +12,34 @@ private let synthesizer = AVSpeechSynthesizer()
 
 struct ClefsPitchedNotesLearnView: View {
     var body: some View {
-        VStack {
-            HStack {
-                NavigationLink{
-                    ClefsPitchedNotesView()
-                }label:{
-                    Image(systemName: "x.circle")
-                        .symbolRenderingMode(.palette)
-                        .foregroundStyle(.black, .white)
-                        .font(.system(size:50))
+        NavigationStack {
+            VStack {
+                HStack {
+                    NavigationLink{
+                        ClefsPitchedNotesView()
+                    }label:{
+                        Image(systemName: "x.circle")
+                            .symbolRenderingMode(.palette)
+                            .foregroundStyle(.black, .white)
+                            .font(.system(size:50))
+                    }
+                    Spacer()
                 }
-                Spacer()
-            }
-            
-            HStack {
-                Image("treble")
-                    .resizable()
-                    .scaledToFit()
-                VStack(alignment: .trailing) {
-                    Text("this is a")
-                        .font(.system(size: 40))
-                    Text("treble")
-                        .font(.system(size:80))
-                        .bold()
-                    Text("clef")
-                        .font(.system(size: 40))
+                
+                HStack {
+                    Image("treble")
+                        .resizable()
+                        .scaledToFit()
+                    VStack(alignment: .trailing) {
+                        Text("this is a")
+                            .font(.system(size: 40))
+                        Text("treble")
+                            .font(.system(size:80))
+                            .bold()
+                        Text("clef")
+                            .font(.system(size: 40))
+                    }
                 }
-            }
                 HStack{
                     Spacer()
                     Button(action: {
@@ -73,6 +74,7 @@ struct ClefsPitchedNotesLearnView: View {
                 stopAudio()
             }
             .navigationBarHidden(true)
+        }
     }
     private func speakText(_ text: String) {
         let utterance = AVSpeechUtterance(string: text)

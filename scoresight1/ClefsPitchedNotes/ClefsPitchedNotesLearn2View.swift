@@ -12,6 +12,7 @@ private let synthesizer = AVSpeechSynthesizer()
 
 struct ClefsPitchedNotesLearn2View: View {
     var body: some View {
+        NavigationStack {
         VStack {
             HStack {
                 NavigationLink{
@@ -78,6 +79,7 @@ struct ClefsPitchedNotesLearn2View: View {
             stopAudio()
         }
         .navigationBarHidden(true)
+    }
 }
 private func speakText(_ text: String) {
     let utterance = AVSpeechUtterance(string: text)
