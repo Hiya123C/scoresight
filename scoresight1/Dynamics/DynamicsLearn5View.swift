@@ -8,7 +8,24 @@
 import SwiftUI
 import AVFoundation
 
-private let synthesizer = AVSpeechSynthesizer()
+@State private var audioPlayer: AVAudioPlayer?
+
+func playAudio() {
+    guard let soundURL = Bundle.main.url(forResource: "rfz", withExtension: "mp3") else {
+        print("Audio fd.") //why audio file cant find
+        return
+    }
+    do {
+        if audioPlayer == nil {
+            audioPlayer = try AVAudioPlayer(contentsOf: soundURL)
+            audioPlayer?.numberOfLoops = 0
+        }
+        
+        
+    } catch {
+        print("Failed to play audio: \(error.localizedDescription)")
+    }
+}
 
 struct DynamicsLearn5View: View {
     var body: some View {
@@ -51,7 +68,7 @@ struct DynamicsLearn5View: View {
                     }
                     Spacer()
                     Button(action: {
-                        replayAudio()
+                        playAudio()
                     }) {
                         Image(systemName: "speaker.wave.2.fill")
                             .font(.system(size: 30))
@@ -72,34 +89,21 @@ struct DynamicsLearn5View: View {
                             .foregroundStyle(.black)
                             .font(.system(size: 25))
                         
-                        
                     }
                 }
-                .padding(.horizontal)
             }
-            .onAppear {
-                speakText("rinforzando is similar to sforzando, except it applies to a given phrase and not just a beat.")
-            }
+            
             .onDisappear {
                 stopAudio()
             }
-            .navigationBarHidden(true)
+            .navigationBarBackButtonHidden(true)
         }
     }
-    private func speakText(_ text: String) {
-        let utterance = AVSpeechUtterance(string: text)
-        utterance.voice = AVSpeechSynthesisVoice(language: "en-US")
-        utterance.rate = 0.5
-        synthesizer.speak(utterance)
-    }
-    
-    private func replayAudio() {
-        speakText("rinforzando is similar to sforzando, except it applies to a given phrase and not just a beat.")
-    }
-    
     private func stopAudio() {
-        synthesizer.stopSpeaking(at: .immediate)
+        audioPlayer?.stop()
+        audioPlayer = nil
     }
+    
 }
 
 #Preview {

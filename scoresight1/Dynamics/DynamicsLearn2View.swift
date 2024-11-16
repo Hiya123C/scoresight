@@ -6,8 +6,29 @@
 //
 
 import SwiftUI
+import AVFoundation
 
 struct DynamicsLearn2View: View {
+    
+    @State private var audioPlayer: AVAudioPlayer?
+    
+    func playAudio() {
+        guard let soundURL = Bundle.main.url(forResource: "crescendo", withExtension: "mp3") else {
+            print("Audio fd.") //why audio file cant find
+            return
+        }
+        do {
+            if audioPlayer == nil {
+                audioPlayer = try AVAudioPlayer(contentsOf: soundURL)
+                audioPlayer?.numberOfLoops = 0
+            }
+            
+    
+        } catch {
+            print("Failed to play audio: \(error.localizedDescription)")
+        }
+    }
+    
     var body: some View {
         NavigationStack {
             VStack {
@@ -47,6 +68,16 @@ struct DynamicsLearn2View: View {
                         Spacer()
                         
                     }
+                    
+                    Button(action: {
+                        playAudio()
+                    }) {
+                        Image(systemName: "speaker.wave.2.fill")
+                            .font(.system(size: 30))
+                            .foregroundStyle(.black)
+                    }
+                    .padding()
+                
                     NavigationLink{
                         DynamicsLearn3View()
                     } label:{
@@ -65,8 +96,15 @@ struct DynamicsLearn2View: View {
                     }
                 }
             }
+            .onDisappear {
+                stopAudio()
+            }
             .navigationBarBackButtonHidden(true)
         }
+    }
+    private func stopAudio() {
+        audioPlayer?.stop()
+        audioPlayer = nil
     }
 }
 
