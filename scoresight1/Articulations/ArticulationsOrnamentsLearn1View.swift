@@ -47,6 +47,7 @@ struct ArticulationsOrnamentsLearnView: View {
                             .font(.system(size: 30))
                             .foregroundStyle(.black)
                     }
+                    .padding()
                     NavigationLink{
                         ArticulationsOrnamentsLearn2View()
                     }label:{

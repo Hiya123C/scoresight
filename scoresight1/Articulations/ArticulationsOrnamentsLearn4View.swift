@@ -52,15 +52,18 @@ struct ArticulationsOrnamentsLearn4View: View {
                             )
                             .foregroundStyle(.black)
                             .font(.system(size: 25))
-                        Spacer()
-                        Button(action: {
-                            replayAudio()
-                        }) {
-                            Image(systemName: "speaker.wave.2.fill")
-                                .font(.system(size: 30))
-                                .foregroundStyle(.black)
-                        }
+                        
+                        
                     }
+                    Spacer()
+                    Button(action: {
+                        replayAudio()
+                    }) {
+                        Image(systemName: "speaker.wave.2.fill")
+                            .font(.system(size: 30))
+                            .foregroundStyle(.black)
+                    }
+                    .padding()
                     NavigationLink{
                         ArticulationsOrnamentsLearn5View()
                     }label:{
