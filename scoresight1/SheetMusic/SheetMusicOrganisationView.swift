@@ -42,6 +42,7 @@ struct SheetMusicOrganisationView: View {
                     Text("learn")
                         .font(.system(size: 30))
                         .foregroundStyle(.black)
+                        .padding()
                         .bold()
                         .background(
                             RoundedRectangle(cornerRadius: 15)

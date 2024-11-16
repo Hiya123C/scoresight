@@ -84,7 +84,7 @@ struct SheetMusicOrganisationReview4View: View {
                         if correctAnswer {
                             Text("Correct! It's a clef!")
                                 .font(.system(size: 20))
-                                .foregroundColor(.black)
+                                .foregroundColor(.green)
                                 .padding(.top, 10)
                         }
                         if wrongAnswer {

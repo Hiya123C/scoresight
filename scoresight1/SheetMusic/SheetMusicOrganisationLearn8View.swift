@@ -9,7 +9,7 @@ struct SheetMusicOrganisationLearn8View: View {
 
     func playAudio() {
         guard let soundURL = Bundle.main.url(forResource: "endsign", withExtension: "mp3") else {
-            print("Audio fd.") //why audio file cant find
+            print("Audio cannot find.") 
             return
         }
         do {
