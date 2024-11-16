@@ -1,9 +1,11 @@
 //
 
 import SwiftUI
+import AVFoundation
 
 struct SheetMusicOrganisationLearn4View: View {
-    
+    @State private var synthesizer = AVSpeechSynthesizer()
+    @State private var isSpeaking = false
     
     var body: some View {
         VStack{
@@ -57,6 +59,18 @@ struct SheetMusicOrganisationLearn4View: View {
                     }
                     
                     Spacer()
+                    Image(systemName: "speaker.wave.2.fill")
+                        .font(.system(size: 25))
+                        .padding(.trailing, 20)
+                        .foregroundStyle(.black)
+                        .onTapGesture {
+                            if isSpeaking {
+                                stopSpeech()
+                            } else {
+                                speakText("There will also be key signatures, they could be flats")
+                            }
+                            isSpeaking.toggle()
+                        }
                     
                     NavigationLink{
                         SheetMusicOrganisationLearn5View()
@@ -74,10 +88,27 @@ struct SheetMusicOrganisationLearn4View: View {
                     }
                 }
             }
-            
+        }
+        .onAppear {
+            speakText("There will also be key signatures, they could be flats")
+        }
+        .onDisappear {
+            stopSpeech()
         }
         .navigationBarBackButtonHidden(true)
-        
+    }
+    private func speakText(_ text: String) {
+        let utterance = AVSpeechUtterance(string: text)
+        utterance.voice = AVSpeechSynthesisVoice(language: "en-US")
+        utterance.rate = 0.5
+        synthesizer.speak(utterance)
+    }
+    
+    private func stopSpeech() {
+        if synthesizer.isSpeaking {
+            synthesizer.stopSpeaking(at: .immediate)
+        }
+        isSpeaking = false
     }
 }
 

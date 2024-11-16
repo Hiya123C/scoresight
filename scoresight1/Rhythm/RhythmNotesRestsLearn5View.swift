@@ -6,14 +6,16 @@
 //
 
 import SwiftUI
+import AVFoundation
 
 struct RhythmNotesRestsLearn5View: View {
+    private let synthesizer = AVSpeechSynthesizer()
+    
     var body: some View {
         NavigationView {
             VStack {
                 HStack {
-                    Button(action: {
-                    }) {
+                    Button(action: {}) {
                         NavigationLink(destination: RhythmNotesRestsView()) {
                             Image(systemName: "x.circle")
                                 .symbolRenderingMode(.palette)
@@ -22,15 +24,19 @@ struct RhythmNotesRestsLearn5View: View {
                         }
                     }
                     Spacer()
-                    
                 }
+                .padding(.top)
+                
+                Spacer()
                 
                 HStack {
                     Image("quaver")
                         .resizable()
                         .scaledToFit()
-                    VStack(alignment: .trailing) {
-                        Text("this is a")
+                        .frame(width: 100, height: 200)
+                    
+                    VStack(alignment: .leading, spacing: 5) {
+                        Text("This is a")
                             .font(.system(size: 40))
                         Text("quaver")
                             .font(.system(size: 80))
@@ -39,6 +45,9 @@ struct RhythmNotesRestsLearn5View: View {
                             .font(.system(size: 40))
                     }
                 }
+                .padding()
+                
+                Spacer()
                 
                 HStack {
                     NavigationLink(destination: RhythmNotesRestsLearn4View()) {
@@ -53,23 +62,50 @@ struct RhythmNotesRestsLearn5View: View {
                             .font(.system(size: 25))
                     }
                     Spacer()
-                    NavigationLink(destination: RhythmNotesRestsLearn6View()) {
-                        Text("next")
-                            .padding()
-                            .background(
-                                RoundedRectangle(cornerRadius: 10)
-                                    .stroke(.black, lineWidth: 3)
-                                    .frame(width: 100, height: 50)
-                            )
-                            .foregroundStyle(.black)
-                            .font(.system(size: 25))
+                    HStack {
+                        Button(action: {
+                            replayAudio()
+                        }) {
+                            Image(systemName: "speaker.wave.2.fill")
+                                .font(.system(size: 30))
+                                .foregroundStyle(.black)
+                                .padding(.trailing, 20)
+                        }
+                        NavigationLink(destination: RhythmNotesRestsLearn6View()) {
+                            Text("next")
+                                .padding()
+                                .background(
+                                    RoundedRectangle(cornerRadius: 10)
+                                        .stroke(.black, lineWidth: 3)
+                                        .frame(width: 100, height: 50)
+                                )
+                                .foregroundStyle(.black)
+                                .font(.system(size: 25))
+                        }
                     }
                 }
-                .padding()
+                .padding([.leading, .trailing, .bottom])
             }
             .navigationBarHidden(true)
+            .onAppear {
+                speakText("This is a quaver. It is half a beat. A crochet consists of two quavers.")
+            }
+            .onDisappear {
+                synthesizer.stopSpeaking(at: .immediate)
+            }
         }
         .navigationBarHidden(true)
+    }
+    
+    private func replayAudio() {
+        speakText("This is a quaver. It is half a beat. A crochet consists of two quavers.")
+    }
+    
+    private func speakText(_ text: String) {
+        let utterance = AVSpeechUtterance(string: text)
+        utterance.voice = AVSpeechSynthesisVoice(language: "en-US")
+        utterance.rate = 0.5
+        synthesizer.speak(utterance)
     }
 }
 

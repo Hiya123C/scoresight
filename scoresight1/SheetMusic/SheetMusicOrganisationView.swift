@@ -19,9 +19,21 @@ struct SheetMusicOrganisationView: View {
                     Spacer()
                 }
                 Spacer()
-                Text("sheet music\norganisation")
-                    .fontWeight(.bold)
-                    .font(.system(size:100)).environment(\._lineHeightMultiple, 0.75)
+                ViewThatFits{
+                                Text("sheet music\norganisation")
+                                    .fontWeight(.bold)
+                                    .font(.system(size:100)).environment(\._lineHeightMultiple, 0.75)
+                                Text("sheet music\norganisation")
+                                    .fontWeight(.bold)
+                                    .font(.system(size:80)).environment(\._lineHeightMultiple, 0.75)
+                                
+                                Text("sheet music\norganisation")
+                                    .fontWeight(.bold)
+                                    .font(.system(size:60)).environment(\._lineHeightMultiple, 0.75)
+                                Text("sheet music\norganisation")
+                                    .fontWeight(.bold)
+                                    .font(.system(size:50)).environment(\._lineHeightMultiple, 0.75)
+                            }
                 Spacer()
                 
                 NavigationLink{

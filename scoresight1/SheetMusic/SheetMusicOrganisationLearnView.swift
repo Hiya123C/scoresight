@@ -49,6 +49,7 @@ struct SheetMusicOrganisationLearnView: View {
                             Image(systemName: "speaker.wave.2.fill")
                                 .font(.system(size: 25))
                                 .padding(.trailing, 20)
+                                .foregroundStyle(.black)
                                 .onTapGesture {
                                     if isSpeaking {
                                         stopSpeech()

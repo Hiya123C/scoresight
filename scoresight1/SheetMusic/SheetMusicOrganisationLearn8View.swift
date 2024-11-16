@@ -1,58 +1,89 @@
-//add play button
-
 import SwiftUI
+import AVFoundation
 
 struct SheetMusicOrganisationLearn8View: View {
-    
-    
+    @State private var synthesizer = AVSpeechSynthesizer()
+    @State private var isSpeaking = false
+    @State private var audioPlayer: AVAudioPlayer?
+    @State private var isPlayingAudio = false
+
+    func playAudio() {
+        guard let soundURL = Bundle.main.url(forResource: "endsign", withExtension: "mp3") else {
+            print("Audio file not found.") //why audio file cant find
+            return
+        }
+        do {
+            if audioPlayer == nil {
+                audioPlayer = try AVAudioPlayer(contentsOf: soundURL)
+                audioPlayer?.numberOfLoops = 0
+            }
+            
+            if let player = audioPlayer {
+                if isPlayingAudio {
+                    player.pause()
+                } else {
+                    player.play()
+                }
+                isPlayingAudio.toggle()
+            }
+        } catch {
+            print("Failed to play audio: \(error.localizedDescription)")
+        }
+    }
+
     var body: some View {
-        VStack{
-            NavigationStack{
-                HStack{
-                    NavigationLink{
+        VStack {
+            NavigationStack {
+                HStack {
+                    NavigationLink {
                         SheetMusicOrganisationView()
-                    } label:{
+                    } label: {
                         Image(systemName: "x.circle")
                             .symbolRenderingMode(.palette)
                             .foregroundStyle(.black, .white)
-                            .font(.system(size:50))
+                            .font(.system(size: 50))
                     }
                     Spacer()
                 }
-                VStack{
+                VStack {
                     Spacer()
-                    HStack{
-                        Image("end sign")
+                    HStack {
+                        Image("endsign")
                             .resizable()
                             .scaledToFit()
+                        
+                        Button(action: {
+                            playAudio()
+                        }) {
+                            Image(systemName: isPlayingAudio ? "pause.circle" : "play.circle")
+                                .symbolRenderingMode(.palette)
+                                .foregroundStyle(.black, .black)
+                                .font(.system(size: 50))
+                        }
                     }
-                    //click play button to play audio**
-                    
                     Spacer()
                     
-                    HStack(alignment:.center){
+                    HStack(alignment: .center) {
                         Spacer()
-                        Text("this is a")
+                        Text("this is an")
                             .font(.system(size: 40))
                         Text("endsign")
-                            .font(.system(size:60))
+                            .font(.system(size: 60))
                             .bold()
                     }
                 }
-                .frame(maxHeight:.infinity)
+                .frame(maxHeight: .infinity)
                 
-                HStack{
-                    
-                    NavigationLink{
+                HStack {
+                    NavigationLink {
                         SheetMusicOrganisationLearn7View()
-                    }label:{
+                    } label: {
                         Text("back")
                             .padding()
                             .background(
                                 RoundedRectangle(cornerRadius: 10)
                                     .stroke(.black, lineWidth: 3)
-                                    .frame(width:100,height:50)
-                                
+                                    .frame(width: 100, height: 50)
                             )
                             .foregroundStyle(.black)
                             .font(.system(size: 25))
@@ -60,28 +91,66 @@ struct SheetMusicOrganisationLearn8View: View {
                     
                     Spacer()
                     
-                    NavigationLink{
+                    Image(systemName: "speaker.wave.2.fill")
+                        .font(.system(size: 25))
+                        .padding(.trailing, 20)
+                        .foregroundStyle(.black)
+                        .onTapGesture {
+                            if isSpeaking {
+                                stopSpeech()
+                            } else {
+                                speakText("At the end of each piece or song, it will be symbolized with an end sign.")
+                            }
+                            isSpeaking.toggle()
+                        }
+                    
+                    NavigationLink {
                         SheetMusicOrganisationLearn9View()
-                    }label:{
+                    } label: {
                         Text("next")
                             .padding()
                             .background(
                                 RoundedRectangle(cornerRadius: 10)
                                     .stroke(.black, lineWidth: 3)
-                                    .frame(width:100,height:50)
-                                
+                                    .frame(width: 100, height: 50)
                             )
                             .foregroundStyle(.black)
                             .font(.system(size: 25))
                     }
                 }
             }
-            
+        }
+        .onAppear {
+            speakText("At the end of each piece or song, it will be symbolized with an end sign.")
+        }
+        .onDisappear {
+            stopSpeech()
+            stopAudio()
         }
         .navigationBarBackButtonHidden(true)
-        
+    }
+
+    private func speakText(_ text: String) {
+        let utterance = AVSpeechUtterance(string: text)
+        utterance.voice = AVSpeechSynthesisVoice(language: "en-US")
+        utterance.rate = 0.5
+        synthesizer.speak(utterance)
+    }
+
+    private func stopSpeech() {
+        if synthesizer.isSpeaking {
+            synthesizer.stopSpeaking(at: .immediate)
+        }
+        isSpeaking = false
+    }
+
+    private func stopAudio() {
+        audioPlayer?.stop()
+        audioPlayer = nil
+        isPlayingAudio = false
     }
 }
+
 
 #Preview {
     SheetMusicOrganisationLearn8View()

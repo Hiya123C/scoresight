@@ -1,8 +1,11 @@
 //
 
 import SwiftUI
+import AVFoundation
 
 struct SheetMusicOrganisationLearn6View: View {
+    @State private var synthesizer = AVSpeechSynthesizer()
+    @State private var isSpeaking = false
     
     
     var body: some View {
@@ -57,6 +60,18 @@ struct SheetMusicOrganisationLearn6View: View {
                     }
                     
                     Spacer()
+                    Image(systemName: "speaker.wave.2.fill")
+                        .font(.system(size: 25))
+                        .padding(.trailing, 20)
+                        .foregroundStyle(.black)
+                        .onTapGesture {
+                            if isSpeaking {
+                                stopSpeech()
+                            } else {
+                                speakText("on top of that, there are time signatures too")
+                            }
+                            isSpeaking.toggle()
+                        }
                     
                     NavigationLink{
                         SheetMusicOrganisationLearn7View()
@@ -76,8 +91,27 @@ struct SheetMusicOrganisationLearn6View: View {
             }
             
         }
+        .onAppear {
+            speakText("on top of that, there are time signatures too")
+        }
+        .onDisappear {
+            stopSpeech()
+        }
         .navigationBarBackButtonHidden(true)
         
+    }
+    private func speakText(_ text: String) {
+        let utterance = AVSpeechUtterance(string: text)
+        utterance.voice = AVSpeechSynthesisVoice(language: "en-US")
+        utterance.rate = 0.5
+        synthesizer.speak(utterance)
+    }
+    
+    private func stopSpeech() {
+        if synthesizer.isSpeaking {
+            synthesizer.stopSpeaking(at: .immediate)
+        }
+        isSpeaking = false
     }
 }
 

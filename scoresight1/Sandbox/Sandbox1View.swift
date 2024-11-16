@@ -9,7 +9,6 @@ struct Sandbox1View: View {
     
     
     var body: some View {
-        
         NavigationStack{
             VStack{
                 HStack{
@@ -122,7 +121,7 @@ struct Sandbox1View: View {
                         Button(action: {
                             viewModel.replaceNote(with: "minim")
                         }) {
-                            Image("minim")
+                            Image("minim 1")
                                 .resizable()
                                 .scaledToFit()
                                 .scaleEffect(0.6)
@@ -135,9 +134,9 @@ struct Sandbox1View: View {
                         Button(action:{
                             viewModel.replaceNote(with: "crochet")
                         }){
-                            Image("crochet")
+                            Image("crochet 1")
                                 .resizable()
-                                .scaleEffect(0.5)
+                                .scaleEffect(0.6)
                                 .scaledToFit()
                                 .background(
                                     RoundedRectangle(cornerRadius: 10)
@@ -149,7 +148,7 @@ struct Sandbox1View: View {
                         Button(action: {
                             viewModel.replaceNote(with: "quaver")
                         }) {
-                            Image("quaver")
+                            Image("quaver 2")
                                 .resizable()
                                 .scaledToFit()
                                 .scaleEffect(0.6)

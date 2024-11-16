@@ -6,8 +6,11 @@
 //
 
 import SwiftUI
+import AVFoundation
 
 struct RhythmNotesRestsLearn7View: View {
+    private let synthesizer = AVSpeechSynthesizer()
+
     var body: some View {
         NavigationView {
             VStack {
@@ -22,7 +25,6 @@ struct RhythmNotesRestsLearn7View: View {
                         }
                     }
                     Spacer()
-                    
                 }
                 
                 HStack {
@@ -53,6 +55,16 @@ struct RhythmNotesRestsLearn7View: View {
                             .font(.system(size: 25))
                     }
                     Spacer()
+                    
+                    Button(action: {
+                        speakText("This is a semiquaver. It is one eighth of a beat. A quaver consists of two semiquavers.")
+                    }) {
+                        Image(systemName: "speaker.wave.2.fill")
+                            .font(.system(size: 30))
+                            .foregroundColor(.black)
+                    }
+                    .padding(.trailing, 20)
+                    
                     NavigationLink(destination: RhythmNotesRestsLearn8View()) {
                         Text("next")
                             .padding()
@@ -68,12 +80,24 @@ struct RhythmNotesRestsLearn7View: View {
                 .padding()
             }
             .navigationBarHidden(true)
+            .onAppear {
+                speakText("This is a semiquaver. It is one eighth of a beat. A quaver consists of two semiquavers.")
+            }
+            .onDisappear {
+                synthesizer.stopSpeaking(at: .immediate)
+            }
         }
         .navigationBarHidden(true)
+    }
+
+    private func speakText(_ text: String) {
+        let utterance = AVSpeechUtterance(string: text)
+        utterance.voice = AVSpeechSynthesisVoice(language: "en-US")
+        utterance.rate = 0.5
+        synthesizer.speak(utterance)
     }
 }
 
 #Preview {
     RhythmNotesRestsLearn7View()
 }
-

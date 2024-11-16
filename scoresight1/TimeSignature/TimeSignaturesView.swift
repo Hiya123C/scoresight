@@ -27,12 +27,20 @@ struct TimeSignaturesView: View {
             
             Spacer()
             
-            Text("time signatures")
-                .font(.system(size: min(UIScreen.main.bounds.width * 0.12, 60), weight: .bold))
-                .multilineTextAlignment(.center)
-                .lineSpacing(-8)
-                .foregroundColor(.black)
-                .padding(.horizontal)
+            ViewThatFits{
+                Text("time signatures")
+                    .fontWeight(.bold)
+                    .font(.system(size:95)).environment(\._lineHeightMultiple, 0.75)
+                Text("time signatures")
+                    .fontWeight(.bold)
+                    .font(.system(size:75)).environment(\._lineHeightMultiple, 0.75)
+                Text("time signatures")
+                    .fontWeight(.bold)
+                    .font(.system(size:60)).environment(\._lineHeightMultiple, 0.75)
+                Text("time signatures")
+                    .fontWeight(.bold)
+                    .font(.system(size:50)).environment(\._lineHeightMultiple, 0.75)
+            }
             
             Spacer()
             

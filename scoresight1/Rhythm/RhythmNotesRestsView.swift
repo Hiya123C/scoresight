@@ -8,71 +8,61 @@
 import SwiftUI
 
 struct RhythmNotesRestsView: View {
-    
-    @State private var isFullScreenPresented = false
-    @State private var isFullScreenPresented2 = false
-    
     var body: some View {
-        VStack {
-            HStack {
-                NavigationLink(destination: ContentView()) {
-                    Image(systemName: "xmark")
-                        .font(.system(size: 24, weight: .bold))
-                        .foregroundColor(.black)
+        NavigationStack{
+            VStack {
+                HStack{
+                    NavigationLink{
+                        ContentView()
+                    } label:{
+                        Image(systemName: "x.circle")
+                            .symbolRenderingMode(.palette)
+                            .foregroundStyle(.black, .white)
+                            .font(.system(size:50))
+                    }
+                    Spacer()
                 }
                 Spacer()
-            }
-            .padding(.horizontal)
-            .padding(.top)
-            
-            Spacer()
-            
-            Text("rhythm\nnotes+rests")
-                .font(.system(size: min(UIScreen.main.bounds.width * 0.12, 60), weight: .bold))
-                .multilineTextAlignment(.center)
-                .lineSpacing(-8)
-                .foregroundColor(.black)
-                .padding(.horizontal)
-            
-            Spacer()
-            
-            VStack(spacing: 15) {
-                Button(action: {
-                    isFullScreenPresented = true
-                }) {
+                Text("sheet music\norganisation")
+                    .fontWeight(.bold)
+                    .font(.system(size:100)).environment(\._lineHeightMultiple, 0.75)
+                Spacer()
+                
+                NavigationLink{
+                    RhythmNotesRestsLearnView()
+                }label:{
                     Text("learn")
-                        .font(.system(size: 25, weight: .bold))
-                        .frame(width: 150, height: 50)
-                        .overlay(
-                            RoundedRectangle(cornerRadius: 10)
-                                .stroke(Color.black, lineWidth: 3)
+                        .font(.system(size: 30))
+                        .foregroundStyle(.black)
+                        .bold()
+                        .background(
+                            RoundedRectangle(cornerRadius: 15)
+                                .stroke(.black, lineWidth: 3)
+                                .frame(width: 200, height: 50)
                         )
-                        .foregroundColor(.black)
                 }
                 
-                Button(action: {
-                    isFullScreenPresented2 = true
-                }) {
+                Spacer()
+                
+                NavigationLink{
+                    RhythmNotesRestsReviewView()
+                }label:{
                     Text("review")
-                        .font(.system(size: 25, weight: .bold))
-                        .frame(width: 150, height: 50)
-                        .overlay(
-                            RoundedRectangle(cornerRadius: 10)
-                                .stroke(Color.black, lineWidth: 3)
+                        .font(.system(size: 30))
+                        .foregroundStyle(.black)
+                        .bold()
+                        .background(
+                            RoundedRectangle(cornerRadius: 15)
+                                .stroke(.black, lineWidth: 3)
+                                .frame(width: 200, height: 50)
                         )
-                        .foregroundColor(.black)
                 }
+                
+            
+                Spacer()
             }
-            .padding(.bottom, 40)
+            .navigationBarBackButtonHidden(true)
         }
-        .background(Color.white.ignoresSafeArea())
-        .fullScreenCover(isPresented: $isFullScreenPresented) {
-            RhythmNotesRestsLearnView()
-        }
-        .fullScreenCover(isPresented: $isFullScreenPresented2) {
-            RhythmNotesRestsReviewView()
-        }
-        .navigationBarHidden(true)
     }
 }
 

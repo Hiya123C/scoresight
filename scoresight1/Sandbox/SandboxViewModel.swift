@@ -10,7 +10,7 @@ class SandboxViewModel: ObservableObject {
     
     
     func resetNotes() {
-        noteImages = ["crochet", "crochet", "crochet", "crochet"]
+        noteImages = ["crochet 1", "crochet 1", "crochet 1", "crochet 1"]
         notes = [.init(position: .zero, NoteLength: .crochet, pitch: 0), .init(position: .zero, NoteLength: .crochet, pitch: 0), .init(position: .zero, NoteLength: .crochet, pitch: 0), .init(position: .zero, NoteLength: .crochet, pitch: 0)]
     }
     

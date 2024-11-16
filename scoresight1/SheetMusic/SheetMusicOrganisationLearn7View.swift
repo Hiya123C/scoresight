@@ -1,9 +1,11 @@
 //
 
 import SwiftUI
+import AVFoundation
 
 struct SheetMusicOrganisationLearn7View: View {
-    
+    @State private var synthesizer = AVSpeechSynthesizer()
+    @State private var isSpeaking = false
     
     var body: some View {
         VStack{
@@ -55,6 +57,18 @@ struct SheetMusicOrganisationLearn7View: View {
                     }
                     
                     Spacer()
+                    Image(systemName: "speaker.wave.2.fill")
+                        .font(.system(size: 25))
+                        .padding(.trailing, 20)
+                        .foregroundStyle(.black)
+                        .onTapGesture {
+                            if isSpeaking {
+                                stopSpeech()
+                            } else {
+                                speakText("Most of the time, there are notes in the bar. The direction of the stem of the notes depends on its position relative to the middle blue line. Notes on the blue line can either have stems that go up or down")
+                            }
+                            isSpeaking.toggle()
+                        }
                     
                     NavigationLink{
                         SheetMusicOrganisationLearn8View()
@@ -74,8 +88,27 @@ struct SheetMusicOrganisationLearn7View: View {
             }
             
         }
+        .onAppear {
+            speakText("Most of the time, there are notes in the bar. The direction of the stem of the notes depends on its position relative to the middle blue line. Notes on the blue line can either have stems that go up or down")
+        }
+        .onDisappear {
+            stopSpeech()
+        }
         .navigationBarBackButtonHidden(true)
         
+    }
+    private func speakText(_ text: String) {
+        let utterance = AVSpeechUtterance(string: text)
+        utterance.voice = AVSpeechSynthesisVoice(language: "en-US")
+        utterance.rate = 0.5
+        synthesizer.speak(utterance)
+    }
+    
+    private func stopSpeech() {
+        if synthesizer.isSpeaking {
+            synthesizer.stopSpeaking(at: .immediate)
+        }
+        isSpeaking = false
     }
 }
 

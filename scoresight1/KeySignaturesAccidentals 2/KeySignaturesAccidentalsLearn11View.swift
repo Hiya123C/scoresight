@@ -27,6 +27,7 @@ struct KeySignaturesAccidentalsLearn11View: View {
             VStack {
                 HStack {
                     Text("these are")
+                        .font(.system(size:40))
                     Text("accidentals")
                         .font(.system(size: 80))
                         .bold()

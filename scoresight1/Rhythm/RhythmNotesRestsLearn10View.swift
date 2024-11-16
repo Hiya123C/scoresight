@@ -6,8 +6,11 @@
 //
 
 import SwiftUI
+import AVFoundation
 
 struct RhythmNotesRestsLearn10View: View {
+    private let synthesizer = AVSpeechSynthesizer()
+
     var body: some View {
         NavigationView {
             VStack {
@@ -22,9 +25,8 @@ struct RhythmNotesRestsLearn10View: View {
                         }
                     }
                     Spacer()
-                    
                 }
-                
+
                 HStack {
                     Image("demisemiquaver rest")
                         .resizable()
@@ -39,7 +41,7 @@ struct RhythmNotesRestsLearn10View: View {
                             .font(.system(size: 40))
                     }
                 }
-                
+
                 HStack {
                     NavigationLink(destination: RhythmNotesRestsLearn9View()) {
                         Text("back")
@@ -53,6 +55,17 @@ struct RhythmNotesRestsLearn10View: View {
                             .font(.system(size: 25))
                     }
                     Spacer()
+
+                    // Speaker Icon with Padding on the trailing side (20)
+                    Button(action: {
+                        speakText("This is a demisemiquaver rest. Similar to the demisemiquaver note, it is one sixteenth of a beat long. However, instead of holding the note, you don't play for a sixteenth of a beat, basically a super short time.")
+                    }) {
+                        Image(systemName: "speaker.wave.2.fill")
+                            .font(.system(size: 30))
+                            .foregroundColor(.black)
+                            .padding(.trailing, 20)
+                    }
+
                     NavigationLink(destination: RhythmNotesRestsLearn11View()) {
                         Text("next")
                             .padding()
@@ -68,12 +81,30 @@ struct RhythmNotesRestsLearn10View: View {
                 .padding()
             }
             .navigationBarHidden(true)
+            .onAppear {
+                // Start speaking the updated text when the view appears
+                speakText("This is a demisemiquaver rest. Similar to the demisemiquaver note, it is one sixteenth of a beat long. However, instead of holding the note, you don't play for a sixteenth of a beat, basically a super short time.")
+            }
+            .onDisappear {
+                // Stop the speech when the view disappears
+                stopSpeech()
+            }
         }
         .navigationBarHidden(true)
+    }
+
+    private func speakText(_ text: String) {
+        let utterance = AVSpeechUtterance(string: text)
+        utterance.voice = AVSpeechSynthesisVoice(language: "en-US")
+        utterance.rate = 0.5
+        synthesizer.speak(utterance)
+    }
+
+    private func stopSpeech() {
+        synthesizer.stopSpeaking(at: .immediate)
     }
 }
 
 #Preview {
     RhythmNotesRestsLearn10View()
 }
-
