@@ -33,7 +33,7 @@ struct KeySignaturesAccidentalsLearn2View: View {
                     VStack(alignment: .trailing) {
                         Text("this is a")
                             .font(.system(size: 40))
-                        Text("double/nsharp")
+                        Text("double\nsharp")
                             .font(.system(size:80))
                             .bold()
                     }
@@ -52,15 +52,17 @@ struct KeySignaturesAccidentalsLearn2View: View {
                             )
                             .foregroundStyle(.black)
                             .font(.system(size: 25))
-                        Spacer()
-                        Button(action: {
-                            replayAudio()
-                        }) {
-                            Image(systemName: "speaker.wave.2.fill")
-                                .font(.system(size: 30))
-                                .foregroundStyle(.black)
-                        }
+                    
                     }
+                    Spacer()
+                    Button(action: {
+                        replayAudio()
+                    }) {
+                        Image(systemName: "speaker.wave.2.fill")
+                            .font(.system(size: 30))
+                            .foregroundStyle(.black)
+                    }
+                    .padding()
                     NavigationLink{
                         KeySignaturesAccidentalsLearn3View()
                     } label:{

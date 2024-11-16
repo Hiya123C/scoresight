@@ -47,6 +47,7 @@ struct KeySignaturesAccidentalsLearnView: View {
                             .font(.system(size: 30))
                             .foregroundStyle(.black)
                     }
+                    .padding()
                     NavigationLink{
                         KeySignaturesAccidentalsLearn2View()
                     } label:{
