@@ -96,12 +96,14 @@ struct ClefsPitchedNotesLearn11View: View {
                 .navigationBarBackButtonHidden(true)
             }
         }
-        private func stopAudio() {
-            audioPlayer?.stop()
-            audioPlayer = nil
-        }
+        
+    }
+    private func stopAudio() {
+        audioPlayer?.stop()
+        audioPlayer = nil
     }
 }
+
 
 #Preview {
     ClefsPitchedNotesLearn11View()
