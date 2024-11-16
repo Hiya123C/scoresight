@@ -49,6 +49,7 @@ struct ClefsPitchedNotesLearnView: View {
                             .font(.system(size: 30))
                             .foregroundStyle(.black)
                     }
+                    .padding()
                     NavigationLink{
                         ClefsPitchedNotesLearn2View()
                     }label:{

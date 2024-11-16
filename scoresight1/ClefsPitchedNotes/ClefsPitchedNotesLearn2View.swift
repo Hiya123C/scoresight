@@ -44,6 +44,7 @@ struct ClefsPitchedNotesLearn2View: View {
                         )
                         .foregroundStyle(.black)
                         .font(.system(size: 25))
+                }
                     Spacer()
                     Button(action: {
                         replayAudio()
@@ -52,7 +53,8 @@ struct ClefsPitchedNotesLearn2View: View {
                             .font(.system(size: 30))
                             .foregroundStyle(.black)
                     }
-                }
+                    .padding()
+                
                 NavigationLink{
                     ClefsPitchedNotesLearn3View()
                 }label:{

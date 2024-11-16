@@ -55,32 +55,35 @@ struct ClefsPitchedNotesLearn3View: View {
                             )
                             .foregroundStyle(.black)
                             .font(.system(size: 25))
-                        Spacer()
-                        Button(action: {
-                            replayAudio()
-                        }) {
-                            Image(systemName: "speaker.wave.2.fill")
-                                .font(.system(size: 30))
-                                .foregroundStyle(.black)
-                        }
+                    
                     }
-                }
-                NavigationLink{
-                    ClefsPitchedNotesLearn4View()
-                }label:{
-                    Text("next")
-                        .padding()
-                        .background(
-                            RoundedRectangle(cornerRadius: 10)
-                                .stroke(.black, lineWidth: 3)
-                                .frame(width:100,height:50)
-                            
-                        )
-                        .foregroundStyle(.black)
-                        .font(.system(size: 25))
+                    Spacer()
+                    Button(action: {
+                        replayAudio()
+                    }) {
+                        Image(systemName: "speaker.wave.2.fill")
+                            .font(.system(size: 30))
+                            .foregroundStyle(.black)
+                    }
+                    .padding()
                     
-                    
-                    
+                    NavigationLink{
+                        ClefsPitchedNotesLearn4View()
+                    }label:{
+                        Text("next")
+                            .padding()
+                            .background(
+                                RoundedRectangle(cornerRadius: 10)
+                                    .stroke(.black, lineWidth: 3)
+                                    .frame(width:100,height:50)
+                                
+                            )
+                            .foregroundStyle(.black)
+                            .font(.system(size: 25))
+                        
+                        
+                        
+                    }
                 }
                 .padding(.horizontal)
             }
