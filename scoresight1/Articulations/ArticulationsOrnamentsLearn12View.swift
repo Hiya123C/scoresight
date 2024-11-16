@@ -12,80 +12,82 @@ private let synthesizer = AVSpeechSynthesizer()
 
 struct ArticulationsOrnamentsLearn12View: View {
     var body: some View {
-        VStack {
-            HStack {
-                NavigationLink{
-                    ArticulationsOrnamentsView()
-                }label:{
-                    Image(systemName: "x.circle")
-                        .symbolRenderingMode(.palette)
-                        .foregroundStyle(.black, .white)
-                        .font(.system(size:50))
-                }
-                Spacer()
-            }
-            
-            HStack {
-                Image("lower mordent")
-                    .resizable()
-                    .scaledToFit()
-                VStack(alignment: .trailing) {
-                    Text("this is a")
-                        .font(.system(size: 40))
-                    Text("lower/nmordent")
-                        .font(.system(size:80))
-                        .bold()
-                }
-            }
-            HStack{
-                NavigationLink{
-                    ArticulationsOrnamentsLearn11View()
-                }label:{
-                    Text("back")
-                        .padding()
-                        .background(
-                            RoundedRectangle(cornerRadius: 10)
-                                .stroke(.black, lineWidth: 3)
-                                .frame(width:100,height:50)
-                            
-                        )
-                        .foregroundStyle(.black)
-                        .font(.system(size: 25))
+        NavigationStack {
+            VStack {
+                HStack {
+                    NavigationLink{
+                        ArticulationsOrnamentsView()
+                    }label:{
+                        Image(systemName: "x.circle")
+                            .symbolRenderingMode(.palette)
+                            .foregroundStyle(.black, .white)
+                            .font(.system(size:50))
+                    }
                     Spacer()
-                    Button(action: {
-                        replayAudio()
-                    }) {
-                        Image(systemName: "speaker.wave.2.fill")
-                            .font(.system(size: 30))
-                            .foregroundStyle(.black)
+                }
+                
+                HStack {
+                    Image("lower mordent")
+                        .resizable()
+                        .scaledToFit()
+                    VStack(alignment: .trailing) {
+                        Text("this is a")
+                            .font(.system(size: 40))
+                        Text("lower/nmordent")
+                            .font(.system(size:80))
+                            .bold()
                     }
                 }
-                NavigationLink{
-                    ArticulationsOrnamentsLearn13View()
-                }label:{
-                    Text("next")
-                        .padding()
-                        .background(
-                            RoundedRectangle(cornerRadius: 10)
-                                .stroke(.black, lineWidth: 3)
-                                .frame(width:100,height:50)
-                            
-                        )
-                        .foregroundStyle(.black)
-                        .font(.system(size: 25))
-                    
-                    
+                HStack{
+                    NavigationLink{
+                        ArticulationsOrnamentsLearn11View()
+                    }label:{
+                        Text("back")
+                            .padding()
+                            .background(
+                                RoundedRectangle(cornerRadius: 10)
+                                    .stroke(.black, lineWidth: 3)
+                                    .frame(width:100,height:50)
+                                
+                            )
+                            .foregroundStyle(.black)
+                            .font(.system(size: 25))
+                        Spacer()
+                        Button(action: {
+                            replayAudio()
+                        }) {
+                            Image(systemName: "speaker.wave.2.fill")
+                                .font(.system(size: 30))
+                                .foregroundStyle(.black)
+                        }
+                    }
+                    NavigationLink{
+                        ArticulationsOrnamentsLearn13View()
+                    }label:{
+                        Text("next")
+                            .padding()
+                            .background(
+                                RoundedRectangle(cornerRadius: 10)
+                                    .stroke(.black, lineWidth: 3)
+                                    .frame(width:100,height:50)
+                                
+                            )
+                            .foregroundStyle(.black)
+                            .font(.system(size: 25))
+                        
+                        
+                    }
                 }
+                .padding(.horizontal)
             }
-            .padding(.horizontal)
+            .onAppear {
+                speakText("this is a  lower mordent, which is played by rapidly alternating between the main note and the note immediately below it like so:")
+            }
+            .onDisappear {
+                stopAudio()
+            }
+            .navigationBarHidden(true)
         }
-        .onAppear {
-            speakText("this is a  lower mordent, which is played by rapidly alternating between the main note and the note immediately below it like so:")
-        }
-        .onDisappear {
-            stopAudio()
-        }
-        .navigationBarHidden(true)
     }
     private func speakText(_ text: String) {
         let utterance = AVSpeechUtterance(string: text)
