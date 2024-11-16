@@ -1,9 +1,4 @@
 //
-//  SheeMusicOrganisationReview6View.swift
-//  scoresight1
-//
-//  Created by Crystal on 14/11/24.
-//
 
 import SwiftUI
 
@@ -15,8 +10,6 @@ struct SheetMusicOrganisationReview6View: View {
                 Text("Great job!")
                     .font(.system(size: 100))
                     .bold()
-                
-                
                 Spacer()
                 
                 NavigationLink{
@@ -24,19 +17,19 @@ struct SheetMusicOrganisationReview6View: View {
                 }label:{
                     Text("exit")
                         .padding()
+                        .font(.system(size: 30))
+                        .bold()
+                        .frame(width: 110, height: 60)
+                        .foregroundStyle(.black)
                         .background(
                             RoundedRectangle(cornerRadius: 10)
-                                .stroke(.black, lineWidth: 3)
-                                .frame(width: 100, height: 50)
-//                                .fill(Color.red)
+                                .fill(Color.red)
+                           
                         )
-                        .frame(width: 100, height: 50)
-                        .foregroundStyle(.black)
-                        .font(.system(size: 25))
-                    
-                    
-                    
-                    
+                        .background(
+                            RoundedRectangle(cornerRadius: 10)
+                                .stroke(.black, lineWidth: 5)
+                        )
                 }
                 Spacer()
             }

@@ -27,5 +27,5 @@ struct AnswerButton: View {
 
 
 #Preview {
-    AnswerButton(label: "test", isSelected: false, isCorrect: false, action: {})
+    AnswerButton(label: "test", isSelected: true, isCorrect: true, action: {})
 }

@@ -1,9 +1,4 @@
-//
-//  KeySignaturesAccidentalsLearn9View.swift
-//  scoresight1
-//
-//  Created by Li Jiansheng on 11/11/24.
-//
+//crashed
 
 import SwiftUI
 import AVFoundation

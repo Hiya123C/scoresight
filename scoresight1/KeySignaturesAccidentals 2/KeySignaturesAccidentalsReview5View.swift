@@ -18,28 +18,25 @@ struct KeySignaturesAccidentalsReview5View: View {
                 
                 
                 Spacer()
-                    NavigationLink{
-                        ContentView()
-                    }label:{
-                        ZStack {
-                            
+                NavigationLink{
+                    ContentView()
+                }label:{
+                    Text("exit")
+                        .padding()
+                        .font(.system(size: 30))
+                        .bold()
+                        .frame(width: 110, height: 60)
+                        .foregroundStyle(.black)
+                        .background(
                             RoundedRectangle(cornerRadius: 10)
-                                .frame(width: 100, height: 50)
-                                .foregroundStyle(.red)
-                            
-                            Text("exit")
-                                .padding()
-                                .background(
-                                    RoundedRectangle(cornerRadius: 10)
-                                        .stroke(.black, lineWidth: 3)
-                                        .frame(width:100,height:50)
-                                    
-                                )
-                                .foregroundStyle(.black)
-                                .font(.system(size: 25))
-                            
-                        }
-                    }
+                                .fill(Color.red)
+                           
+                        )
+                        .background(
+                            RoundedRectangle(cornerRadius: 10)
+                                .stroke(.black, lineWidth: 5)
+                        )
+                }
                     Spacer()
                 }
         }
