@@ -60,86 +60,88 @@ struct KeySignaturesAccidentalsLearn7View: View {
     }
     
     var body: some View {
-        VStack {
-            HStack {
-                NavigationLink{
-                    KeySignaturesAccidentalsView()
-                } label:{
-                    Image(systemName: "x.circle")
-                        .symbolRenderingMode(.palette)
-                        .foregroundStyle(.black, .white)
-                        .font(.system(size:50))
+        NavigationStack {
+            VStack {
+                HStack {
+                    NavigationLink{
+                        KeySignaturesAccidentalsView()
+                    } label:{
+                        Image(systemName: "x.circle")
+                            .symbolRenderingMode(.palette)
+                            .foregroundStyle(.black, .white)
+                            .font(.system(size:50))
+                    }
+                    Spacer()
                 }
-                Spacer()
-            }
-             
-            ZStack {
-                ForEach(0..<8) { index in
-                    Image(index == 0 ? "treble sharp" :
-                          index == 1 ? "treble sharp f" :
-                          index == 2 ? "treble sharp c" :
-                          index == 3 ? "treble sharp g" :
-                          index == 4 ? "treble sharp d" :
-                          index == 5 ? "treble sharp a" :
-                          index == 6 ? "treble sharp e" :
-                          "treble sharp b")
+                
+                ZStack {
+                    ForEach(0..<8) { index in
+                        Image(index == 0 ? "treble sharp" :
+                                index == 1 ? "treble sharp f" :
+                                index == 2 ? "treble sharp c" :
+                                index == 3 ? "treble sharp g" :
+                                index == 4 ? "treble sharp d" :
+                                index == 5 ? "treble sharp a" :
+                                index == 6 ? "treble sharp e" :
+                                "treble sharp b")
                         .resizable()
                         .scaledToFit()
                         .opacity(opacities[index])
                         .offset(x: positions[index].x, y: positions[index].y)
-                }
-            }
-            .onAppear {
-                startAnimation()
-            }
-            
-            HStack{
-                NavigationLink{
-                    KeySignaturesAccidentalsLearn6View()
-                } label:{
-                    Text("back")
-                        .padding()
-                        .background(
-                            RoundedRectangle(cornerRadius: 10)
-                                .stroke(.black, lineWidth: 3)
-                                .frame(width:100,height:50)
-                            
-                        )
-                        .foregroundStyle(.black)
-                        .font(.system(size: 25))
-                    Spacer()
-                    Button(action: {
-                        replayAudio()
-                    }) {
-                        Image(systemName: "speaker.wave.2.fill")
-                            .font(.system(size: 30))
-                            .foregroundStyle(.black)
                     }
                 }
-                NavigationLink{
-                    KeySignaturesAccidentalsLearn8View()
-                } label:{
-                    Text("next")
-                        .padding()
-                        .background(
-                            RoundedRectangle(cornerRadius: 10)
-                                .stroke(.black, lineWidth: 3)
-                                .frame(width:100,height:50)
-                            
-                        )
-                        .foregroundStyle(.black)
-                        .font(.system(size: 25))
+                .onAppear {
+                    startAnimation()
                 }
+                
+                HStack{
+                    NavigationLink{
+                        KeySignaturesAccidentalsLearn6View()
+                    } label:{
+                        Text("back")
+                            .padding()
+                            .background(
+                                RoundedRectangle(cornerRadius: 10)
+                                    .stroke(.black, lineWidth: 3)
+                                    .frame(width:100,height:50)
+                                
+                            )
+                            .foregroundStyle(.black)
+                            .font(.system(size: 25))
+                        Spacer()
+                        Button(action: {
+                            replayAudio()
+                        }) {
+                            Image(systemName: "speaker.wave.2.fill")
+                                .font(.system(size: 30))
+                                .foregroundStyle(.black)
+                        }
+                    }
+                    NavigationLink{
+                        KeySignaturesAccidentalsLearn8View()
+                    } label:{
+                        Text("next")
+                            .padding()
+                            .background(
+                                RoundedRectangle(cornerRadius: 10)
+                                    .stroke(.black, lineWidth: 3)
+                                    .frame(width:100,height:50)
+                                
+                            )
+                            .foregroundStyle(.black)
+                            .font(.system(size: 25))
+                    }
+                }
+                .padding(.horizontal)
             }
-            .padding(.horizontal)
+            .onAppear {
+                speakText("this is how sharps appear on the treble clef, but it is always arranged in this note order from up to down no matter the clef.")
+            }
+            .onDisappear {
+                stopAudio()
+            }
+            .navigationBarHidden(true)
         }
-        .onAppear {
-            speakText("this is how sharps appear on the treble clef, but it is always arranged in this note order from up to down no matter the clef.")
-        }
-        .onDisappear {
-            stopAudio()
-        }
-        .navigationBarHidden(true)
     }
     private func speakText(_ text: String) {
         let utterance = AVSpeechUtterance(string: text)

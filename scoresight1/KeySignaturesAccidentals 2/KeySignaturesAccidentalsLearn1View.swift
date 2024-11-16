@@ -12,66 +12,68 @@ private let synthesizer = AVSpeechSynthesizer()
 
 struct KeySignaturesAccidentalsLearnView: View {
     var body: some View {
-        VStack {
-            HStack {
-                NavigationLink{
-                    KeySignaturesAccidentalsView()
-                } label:{
-                    Image(systemName: "x.circle")
-                        .symbolRenderingMode(.palette)
-                        .foregroundStyle(.black, .white)
-                        .font(.system(size:50))
+        NavigationStack {
+            VStack {
+                HStack {
+                    NavigationLink{
+                        KeySignaturesAccidentalsView()
+                    } label:{
+                        Image(systemName: "x.circle")
+                            .symbolRenderingMode(.palette)
+                            .foregroundStyle(.black, .white)
+                            .font(.system(size:50))
+                    }
+                    Spacer()
                 }
-                Spacer()
+                
+                HStack {
+                    Image("sharp")
+                        .resizable()
+                        .scaledToFit()
+                    VStack(alignment: .trailing) {
+                        Text("this is a")
+                            .font(.system(size: 40))
+                        Text("sharp")
+                            .font(.system(size:80))
+                            .bold()
+                    }
+                }
+                HStack{
+                    Spacer()
+                    Button(action: {
+                        replayAudio()
+                    }) {
+                        Image(systemName: "speaker.wave.2.fill")
+                            .font(.system(size: 30))
+                            .foregroundStyle(.black)
+                    }
+                    NavigationLink{
+                        KeySignaturesAccidentalsLearn2View()
+                    } label:{
+                        Text("next")
+                            .padding()
+                            .background(
+                                RoundedRectangle(cornerRadius: 10)
+                                    .stroke(.black, lineWidth: 3)
+                                    .frame(width:100,height:50)
+                                
+                            )
+                            .foregroundStyle(.black)
+                            .font(.system(size: 25))
+                        
+                        
+                    }
+                }
+                .padding(.horizontal)
             }
-            
-            HStack {
-                Image("sharp")
-                    .resizable()
-                    .scaledToFit()
-                VStack(alignment: .trailing) {
-                    Text("this is a")
-                        .font(.system(size: 40))
-                    Text("sharp")
-                        .font(.system(size:80))
-                        .bold()
-                }
+            .onAppear {
+                speakText("This is a sharp. it a sign that indicates a note is played higher in pitch, by a semitone or half step.")
             }
-            HStack{
-                Spacer()
-                Button(action: {
-                    replayAudio()
-                }) {
-                    Image(systemName: "speaker.wave.2.fill")
-                        .font(.system(size: 30))
-                        .foregroundStyle(.black)
-                }
-                NavigationLink{
-                    KeySignaturesAccidentalsLearn2View()
-                } label:{
-                    Text("next")
-                        .padding()
-                        .background(
-                            RoundedRectangle(cornerRadius: 10)
-                                .stroke(.black, lineWidth: 3)
-                                .frame(width:100,height:50)
-                            
-                        )
-                        .foregroundStyle(.black)
-                        .font(.system(size: 25))
-                    
-                    
-                }
+            .onDisappear {
+                stopAudio()
             }
-            .padding(.horizontal)
+            .navigationBarHidden(true)
         }
-        .onAppear {
-            speakText("This is a sharp. it a sign that indicates a note is played higher in pitch, by a semitone or half step.")
-        }
-        .onDisappear {
-            stopAudio()
-        }
-        .navigationBarHidden(true)
     }
     private func speakText(_ text: String) {
         let utterance = AVSpeechUtterance(string: text)
