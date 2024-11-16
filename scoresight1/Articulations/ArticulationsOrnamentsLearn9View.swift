@@ -11,6 +11,27 @@ import AVFoundation
 private let synthesizer = AVSpeechSynthesizer()
 
 struct ArticulationsOrnamentsLearn9View: View {
+    
+    @State private var audioPlayer: AVAudioPlayer?
+
+    func playPiano() {
+        guard let soundURL = Bundle.main.url(forResource: "marcato", withExtension: "mp3") else {
+            print("Audio fd.") //why audio file cant find
+            return
+        }
+        do {
+            if audioPlayer == nil {
+                audioPlayer = try AVAudioPlayer(contentsOf: soundURL)
+                audioPlayer?.numberOfLoops = 0
+            }
+            
+
+        } catch {
+            print("Failed to play audio: \(error.localizedDescription)")
+        }
+    }
+
+    
     var body: some View {
         NavigationStack {
             VStack {
@@ -85,6 +106,7 @@ struct ArticulationsOrnamentsLearn9View: View {
             }
             .onAppear {
                 speakText("this is a marcato. the note should be played with a strong, marked emphasis, even more pronounced than an accent, like so:")
+                playPiano()
             }
             .onDisappear {
                 stopAudio()
@@ -101,10 +123,13 @@ struct ArticulationsOrnamentsLearn9View: View {
     
     private func replayAudio() {
         speakText("this is a marcato. the note should be played with a strong, marked emphasis, even more pronounced than an accent, like so:")
+        playPiano()
     }
     
     private func stopAudio() {
         synthesizer.stopSpeaking(at: .immediate)
+        audioPlayer?.stop()
+        audioPlayer = nil
     }
 }
 

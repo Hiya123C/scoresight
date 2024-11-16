@@ -11,6 +11,27 @@ import AVFoundation
 private let synthesizer = AVSpeechSynthesizer()
 
 struct ArticulationsOrnamentsLearn13View: View {
+    
+    @State private var audioPlayer: AVAudioPlayer?
+
+    func playPiano() {
+        guard let soundURL = Bundle.main.url(forResource: "apoggiatura", withExtension: "mp3") else {
+            print("Audio fd.") //why audio file cant find
+            return
+        }
+        do {
+            if audioPlayer == nil {
+                audioPlayer = try AVAudioPlayer(contentsOf: soundURL)
+                audioPlayer?.numberOfLoops = 0
+            }
+            
+
+        } catch {
+            print("Failed to play audio: \(error.localizedDescription)")
+        }
+    }
+
+    
     var body: some View {
         NavigationStack {
             VStack {
@@ -84,6 +105,7 @@ struct ArticulationsOrnamentsLearn13View: View {
             }
             .onAppear {
                 speakText("this is an apoggiatura. It is an ornamental note that leans into the main note, often taking part of its time. The tiny note is half the value of the big note. it is drawn without a slash. it is played like so:")
+                playPiano()
             }
             .onDisappear {
                 stopAudio()
@@ -100,10 +122,13 @@ struct ArticulationsOrnamentsLearn13View: View {
     
     private func replayAudio() {
         speakText("this is an apoggiatura. It is an ornamental note that leans into the main note, often taking part of its time. The tiny note is half the value of the big note. it is drawn without a slash. it is played like so:")
+        playPiano()
     }
     
     private func stopAudio() {
         synthesizer.stopSpeaking(at: .immediate)
+        audioPlayer?.stop()
+        audioPlayer = nil
     }
 }
 

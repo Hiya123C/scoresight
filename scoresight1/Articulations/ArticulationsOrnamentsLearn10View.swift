@@ -11,6 +11,27 @@ import AVFoundation
 private let synthesizer = AVSpeechSynthesizer()
 
 struct ArticulationsOrnamentsLearn10View: View {
+    
+    @State private var audioPlayer: AVAudioPlayer?
+
+    func playPiano() {
+        guard let soundURL = Bundle.main.url(forResource: "portato", withExtension: "mp3") else {
+            print("Audio fd.") //why audio file cant find
+            return
+        }
+        do {
+            if audioPlayer == nil {
+                audioPlayer = try AVAudioPlayer(contentsOf: soundURL)
+                audioPlayer?.numberOfLoops = 0
+            }
+            
+
+        } catch {
+            print("Failed to play audio: \(error.localizedDescription)")
+        }
+    }
+
+    
     var body: some View {
         NavigationStack {
             VStack {
@@ -84,6 +105,7 @@ struct ArticulationsOrnamentsLearn10View: View {
             }
             .onAppear {
                 speakText("this is a portato. it is a combination of legato and staccato, with notes slightly detached but played smoothly like so:")
+                playPiano()
             }
             .onDisappear {
                 stopAudio()
@@ -100,10 +122,13 @@ struct ArticulationsOrnamentsLearn10View: View {
     
     private func replayAudio() {
         speakText("this is a portato. it is a combination of legato and staccato, with notes slightly detached but played smoothly like so:")
+        playPiano()
     }
     
     private func stopAudio() {
         synthesizer.stopSpeaking(at: .immediate)
+        audioPlayer?.stop()
+        audioPlayer = nil
     }
 }
 
