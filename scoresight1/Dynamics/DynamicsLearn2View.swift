@@ -9,62 +9,64 @@ import SwiftUI
 
 struct DynamicsLearn2View: View {
     var body: some View {
-        VStack {
-            HStack {
-                NavigationLink{
-                    DynamicsView()
-                } label:{
-                    Image(systemName: "x.circle")
-                        .symbolRenderingMode(.palette)
-                        .foregroundStyle(.black, .white)
-                        .font(.system(size:50))
-                }
-                Spacer()
-            }
-            Image("crescendo")
-              .resizable()
-              .scaledToFit()
-            Text("gradually getting louder")
-                .font(.system(size: 25))
-            Text("crescendo")
-                .font(.system(size:80))
-                .bold()
-            HStack{
-                NavigationLink{
-                    DynamicsLearnView()
-                } label:{
-                    Text("back")
-                        .padding()
-                        .background(
-                            RoundedRectangle(cornerRadius: 10)
-                                .stroke(.black, lineWidth: 3)
-                                .frame(width:100,height:50)
-                            
-                        )
-                        .foregroundStyle(.black)
-                        .font(.system(size: 25))
+        NavigationStack {
+            VStack {
+                HStack {
+                    NavigationLink{
+                        DynamicsView()
+                    } label:{
+                        Image(systemName: "x.circle")
+                            .symbolRenderingMode(.palette)
+                            .foregroundStyle(.black, .white)
+                            .font(.system(size:50))
+                    }
                     Spacer()
-                    
                 }
-                NavigationLink{
-                    DynamicsLearn3View()
-                } label:{
-                    Text("next")
-                        .padding()
-                        .background(
-                            RoundedRectangle(cornerRadius: 10)
-                                .stroke(.black, lineWidth: 3)
-                                .frame(width:100,height:50)
-                            
-                        )
-                        .foregroundStyle(.black)
-                        .font(.system(size: 25))
-                    
-                    
+                Image("crescendo")
+                    .resizable()
+                    .scaledToFit()
+                Text("gradually getting louder")
+                    .font(.system(size: 25))
+                Text("crescendo")
+                    .font(.system(size:80))
+                    .bold()
+                HStack{
+                    NavigationLink{
+                        DynamicsLearnView()
+                    } label:{
+                        Text("back")
+                            .padding()
+                            .background(
+                                RoundedRectangle(cornerRadius: 10)
+                                    .stroke(.black, lineWidth: 3)
+                                    .frame(width:100,height:50)
+                                
+                            )
+                            .foregroundStyle(.black)
+                            .font(.system(size: 25))
+                        Spacer()
+                        
+                    }
+                    NavigationLink{
+                        DynamicsLearn3View()
+                    } label:{
+                        Text("next")
+                            .padding()
+                            .background(
+                                RoundedRectangle(cornerRadius: 10)
+                                    .stroke(.black, lineWidth: 3)
+                                    .frame(width:100,height:50)
+                                
+                            )
+                            .foregroundStyle(.black)
+                            .font(.system(size: 25))
+                        
+                        
+                    }
                 }
             }
+            .navigationBarBackButtonHidden(true)
         }
-        .navigationBarBackButtonHidden(true)
     }
 }
 
