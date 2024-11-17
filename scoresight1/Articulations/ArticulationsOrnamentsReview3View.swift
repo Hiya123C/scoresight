@@ -6,12 +6,39 @@
 //
 
 import SwiftUI
+import AVFoundation
 
 struct ArticulationsOrnamentsReview3View: View {
     
     @State private var selectedAnswer: String? = nil
     @State private var correctAnswer: Bool = false
     @State private var wrongAnswer: Bool = false
+    @State private var audioPlayer: AVAudioPlayer?
+    @State private var isPlayingAudio = false
+
+    func playAudio() {
+        guard let soundURL = Bundle.main.url(forResource: "portato", withExtension: "mp3") else {
+            print("Audio cannot find.")
+            return
+        }
+        do {
+            if audioPlayer == nil {
+                audioPlayer = try AVAudioPlayer(contentsOf: soundURL)
+                audioPlayer?.numberOfLoops = 0
+            }
+            
+            if let player = audioPlayer {
+                if isPlayingAudio {
+                    player.pause()
+                } else {
+                    player.play()
+                }
+                isPlayingAudio.toggle()
+            }
+        } catch {
+            print("Failed to play audio: \(error.localizedDescription)")
+        }
+    }
     
     var body: some View {
         VStack {
@@ -65,6 +92,14 @@ struct ArticulationsOrnamentsReview3View: View {
                     ZStack {
                         HStack {
                             Spacer()
+                            Image(systemName: "speaker.wave.2.fill")
+                                .font(.system(size: 25))
+                                .padding(.trailing, 20)
+                                .foregroundStyle(.black)
+                                .onTapGesture {
+                                    playAudio()
+                                }
+                            
                             NavigationLink {
                                 ArticulationsOrnamentsReview4View()
                             } label: {
@@ -96,7 +131,17 @@ struct ArticulationsOrnamentsReview3View: View {
                 }
             }
         }
+        .onAppear{
+            playAudio()
+        }
+        .onDisappear {
+            stopAudio()
+        }
         .navigationBarBackButtonHidden(true)
+    }
+    private func stopAudio() {
+        audioPlayer?.stop()
+        audioPlayer = nil
     }
 }
 
