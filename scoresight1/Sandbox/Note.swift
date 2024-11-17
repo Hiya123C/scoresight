@@ -26,7 +26,7 @@ struct Note: Identifiable {
         position.y <= -46
     }
     
-    // Determine the pitch based on the position.y value
+  
     func notePitch(from positionY: CGFloat) -> NotePitch {
         switch positionY {
         case 24: return .d
@@ -40,7 +40,7 @@ struct Note: Identifiable {
         case -72: return .E
         case -84: return .F
         case -96: return .G
-        default: return .b // default pitch
+        default: return .b
         }
     }
 }
@@ -87,24 +87,7 @@ enum NotePitch {
 }
 
 
-    
-//     static func notePitch(from yPosition: CGFloat) -> NotePitch {
-//        switch yPosition {
-//        case 24: return .d
-//        case 12: return .e
-//        case 0: return .f
-//        case -12: return .g
-//        case -24: return .a
-//        case -36: return .b
-//        case -48: return .c
-//        case -60: return .D
-//        case -72: return .E
-//        case -84: return .F
-//        case -96: return .G
-//        default: return.b
-//            
-//        }
-//    }
+
 
 
 

@@ -12,12 +12,13 @@ private let synthesizer = AVSpeechSynthesizer()
 
 
 struct ArticulationsOrnamentsLearnView: View {
-    
+   
+    @State private var isPlayingAudio = false
     @State private var audioPlayer: AVAudioPlayer?
 
     func playPiano() {
         guard let soundURL = Bundle.main.url(forResource: "accent", withExtension: "mp3") else {
-            print("Audio fd.") //why audio file cant find
+            print("Audio cannot find.")
             return
         }
         do {
@@ -26,7 +27,14 @@ struct ArticulationsOrnamentsLearnView: View {
                 audioPlayer?.numberOfLoops = 0
             }
             
-
+            if let player = audioPlayer {
+                if isPlayingAudio {
+                    player.pause()
+                } else {
+                    player.play()
+                }
+                isPlayingAudio.toggle()
+            }
         } catch {
             print("Failed to play audio: \(error.localizedDescription)")
         }

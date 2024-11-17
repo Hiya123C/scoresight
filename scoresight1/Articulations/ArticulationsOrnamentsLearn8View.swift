@@ -106,7 +106,7 @@ struct ArticulationsOrnamentsLearn8View: View {
             }
             .onAppear {
                 speakText("this is a slur, also known as legato. the notes within a slur should be played smoothly without interruptions like so:")
-                playAudio()
+                playPiano()
             }
             .onDisappear {
                 stopAudio()

@@ -142,7 +142,6 @@
 		D9116A0F2CE7601700804AC1 /* AudioManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9116A0E2CE7601700804AC1 /* AudioManager.swift */; };
 		D9116A112CE779C400804AC1 /* D3.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = D9116A102CE779C400804AC1 /* D3.mp3 */; };
 		D9116A132CE77A8B00804AC1 /* E3.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = D9116A122CE77A8B00804AC1 /* E3.mp3 */; };
-		D9116A152CE77AAB00804AC1 /* G3.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = D9116A142CE77AAB00804AC1 /* G3.mp3 */; };
 		D9116A172CE77ACE00804AC1 /* A3.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = D9116A162CE77ACE00804AC1 /* A3.mp3 */; };
 		D9116A192CE77AE500804AC1 /* D4.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = D9116A182CE77AE500804AC1 /* D4.mp3 */; };
 		D9116A1B2CE77AF400804AC1 /* G4.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = D9116A1A2CE77AF400804AC1 /* G4.mp3 */; };
@@ -187,6 +186,7 @@
 		D9116A952CE8818300804AC1 /* TimeSignaturesLearn4View.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9116A7B2CE8818300804AC1 /* TimeSignaturesLearn4View.swift */; };
 		D9116A962CE8818300804AC1 /* TimeSignaturesReview3View.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9116A832CE8818300804AC1 /* TimeSignaturesReview3View.swift */; };
 		D9116A972CE8818300804AC1 /* TimeSignaturesLearn2View.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9116A792CE8818300804AC1 /* TimeSignaturesLearn2View.swift */; };
+		D96089322CE984CA008E8756 /* G3.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = D96089312CE984C9008E8756 /* G3.mp3 */; };
 		D9C232342CE0D8280032674D /* metronome.m4a in Resources */ = {isa = PBXBuildFile; fileRef = D9C232332CE0D8280032674D /* metronome.m4a */; };
 		D9E035FB2CDF12AC00220F1F /* scoresight1App.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9E035FA2CDF12AC00220F1F /* scoresight1App.swift */; };
 		D9E035FD2CDF12AC00220F1F /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9E035FC2CDF12AC00220F1F /* ContentView.swift */; };
@@ -330,7 +330,6 @@
 		D9116A0E2CE7601700804AC1 /* AudioManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioManager.swift; sourceTree = "<group>"; };
 		D9116A102CE779C400804AC1 /* D3.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = D3.mp3; sourceTree = "<group>"; };
 		D9116A122CE77A8B00804AC1 /* E3.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = E3.mp3; sourceTree = "<group>"; };
-		D9116A142CE77AAB00804AC1 /* G3.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = G3.mp3; sourceTree = "<group>"; };
 		D9116A162CE77ACE00804AC1 /* A3.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = A3.mp3; sourceTree = "<group>"; };
 		D9116A182CE77AE500804AC1 /* D4.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = D4.mp3; sourceTree = "<group>"; };
 		D9116A1A2CE77AF400804AC1 /* G4.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = G4.mp3; sourceTree = "<group>"; };
@@ -375,6 +374,7 @@
 		D9116A852CE8818300804AC1 /* TimeSignaturesReview5View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeSignaturesReview5View.swift; sourceTree = "<group>"; };
 		D9116A862CE8818300804AC1 /* TimeSignaturesReviewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeSignaturesReviewView.swift; sourceTree = "<group>"; };
 		D9116A872CE8818300804AC1 /* TimeSignaturesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeSignaturesView.swift; sourceTree = "<group>"; };
+		D96089312CE984C9008E8756 /* G3.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = G3.mp3; sourceTree = "<group>"; };
 		D9C232332CE0D8280032674D /* metronome.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = metronome.m4a; sourceTree = "<group>"; };
 		D9E035F72CDF12AC00220F1F /* scoresight1.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = scoresight1.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D9E035FA2CDF12AC00220F1F /* scoresight1App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = scoresight1App.swift; sourceTree = "<group>"; };
@@ -627,7 +627,7 @@
 				D9116A102CE779C400804AC1 /* D3.mp3 */,
 				D9116A122CE77A8B00804AC1 /* E3.mp3 */,
 				D9116A1C2CE77DAE00804AC1 /* F3.mp3 */,
-				D9116A142CE77AAB00804AC1 /* G3.mp3 */,
+				D96089312CE984C9008E8756 /* G3.mp3 */,
 				D9116A162CE77ACE00804AC1 /* A3.mp3 */,
 				D9116A1E2CE77DBF00804AC1 /* B3.mp3 */,
 				D9116A202CE77DE400804AC1 /* C4.mp3 */,
@@ -771,8 +771,8 @@
 				31F1FAA82CE87CA1001B3AA2 /* decrescendo.mp3 in Resources */,
 				31F1FAA92CE87CA7001B3AA2 /* sfz.mp3 in Resources */,
 				31F1FAB42CE87CF0001B3AA2 /* marcato.mp3 in Resources */,
+				D96089322CE984CA008E8756 /* G3.mp3 in Resources */,
 				31F1FAB22CE87CE5001B3AA2 /* glissando.mp3 in Resources */,
-				D9116A152CE77AAB00804AC1 /* G3.mp3 in Resources */,
 				31F1FAB82CE87D08001B3AA2 /* apoggiatura.mp3 in Resources */,
 				D9116A1F2CE77DBF00804AC1 /* B3.mp3 in Resources */,
 				31F1FAB52CE87CF7001B3AA2 /* portato.mp3 in Resources */,

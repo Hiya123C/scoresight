@@ -105,21 +105,26 @@ struct Sandbox1View: View {
                                 }
                             }
                             
-                            Button(action:{
+                            Button(action: {
                                 print("play line")
-                                //play
-                                
-                                for note in viewModel.notes {
-                                    let pitch = note.pitch
-                                    let duration = note.NoteLength.timeMultiplier
-                                    audioManager.playSound(for: pitch, duration: Int(duration))
-                                }
-                            }){
+                                var delay: Double = 0.0 
+                                    
+                                    for note in viewModel.notes {
+                                        let pitch = note.pitch
+                                        let duration = note.NoteLength.timeMultiplier
+                                        
+                                        DispatchQueue.main.asyncAfter(deadline: .now() + delay) {
+                                            audioManager.playSound(for: pitch, duration: duration)
+                                        }
+                                        
+                                        delay += duration
+                                    }
+                            }) {
                                 Image(systemName: "play.square")
                                     .foregroundStyle(.black, .black)
-                                    .font(.system(size:60))
-                                
+                                    .font(.system(size: 60))
                             }
+
                         }.frame(maxWidth:.infinity, alignment: .center)
                     }
                     
