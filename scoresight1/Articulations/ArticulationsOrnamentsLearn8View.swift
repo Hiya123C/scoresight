@@ -46,7 +46,7 @@ struct ArticulationsOrnamentsLearn8View: View {
                     }
                     Spacer()
                 }
-                
+                Spacer()
                 HStack {
                     Image("slur")
                         .resizable()
@@ -59,6 +59,7 @@ struct ArticulationsOrnamentsLearn8View: View {
                             .bold()
                     }
                 }
+                Spacer()
                 HStack{
                     NavigationLink{
                         ArticulationsOrnamentsLearn7View()

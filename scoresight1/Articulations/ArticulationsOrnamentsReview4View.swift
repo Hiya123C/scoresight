@@ -76,7 +76,7 @@ struct ArticulationsOrnamentsReview4View: View {
                         HStack {
                             Spacer()
                             NavigationLink {
-                                ArticulationsOrnamentsReview3View()
+                                ArticulationsOrnamentsReview5View()
                             } label: {
                                 Text("next")
                                     .padding()

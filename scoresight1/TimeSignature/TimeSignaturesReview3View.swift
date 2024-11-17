@@ -71,7 +71,7 @@ struct TimeSignaturesReview3View: View {
                     
                     ZStack {
                         if correctAnswer {
-                            Text("Correct! The time signature is 3/4.")
+                            Text("Correct! The time signature is 2/4.")
                                 .font(.system(size: 20))
                                 .foregroundColor(.green)
                                 .padding(.top, 10)

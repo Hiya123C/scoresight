@@ -12,7 +12,7 @@ struct TimeSignaturesLearnView: View {
     private let synthesizer = AVSpeechSynthesizer()
     
     var body: some View {
-        NavigationView {
+        NavigationStack {
             VStack(spacing: 20) {
                 HStack {
                     Button(action: {}) {
@@ -27,7 +27,7 @@ struct TimeSignaturesLearnView: View {
                 }
                 .padding([.top, .leading])
                 
-                HStack {
+                HStack (spacing: 100) {
                     Image("44")
                         .resizable()
                         .scaledToFit()
@@ -56,7 +56,7 @@ struct TimeSignaturesLearnView: View {
                             .padding(.trailing, 10)
                     }
                     
-                    NavigationLink(destination: TimeSignaturesLearn3View()) {
+                    NavigationLink(destination: TimeSignaturesLearn2View()) {
                         Text("next")
                             .padding()
                             .frame(width: 100, height: 50)

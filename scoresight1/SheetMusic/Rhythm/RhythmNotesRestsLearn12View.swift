@@ -1,5 +1,5 @@
 //
-//  RhythmNotesRestsLearn13View.swift
+//  RhythmNotesRestsLearn12View.swift
 //  scoresight1
 //
 //  Created by T Krobot on 12/11/24.
@@ -8,13 +8,13 @@
 import SwiftUI
 import AVFoundation
 
-struct RhythmNotesRestsLearn13View: View {
+struct RhythmNotesRestsLearn12View: View {
     private let synthesizer = AVSpeechSynthesizer()
 
     var body: some View {
         NavigationStack {
             VStack {
-            HStack {
+                HStack {
                     NavigationLink(destination: RhythmNotesRestsView()) {
                         Image(systemName: "x.circle")
                             .symbolRenderingMode(.palette)
@@ -26,15 +26,17 @@ struct RhythmNotesRestsLearn13View: View {
                 .padding()
 
                 Spacer()
-                HStack(spacing: 70) {
-                    Image("duplet")
+
+                HStack(spacing: 10) {
+                    Image("triplet")
                         .resizable()
-                        .scaledToFit()
+                        .frame(maxHeight: 400)
+                        .frame(maxWidth: 250)
 
                     VStack(alignment: .trailing, spacing: -10) {
                         Text("this is a")
                             .font(.system(size: 50))
-                        Text("duplet")
+                        Text("triplet")
                             .font(.system(size: 90))
                             .bold()
                     }
@@ -42,7 +44,7 @@ struct RhythmNotesRestsLearn13View: View {
 
                 Spacer()
                 HStack {
-                    NavigationLink(destination: RhythmNotesRestsLearn12View()) {
+                    NavigationLink(destination: RhythmNotesRestsLearn11View()) {
                         Text("back")
                             .padding()
                             .frame(width: 100, height: 50)
@@ -55,9 +57,8 @@ struct RhythmNotesRestsLearn13View: View {
                     }
                     Spacer()
 
-
                     Button(action: {
-                        speakText("Here is an example of a duplet. You might see notes with the number 2 on top. For this example, there are 2 quavers. This means that 2 quavers have to be played in the span of a dotted crotchet. So instead of playing the value of a quaver, each quaver has the value of a dotted quaver now.")
+                        speakText("Here is an example of a triplet. You might see notes with the number 3 on top. For this example, there are 3 quavers. This means that 3 quavers have to be played in the span of a crochet. So instead of playing the value of a quaver, each quaver has the value of a dotted semiquaver now.")
                     }) {
                         Image(systemName: "speaker.wave.2.fill")
                             .font(.system(size: 30))
@@ -65,7 +66,7 @@ struct RhythmNotesRestsLearn13View: View {
                             .padding(.trailing, 20)
                     }
 
-                    NavigationLink(destination: RhythmNotesRestsReviewView()) {
+                    NavigationLink(destination: RhythmNotesRestsLearn13View()) {
                         Text("next")
                             .padding()
                             .frame(width: 100, height: 50)
@@ -82,7 +83,7 @@ struct RhythmNotesRestsLearn13View: View {
             }
             .navigationBarHidden(true)
             .onAppear {
-                speakText("Here is an example of a duplet. You might see notes with the number 2 on top. For this example, there are 2 quavers. This means that 2 quavers have to be played in the span of a dotted crotchet. So instead of playing the value of a quaver, each quaver has the value of a dotted quaver now.")
+                speakText("Here is an example of a triplet. You might see notes with the number 3 on top. For this example, there are 3 quavers. This means that 3 quavers have to be played in the span of a crochet. So instead of playing the value of a quaver, each quaver has the value of a dotted semiquaver now.")
             }
             .onDisappear {
                 stopSpeech()
@@ -104,5 +105,5 @@ struct RhythmNotesRestsLearn13View: View {
 }
 
 #Preview {
-    RhythmNotesRestsLearn13View()
+    RhythmNotesRestsLearn12View()
 }

@@ -3,7 +3,7 @@
 
 import SwiftUI
 
-struct SheetMusicOrganisationView: View {    
+struct SheetMusicOrganisationView: View {
     var body: some View {
         NavigationStack{
             VStack {
@@ -20,20 +20,24 @@ struct SheetMusicOrganisationView: View {
                 }
                 Spacer()
                 ViewThatFits{
-                                Text("sheet music\norganisation")
-                                    .fontWeight(.bold)
-                                    .font(.system(size:100)).environment(\._lineHeightMultiple, 0.75)
-                                Text("sheet music\norganisation")
-                                    .fontWeight(.bold)
-                                    .font(.system(size:80)).environment(\._lineHeightMultiple, 0.75)
-                                
-                                Text("sheet music\norganisation")
-                                    .fontWeight(.bold)
-                                    .font(.system(size:60)).environment(\._lineHeightMultiple, 0.75)
-                                Text("sheet music\norganisation")
-                                    .fontWeight(.bold)
-                                    .font(.system(size:50)).environment(\._lineHeightMultiple, 0.75)
-                            }
+                    Text("sheet music\norganisation")
+                        .fontWeight(.bold)
+                        .font(.system(size:100)).environment(\._lineHeightMultiple, 0.75)
+                        .multilineTextAlignment(.center)
+                    Text("sheet music\norganisation")
+                        .fontWeight(.bold)
+                        .font(.system(size:80)).environment(\._lineHeightMultiple, 0.75)
+                        .multilineTextAlignment(.center)
+                    
+                    Text("sheet music\norganisation")
+                        .fontWeight(.bold)
+                        .font(.system(size:60)).environment(\._lineHeightMultiple, 0.75)
+                        .multilineTextAlignment(.center)
+                    Text("sheet music\norganisation")
+                        .fontWeight(.bold)
+                        .font(.system(size:50)).environment(\._lineHeightMultiple, 0.75)
+                        .multilineTextAlignment(.center)
+                }
                 Spacer()
                 
                 NavigationLink{
@@ -67,7 +71,7 @@ struct SheetMusicOrganisationView: View {
                         )
                 }
                 
-            
+                
                 Spacer()
             }
             .navigationBarBackButtonHidden(true)

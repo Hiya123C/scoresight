@@ -1,20 +1,17 @@
 //
-//  ClefsPitchedNotesLearn10View.swift
-//  scoresight1
-//
-//  Created by Li Jiansheng on 9/11/24.
-//
 
 import SwiftUI
 import AVFoundation
 
 struct ClefsPitchedNotesLearn10View: View {
 
+    @State private var isSpeaking = false
     @State private var audioPlayer: AVAudioPlayer?
+    @State private var isPlayingAudio = false
     
     func playAudio() {
         guard let soundURL = Bundle.main.url(forResource: "treblepitched", withExtension: "mp3") else {
-            print("Audio fd.") //why audio file cant find
+            print("Audio cannot find.")
             return
         }
         do {
@@ -23,7 +20,14 @@ struct ClefsPitchedNotesLearn10View: View {
                 audioPlayer?.numberOfLoops = 0
             }
             
-    
+            if let player = audioPlayer {
+                if isPlayingAudio {
+                    player.pause()
+                } else {
+                    player.play()
+                }
+                isPlayingAudio.toggle()
+            }
         } catch {
             print("Failed to play audio: \(error.localizedDescription)")
         }
@@ -45,9 +49,20 @@ struct ClefsPitchedNotesLearn10View: View {
                 }
                 Text("pitched notes on the treble clef")
                     .font(.system(size: 40))
-                Image("treble clef pitched notes")
-                    .resizable()
-                    .scaledToFit()
+                HStack{
+                    Image("treble clef pitched notes")
+                        .resizable()
+                        .scaledToFit()
+                    
+                    Button(action: {
+                        playAudio()
+                    }) {
+                        Image(systemName: isPlayingAudio ? "pause.circle" : "play.circle")
+                            .symbolRenderingMode(.palette)
+                            .foregroundStyle(.black, .black)
+                            .font(.system(size: 50))
+                    }
+                }
                 HStack{
                     NavigationLink{
                         ClefsPitchedNotesLearn9View()
@@ -65,14 +80,16 @@ struct ClefsPitchedNotesLearn10View: View {
                         Spacer()
                         
                     }
-                    Button(action: {
-                        playAudio()
-                    }) {
-                        Image(systemName: "speaker.wave.2.fill")
-                            .font(.system(size: 30))
-                            .foregroundStyle(.black)
-                    }
-                    .padding()
+//                    Button(action: {
+//                        playAudio()
+//                        print("playing") //cant hear anything.
+//                    }) {
+//                        Image(systemName: "speaker.wave.2.fill")
+//                            .font(.system(size: 30))
+//                            .foregroundStyle(.black)
+//                    }
+//                    .padding()
+                    
                     NavigationLink{
                         ClefsPitchedNotesLearn11View()
                     }label:{
@@ -100,6 +117,7 @@ struct ClefsPitchedNotesLearn10View: View {
     private func stopAudio() {
         audioPlayer?.stop()
         audioPlayer = nil
+        isPlayingAudio = false
     }
 }
 

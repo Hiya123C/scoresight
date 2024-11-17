@@ -9,7 +9,7 @@ import SwiftUI
 
 struct RhythmNotesRestsReviewView: View {
     var body: some View {
-        NavigationView {
+        NavigationStack {
             VStack {
                 HStack {
                     NavigationLink(destination: RhythmNotesRestsView()) {
@@ -24,6 +24,7 @@ struct RhythmNotesRestsReviewView: View {
                 Spacer()
                 Text("test your\nknowledge!")
                     .fontWeight(.bold)
+                    .multilineTextAlignment(.center)
                     .font(.system(size: 100))
                     .environment(\._lineHeightMultiple, 0.75)
                 

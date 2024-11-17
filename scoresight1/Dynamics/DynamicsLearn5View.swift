@@ -8,26 +8,25 @@
 import SwiftUI
 import AVFoundation
 
-@State private var audioPlayer: AVAudioPlayer?
-
-func playAudio() {
-    guard let soundURL = Bundle.main.url(forResource: "rfz", withExtension: "mp3") else {
-        print("Audio fd.") //why audio file cant find
-        return
-    }
-    do {
-        if audioPlayer == nil {
-            audioPlayer = try AVAudioPlayer(contentsOf: soundURL)
-            audioPlayer?.numberOfLoops = 0
-        }
-        
-        
-    } catch {
-        print("Failed to play audio: \(error.localizedDescription)")
-    }
-}
-
 struct DynamicsLearn5View: View {
+    @State private var audioPlayer: AVAudioPlayer?
+    
+    func playAudio() {
+        guard let soundURL = Bundle.main.url(forResource: "rfz", withExtension: "mp3") else {
+            print("Audio fd.") //why audio file cant find
+            return
+        }
+        do {
+            if audioPlayer == nil {
+                audioPlayer = try AVAudioPlayer(contentsOf: soundURL)
+                audioPlayer?.numberOfLoops = 0
+            }
+            
+            
+        } catch {
+            print("Failed to play audio: \(error.localizedDescription)")
+        }
+    }
     var body: some View {
         NavigationStack {
             VStack {
@@ -42,14 +41,21 @@ struct DynamicsLearn5View: View {
                     }
                     Spacer()
                 }
-                Image("rinforzando")
-                    .resizable()
-                    .scaledToFit()
-                Text("a sudden increase in volume (only for a given phrase)")
-                    .font(.system(size: 25))
-                Text("rinforzando")
-                    .font(.system(size:80))
-                    .bold()
+                Spacer()
+                VStack{
+                    Image("rinforzando")
+                        .resizable()
+                        .scaledToFit()
+                        .scaleEffect(1.3)
+                    
+                    Text("a sudden increase in volume (only for a given phrase)")
+                        .font(.system(size: 25))
+                    
+                    Text("rinforzando")
+                        .font(.system(size:80))
+                        .bold()
+                }
+                Spacer()
                 HStack{
                     NavigationLink{
                         DynamicsLearn4View()
@@ -88,9 +94,9 @@ struct DynamicsLearn5View: View {
                             )
                             .foregroundStyle(.black)
                             .font(.system(size: 25))
-                        
                     }
                 }
+                
             }
             
             .onDisappear {

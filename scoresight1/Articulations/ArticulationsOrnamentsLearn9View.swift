@@ -1,5 +1,5 @@
 //
-//  ArticulationsOrnamentsLearn9View.swift
+//  ArticulationsOrnamentsLearn10View.swift
 //  scoresight1
 //
 //  Created by Li Jiansheng on 11/11/24.
@@ -46,7 +46,7 @@ struct ArticulationsOrnamentsLearn9View: View {
                     }
                     Spacer()
                 }
-                
+                Spacer()
                 HStack {
                     Image("marcato")
                         .resizable()
@@ -59,6 +59,7 @@ struct ArticulationsOrnamentsLearn9View: View {
                             .bold()
                     }
                 }
+                Spacer()
                 HStack{
                     NavigationLink{
                         ArticulationsOrnamentsLearn8View()
@@ -73,7 +74,6 @@ struct ArticulationsOrnamentsLearn9View: View {
                             )
                             .foregroundStyle(.black)
                             .font(.system(size: 25))
-                        foregroundStyle(.black)
                         
                     }
                     Spacer()
@@ -98,8 +98,6 @@ struct ArticulationsOrnamentsLearn9View: View {
                             )
                             .foregroundStyle(.black)
                             .font(.system(size: 25))
-                        
-                        
                     }
                 }
                 .padding(.horizontal)

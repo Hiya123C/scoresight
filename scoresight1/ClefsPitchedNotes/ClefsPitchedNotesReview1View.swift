@@ -1,9 +1,4 @@
 //
-//  ClefsPitchedNotesReviewView.swift
-//  scoresight1
-//
-//  Created by Li Jiansheng on 9/11/24.
-//
 
 import SwiftUI
 
@@ -22,9 +17,12 @@ struct ClefsPitchedNotesReviewView: View {
                     }
                     Spacer()
                 }
+                Spacer()
                 Text("test your\nknowledge!")
                     .fontWeight(.bold)
                     .font(.system(size:100)).environment(\._lineHeightMultiple, 0.75)
+                    .multilineTextAlignment(.center)
+                Spacer()
                 HStack{
                     NavigationLink{
                         ClefsPitchedNotesLearn14View()

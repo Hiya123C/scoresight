@@ -33,9 +33,14 @@ struct KeySignaturesAccidentalsLearn2View: View {
                     VStack(alignment: .trailing) {
                         Text("this is a")
                             .font(.system(size: 40))
-                        Text("double\nsharp")
-                            .font(.system(size:80))
-                            .bold()
+                        ViewThatFits{
+                            Text("double\nsharp")
+                                .font(.system(size:60))
+                                .bold()
+                            Text("double\nsharp")
+                                .font(.system(size:50))
+                                .bold()
+                        }
                     }
                 }
                 HStack{

@@ -1,5 +1,5 @@
 //
-//  RhythmNotesRestsLearn13View.swift
+//  RhythmNotesRestsLearn11View.swift
 //  scoresight1
 //
 //  Created by T Krobot on 12/11/24.
@@ -8,13 +8,13 @@
 import SwiftUI
 import AVFoundation
 
-struct RhythmNotesRestsLearn13View: View {
+struct RhythmNotesRestsLearn11View: View {
     private let synthesizer = AVSpeechSynthesizer()
 
     var body: some View {
         NavigationStack {
             VStack {
-            HStack {
+                HStack {
                     NavigationLink(destination: RhythmNotesRestsView()) {
                         Image(systemName: "x.circle")
                             .symbolRenderingMode(.palette)
@@ -26,23 +26,53 @@ struct RhythmNotesRestsLearn13View: View {
                 .padding()
 
                 Spacer()
-                HStack(spacing: 70) {
-                    Image("duplet")
-                        .resizable()
-                        .scaledToFit()
 
-                    VStack(alignment: .trailing, spacing: -10) {
-                        Text("this is a")
-                            .font(.system(size: 50))
-                        Text("duplet")
-                            .font(.system(size: 90))
-                            .bold()
+                HStack(alignment: .top, spacing: 10) {
+                    VStack {
+                        Image("dotted semibreve rest")
+                            .resizable()
+                            .scaledToFit()
+                            .frame(maxHeight: 80)
+                        Image("dotted semibreve")
+                            .resizable()
+                            .scaledToFit()
+                            .frame(maxHeight: 130)
+                    }
+                    VStack {
+                        Image("dotted minim rest")
+                            .resizable()
+                            .scaledToFit()
+                            .frame(maxHeight: 90) // Limit max height
+                        Image("dotted minim")
+                            .resizable()
+                            .scaledToFit()
+                            .frame(maxHeight: 140) // Limit max height
+                    }
+                    VStack {
+                        Image("dotted crochet rest")
+                            .resizable()
+                            .scaledToFit()
+                            .frame(maxHeight: 130) // Limit max height
+                        Image("dotted crochet")
+                            .resizable()
+                            .scaledToFit()
+                            .frame(maxHeight: 100) // Limit max height
+                    }
+                    VStack {
+                        Image("dotted quaver rest")
+                            .resizable()
+                            .scaledToFit()
+                            .frame(maxHeight: 100) // Limit max height
+                        Image("dotted quaver")
+                            .resizable()
+                            .scaledToFit()
+                            .frame(maxHeight: 100) // Limit max height
                     }
                 }
 
                 Spacer()
                 HStack {
-                    NavigationLink(destination: RhythmNotesRestsLearn12View()) {
+                    NavigationLink(destination: RhythmNotesRestsLearn10View()) {
                         Text("back")
                             .padding()
                             .frame(width: 100, height: 50)
@@ -54,10 +84,8 @@ struct RhythmNotesRestsLearn13View: View {
                             .font(.system(size: 25))
                     }
                     Spacer()
-
-
                     Button(action: {
-                        speakText("Here is an example of a duplet. You might see notes with the number 2 on top. For this example, there are 2 quavers. This means that 2 quavers have to be played in the span of a dotted crotchet. So instead of playing the value of a quaver, each quaver has the value of a dotted quaver now.")
+                        speakText("Sometimes there are notes with a dot next to them. They are known as dotted notes, and the dot represents that the value of the note is the current value added with half of its value.")
                     }) {
                         Image(systemName: "speaker.wave.2.fill")
                             .font(.system(size: 30))
@@ -65,7 +93,7 @@ struct RhythmNotesRestsLearn13View: View {
                             .padding(.trailing, 20)
                     }
 
-                    NavigationLink(destination: RhythmNotesRestsReviewView()) {
+                    NavigationLink(destination: RhythmNotesRestsLearn12View()) {
                         Text("next")
                             .padding()
                             .frame(width: 100, height: 50)
@@ -82,7 +110,7 @@ struct RhythmNotesRestsLearn13View: View {
             }
             .navigationBarHidden(true)
             .onAppear {
-                speakText("Here is an example of a duplet. You might see notes with the number 2 on top. For this example, there are 2 quavers. This means that 2 quavers have to be played in the span of a dotted crotchet. So instead of playing the value of a quaver, each quaver has the value of a dotted quaver now.")
+                speakText("Sometimes there are notes with a dot next to them. They are known as dotted notes, and the dot represents that the value of the note is the current value added with half of its value.")
             }
             .onDisappear {
                 stopSpeech()
@@ -104,5 +132,5 @@ struct RhythmNotesRestsLearn13View: View {
 }
 
 #Preview {
-    RhythmNotesRestsLearn13View()
+    RhythmNotesRestsLearn11View()
 }

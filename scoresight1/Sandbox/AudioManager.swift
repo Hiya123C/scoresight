@@ -12,7 +12,6 @@ class AudioManager: ObservableObject {
 //                }
         
         let noteName: String
-        // Map note pitch to audio file name
         switch note {
         case .d:
             noteName = "D3"

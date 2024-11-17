@@ -15,7 +15,7 @@ struct TimeSignaturesReview2View: View {
     @State private var audioPlayer: AVAudioPlayer?
     
     var body: some View {
-        NavigationView {
+        NavigationStack {
             VStack {
                     VStack {
                         HStack {
@@ -38,38 +38,40 @@ struct TimeSignaturesReview2View: View {
                             .multilineTextAlignment(.center)
                             .padding()
                         
-                        HStack(spacing: 20) {
-                            AnswerButton1(imageName: "24", isSelected: selectedAnswer == "24", isCorrect: false) {
-                                selectedAnswer = "24"
-                                correctAnswer = false
-                                wrongAnswer = true
+                        VStack {
+                            HStack(spacing: 20) {
+                                AnswerButton1(imageName: "24", isSelected: selectedAnswer == "24", isCorrect: false) {
+                                    selectedAnswer = "24"
+                                    correctAnswer = false
+                                    wrongAnswer = true
+                                }
+                                AnswerButton1(imageName: "34", isSelected: selectedAnswer == "34", isCorrect: true) {
+                                    selectedAnswer = "34"
+                                    correctAnswer = true
+                                    wrongAnswer = false
+                                }
+                                AnswerButton1(imageName: "44", isSelected: selectedAnswer == "44", isCorrect: false) {
+                                    selectedAnswer = "44"
+                                    correctAnswer = false
+                                    wrongAnswer = true
+                                }
                             }
-                            AnswerButton1(imageName: "34", isSelected: selectedAnswer == "34", isCorrect: true) {
-                                selectedAnswer = "34"
-                                correctAnswer = true
-                                wrongAnswer = false
-                            }
-                            AnswerButton1(imageName: "44", isSelected: selectedAnswer == "44", isCorrect: false) {
-                                selectedAnswer = "44"
-                                correctAnswer = false
-                                wrongAnswer = true
-                            }
-                        }
-                        
-                        Spacer()
-                        
-                        ZStack {
-                            if correctAnswer {
-                                Text("Correct! The time signature is 3/4.")
-                                    .font(.system(size: 20))
-                                    .foregroundColor(.green)
-                                    .padding(.top, 10)
-                            }
-                            if wrongAnswer {
-                                Text("Wrong! Try again.")
-                                    .font(.system(size: 20))
-                                    .foregroundColor(.red)
-                                    .padding(.top, 10)
+                            
+                            Spacer()
+                            
+                            ZStack {
+                                if correctAnswer {
+                                    Text("Correct! The time signature is 3/4.")
+                                        .font(.system(size: 20))
+                                        .foregroundColor(.green)
+                                        .padding(.top, 10)
+                                }
+                                if wrongAnswer {
+                                    Text("Wrong! Try again.")
+                                        .font(.system(size: 20))
+                                        .foregroundColor(.red)
+                                        .padding(.top, 10)
+                                }
                             }
                         }
                         
@@ -84,6 +86,7 @@ struct TimeSignaturesReview2View: View {
                                     Image(systemName: "speaker.wave.2.fill")
                                         .font(.system(size: 40))
                                         .padding(.trailing, 20)
+                                        .foregroundColor(.black)
                                 }
                                 Text("next")
                                     .padding()

@@ -36,6 +36,7 @@ struct KeySignaturesAccidentalsLearn11View: View {
                     Image("accidentals")
                         .resizable()
                         .scaledToFit()
+                        .scaleEffect(1.3)
                 }
                 HStack{
                     NavigationLink{

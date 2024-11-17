@@ -24,22 +24,18 @@ struct RhythmNotesRestsView: View {
                 }
                 Spacer()
                 ViewThatFits{
-                                Text("rhythm\nnotes + rests")
+                                Text("rhythm notes\n+ rests")
                                     .fontWeight(.bold)
                                     .font(.system(size:95)).environment(\._lineHeightMultiple, 0.75)
-                                    .multilineTextAlignment(.center)
                                 Text("rhythm notes\n+ rests")
                                     .fontWeight(.bold)
                                     .font(.system(size:75)).environment(\._lineHeightMultiple, 0.75)
-                                    .multilineTextAlignment(.center)
                                 Text("rhythm notes\n+ rests")
                                     .fontWeight(.bold)
                                     .font(.system(size:70)).environment(\._lineHeightMultiple, 0.75)
-                                    .multilineTextAlignment(.center)
                                 Text("rhythm notes\n+ rests")
                                     .fontWeight(.bold)
                                     .font(.system(size:60)).environment(\._lineHeightMultiple, 0.75)
-                                    .multilineTextAlignment(.center)
                             }
                 Spacer()
                 
@@ -49,14 +45,12 @@ struct RhythmNotesRestsView: View {
                     Text("learn")
                         .font(.system(size: 30))
                         .foregroundStyle(.black)
-                        .padding()
                         .bold()
                         .background(
                             RoundedRectangle(cornerRadius: 15)
                                 .stroke(.black, lineWidth: 3)
                                 .frame(width: 200, height: 50)
                         )
-                        
                 }
                 
                 Spacer()
@@ -74,6 +68,8 @@ struct RhythmNotesRestsView: View {
                                 .frame(width: 200, height: 50)
                         )
                 }
+                
+            
                 Spacer()
             }
             .navigationBarBackButtonHidden(true)

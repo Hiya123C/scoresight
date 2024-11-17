@@ -9,7 +9,7 @@ import SwiftUI
 
 struct TimeSignaturesReviewView: View {
     var body: some View {
-        NavigationView {
+        NavigationStack {
             VStack {
                 HStack {
                     NavigationLink(destination: TimeSignaturesView()) {
@@ -26,6 +26,7 @@ struct TimeSignaturesReviewView: View {
                     .fontWeight(.bold)
                     .font(.system(size: 100))
                     .environment(\._lineHeightMultiple, 0.75)
+                    .multilineTextAlignment(.center)
                 
                 Spacer()
                 

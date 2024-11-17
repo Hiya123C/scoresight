@@ -36,6 +36,7 @@ struct KeySignaturesAccidentalsLearn12View: View {
                     Image("semitone")
                         .resizable()
                         .scaledToFit()
+                        .scaleEffect(1.3)
                 }
                 HStack{
                     NavigationLink{

@@ -11,28 +11,20 @@ import AVFoundation
 private let synthesizer = AVSpeechSynthesizer()
 
 struct TimeSignaturesLearn9View: View {
-    // Timer properties
     @State private var currentBeat = 0
     private let bpm = 60
-    private let beatsInMeasure = 6 // 6/8 time signature, six beats per measure
-    private let onBeats = [0, 3] // assuming on-beats are at positions 0 and 3 in the measure
-    
-    // Metronome sound player
+    private let beatsInMeasure = 6
+    private let onBeats = [0, 3]
     @State private var metronomePlayer: AVAudioPlayer?
-    
-    // Timer set to 1 second for 60 BPM
     private let metronomeTimer = Timer.publish(every: 1.0, on: .main, in: .common).autoconnect()
-    @State private var beatCount = 0 // New variable to count beats
-    
-    // States to manage tapping and feedback
+    @State private var beatCount = 0
     @State private var metronomeStarted = false
-    @State private var tappedCircles: [Int: String] = [:] // To store tapped circle info (Perfect/Don't Tap)
-    @State private var navigateToReview = false // State for skip navigation
+    @State private var tappedCircles: [Int: String] = [:]
+    @State private var navigateToReview = false
     
     var body: some View {
         NavigationStack {
             VStack {
-                // Header with close button, title, and skip button
                 HStack {
                     NavigationLink(destination: TimeSignaturesView()) {
                         Image(systemName: "x.circle")
@@ -46,7 +38,6 @@ struct TimeSignaturesLearn9View: View {
                         .foregroundColor(.black)
                     Spacer()
                     
-                    // Speaker and Skip buttons
                     HStack {
                         Button(action: { replayAudio() }) {
                             Image(systemName: "speaker.wave.2.fill")
@@ -55,7 +46,7 @@ struct TimeSignaturesLearn9View: View {
                                 .padding(.trailing, 10)
                         }
                         Button("Skip") {
-                            navigateToReview = true // Set state to trigger navigation
+                            navigateToReview = true
                         }
                         .foregroundColor(.black)
                         .font(.headline)
@@ -65,9 +56,7 @@ struct TimeSignaturesLearn9View: View {
                 
                 Spacer()
                 
-                // Main content
                 HStack(alignment: .center) {
-                    // Larger numbers to indicate time signature
                     VStack {
                         Text("6")
                             .font(.system(size: 80))
@@ -77,11 +66,10 @@ struct TimeSignaturesLearn9View: View {
                             .bold()
                     }
                     
-                    // Circle elements with on-beats and off-beats
                     HStack(spacing: 24) {
                         ForEach(0..<beatsInMeasure, id: \.self) { index in
                             ZStack {
-                                // Circle starts as white and turns green or red based on tap
+
                                 Circle()
                                     .fill(tappedCircles[index] == nil ? Color.white : (tappedCircles[index] == "Perfect" ? Color.green : Color.red))
                                     .frame(width: onBeats.contains(index) ? 100 : 50, height: onBeats.contains(index) ? 100 : 50)
@@ -89,15 +77,14 @@ struct TimeSignaturesLearn9View: View {
                                         Circle().stroke(Color.black, lineWidth: 2)
                                     )
                                     .onTapGesture {
-                                        // Start metronome only on the first on-beat (index 0)
                                         if !metronomeStarted && index == 0 {
                                             startMetronome()
                                             metronomeStarted = true
                                         }
                                         
-                                        // Handle taps and feedback
+                     
                                         if onBeats.contains(index) {
-                                            // Check if tapped close to the metronome's current beat
+                            
                                             if index == currentBeat {
                                                 tappedCircles[index] = "Perfect"
                                             }
@@ -158,17 +145,14 @@ struct TimeSignaturesLearn9View: View {
         metronomePlayer?.prepareToPlay()
     }
     
-    // Plays the metronome sound
     func playMetronomeSound() {
-        metronomePlayer?.stop()  // Stop any ongoing playback to avoid overlapping sounds
-        metronomePlayer?.currentTime = 0  // Reset to the beginning of the sound
-        metronomePlayer?.play()
+        metronomePlayer?.stop()
+        metronomePlayer?.currentTime = 0;        metronomePlayer?.play()
     }
-    
-    // Advances to the next beat and toggles on/off-beat state
+
     func advanceBeat() {
         currentBeat = (currentBeat + 1) % beatsInMeasure
-        beatCount += 1 // Increment beat counter
+        beatCount += 1
     }
     
     private func speakText(_ text: String) {

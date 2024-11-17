@@ -26,10 +26,11 @@ struct RhythmNotesRestsLearn13View: View {
                 .padding()
 
                 Spacer()
-                HStack(spacing: 70) {
+                HStack(spacing: 10) {
                     Image("duplet")
                         .resizable()
-                        .scaledToFit()
+                        .frame(maxHeight: 400)
+                        .frame(maxWidth: 250)
 
                     VStack(alignment: .trailing, spacing: -10) {
                         Text("this is a")

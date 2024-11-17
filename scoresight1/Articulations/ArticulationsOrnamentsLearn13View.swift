@@ -46,7 +46,7 @@ struct ArticulationsOrnamentsLearn13View: View {
                     }
                     Spacer()
                 }
-                
+                Spacer()
                 HStack {
                     Image("apoggiatura")
                         .resizable()
@@ -55,10 +55,11 @@ struct ArticulationsOrnamentsLearn13View: View {
                         Text("this is an")
                             .font(.system(size: 40))
                         Text("apoggiatura")
-                            .font(.system(size:80))
+                            .font(.system(size:65))
                             .bold()
                     }
                 }
+                Spacer()
                 HStack{
                     NavigationLink{
                         ArticulationsOrnamentsLearn12View()

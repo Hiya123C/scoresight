@@ -26,9 +26,11 @@ struct DynamicsView: View {
                 Text("dynamics")
                     .fontWeight(.bold)
                     .font(.system(size:100)).environment(\._lineHeightMultiple, 0.75)
+                    .multilineTextAlignment(.center)
                 Text("dynamics")
                     .fontWeight(.bold)
                     .font(.system(size:75)).environment(\._lineHeightMultiple, 0.75)
+                    .multilineTextAlignment(.center)
                 
             }
                 Spacer()

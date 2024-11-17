@@ -6,7 +6,25 @@ struct Note: Identifiable {
     let id = UUID()
     var position: CGPoint
     var NoteLength: NoteLength
-    var pitch: Int
+    var pitch: NotePitch{
+        switch position.y {
+        case 25.6: return .d
+        case 12.8: return .e
+        case 0: return .f
+        case -12.8: return .g
+        case -25.6: return .a
+        case -38.4: return .b
+        case -51.2: return .c
+        case -64: return .D
+        case -76.8: return .E
+        case -89.6: return .F
+        case -102.2: return .G //why cant detrec ahh
+        default: return .b // default pitch
+        }
+    }
+    var flipped: Bool{
+        position.y <= -46
+    }
     
     // Determine the pitch based on the position.y value
     func notePitch(from positionY: CGFloat) -> NotePitch {
@@ -39,11 +57,11 @@ enum NoteLength {
         case .quaver: return 1
         }
     }
-    var timeMultiplier: Int {
+    var timeMultiplier: Double {
             switch self {
-            case .crochet: return 2
-            case .minim: return 4
-            case .quaver: return 1
+            case .crochet: return 1
+            case .minim: return 2
+            case .quaver: return 0.5
             }
         }
 }

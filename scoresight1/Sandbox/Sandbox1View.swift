@@ -1,4 +1,5 @@
 //connection to play.. length/time of notes
+//timer av foundation
 
 import SwiftUI
 
@@ -54,40 +55,48 @@ struct Sandbox1View: View {
                                     HStack(spacing: 0) {
                                         ForEach(viewModel.noteImages.indices, id: \.self) { index in
                                             Image(
-                                                viewModel.notes[index].NoteLength == .quaver && viewModel.notes[index].position.y <= -46 ? "flipped quaver" :
-                                                    viewModel.notes[index].NoteLength == .crochet && viewModel.notes[index].position.y <= -46 ? "flipped crochet" :
-                                                    viewModel.notes[index].NoteLength == .minim && viewModel.notes[index].position.y <= -46 ? "flipped minim" :
+                                                viewModel.notes[index].NoteLength == .quaver && viewModel.notes[index].flipped ? "flipped quaver" :
+                                                    viewModel.notes[index].NoteLength == .crochet && viewModel.notes[index].flipped ? "flipped crochet" :
+                                                    viewModel.notes[index].NoteLength == .minim && viewModel.notes[index].flipped ? "flipped minim" :
                                                     viewModel.noteImages[index]
                                                 
-                                                
                                             )
-                                                .resizable()
-                                                .scaledToFit()
-                                                .frame(
-                                                        width: viewModel.notes[index].NoteLength == .quaver ? 90 : 48, // Resize quaver notes only
-                                                        height: viewModel.notes[index].NoteLength == .quaver ? 100 : nil
-                                                    ) //control size of notes
-                                                .padding(.trailing, 36 * Double(viewModel.notes[index].NoteLength.lengthMultiplier)) //moves notes to right
+                                            .resizable()
+                                            .scaledToFit()
+                                            .frame(
+                                                width: viewModel.notes[index].NoteLength == .quaver ? 90 : 48, // Resize quaver notes only
+                                                height: viewModel.notes[index].NoteLength == .quaver ? 100 : nil
+                                            ) //control size of notes
+                                            .padding(.trailing, 36 * Double(viewModel.notes[index].NoteLength.lengthMultiplier)) //moves notes to right
                                             
-//                                                .scaleEffect(x: viewModel.notes[index].position.y <= -46 ? -1 : 1,
-//                                                             y: viewModel.notes[index].position.y <= -46 ? -1 : 1) //fliping
-                                                
-                                            //jumps after past -46
-                                                .offset(y: viewModel.notes[index].position.y)
-                                                .gesture(
-                                                    DragGesture()
-                                                        .onChanged { value in //dragged every 12y-axis.
-                                                            var verticalPosition = round(value.translation.height / 12) * 12
+                                            .offset(y: viewModel.notes[index].position.y +
+                                                    (viewModel.notes[index].flipped ? 78:0)
+                                            )
+                                            .gesture(
+                                                DragGesture()
+                                                    .onEnded{ value in
+                                                print(value.translation)
+                                                        if value.translation.height > 20 {
+                                                            print("down")
+                                                            if viewModel.notes[index].position.y < 24 {
+                                                                
+                                                                viewModel.notes[index].position.y += 12.8
+                                                            }
                                                             
-                                                            verticalPosition = min(max(verticalPosition, -96), 24)
-                                                            
-                                                            viewModel.notes[index].position.y = verticalPosition
-                                                            
-                                                            //how to link notePitch w/o error
-//                                                                                                                        let notePitch = viewModel.notes[index].notePitch(from: verticalPosition)
-//                                                                                                                        print("Note at position \(verticalPosition) has pitch \(notePitch.rawValue)")
-                                                        }
-                                                )
+                                                        } else if value.translation.height < -10 {
+                                                        print("up")
+                                                            if viewModel.notes[index].position.y > -96 {
+                                                                viewModel.notes[index].position.y -= 12.8
+                                                            }
+                                                    }
+                                                        print(viewModel.notes[index].pitch)
+                                                        
+                                                }
+                                                        //how to link notePitch w/o error
+                                                        //                                                                                                                        let notePitch = viewModel.notes[index].notePitch(from: verticalPosition)
+                                                        //                                                                                                                        print("Note at position \(verticalPosition) has pitch \(notePitch.rawValue)")
+//                                                    }
+                                            )
                                             ForEach(0..<viewModel.notes[index].NoteLength.lengthMultiplier, id: \.self) { _ in
                                                 //spacing in between notes
                                             }
@@ -101,10 +110,10 @@ struct Sandbox1View: View {
                                 //play
                                 
                                 for note in viewModel.notes {
-                                        let pitch = note.notePitch(from: note.position.y)
+                                    let pitch = note.pitch
                                     let duration = note.NoteLength.timeMultiplier
-                                    audioManager.playSound(for: pitch, duration: duration)
-                                    }
+                                    audioManager.playSound(for: pitch, duration: Int(duration))
+                                }
                             }){
                                 Image(systemName: "play.square")
                                     .foregroundStyle(.black, .black)

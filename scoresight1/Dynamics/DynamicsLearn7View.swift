@@ -43,14 +43,18 @@ struct DynamicsLearn7View: View {
                     }
                     Spacer()
                 }
-                Image("pianoforte")
-                    .resizable()
-                    .scaledToFit()
-                Text("softly then immediately loudly")
-                    .font(.system(size: 25))
-                Text("pianoforte")
-                    .font(.system(size:80))
-                    .bold()
+                Spacer()
+                VStack{
+                    Image("pianoforte")
+                        .resizable()
+                        .scaledToFit()
+                    Text("softly then immediately loudly")
+                        .font(.system(size: 25))
+                    Text("pianoforte")
+                        .font(.system(size:80))
+                        .bold()
+                }
+                Spacer()
                 HStack{
                     NavigationLink{
                         DynamicsLearn6View()

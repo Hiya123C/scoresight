@@ -38,6 +38,7 @@ struct KeySignaturesAccidentalsLearn15View: View {
                     Image("flat semitone")
                         .resizable()
                         .scaledToFit()
+                        .scaleEffect(1.4)
                 }
                 HStack{
                     NavigationLink{

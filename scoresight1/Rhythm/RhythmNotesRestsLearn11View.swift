@@ -12,9 +12,8 @@ struct RhythmNotesRestsLearn11View: View {
     private let synthesizer = AVSpeechSynthesizer()
 
     var body: some View {
-        NavigationView {
+        NavigationStack {
             VStack {
-                // Top close button
                 HStack {
                     NavigationLink(destination: RhythmNotesRestsView()) {
                         Image(systemName: "x.circle")
@@ -33,11 +32,11 @@ struct RhythmNotesRestsLearn11View: View {
                         Image("dotted semibreve rest")
                             .resizable()
                             .scaledToFit()
-                            .frame(maxHeight: 80) // Limit max height
+                            .frame(maxHeight: 80)
                         Image("dotted semibreve")
                             .resizable()
                             .scaledToFit()
-                            .frame(maxHeight: 130) // Limit max height
+                            .frame(maxHeight: 130)
                     }
                     VStack {
                         Image("dotted minim rest")
@@ -53,7 +52,7 @@ struct RhythmNotesRestsLearn11View: View {
                         Image("dotted crochet rest")
                             .resizable()
                             .scaledToFit()
-                            .frame(maxHeight: 130) // Limit max height
+                            .frame(maxHeight: 190) // Limit max height
                         Image("dotted crochet")
                             .resizable()
                             .scaledToFit()
@@ -63,7 +62,7 @@ struct RhythmNotesRestsLearn11View: View {
                         Image("dotted quaver rest")
                             .resizable()
                             .scaledToFit()
-                            .frame(maxHeight: 100) // Limit max height
+                            .frame(maxHeight: 170) // Limit max height
                         Image("dotted quaver")
                             .resizable()
                             .scaledToFit()
@@ -72,8 +71,6 @@ struct RhythmNotesRestsLearn11View: View {
                 }
 
                 Spacer()
-
-                // Navigation buttons with media symbol for next button
                 HStack {
                     NavigationLink(destination: RhythmNotesRestsLearn10View()) {
                         Text("back")
@@ -87,8 +84,6 @@ struct RhythmNotesRestsLearn11View: View {
                             .font(.system(size: 25))
                     }
                     Spacer()
-
-                    // Speaker Icon with Padding on the trailing side (20)
                     Button(action: {
                         speakText("Sometimes there are notes with a dot next to them. They are known as dotted notes, and the dot represents that the value of the note is the current value added with half of its value.")
                     }) {
@@ -111,15 +106,13 @@ struct RhythmNotesRestsLearn11View: View {
                     }
                 }
                 .padding(.horizontal)
-                .padding(.bottom, 20) // Add bottom padding
+                .padding(.bottom, 20)
             }
             .navigationBarHidden(true)
             .onAppear {
-                // Start speaking when the view appears
                 speakText("Sometimes there are notes with a dot next to them. They are known as dotted notes, and the dot represents that the value of the note is the current value added with half of its value.")
             }
             .onDisappear {
-                // Stop speech when the view disappears
                 stopSpeech()
             }
         }

@@ -46,7 +46,7 @@ struct ArticulationsOrnamentsLearnView: View {
                     }
                     Spacer()
                 }
-                
+                Spacer()
                 HStack {
                     Image("accent")
                         .resizable()
@@ -59,6 +59,7 @@ struct ArticulationsOrnamentsLearnView: View {
                             .bold()
                     }
                 }
+                Spacer()
                 HStack{
                     Spacer()
                     Button(action: {

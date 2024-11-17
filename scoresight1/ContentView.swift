@@ -1,22 +1,23 @@
-//scroll view portrait
+//haha
 
 import SwiftUI
 
 struct ContentView: View {
     var body: some View {
+        @Environment(\.dismiss) var dismiss
         NavigationStack{
-        HStack {
-            NavigationLink{
-                StartView()
-            }label:{
-                Image(systemName: "x.circle")
-                    .symbolRenderingMode(.palette)
-                    .foregroundStyle(.black, .white)
-                    .font(.system(size:50))
+            HStack {
+                NavigationLink{
+                    StartView()
+                }label:{
+                    Image(systemName: "x.circle")
+                        .symbolRenderingMode(.palette)
+                        .foregroundStyle(.black, .white)
+                        .font(.system(size:50))
+                }
+                Spacer()
             }
-            Spacer()
-        }
-        // find out how to make the scrollview landscape
+            // find out how to make the scrollview landscape
             ScrollView {
                 VStack(alignment: .center) {
                     NavigationLink{

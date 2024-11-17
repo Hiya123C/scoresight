@@ -13,7 +13,7 @@ struct TimeSignaturesLearn7View: View {
     @State private var topNumber: Int = 4
     
     var body: some View {
-        NavigationView {
+        NavigationStack {
             VStack {
                 HStack {
                     NavigationLink(destination: TimeSignaturesView()) {

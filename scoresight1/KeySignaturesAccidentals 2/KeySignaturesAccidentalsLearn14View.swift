@@ -29,8 +29,8 @@ struct KeySignaturesAccidentalsLearn14View: View {
                     HStack {
                         Text("a")
                             .font(.system(size: 40))
-                        Text("double/nsharp")
-                            .font(.system(size: 60))
+                        Text("double\nsharp")
+                            .font(.system(size: 40))
                             .bold()
                         Text("goes up 2 semitones")
                             .font(.system(size:40))
@@ -38,6 +38,7 @@ struct KeySignaturesAccidentalsLearn14View: View {
                     Image("double sharp semitone")
                         .resizable()
                         .scaledToFit()
+                        .scaleEffect(1.3)
                 }
                 HStack{
                     NavigationLink{

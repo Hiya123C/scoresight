@@ -46,19 +46,25 @@ struct ArticulationsOrnamentsLearn11View: View {
                     }
                     Spacer()
                 }
-                
+                Spacer()
                 HStack {
+                    Spacer()
                     Image("upper mordent")
                         .resizable()
                         .scaledToFit()
+                    
+                    Spacer()
                     VStack(alignment: .trailing) {
                         Text("this is an")
                             .font(.system(size: 40))
-                        Text("upper/nmordent")
+                        Text("upper\nmordent")
                             .font(.system(size:80))
                             .bold()
+                        
                     }
+                    Spacer()
                 }
+                Spacer()
                 HStack{
                     NavigationLink{
                         ArticulationsOrnamentsLearn10View()

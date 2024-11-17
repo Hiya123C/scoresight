@@ -13,7 +13,7 @@ private let synthesizer = AVSpeechSynthesizer()
 
 struct TimeSignaturesLearn3View: View {
     var body: some View {
-        NavigationView {
+        NavigationStack {
             VStack(spacing: 20) {
                 HStack {
                     Button(action: {}) {
@@ -32,6 +32,7 @@ struct TimeSignaturesLearn3View: View {
                     Image("common time")
                         .resizable()
                         .scaledToFit()
+                        .scaleEffect(0.75)
                     
                     Image("four crochets")
                         .resizable()
@@ -53,7 +54,6 @@ struct TimeSignaturesLearn3View: View {
                     }
                     Spacer()
                     
-                    // Speaker icon button for replaying audio, placed next to "next" button
                     Button(action: {
                         replayAudio()
                     }) {

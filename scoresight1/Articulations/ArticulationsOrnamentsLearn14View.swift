@@ -46,19 +46,20 @@ struct ArticulationsOrnamentsLearn14View: View {
                     }
                     Spacer()
                 }
-                
+                Spacer()
                 HStack {
-                    Image("acciacatura")
+                    Image("acciaccatura")
                         .resizable()
                         .scaledToFit()
                     VStack(alignment: .trailing) {
                         Text("this is an")
                             .font(.system(size: 40))
                         Text("acciacatura")
-                            .font(.system(size:80))
+                            .font(.system(size:70))
                             .bold()
                     }
                 }
+                Spacer()
                 HStack{
                     NavigationLink{
                         ArticulationsOrnamentsLearn13View()

@@ -43,14 +43,19 @@ struct DynamicsLearn3View: View {
                     }
                     Spacer()
                 }
-                Image("decrescendo")
-                    .resizable()
-                    .scaledToFit()
-                Text("gradually getting softer")
-                    .font(.system(size: 25))
-                Text("decrescendo")
-                    .font(.system(size:80))
-                    .bold()
+                Spacer()
+                VStack{
+                    Image("decrescendo")
+                        .resizable()
+                        .scaledToFit()
+                        .scaleEffect(1.3)
+                    Text("gradually getting softer")
+                        .font(.system(size: 25))
+                    Text("decrescendo")
+                        .font(.system(size:80))
+                        .bold()
+                }
+                Spacer()
                 HStack{
                     NavigationLink{
                         DynamicsLearn2View()

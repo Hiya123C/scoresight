@@ -46,6 +46,7 @@ struct ArticulationsOrnamentsLearn2View: View {
                     }
                     Spacer()
                 }
+                Spacer()
                 
                 HStack {
                     Image("tenuto")
@@ -59,6 +60,7 @@ struct ArticulationsOrnamentsLearn2View: View {
                             .bold()
                     }
                 }
+                Spacer()
                 HStack{
                     NavigationLink{
                         ArticulationsOrnamentsLearnView()

@@ -25,11 +25,13 @@ struct KeySignaturesAccidentalsLearn6View: View {
                     }
                     Spacer()
                 }
+                Spacer()
                 Text("sharps are in this order:")
                     .font(.system(size: 40))
                 Text("F C G D A E B")
                     .font(.system(size: 100))
                     .fontWeight(.bold)
+                Spacer()
                 HStack{
                     NavigationLink{
                         KeySignaturesAccidentalsLearn5View()

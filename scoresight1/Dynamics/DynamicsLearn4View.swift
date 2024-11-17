@@ -43,14 +43,19 @@ struct DynamicsLearn4View: View {
                     }
                     Spacer()
                 }
-                Image("sforzando")
-                    .resizable()
-                    .scaledToFit()
-                Text("with a sudden emphasis (only for a beat)")
-                    .font(.system(size: 25))
-                Text("sforzando")
-                    .font(.system(size:80))
-                    .bold()
+                Spacer()
+                VStack{
+                    Image("sforzando")
+                        .resizable()
+                        .scaledToFit()
+                        .scaleEffect(1.3)
+                    Text("with a sudden emphasis (only for a beat)")
+                        .font(.system(size: 25))
+                    Text("sforzando")
+                        .font(.system(size:80))
+                        .bold()
+                }
+                Spacer()
                 HStack{
                     NavigationLink{
                         DynamicsLearn3View()

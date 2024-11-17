@@ -14,7 +14,7 @@ struct DynamicsLearn2View: View {
     
     func playAudio() {
         guard let soundURL = Bundle.main.url(forResource: "crescendo", withExtension: "mp3") else {
-            print("Audio fd.") //why audio file cant find
+            print("Audio cannot find") //why audio file cant find
             return
         }
         do {
@@ -43,14 +43,19 @@ struct DynamicsLearn2View: View {
                     }
                     Spacer()
                 }
-                Image("crescendo")
-                    .resizable()
-                    .scaledToFit()
-                Text("gradually getting louder")
-                    .font(.system(size: 25))
-                Text("crescendo")
-                    .font(.system(size:80))
-                    .bold()
+                Spacer()
+                VStack{
+                    Image("crescendo")
+                        .resizable()
+                        .scaledToFit()
+                        .scaleEffect(1.2)
+                    Text("gradually getting louder")
+                        .font(.system(size: 25))
+                    Text("crescendo")
+                        .font(.system(size:80))
+                        .bold()
+                }
+                Spacer()
                 HStack{
                     NavigationLink{
                         DynamicsLearnView()

@@ -21,10 +21,10 @@ struct DynamicsLearnView: View {
             return
         }
         do {
-            if audioPlayer == nil {
                 audioPlayer = try AVAudioPlayer(contentsOf: soundURL)
                 audioPlayer?.numberOfLoops = 0
-            }
+                audioPlayer?.play()
+
             
     
         } catch {
@@ -38,10 +38,10 @@ struct DynamicsLearnView: View {
             return
         }
         do {
-            if audioPlayer == nil {
                 audioPlayer = try AVAudioPlayer(contentsOf: soundURL)
                 audioPlayer?.numberOfLoops = 0
-            }
+                audioPlayer?.play()
+        
             
     
         } catch {
@@ -55,10 +55,10 @@ struct DynamicsLearnView: View {
             return
         }
         do {
-            if audioPlayer == nil {
+
                 audioPlayer = try AVAudioPlayer(contentsOf: soundURL)
                 audioPlayer?.numberOfLoops = 0
-            }
+                audioPlayer?.play()
             
     
         } catch {
@@ -72,10 +72,9 @@ struct DynamicsLearnView: View {
             return
         }
         do {
-            if audioPlayer == nil {
                 audioPlayer = try AVAudioPlayer(contentsOf: soundURL)
                 audioPlayer?.numberOfLoops = 0
-            }
+                audioPlayer?.play()
             
     
         } catch {
@@ -89,10 +88,9 @@ struct DynamicsLearnView: View {
             return
         }
         do {
-            if audioPlayer == nil {
                 audioPlayer = try AVAudioPlayer(contentsOf: soundURL)
                 audioPlayer?.numberOfLoops = 0
-            }
+                audioPlayer?.play()
             
     
         } catch {
@@ -106,11 +104,9 @@ struct DynamicsLearnView: View {
             return
         }
         do {
-            if audioPlayer == nil {
                 audioPlayer = try AVAudioPlayer(contentsOf: soundURL)
                 audioPlayer?.numberOfLoops = 0
-            }
-            
+                audioPlayer?.play()
     
         } catch {
             print("Failed to play audio: \(error.localizedDescription)")
@@ -123,10 +119,9 @@ struct DynamicsLearnView: View {
             return
         }
         do {
-            if audioPlayer == nil {
                 audioPlayer = try AVAudioPlayer(contentsOf: soundURL)
                 audioPlayer?.numberOfLoops = 0
-            }
+                audioPlayer?.play()
             
     
         } catch {
@@ -140,10 +135,9 @@ struct DynamicsLearnView: View {
             return
         }
         do {
-            if audioPlayer == nil {
                 audioPlayer = try AVAudioPlayer(contentsOf: soundURL)
                 audioPlayer?.numberOfLoops = 0
-            }
+                audioPlayer?.play()
             
     
         } catch {
@@ -175,12 +169,6 @@ struct DynamicsLearnView: View {
                             .font(.system(size: 70))
                             .fontWeight(.bold)
                     }
-                    .onAppear {
-                        playAudio1()
-                    }
-                    .onDisappear {
-                        stopAudio1()
-                    }
                 }
                 
                 else if volume <= 28.3 {
@@ -191,12 +179,6 @@ struct DynamicsLearnView: View {
                         Text("pianissimo")
                             .font(.system(size: 70))
                             .fontWeight(.bold)
-                    }
-                    .onAppear {
-                        playAudio2()
-                    }
-                    .onDisappear {
-                        stopAudio2()
                     }
                 }
                 
@@ -209,12 +191,6 @@ struct DynamicsLearnView: View {
                             .font(.system(size: 70))
                             .fontWeight(.bold)
                     }
-                    .onAppear {
-                        playAudio3()
-                    }
-                    .onDisappear {
-                        stopAudio3()
-                    }
                 }
                 
                 else if volume <= 56.7 {
@@ -225,12 +201,6 @@ struct DynamicsLearnView: View {
                         Text("mezzopiano")
                             .font(.system(size: 70))
                             .fontWeight(.bold)
-                    }
-                    .onAppear {
-                        playAudio4()
-                    }
-                    .onDisappear {
-                        stopAudio4()
                     }
                 }
                 
@@ -243,12 +213,6 @@ struct DynamicsLearnView: View {
                             .font(.system(size: 70))
                             .fontWeight(.bold)
                     }
-                    .onAppear {
-                        playAudio5()
-                    }
-                    .onDisappear {
-                        stopAudio5()
-                    }
                 }
                 
                 else if volume <= 85.1 {
@@ -259,12 +223,6 @@ struct DynamicsLearnView: View {
                         Text("forte")
                             .font(.system(size: 70))
                             .fontWeight(.bold)
-                    }
-                    .onAppear {
-                        playAudio6()
-                    }
-                    .onDisappear {
-                        stopAudio6()
                     }
                 }
                 
@@ -277,12 +235,6 @@ struct DynamicsLearnView: View {
                             .font(.system(size: 70))
                             .fontWeight(.bold)
                     }
-                    .onAppear {
-                        playAudio7()
-                    }
-                    .onDisappear {
-                        stopAudio7()
-                    }
                 }
                 
                 else {
@@ -294,19 +246,12 @@ struct DynamicsLearnView: View {
                             .font(.system(size: 70))
                             .fontWeight(.bold)
                     }
-                    .onAppear {
-                        playAudio8()
-                    }
-                    .onDisappear {
-                        stopAudio8()
-                    }
                 }
-                
                 Slider(
                     value: $volume,
                     in: 0...100,
                     step: 14.2
-                ) {
+                ){
                     Text("volume")
                 } minimumValueLabel: {
                     Text("soft")
@@ -314,10 +259,31 @@ struct DynamicsLearnView: View {
                 } maximumValueLabel: {
                     Text("loud")
                         .font(.system(size: 30))
-                } onEditingChanged: { editing in
-                    isEditing = editing
                 }
-                Text("Play around with the slider to see some common loud and soft dynamics!")
+                onEditingChanged: { editing in
+                    if editing == false {
+                        print(volume)
+                        if volume <= 14.1 {
+                            playAudio1()
+                        } else if volume <= 28.3 {
+                            playAudio2()
+                        }else if volume <= 42.5 {
+                            playAudio3()
+                        }else if volume <= 56.7 {
+                            playAudio4()
+                        }else if volume <= 70.9 {
+                            playAudio5()
+                        }else if volume <= 85.1 {
+                            playAudio6()
+                        }else if volume <= 99.3 {
+                            playAudio7()
+                        }
+                        else {
+                            playAudio8()
+                        }
+                    }
+                }.tint(.black)
+                Text("Play around with the slider to see some common loud and soft dynamics! Let go of the slider to hear how it sounds.")
                 HStack{
                     Spacer()
                     NavigationLink{

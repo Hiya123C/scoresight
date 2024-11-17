@@ -31,8 +31,13 @@ struct DynamicsReview4View: View {
                     Spacer()
                     
                     VStack {
-                        Text("What is the difference between sforzando and rinforzando?")
-                            .font(.system(size: 40))
+                        ViewThatFits{
+                            Text("What is the difference between a sforzando and rinforzando?")
+                                .font(.system(size: 25))
+                            Text("What is the difference between a sforzando and rinforzando?")
+                                .font(.system(size: 20))
+
+                        }
 
                             }
                             Spacer()
@@ -60,7 +65,7 @@ struct DynamicsReview4View: View {
                         HStack {
                             Spacer()
                             NavigationLink {
-                                DynamicsReview4View()
+                                DynamicsReview5View()
                             } label: {
                                 Text("next")
                                     .padding()

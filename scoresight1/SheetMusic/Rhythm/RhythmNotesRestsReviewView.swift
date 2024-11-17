@@ -1,5 +1,5 @@
 //
-//  ArticulationsOrnamentsReviewView.swift
+//  RhythmNotesRestsReviewView.swift
 //  scoresight1
 //
 //  Created by Li Jiansheng on 9/11/24.
@@ -7,67 +7,65 @@
 
 import SwiftUI
 
-struct ArticulationsOrnamentsReviewView: View {
+struct RhythmNotesRestsReviewView: View {
     var body: some View {
         NavigationStack {
             VStack {
                 HStack {
-                    NavigationLink{
-                        ArticulationsOrnamentsView()
-                    }label:{
+                    NavigationLink(destination: RhythmNotesRestsView()) {
                         Image(systemName: "x.circle")
                             .symbolRenderingMode(.palette)
                             .foregroundStyle(.black, .white)
-                            .font(.system(size:50))
+                            .font(.system(size: 50))
                     }
                     Spacer()
                 }
+                .padding([.leading, .top], 10)
                 Spacer()
                 Text("test your\nknowledge!")
                     .fontWeight(.bold)
-                    .font(.system(size:100)).environment(\._lineHeightMultiple, 0.75)
-                    .multilineTextAlignment(.center)
+                    .font(.system(size: 100))
+                    .environment(\._lineHeightMultiple, 0.75)
+                
                 Spacer()
-                HStack{
-                    NavigationLink{
-                        ArticulationsOrnamentsLearn14View()
-                    }label:{
+                
+                HStack {
+                    NavigationLink(destination: RhythmNotesRestsLearn13View()) {
                         Text("back")
                             .padding()
                             .background(
                                 RoundedRectangle(cornerRadius: 10)
                                     .stroke(.black, lineWidth: 3)
-                                    .frame(width:100,height:50)
-                                
+                                    .frame(width: 100, height: 50)
                             )
                             .foregroundStyle(.black)
                             .font(.system(size: 25))
-                        Spacer()
-                        
                     }
-                    NavigationLink{
-                        ArticulationsOrnamentsReview2View()
-                    }label:{
+                    
+                    Spacer()
+                    
+                    Button(action: {
+                    }) {                    NavigationLink(destination: RhythmNotesRestsReview2View()){
                         Text("next")
                             .padding()
                             .background(
                                 RoundedRectangle(cornerRadius: 10)
                                     .stroke(.black, lineWidth: 3)
-                                    .frame(width:100,height:50)
-                                
+                                    .frame(width: 100, height: 50)
                             )
                             .foregroundStyle(.black)
                             .font(.system(size: 25))
-                        
-                        
+                    }
                     }
                 }
+                .padding([.leading, .trailing, .bottom], 20)
             }
-            .navigationBarBackButtonHidden(true)
+            .navigationBarHidden(true)
         }
+        .navigationBarBackButtonHidden(true)
     }
 }
 
 #Preview {
-    ArticulationsOrnamentsReviewView()
+    RhythmNotesRestsReviewView()
 }

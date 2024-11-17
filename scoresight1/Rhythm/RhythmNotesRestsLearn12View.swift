@@ -12,7 +12,7 @@ struct RhythmNotesRestsLearn12View: View {
     private let synthesizer = AVSpeechSynthesizer()
 
     var body: some View {
-        NavigationView {
+        NavigationStack {
             VStack {
                 HStack {
                     NavigationLink(destination: RhythmNotesRestsView()) {
@@ -27,11 +27,10 @@ struct RhythmNotesRestsLearn12View: View {
 
                 Spacer()
 
-                HStack(spacing: 10) {
+                HStack(spacing: 70) {
                     Image("triplet")
                         .resizable()
-                        .frame(maxHeight: 400)
-                        .frame(maxWidth: 250)
+                        .scaledToFit()
 
                     VStack(alignment: .trailing, spacing: -10) {
                         Text("this is a")
@@ -79,15 +78,13 @@ struct RhythmNotesRestsLearn12View: View {
                     }
                 }
                 .padding(.horizontal)
-                .padding(.bottom, 20) // Add bottom padding
+                .padding(.bottom, 20)
             }
             .navigationBarHidden(true)
             .onAppear {
-                // Start speaking when the view appears
                 speakText("Here is an example of a triplet. You might see notes with the number 3 on top. For this example, there are 3 quavers. This means that 3 quavers have to be played in the span of a crochet. So instead of playing the value of a quaver, each quaver has the value of a dotted semiquaver now.")
             }
             .onDisappear {
-                // Stop speech when the view disappears
                 stopSpeech()
             }
         }

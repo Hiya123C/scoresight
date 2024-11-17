@@ -29,44 +29,63 @@ struct TimeSignaturesReview4View: View {
                     }
                     .padding()
 
-                    Text("A 3/4 time signature has three beats per measure, with each beat being a quarter note. True or False?")
+                    VStack {
+                    Text("A 3/4 time signature has three beats per bar.")
                         .font(.system(size: 30))
                         .multilineTextAlignment(.leading)
                         .padding()
-
-                    HStack {
-                        Spacer()
-                        AnswerButton(label: "False", isSelected: selectedAnswer == "False", isCorrect: false) {
-                            selectedAnswer = "False"
-                            correctAnswer = false
-                            wrongAnswer = true
-                            print("wrong")
+                        
+                        HStack {
+                            Spacer()
+                            AnswerButton(label: "False", isSelected: selectedAnswer == "False", isCorrect: false) {
+                                selectedAnswer = "False"
+                                correctAnswer = false
+                                wrongAnswer = true
+                                print("wrong")
+                            }
+                            Spacer()
+                            AnswerButton(label: "True", isSelected: selectedAnswer == "True", isCorrect: true) {
+                                selectedAnswer = "True"
+                                correctAnswer = true
+                                wrongAnswer = false
+                                print("correct")
+                            }
+                            Spacer()
                         }
-                        Spacer()
-                        AnswerButton(label: "True", isSelected: selectedAnswer == "True", isCorrect: true) {
-                            selectedAnswer = "True"
-                            correctAnswer = true
-                            wrongAnswer = false
-                            print("correct")
-                        }
-                        Spacer()
-                  }
-ZStack {
-                        if correctAnswer {
-                            Text("Correct!")
-                                .font(.system(size: 20))
-                                .foregroundColor(.green)
-                                .padding(.top, 10)
-                        }
-                        if wrongAnswer {
-                            Text("Wrong! Try again.")
-                                .font(.system(size: 20))
-                                .foregroundColor(.red)
-                                .padding(.top, 10)
+                        ZStack {
+                            if correctAnswer {
+                                Text("Correct!")
+                                    .font(.system(size: 20))
+                                    .foregroundColor(.green)
+                                    .padding(.top, 10)
+                            }
+                            if wrongAnswer {
+                                Text("Wrong! Try again.")
+                                    .font(.system(size: 20))
+                                    .foregroundColor(.red)
+                                    .padding(.top, 10)
+                            }
                         }
                     }
 
                     Spacer()
+                    HStack {
+                        Spacer()
+                        NavigationLink {
+                            TimeSignaturesReview5View()
+                        } label: {
+                            Text("next")
+                                .padding()
+                                .background(
+                                    RoundedRectangle(cornerRadius: 10)
+                                        .stroke(.black, lineWidth: 3)
+                                        .frame(width: 100, height: 50)
+                                )
+                                .foregroundStyle(.black)
+                                .font(.system(size: 25))
+                        }
+                        .padding(.bottom, 20)
+                    }
                 }
             }
         }

@@ -22,9 +22,11 @@ struct DynamicsReviewView: View {
                     }
                     Spacer()
                 }
+                Spacer()
                 Text("test your\nknowledge!")
                     .fontWeight(.bold)
                     .font(.system(size:100)).environment(\._lineHeightMultiple, 0.75)
+                Spacer()
                 HStack{
                     NavigationLink{
                         DynamicsLearn8View()

@@ -27,14 +27,17 @@ struct KeySignaturesAccidentalsView: View {
             ViewThatFits{
                 Text("key signatures\n+accidentals")
                     .fontWeight(.bold)
-                    .font(.system(size:95)).environment(\._lineHeightMultiple, 0.75)
+                    .font(.system(size:90)).environment(\._lineHeightMultiple, 0.75)
+                    .multilineTextAlignment(.center)
                 Text("key signatures\n+accidentals")
                     .fontWeight(.bold)
                     .font(.system(size:75)).environment(\._lineHeightMultiple, 0.75)
+                    .multilineTextAlignment(.center)
                 
                 Text("key signatures\n+accidentals")
                     .fontWeight(.bold)
                     .font(.system(size:60)).environment(\._lineHeightMultiple, 0.75)
+                    .multilineTextAlignment(.center)
                 
             }
                 

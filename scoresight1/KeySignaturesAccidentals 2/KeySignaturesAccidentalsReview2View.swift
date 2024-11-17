@@ -83,7 +83,7 @@ struct KeySignaturesAccidentalsReview2View: View {
                             }
                         }
                         if correctAnswer {
-                            Text("Correct! The 3 sharps are FCG and the second last note is a natural.")
+                            Text("Correct! The 3 sharps are FCG and the 2nd last C is a natural.")
                                 .font(.system(size: 20))
                                 .foregroundColor(.green)
                                 
