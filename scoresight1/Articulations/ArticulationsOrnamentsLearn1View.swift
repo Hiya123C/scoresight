@@ -1,40 +1,29 @@
 //
-//  ArticulationsOrnamentsLearnView.swift
-//  scoresight1
-//
-//  Created by Li Jiansheng on 9/11/24.
-//
 
 import SwiftUI
 import AVFoundation
 
 private let synthesizer = AVSpeechSynthesizer()
 
-
 struct ArticulationsOrnamentsLearnView: View {
-   
     @State private var isPlayingAudio = false
     @State private var audioPlayer: AVAudioPlayer?
 
+    @State private var shouldPlayPiano = false
+
+    init() {
+        synthesizer.delegate = SpeechDelegate.shared
+    }
+
     func playPiano() {
         guard let soundURL = Bundle.main.url(forResource: "accent", withExtension: "mp3") else {
-            print("Audio cannot find.")
+            print("Audio file not found.")
             return
         }
         do {
-            if audioPlayer == nil {
-                audioPlayer = try AVAudioPlayer(contentsOf: soundURL)
-                audioPlayer?.numberOfLoops = 0
-            }
-            
-            if let player = audioPlayer {
-                if isPlayingAudio {
-                    player.pause()
-                } else {
-                    player.play()
-                }
-                isPlayingAudio.toggle()
-            }
+            audioPlayer = try AVAudioPlayer(contentsOf: soundURL)
+            audioPlayer?.numberOfLoops = 0
+            audioPlayer?.play()
         } catch {
             print("Failed to play audio: \(error.localizedDescription)")
         }
@@ -44,13 +33,13 @@ struct ArticulationsOrnamentsLearnView: View {
         NavigationStack {
             VStack {
                 HStack {
-                    NavigationLink{
+                    NavigationLink {
                         ArticulationsOrnamentsView()
-                    }label:{
+                    } label: {
                         Image(systemName: "x.circle")
                             .symbolRenderingMode(.palette)
                             .foregroundStyle(.black, .white)
-                            .font(.system(size:50))
+                            .font(.system(size: 50))
                     }
                     Spacer()
                 }
@@ -63,12 +52,12 @@ struct ArticulationsOrnamentsLearnView: View {
                         Text("this is an")
                             .font(.system(size: 40))
                         Text("accent")
-                            .font(.system(size:80))
+                            .font(.system(size: 80))
                             .bold()
                     }
                 }
                 Spacer()
-                HStack{
+                HStack {
                     Spacer()
                     Button(action: {
                         replayAudio()
@@ -78,28 +67,33 @@ struct ArticulationsOrnamentsLearnView: View {
                             .foregroundStyle(.black)
                     }
                     .padding()
-                    NavigationLink{
+                    NavigationLink {
                         ArticulationsOrnamentsLearn2View()
-                    }label:{
+                    } label: {
                         Text("next")
                             .padding()
                             .background(
                                 RoundedRectangle(cornerRadius: 10)
                                     .stroke(.black, lineWidth: 3)
-                                    .frame(width:100,height:50)
-                                
+                                    .frame(width: 100, height: 50)
                             )
                             .foregroundStyle(.black)
                             .font(.system(size: 25))
-                        
-                        
                     }
                 }
                 .padding(.horizontal)
             }
             .onAppear {
+                SpeechDelegate.shared.onSpeechFinished = {
+                    shouldPlayPiano = true
+                }
                 speakText("this is an accent. it is used to emphasise the note you are playing like so:")
-                playPiano()
+            }
+            .onChange(of: shouldPlayPiano, initial: false) { oldValue, newValue in
+                if newValue {
+                    playPiano()
+                    shouldPlayPiano = false
+                }
             }
             .onDisappear {
                 stopAudio()
@@ -107,6 +101,7 @@ struct ArticulationsOrnamentsLearnView: View {
             .navigationBarHidden(true)
         }
     }
+    
     private func speakText(_ text: String) {
         let utterance = AVSpeechUtterance(string: text)
         utterance.voice = AVSpeechSynthesisVoice(language: "en-US")
@@ -115,8 +110,7 @@ struct ArticulationsOrnamentsLearnView: View {
     }
     
     private func replayAudio() {
-        speakText(" this is an accent. it is used to emphasise the note you are playing like so:")
-        playPiano()
+        speakText("this is an accent. it is used to emphasise the note you are playing like so:")
     }
     
     private func stopAudio() {
@@ -126,6 +120,17 @@ struct ArticulationsOrnamentsLearnView: View {
     }
 }
 
+class SpeechDelegate: NSObject, AVSpeechSynthesizerDelegate {
+    static let shared = SpeechDelegate()
+    
+    var onSpeechFinished: (() -> Void)?
+    
+    private override init() {}
+    
+    func speechSynthesizer(_ synthesizer: AVSpeechSynthesizer, didFinish utterance: AVSpeechUtterance) {
+        onSpeechFinished?()
+    }
+}
 
 #Preview {
     ArticulationsOrnamentsLearnView()

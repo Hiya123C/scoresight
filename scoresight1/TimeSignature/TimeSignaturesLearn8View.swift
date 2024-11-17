@@ -105,7 +105,7 @@ struct TimeSignaturesLearn8View: View {
                 .padding()
             }
             .onAppear {
-                speakText(" Find out how the bar changes when you press the plus and minus buttons! The limit is 3 to 8")
+                speakText(" Find out how the bar changes when you press the plus and minus buttons! The limit is 3 to 6")
             }
             .onDisappear {
                 stopAudio()
@@ -122,7 +122,7 @@ struct TimeSignaturesLearn8View: View {
     }
 
     private func replayAudio() {
-        speakText(" Find out how the bar changes when you press the plus and minus buttons! The limit is 3 to 8")
+        speakText(" Find out how the bar changes when you press the plus and minus buttons! The limit is 3 to 6")
     }
     
     private func stopAudio() {

@@ -34,7 +34,7 @@ struct KeySignaturesAccidentalsLearn4View: View {
                         Text("this is a")
                             .font(.system(size: 40))
                         Text("double\nflat")
-                            .font(.system(size:80))
+                            .font(.system(size:70))
                             .bold()
                     }
                 }

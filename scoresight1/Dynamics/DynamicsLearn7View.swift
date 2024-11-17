@@ -11,10 +11,11 @@ import AVFoundation
 struct DynamicsLearn7View: View {
     
     @State private var audioPlayer: AVAudioPlayer?
-    
+    @State private var isPlayingAudio = false
+
     func playAudio() {
         guard let soundURL = Bundle.main.url(forResource: "pf", withExtension: "mp3") else {
-            print("Audio fd.") //why audio file cant find
+            print("Audio cannot find.")
             return
         }
         do {
@@ -23,7 +24,14 @@ struct DynamicsLearn7View: View {
                 audioPlayer?.numberOfLoops = 0
             }
             
-    
+            if let player = audioPlayer {
+                if isPlayingAudio {
+                    player.pause()
+                } else {
+                    player.play()
+                }
+                isPlayingAudio.toggle()
+            }
         } catch {
             print("Failed to play audio: \(error.localizedDescription)")
         }
@@ -45,9 +53,22 @@ struct DynamicsLearn7View: View {
                 }
                 Spacer()
                 VStack{
-                    Image("pianoforte")
-                        .resizable()
-                        .scaledToFit()
+                    HStack{
+                        Image("fortepiano")
+                            .resizable()
+                            .scaledToFit()
+                            .scaleEffect(1.3)
+                        
+                        Button(action: {
+                            playAudio()
+                        }) {
+                            Image(systemName: isPlayingAudio ? "pause.circle" : "play.circle")
+                                .symbolRenderingMode(.palette)
+                                .foregroundStyle(.black, .black)
+                                .font(.system(size: 50))
+                                .padding(50)
+                        }
+                    }
                     Text("softly then immediately loudly")
                         .font(.system(size: 25))
                     Text("pianoforte")
@@ -72,14 +93,7 @@ struct DynamicsLearn7View: View {
                         Spacer()
                         
                     }
-                    Button(action: {
-                        playAudio()
-                    }) {
-                        Image(systemName: "speaker.wave.2.fill")
-                            .font(.system(size: 30))
-                            .foregroundStyle(.black)
-                    }
-                    .padding()
+                    
                     NavigationLink{
                         DynamicsLearn8View()
                     } label:{

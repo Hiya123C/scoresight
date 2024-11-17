@@ -1,52 +1,51 @@
-//
-//  ArticulationsOrnamentsLearn4.swift
-//  scoresight1
-//
-//  Created by Li Jiansheng on 11/11/24.
-//
-
 import SwiftUI
 import AVFoundation
 
 private let synthesizer = AVSpeechSynthesizer()
 
 struct ArticulationsOrnamentsLearn4View: View {
-    
+    @State private var isPlayingAudio = false
     @State private var audioPlayer: AVAudioPlayer?
+
+    // Reusable description text
+    private let narrationText = "this is a turn and an inverted turn,which has a line, and how the note looks like written out. it usually has four notes and ends at the ‘core’ note which is the note that is displayed, like so:"
+
+    init() {
+        synthesizer.delegate = SpeechDelegate1.shared
+    }
 
     func playPiano() {
         guard let soundURL = Bundle.main.url(forResource: "turn", withExtension: "mp3") else {
-            print("Audio fd.") //why audio file cant find
+            print("Audio file not found.")
             return
         }
         do {
-            if audioPlayer == nil {
-                audioPlayer = try AVAudioPlayer(contentsOf: soundURL)
-                audioPlayer?.numberOfLoops = 0
-            }
-            
-
+            audioPlayer = try AVAudioPlayer(contentsOf: soundURL)
+            audioPlayer?.numberOfLoops = 0
+            audioPlayer?.play()
         } catch {
             print("Failed to play audio: \(error.localizedDescription)")
         }
     }
 
-    
     var body: some View {
         NavigationStack {
             VStack {
+                // Close Button
                 HStack {
-                    NavigationLink{
+                    NavigationLink {
                         ArticulationsOrnamentsView()
-                    }label:{
+                    } label: {
                         Image(systemName: "x.circle")
                             .symbolRenderingMode(.palette)
                             .foregroundStyle(.black, .white)
-                            .font(.system(size:50))
+                            .font(.system(size: 50))
                     }
                     Spacer()
                 }
                 Spacer()
+
+                // Image and Description
                 HStack {
                     Image("turn")
                         .resizable()
@@ -55,27 +54,26 @@ struct ArticulationsOrnamentsLearn4View: View {
                         Text("this is a")
                             .font(.system(size: 40))
                         Text("turn")
-                            .font(.system(size:80))
+                            .font(.system(size: 80))
                             .bold()
                     }
                 }
                 Spacer()
-                HStack{
-                    NavigationLink{
+
+                // Buttons (Back, Replay Audio, Next)
+                HStack {
+                    NavigationLink {
                         ArticulationsOrnamentsLearn3View()
-                    }label:{
+                    } label: {
                         Text("back")
                             .padding()
                             .background(
                                 RoundedRectangle(cornerRadius: 10)
                                     .stroke(.black, lineWidth: 3)
-                                    .frame(width:100,height:50)
-                                
+                                    .frame(width: 100, height: 50)
                             )
                             .foregroundStyle(.black)
                             .font(.system(size: 25))
-                        
-                        
                     }
                     Spacer()
                     Button(action: {
@@ -86,28 +84,28 @@ struct ArticulationsOrnamentsLearn4View: View {
                             .foregroundStyle(.black)
                     }
                     .padding()
-                    NavigationLink{
+                    NavigationLink {
                         ArticulationsOrnamentsLearn5View()
-                    }label:{
+                    } label: {
                         Text("next")
                             .padding()
                             .background(
                                 RoundedRectangle(cornerRadius: 10)
                                     .stroke(.black, lineWidth: 3)
-                                    .frame(width:100,height:50)
-                                
+                                    .frame(width: 100, height: 50)
                             )
                             .foregroundStyle(.black)
                             .font(.system(size: 25))
-                        
-                        
                     }
                 }
                 .padding(.horizontal)
             }
             .onAppear {
-                speakText("this is a turn and an inverted turn respectively, and how the notes look like written out. they usually have four notes and end at the ‘core’ note which is the note that is displayed, like so:")
-                playPiano()
+                // Trigger speech and piano setup
+                SpeechDelegate1.shared.onSpeechFinished = {
+                    playPiano()
+                }
+                speakText(narrationText)
             }
             .onDisappear {
                 stopAudio()
@@ -115,24 +113,29 @@ struct ArticulationsOrnamentsLearn4View: View {
             .navigationBarHidden(true)
         }
     }
+
+    // Speak the given text
     private func speakText(_ text: String) {
         let utterance = AVSpeechUtterance(string: text)
         utterance.voice = AVSpeechSynthesisVoice(language: "en-US")
         utterance.rate = 0.5
         synthesizer.speak(utterance)
     }
-    
+
+    // Replay narration and audio
     private func replayAudio() {
-        speakText("this is a turn and an inverted turn respectively, and how the notes look like written out. they usually have four notes and end at the ‘core’ note which is the note that is displayed, like so:")
-        playPiano()
+        speakText(narrationText)
     }
-    
+
+    // Stop all audio
     private func stopAudio() {
         synthesizer.stopSpeaking(at: .immediate)
         audioPlayer?.stop()
         audioPlayer = nil
     }
 }
+
+
 
 #Preview {
     ArticulationsOrnamentsLearn4View()

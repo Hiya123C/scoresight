@@ -103,7 +103,7 @@ struct SheetMusicOrganisationLearn10View: View {
                             if isSpeaking {
                                 stopSpeech()
                             } else {
-                                speakText("with a repeat sign, the bars in to the left of the sign will be repeated once")
+                                speakText("Tempo markings set the tempo for a piece and is positioned just above the 1st bar of every piece")
                             }
                             isSpeaking.toggle()
                         }
@@ -126,7 +126,7 @@ struct SheetMusicOrganisationLearn10View: View {
             
         }
         .onAppear {
-            speakText("with a repeat sign, the bars in to the left of the sign will be repeated once")
+            speakText("Tempo markings set the tempo for a piece and is positioned just above the 1st bar of every piece")
         }
         .onDisappear {
             stopSpeech()

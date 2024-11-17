@@ -1,52 +1,50 @@
-//
-//  ArticulationsOrnamentsLearn12View.swift
-//  scoresight1
-//
-//  Created by Li Jiansheng on 11/11/24.
-//
-
 import SwiftUI
 import AVFoundation
 
 private let synthesizer = AVSpeechSynthesizer()
 
 struct ArticulationsOrnamentsLearn12View: View {
-    
+    @State private var isPlayingAudio = false
     @State private var audioPlayer: AVAudioPlayer?
+
+    // Reusable description text
+    private let narrationText = "this is a lower mordent, which is played by rapidly alternating between the main note and the note immediately below it like so:"
+
+    init() {
+        synthesizer.delegate = SpeechDelegate1.shared
+    }
 
     func playPiano() {
         guard let soundURL = Bundle.main.url(forResource: "lower mordent", withExtension: "mp3") else {
-            print("Audio fd.") //why audio file cant find
+            print("Audio file not found.")
             return
         }
         do {
-            if audioPlayer == nil {
-                audioPlayer = try AVAudioPlayer(contentsOf: soundURL)
-                audioPlayer?.numberOfLoops = 0
-            }
-            
-
+            audioPlayer = try AVAudioPlayer(contentsOf: soundURL)
+            audioPlayer?.numberOfLoops = 0
+            audioPlayer?.play()
         } catch {
             print("Failed to play audio: \(error.localizedDescription)")
         }
     }
 
-    
     var body: some View {
         NavigationStack {
             VStack {
+                // Close Button
                 HStack {
-                    NavigationLink{
+                    NavigationLink {
                         ArticulationsOrnamentsView()
-                    }label:{
+                    } label: {
                         Image(systemName: "x.circle")
                             .symbolRenderingMode(.palette)
                             .foregroundStyle(.black, .white)
-                            .font(.system(size:50))
+                            .font(.system(size: 50))
                     }
                     Spacer()
                 }
                 Spacer()
+
                 HStack {
                     Spacer()
                     Image("lower mordent")
@@ -57,27 +55,26 @@ struct ArticulationsOrnamentsLearn12View: View {
                         Text("this is a")
                             .font(.system(size: 40))
                         Text("lower\nmordent")
-                            .font(.system(size:80))
+                            .font(.system(size: 75))
                             .bold()
                     }
                     Spacer()
                 }
                 Spacer()
-                HStack{
-                    NavigationLink{
+
+                HStack {
+                    NavigationLink {
                         ArticulationsOrnamentsLearn11View()
-                    }label:{
+                    } label: {
                         Text("back")
                             .padding()
                             .background(
                                 RoundedRectangle(cornerRadius: 10)
                                     .stroke(.black, lineWidth: 3)
-                                    .frame(width:100,height:50)
-                                
+                                    .frame(width: 100, height: 50)
                             )
                             .foregroundStyle(.black)
                             .font(.system(size: 25))
-                        
                     }
                     Spacer()
                     Button(action: {
@@ -88,28 +85,28 @@ struct ArticulationsOrnamentsLearn12View: View {
                             .foregroundStyle(.black)
                     }
                     .padding()
-                    NavigationLink{
+                    NavigationLink {
                         ArticulationsOrnamentsLearn13View()
-                    }label:{
+                    } label: {
                         Text("next")
                             .padding()
                             .background(
                                 RoundedRectangle(cornerRadius: 10)
                                     .stroke(.black, lineWidth: 3)
-                                    .frame(width:100,height:50)
-                                
+                                    .frame(width: 100, height: 50)
                             )
                             .foregroundStyle(.black)
                             .font(.system(size: 25))
-                        
-                        
                     }
                 }
                 .padding(.horizontal)
             }
             .onAppear {
-                speakText("this is a  lower mordent, which is played by rapidly alternating between the main note and the note immediately below it like so:")
-                playPiano()
+                // Trigger speech and piano setup
+                SpeechDelegate1.shared.onSpeechFinished = {
+                    playPiano()
+                }
+                speakText(narrationText)
             }
             .onDisappear {
                 stopAudio()
@@ -117,24 +114,28 @@ struct ArticulationsOrnamentsLearn12View: View {
             .navigationBarHidden(true)
         }
     }
+
+    // Speak the given text
     private func speakText(_ text: String) {
         let utterance = AVSpeechUtterance(string: text)
         utterance.voice = AVSpeechSynthesisVoice(language: "en-US")
         utterance.rate = 0.5
         synthesizer.speak(utterance)
     }
-    
+
+    // Replay narration and audio
     private func replayAudio() {
-        speakText("this is a  lower mordent, which is played by rapidly alternating between the main note and the note immediately below it like so:")
-        playPiano()
+        speakText(narrationText)
     }
-    
+
+    // Stop all audio
     private func stopAudio() {
         synthesizer.stopSpeaking(at: .immediate)
         audioPlayer?.stop()
         audioPlayer = nil
     }
 }
+
 
 #Preview {
     ArticulationsOrnamentsLearn12View()

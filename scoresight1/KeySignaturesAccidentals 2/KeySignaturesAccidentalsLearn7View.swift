@@ -9,8 +9,8 @@ struct KeySignaturesAccidentalsLearn7View: View {
    
     @State private var opacities: [Double] = Array(repeating: 0, count: 8) // Start all images hidden
     @State private var currentIndex = 0
-    let animationDuration: Double = 1.0  // Duration for fade in/out
-    let delayBetweenImages: Double = 0.5 // Delay before showing next image
+    let animationDuration: Double = 0.5  // Duration for fade in/out
+    let delayBetweenImages: Double = 0.2 // Delay before showing next image
     
     // Define positions for each sharp relative to the staff
     let positions: [(x: CGFloat, y: CGFloat)] = [

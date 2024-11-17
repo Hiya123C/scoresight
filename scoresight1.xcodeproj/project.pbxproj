@@ -562,6 +562,7 @@
 		D9116A882CE8818300804AC1 /* TimeSignature */ = {
 			isa = PBXGroup;
 			children = (
+				D9116A812CE8818300804AC1 /* TimeSignaturesLearnView.swift */,
 				D9116A792CE8818300804AC1 /* TimeSignaturesLearn2View.swift */,
 				D9116A7A2CE8818300804AC1 /* TimeSignaturesLearn3View.swift */,
 				D9116A7B2CE8818300804AC1 /* TimeSignaturesLearn4View.swift */,
@@ -570,7 +571,6 @@
 				D9116A7E2CE8818300804AC1 /* TimeSignaturesLearn7View.swift */,
 				D9116A7F2CE8818300804AC1 /* TimeSignaturesLearn8View.swift */,
 				D9116A802CE8818300804AC1 /* TimeSignaturesLearn9View.swift */,
-				D9116A812CE8818300804AC1 /* TimeSignaturesLearnView.swift */,
 				D9116A822CE8818300804AC1 /* TimeSignaturesReview2View.swift */,
 				D9116A832CE8818300804AC1 /* TimeSignaturesReview3View.swift */,
 				D9116A842CE8818300804AC1 /* TimeSignaturesReview4View.swift */,

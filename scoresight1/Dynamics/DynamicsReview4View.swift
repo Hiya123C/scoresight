@@ -47,7 +47,6 @@ struct DynamicsReview4View: View {
                                 wrongAnswer = false
                                 print("correct")
                             }
-                            .padding()
                     // ask abt padding
                             Spacer()
                             AnswerButton(label: "sforzando (sfz) is played only for a given phrase while rinforzando (rfz) is played only for a beat", isSelected: selectedAnswer == "sforzando (sfz) is played only for a given phrase while rinforzando (rfz) is played only for a beat", isCorrect: false) {

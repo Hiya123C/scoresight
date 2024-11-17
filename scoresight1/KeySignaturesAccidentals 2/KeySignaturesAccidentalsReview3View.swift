@@ -19,7 +19,7 @@ struct KeySignaturesAccidentalsReview3View: View {
                 VStack {
                     HStack {
                         NavigationLink {
-                            ClefsPitchedNotesView()
+                            KeySignaturesAccidentalsView()
                         } label: {
                             Image(systemName: "x.circle")
                                 .symbolRenderingMode(.palette)
@@ -64,7 +64,7 @@ struct KeySignaturesAccidentalsReview3View: View {
                         HStack {
                             Spacer()
                             NavigationLink {
-                                ClefsPitchedNotesReview5View()
+                                KeySignaturesAccidentalsReview4View()
                             } label: {
                                 Text("next")
                                     .padding()

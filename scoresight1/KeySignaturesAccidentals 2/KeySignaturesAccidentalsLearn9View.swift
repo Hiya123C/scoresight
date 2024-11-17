@@ -15,13 +15,14 @@ struct KeySignaturesAccidentalsLearn9View: View {
     // Define positions for each sharp relative to the staff
     let positions: [(x: CGFloat, y: CGFloat)] = [
         (x: 0, y: 0),
-        (x: 0, y: 9),
-        (x: -8, y: 7),
-        (x: -1, y: -4),
-        (x: 1, y: -3),
-        (x: 2, y: -3),
-        (x: 2, y: -3),
-        (x: 3, y: -3)
+        (x: 0, y: -10),
+        (x: -2, y: -6),
+        (x: 0, y: -6),
+        (x: 0, y: -11),
+        (x: 0, y: -13),
+        (x: -2, y: -10),
+        (x: 0, y: -7),
+        
     ]
     
     func startAnimation() {
@@ -82,14 +83,14 @@ struct KeySignaturesAccidentalsLearn9View: View {
                 
                 ZStack {
                     ForEach(0..<8) { index in
-                        Image(index == 0 ? "bass flat" :
-                                index == 1 ? "bass flat b" :
-                                index == 2 ? "bass flat e" :
-                                index == 3 ? "bass flat a" :
-                                index == 4 ? "bass flat d" :
-                                index == 5 ? "bass flat g" :
-                                index == 6 ? "bass flat c" :
-                                "bass flat f")
+                        Image(index == 0 ? "bass flat 2" :
+                                index == 1 ? "bass flat b 1" :
+                                index == 2 ? "bass flat e 1" :
+                                index == 3 ? "bass flat a 1" :
+                                index == 4 ? "bass flat d 1" :
+                                index == 5 ? "bass flat g 1" :
+                                index == 6 ? "bass flat c 1" :
+                                "bass flat f 1")
                         .resizable()
                         .scaledToFit()
                         .opacity(opacities[index])

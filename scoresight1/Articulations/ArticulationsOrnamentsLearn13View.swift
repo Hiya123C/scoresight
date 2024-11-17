@@ -1,80 +1,80 @@
-//
-//  ArticulationsOrnamentsLearn13View.swift
-//  scoresight1
-//
-//  Created by Li Jiansheng on 11/11/24.
-//
-
 import SwiftUI
 import AVFoundation
 
 private let synthesizer = AVSpeechSynthesizer()
 
 struct ArticulationsOrnamentsLearn13View: View {
-    
+    @State private var isPlayingAudio = false
     @State private var audioPlayer: AVAudioPlayer?
+
+    // Reusable description text
+    private let narrationText = "this is an apoggiatura. It is an ornamental note that leans into the main note, half of its time. Like so:"
+
+    init() {
+        synthesizer.delegate = SpeechDelegate1.shared
+    }
 
     func playPiano() {
         guard let soundURL = Bundle.main.url(forResource: "apoggiatura", withExtension: "mp3") else {
-            print("Audio fd.") //why audio file cant find
+            print("Audio file not found.")
             return
         }
         do {
-            if audioPlayer == nil {
-                audioPlayer = try AVAudioPlayer(contentsOf: soundURL)
-                audioPlayer?.numberOfLoops = 0
-            }
-            
-
+            audioPlayer = try AVAudioPlayer(contentsOf: soundURL)
+            audioPlayer?.numberOfLoops = 0
+            audioPlayer?.play()
         } catch {
             print("Failed to play audio: \(error.localizedDescription)")
         }
     }
 
-    
     var body: some View {
         NavigationStack {
             VStack {
+                // Close Button
                 HStack {
-                    NavigationLink{
+                    NavigationLink {
                         ArticulationsOrnamentsView()
-                    }label:{
+                    } label: {
                         Image(systemName: "x.circle")
                             .symbolRenderingMode(.palette)
                             .foregroundStyle(.black, .white)
-                            .font(.system(size:50))
+                            .font(.system(size: 50))
                     }
                     Spacer()
                 }
                 Spacer()
+
                 HStack {
+                    Spacer()
                     Image("apoggiatura")
                         .resizable()
                         .scaledToFit()
+                    Spacer()
                     VStack(alignment: .trailing) {
-                        Text("this is an")
+                        Text("this is a")
                             .font(.system(size: 40))
-                        Text("apoggiatura")
-                            .font(.system(size:65))
+                        Text("appogiatura")
+                            .font(.system(size: 65))
                             .bold()
                     }
+                    Spacer()
                 }
                 Spacer()
-                HStack{
-                    NavigationLink{
+
+                HStack {
+                    NavigationLink {
                         ArticulationsOrnamentsLearn12View()
-                    }label:{
+                    } label: {
                         Text("back")
                             .padding()
                             .background(
                                 RoundedRectangle(cornerRadius: 10)
                                     .stroke(.black, lineWidth: 3)
-                                    .frame(width:100,height:50)
-                                
+                                    .frame(width: 100, height: 50)
                             )
                             .foregroundStyle(.black)
                             .font(.system(size: 25))
-                        
                     }
                     Spacer()
                     Button(action: {
@@ -85,28 +85,28 @@ struct ArticulationsOrnamentsLearn13View: View {
                             .foregroundStyle(.black)
                     }
                     .padding()
-                    NavigationLink{
+                    NavigationLink {
                         ArticulationsOrnamentsLearn14View()
-                    }label:{
+                    } label: {
                         Text("next")
                             .padding()
                             .background(
                                 RoundedRectangle(cornerRadius: 10)
                                     .stroke(.black, lineWidth: 3)
-                                    .frame(width:100,height:50)
-                                
+                                    .frame(width: 100, height: 50)
                             )
                             .foregroundStyle(.black)
                             .font(.system(size: 25))
-                        
-                        
                     }
                 }
                 .padding(.horizontal)
             }
             .onAppear {
-                speakText("this is an apoggiatura. It is an ornamental note that leans into the main note, often taking part of its time. The tiny note is half the value of the big note. it is drawn without a slash. it is played like so:")
-                playPiano()
+                // Trigger speech and piano setup
+                SpeechDelegate1.shared.onSpeechFinished = {
+                    playPiano()
+                }
+                speakText(narrationText)
             }
             .onDisappear {
                 stopAudio()
@@ -114,18 +114,21 @@ struct ArticulationsOrnamentsLearn13View: View {
             .navigationBarHidden(true)
         }
     }
+
+    // Speak the given text
     private func speakText(_ text: String) {
         let utterance = AVSpeechUtterance(string: text)
         utterance.voice = AVSpeechSynthesisVoice(language: "en-US")
         utterance.rate = 0.5
         synthesizer.speak(utterance)
     }
-    
+
+    // Replay narration and audio
     private func replayAudio() {
-        speakText("this is an apoggiatura. It is an ornamental note that leans into the main note, often taking part of its time. The tiny note is half the value of the big note. it is drawn without a slash. it is played like so:")
-        playPiano()
+        speakText(narrationText)
     }
-    
+
+    // Stop all audio
     private func stopAudio() {
         synthesizer.stopSpeaking(at: .immediate)
         audioPlayer?.stop()

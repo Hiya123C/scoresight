@@ -93,7 +93,7 @@ struct TimeSignaturesLearn4View: View {
     }
 
     private func replayAudio() {
-        speakText("The time signature with a C and a slash is called cut time, but it also represents 2/2.")
+        speakText("This time signature is 2, 2. It contains two minims, as the numerator is 2, and the denominator is 2.")
     }
     
     private func stopAudio() {

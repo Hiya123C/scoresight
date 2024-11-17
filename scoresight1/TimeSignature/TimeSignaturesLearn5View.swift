@@ -75,7 +75,7 @@ struct TimeSignaturesLearn5View: View {
             }
             .navigationBarHidden(true)
             .onAppear {
-                speakText("The time signature with a C and a slash is called cut time, but it also represents 2/2.")
+                speakText("The time signature with a C and a slash is called cut time, but it also represents 2,2.")
             }
             .onDisappear {
                 stopAudio()
@@ -92,7 +92,7 @@ struct TimeSignaturesLearn5View: View {
     }
 
     private func replayAudio() {
-        speakText("The time signature with a C and a slash is called cut time, but it also represents 2/2.")
+        speakText("The time signature with a C and a slash is called cut time, but it also represents 2,2.")
     }
     
     private func stopAudio() {

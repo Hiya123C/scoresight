@@ -78,7 +78,7 @@ struct TimeSignaturesLearn3View: View {
             }
             .navigationBarHidden(true)
             .onAppear {
-                speakText("The time signature with a C is called common time, but it also represents 44.")
+                speakText("The time signature with a C is called common time, but it also represents 4,4.")
             }
             .onDisappear {
                 stopAudio()
@@ -95,7 +95,7 @@ struct TimeSignaturesLearn3View: View {
     }
 
     private func replayAudio() {
-        speakText("The time signature with a C and a slash is called cut time, but it also represents 2/2.")
+        speakText("The time signature with a C is called common time, but it also represents 4,4.")
     }
     
     private func stopAudio() {

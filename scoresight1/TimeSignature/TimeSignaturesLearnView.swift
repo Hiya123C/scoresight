@@ -72,7 +72,7 @@ struct TimeSignaturesLearnView: View {
             }
             .navigationBarHidden(true)
             .onAppear {
-                speakText("This is the time signature 4/4. The number below determines the type of note value. In this case, 4 represents a crotchet!")
+                speakText("This is the time signature 4,4. The number below determines the type of note value. In this case, 4 represents a crotchet!")
             }
             .onDisappear {
                 stopAudio()
@@ -90,7 +90,7 @@ struct TimeSignaturesLearnView: View {
     }
 
     private func replayAudio() {
-        speakText("This is the time signature 4/4. The number below determines the type of note value. In this case, 4 represents a crotchet!")
+        speakText("This is the time signature 4,4. The number below determines the type of note value. In this case, 4 represents a crotchet!")
     }
     
     private func stopAudio() {

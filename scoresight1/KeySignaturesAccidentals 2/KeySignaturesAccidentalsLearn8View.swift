@@ -78,7 +78,7 @@ struct KeySignaturesAccidentalsLearn8View: View {
                 .padding(.horizontal)
             }
             .onAppear {
-                speakText("sharps are always arranged oppositely of the sharps in the order B, E, A, D, G, C, F.")
+                speakText("flats are always arranged oppositely of the sharps in the order B, E, A, D, G, C, F.")
             }
             .onDisappear {
                 stopAudio()
@@ -94,7 +94,7 @@ struct KeySignaturesAccidentalsLearn8View: View {
     }
     
     private func replayAudio() {
-        speakText("sharps are always arranged oppositely of the sharps in the order B, E, A, D, G, C, F.")
+        speakText("flats are always arranged oppositely of the sharps in the order B, E, A, D, G, C, F.")
     }
     
     private func stopAudio() {

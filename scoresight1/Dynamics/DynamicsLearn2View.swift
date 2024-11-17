@@ -11,10 +11,11 @@ import AVFoundation
 struct DynamicsLearn2View: View {
     
     @State private var audioPlayer: AVAudioPlayer?
-    
+    @State private var isPlayingAudio = false
+
     func playAudio() {
         guard let soundURL = Bundle.main.url(forResource: "crescendo", withExtension: "mp3") else {
-            print("Audio cannot find") //why audio file cant find
+            print("Audio cannot find.")
             return
         }
         do {
@@ -23,7 +24,14 @@ struct DynamicsLearn2View: View {
                 audioPlayer?.numberOfLoops = 0
             }
             
-    
+            if let player = audioPlayer {
+                if isPlayingAudio {
+                    player.pause()
+                } else {
+                    player.play()
+                }
+                isPlayingAudio.toggle()
+            }
         } catch {
             print("Failed to play audio: \(error.localizedDescription)")
         }
@@ -44,16 +52,29 @@ struct DynamicsLearn2View: View {
                     Spacer()
                 }
                 Spacer()
-                VStack{
-                    Image("crescendo")
-                        .resizable()
-                        .scaledToFit()
-                        .scaleEffect(1.2)
-                    Text("gradually getting louder")
-                        .font(.system(size: 25))
-                    Text("crescendo")
-                        .font(.system(size:80))
-                        .bold()
+                    VStack{
+                        HStack{
+                            Image("crescendo")
+                                .resizable()
+                                .scaledToFit()
+                                .scaleEffect(1.2)
+                            
+                            
+                            Button(action: {
+                                playAudio()
+                            }) {
+                                Image(systemName: isPlayingAudio ? "pause.circle" : "play.circle")
+                                    .symbolRenderingMode(.palette)
+                                    .foregroundStyle(.black, .black)
+                                    .font(.system(size: 50))
+                                    .padding(30)
+                            }
+                        }
+                        Text("gradually getting louder")
+                            .font(.system(size: 25))
+                        Text("crescendo")
+                            .font(.system(size:80))
+                            .bold()
                 }
                 Spacer()
                 HStack{
@@ -72,17 +93,7 @@ struct DynamicsLearn2View: View {
                             .font(.system(size: 25))
                         Spacer()
                         
-                    }
-                    
-                    Button(action: {
-                        playAudio()
-                    }) {
-                        Image(systemName: "speaker.wave.2.fill")
-                            .font(.system(size: 30))
-                            .foregroundStyle(.black)
-                    }
-                    .padding()
-                
+                    }                
                     NavigationLink{
                         DynamicsLearn3View()
                     } label:{
@@ -110,6 +121,7 @@ struct DynamicsLearn2View: View {
     private func stopAudio() {
         audioPlayer?.stop()
         audioPlayer = nil
+        isPlayingAudio = false
     }
 }
 

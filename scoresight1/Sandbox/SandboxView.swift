@@ -18,16 +18,18 @@ struct SandboxView: View {
                     }
                     Spacer()
                 }
+                Spacer()
                 ViewThatFits{
+                    Text("sandbox")
+                        .fontWeight(.bold)
+                        .font(.system(size: 110))
+                        .multilineTextAlignment(.center)
                     Text("sandbox")
                         .fontWeight(.bold)
                         .font(.system(size: 100))
                         .multilineTextAlignment(.center)
-                    Text("sandbox")
-                        .fontWeight(.bold)
-                        .font(.system(size: 75))
-                        .multilineTextAlignment(.center)
                 }
+                Spacer()
                 
                 NavigationLink{
                     Sandbox1View()

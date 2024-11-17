@@ -11,10 +11,11 @@ import AVFoundation
 struct DynamicsLearn3View: View {
     
     @State private var audioPlayer: AVAudioPlayer?
-    
+    @State private var isPlayingAudio = false
+
     func playAudio() {
         guard let soundURL = Bundle.main.url(forResource: "decrescendo", withExtension: "mp3") else {
-            print("Audio fd.") //why audio file cant find
+            print("Audio cannot find.")
             return
         }
         do {
@@ -23,7 +24,14 @@ struct DynamicsLearn3View: View {
                 audioPlayer?.numberOfLoops = 0
             }
             
-    
+            if let player = audioPlayer {
+                if isPlayingAudio {
+                    player.pause()
+                } else {
+                    player.play()
+                }
+                isPlayingAudio.toggle()
+            }
         } catch {
             print("Failed to play audio: \(error.localizedDescription)")
         }
@@ -45,10 +53,22 @@ struct DynamicsLearn3View: View {
                 }
                 Spacer()
                 VStack{
-                    Image("decrescendo")
-                        .resizable()
-                        .scaledToFit()
-                        .scaleEffect(1.3)
+                    HStack{
+                        Image("decrescendo")
+                            .resizable()
+                            .scaledToFit()
+                            .scaleEffect(1.3)
+                        
+                        Button(action: {
+                            playAudio()
+                        }) {
+                            Image(systemName: isPlayingAudio ? "pause.circle" : "play.circle")
+                                .symbolRenderingMode(.palette)
+                                .foregroundStyle(.black, .black)
+                                .font(.system(size: 50))
+                                .padding(50)
+                        }
+                    }
                     Text("gradually getting softer")
                         .font(.system(size: 25))
                     Text("decrescendo")
@@ -73,14 +93,7 @@ struct DynamicsLearn3View: View {
                         Spacer()
                         
                     }
-                    Button(action: {
-                        playAudio()
-                    }) {
-                        Image(systemName: "speaker.wave.2.fill")
-                            .font(.system(size: 30))
-                            .foregroundStyle(.black)
-                    }
-                    .padding()
+                    
                     NavigationLink{
                         DynamicsLearn4View()
                     } label:{
