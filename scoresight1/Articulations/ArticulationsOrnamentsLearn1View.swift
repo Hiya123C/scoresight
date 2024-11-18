@@ -6,24 +6,29 @@ import AVFoundation
 private let synthesizer = AVSpeechSynthesizer()
 
 struct ArticulationsOrnamentsLearnView: View {
-    @State private var isPlayingAudio = false
+    @Binding var isPresented: Bool
     @State private var audioPlayer: AVAudioPlayer?
-
-    @State private var shouldPlayPiano = false
-
-    init() {
-        synthesizer.delegate = SpeechDelegate.shared
-    }
-
-    func playPiano() {
+    @State private var isPlayingAudio = false
+    
+    func playAudio() {
         guard let soundURL = Bundle.main.url(forResource: "accent", withExtension: "mp3") else {
-            print("Audio file not found.")
+            print("Audio cannot find.")
             return
         }
         do {
-            audioPlayer = try AVAudioPlayer(contentsOf: soundURL)
-            audioPlayer?.numberOfLoops = 0
-            audioPlayer?.play()
+            if audioPlayer == nil {
+                audioPlayer = try AVAudioPlayer(contentsOf: soundURL)
+                audioPlayer?.numberOfLoops = 0
+            }
+            
+            if let player = audioPlayer {
+                if isPlayingAudio {
+                    player.pause()
+                } else {
+                    player.play()
+                }
+                isPlayingAudio.toggle()
+            }
         } catch {
             print("Failed to play audio: \(error.localizedDescription)")
         }
@@ -33,13 +38,13 @@ struct ArticulationsOrnamentsLearnView: View {
         NavigationStack {
             VStack {
                 HStack {
-                    NavigationLink {
-                        ArticulationsOrnamentsView()
-                    } label: {
+                    Button(action:{
+                        isPresented = false
+                    }){
                         Image(systemName: "x.circle")
                             .symbolRenderingMode(.palette)
                             .foregroundStyle(.black, .white)
-                            .font(.system(size: 50))
+                            .font(.system(size:50))
                     }
                     Spacer()
                 }
@@ -48,6 +53,16 @@ struct ArticulationsOrnamentsLearnView: View {
                     Image("accent")
                         .resizable()
                         .scaledToFit()
+                    
+                    Button(action: {
+                        playAudio()
+                    }) {
+                        Image(systemName: isPlayingAudio ? "pause.circle" : "play.circle")
+                            .symbolRenderingMode(.palette)
+                            .foregroundStyle(.black, .black)
+                            .font(.system(size: 50))
+                            .padding(50)
+                    }
                     VStack(alignment: .trailing) {
                         Text("this is an")
                             .font(.system(size: 40))
@@ -68,7 +83,7 @@ struct ArticulationsOrnamentsLearnView: View {
                     }
                     .padding()
                     NavigationLink {
-                        ArticulationsOrnamentsLearn2View()
+                        ArticulationsOrnamentsLearn2View(isPresented:$isPresented)
                     } label: {
                         Text("next")
                             .padding()
@@ -84,16 +99,7 @@ struct ArticulationsOrnamentsLearnView: View {
                 .padding(.horizontal)
             }
             .onAppear {
-                SpeechDelegate.shared.onSpeechFinished = {
-                    shouldPlayPiano = true
-                }
-                speakText("This is an accent. It is used to emphasise the note you are playing like so:")
-            }
-            .onChange(of: shouldPlayPiano, initial: false) { oldValue, newValue in
-                if newValue {
-                    playPiano()
-                    shouldPlayPiano = false
-                }
+                speakText("this is an accent. it is used to emphasise the note you are playing like so:")
             }
             .onDisappear {
                 stopAudio()
@@ -133,5 +139,6 @@ class SpeechDelegate: NSObject, AVSpeechSynthesizerDelegate {
 }
 
 #Preview {
-    ArticulationsOrnamentsLearnView()
+    @Previewable @State var isShowing = false
+    ArticulationsOrnamentsLearnView(isPresented: $isShowing)
 }

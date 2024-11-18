@@ -36,14 +36,15 @@ struct DynamicsLearn8View: View {
             print("Failed to play audio: \(error.localizedDescription)")
         }
     }
-    
+    @Environment(\.dismiss) var dismiss
+    @Binding var isPresented: Bool
     var body: some View {
         NavigationStack {
             VStack {
                 HStack {
-                    NavigationLink{
-                        DynamicsView()
-                    } label:{
+                    Button(action:{
+                        isPresented = false
+                    }){
                         Image(systemName: "x.circle")
                             .symbolRenderingMode(.palette)
                             .foregroundStyle(.black, .white)
@@ -77,25 +78,23 @@ struct DynamicsLearn8View: View {
                 }
                 Spacer()
                 HStack{
-                    NavigationLink{
-                        DynamicsLearn7View()
-                    } label:{
+                    Button(action:{
+                        dismiss()
+                    }){
                         Text("back")
                             .padding()
                             .background(
                                 RoundedRectangle(cornerRadius: 10)
                                     .stroke(.black, lineWidth: 3)
-                                    .frame(width:100,height:50)
-                                
+                                    .frame(width: 100, height: 50)
                             )
                             .foregroundStyle(.black)
                             .font(.system(size: 25))
-                        Spacer()
-                        
                     }
+                    Spacer()
                    
                     NavigationLink{
-                        DynamicsReviewView()
+                        DynamicsReviewView(isPresented: $isPresented)
                     } label:{
                         Text("next")
                             .padding()
@@ -125,5 +124,6 @@ struct DynamicsLearn8View: View {
 }
 
 #Preview {
-    DynamicsLearn8View()
+    @Previewable @State var isShowing = false
+  DynamicsLearn8View(isPresented: $isShowing)
 }

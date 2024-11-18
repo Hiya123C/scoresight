@@ -15,7 +15,8 @@ struct ArticulationsOrnamentsReview3View: View {
     @State private var wrongAnswer: Bool = false
     @State private var audioPlayer: AVAudioPlayer?
     @State private var isPlayingAudio = false
-
+    @Binding var isPresented: Bool
+    
     func playAudio() {
         guard let soundURL = Bundle.main.url(forResource: "portato", withExtension: "mp3") else {
             print("Audio cannot find.")
@@ -45,13 +46,13 @@ struct ArticulationsOrnamentsReview3View: View {
             NavigationStack {
                 VStack {
                     HStack {
-                        NavigationLink {
-                            ArticulationsOrnamentsView()
-                        } label: {
+                        Button(action:{
+                            isPresented = false
+                        }){
                             Image(systemName: "x.circle")
                                 .symbolRenderingMode(.palette)
                                 .foregroundStyle(.black, .white)
-                                .font(.system(size: 50))
+                                .font(.system(size:50))
                         }
                         Spacer()
                     }
@@ -101,7 +102,7 @@ struct ArticulationsOrnamentsReview3View: View {
                                 }
                             
                             NavigationLink {
-                                ArticulationsOrnamentsReview4View()
+                                ArticulationsOrnamentsReview4View(isPresented:$isPresented)
                             } label: {
                                 Text("next")
                                     .padding()
@@ -146,5 +147,6 @@ struct ArticulationsOrnamentsReview3View: View {
 }
 
 #Preview {
-    ArticulationsOrnamentsReview3View()
+    @Previewable @State var isShowing = false
+  ArticulationsOrnamentsReview3View(isPresented: $isShowing)
 }

@@ -11,13 +11,15 @@ import AVFoundation
 private let synthesizer = AVSpeechSynthesizer()
 
 struct ClefsPitchedNotesLearn6View: View {
+    @Environment(\.dismiss) var dismiss
+    @Binding var isPresented:Bool
     var body: some View {
         NavigationStack {
             VStack {
                 HStack {
-                    NavigationLink{
-                        ClefsPitchedNotesView()
-                    }label:{
+                    Button(action:{
+                        isPresented = false
+                    }){
                         Image(systemName: "x.circle")
                             .symbolRenderingMode(.palette)
                             .foregroundStyle(.black, .white)
@@ -31,20 +33,18 @@ struct ClefsPitchedNotesLearn6View: View {
                     .resizable()
                     .scaledToFit()
                 HStack{
-                    NavigationLink{
-                        ClefsPitchedNotesLearn5View()
-                    }label:{
+                    Button(action:{
+                        dismiss()
+                    }){
                         Text("back")
                             .padding()
                             .background(
                                 RoundedRectangle(cornerRadius: 10)
                                     .stroke(.black, lineWidth: 3)
-                                    .frame(width:100,height:50)
-                                
+                                    .frame(width: 100, height: 50)
                             )
                             .foregroundStyle(.black)
                             .font(.system(size: 25))
-                        
                     }
                     Spacer()
                     Button(action: {
@@ -56,7 +56,7 @@ struct ClefsPitchedNotesLearn6View: View {
                     }
                     .padding()
                     NavigationLink{
-                        ClefsPitchedNotesLearn7View()
+                        ClefsPitchedNotesLearn7View(isPresented:$isPresented)
                     }label:{
                         Text("next")
                             .padding()
@@ -100,5 +100,6 @@ struct ClefsPitchedNotesLearn6View: View {
 }
 
 #Preview {
-    ClefsPitchedNotesLearn6View()
+    @Previewable @State var isShowing = false
+   ClefsPitchedNotesLearn6View(isPresented: $isShowing)
 }

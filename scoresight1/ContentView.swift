@@ -3,13 +3,13 @@
 import SwiftUI
 
 struct ContentView: View {
+    @Environment(\.dismiss) var dismiss
     var body: some View {
-        @Environment(\.dismiss) var dismiss
         NavigationStack{
             HStack {
-                NavigationLink{
-                    StartView()
-                }label:{
+                Button(action:{
+                    dismiss()
+                }){
                     Image(systemName: "x.circle")
                         .symbolRenderingMode(.palette)
                         .foregroundStyle(.black, .white)

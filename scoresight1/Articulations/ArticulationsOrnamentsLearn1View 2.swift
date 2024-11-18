@@ -1,14 +1,17 @@
+//
+
 import SwiftUI
 import AVFoundation
 
 private let synthesizer = AVSpeechSynthesizer()
 
-struct ArticulationsOrnamentsLearn8View: View {
+struct ArticulationsOrnamentsLearnView: View {
+    @Binding var isPresented: Bool
     @State private var audioPlayer: AVAudioPlayer?
     @State private var isPlayingAudio = false
     
     func playAudio() {
-        guard let soundURL = Bundle.main.url(forResource: "slur", withExtension: "mp3") else {
+        guard let soundURL = Bundle.main.url(forResource: "accent", withExtension: "mp3") else {
             print("Audio cannot find.")
             return
         }
@@ -30,12 +33,10 @@ struct ArticulationsOrnamentsLearn8View: View {
             print("Failed to play audio: \(error.localizedDescription)")
         }
     }
-    @Environment(\.dismiss) var dismiss
-    @Binding var isPresented: Bool
+    
     var body: some View {
         NavigationStack {
             VStack {
-                // Close Button
                 HStack {
                     Button(action:{
                         isPresented = false
@@ -48,12 +49,11 @@ struct ArticulationsOrnamentsLearn8View: View {
                     Spacer()
                 }
                 Spacer()
-
-                // Image and Description
                 HStack {
-                    Image("slur")
+                    Image("accent")
                         .resizable()
                         .scaledToFit()
+                    
                     Button(action: {
                         playAudio()
                     }) {
@@ -64,30 +64,15 @@ struct ArticulationsOrnamentsLearn8View: View {
                             .padding(50)
                     }
                     VStack(alignment: .trailing) {
-                        Text("this is a")
+                        Text("this is an")
                             .font(.system(size: 40))
-                        Text("slur")
+                        Text("accent")
                             .font(.system(size: 80))
                             .bold()
                     }
                 }
                 Spacer()
-
-                // Buttons (Back, Replay Audio, Next)
                 HStack {
-                    Button(action:{
-                        dismiss()
-                    }){
-                        Text("back")
-                            .padding()
-                            .background(
-                                RoundedRectangle(cornerRadius: 10)
-                                    .stroke(.black, lineWidth: 3)
-                                    .frame(width: 100, height: 50)
-                            )
-                            .foregroundStyle(.black)
-                            .font(.system(size: 25))
-                    }
                     Spacer()
                     Button(action: {
                         replayAudio()
@@ -98,7 +83,7 @@ struct ArticulationsOrnamentsLearn8View: View {
                     }
                     .padding()
                     NavigationLink {
-                        ArticulationsOrnamentsLearn9View(isPresented:$isPresented)
+                        ArticulationsOrnamentsLearn2View(isPresented:$isPresented)
                     } label: {
                         Text("next")
                             .padding()
@@ -114,7 +99,7 @@ struct ArticulationsOrnamentsLearn8View: View {
                 .padding(.horizontal)
             }
             .onAppear {
-                speakText("this is a slur. you play the notes within a slur smoothly without interruptions. it is also known as legato.")
+                speakText("this is an accent. it is used to emphasise the note you are playing like so:")
             }
             .onDisappear {
                 stopAudio()
@@ -122,21 +107,18 @@ struct ArticulationsOrnamentsLearn8View: View {
             .navigationBarHidden(true)
         }
     }
-
-    // Speak the given text
+    
     private func speakText(_ text: String) {
         let utterance = AVSpeechUtterance(string: text)
         utterance.voice = AVSpeechSynthesisVoice(language: "en-US")
-        utterance.rate = AVSpeechUtteranceDefaultSpeechRate
+        utterance.rate = 0.5
         synthesizer.speak(utterance)
     }
-
-    // Replay narration and audio
+    
     private func replayAudio() {
-        speakText("this is a slur. you play the notes within a slur smoothly without interruptions. it is also known as legato.")
+        speakText("this is an accent. it is used to emphasise the note you are playing like so:")
     }
-
-    // Stop all audio
+    
     private func stopAudio() {
         synthesizer.stopSpeaking(at: .immediate)
         audioPlayer?.stop()
@@ -144,8 +126,19 @@ struct ArticulationsOrnamentsLearn8View: View {
     }
 }
 
+class SpeechDelegate: NSObject, AVSpeechSynthesizerDelegate {
+    static let shared = SpeechDelegate()
+    
+    var onSpeechFinished: (() -> Void)?
+    
+    private override init() {}
+    
+    func speechSynthesizer(_ synthesizer: AVSpeechSynthesizer, didFinish utterance: AVSpeechUtterance) {
+        onSpeechFinished?()
+    }
+}
 
 #Preview {
     @Previewable @State var isShowing = false
-  ArticulationsOrnamentsLearn8View(isPresented: $isShowing)
+    ArticulationsOrnamentsLearnView(isPresented: $isShowing)
 }

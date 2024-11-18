@@ -32,13 +32,15 @@ struct SheetMusicOrganisationLearn10View: View {
             print("Failed to play audio: \(error.localizedDescription)")
         }
     }
+    @Environment(\.dismiss) var dismiss
+    @Binding var isPresented:Bool
     var body: some View {
-        VStack{
-            NavigationStack{
+        NavigationStack{
+            VStack {
                 HStack{
-                    NavigationLink{
-                        SheetMusicOrganisationView()
-                    } label:{
+                    Button(action:{
+                        isPresented = false
+                    }){
                         Image(systemName: "x.circle")
                             .symbolRenderingMode(.palette)
                             .foregroundStyle(.black, .white)
@@ -76,24 +78,20 @@ struct SheetMusicOrganisationLearn10View: View {
                     //click play button to play audio**
                     
                 }
-                
-                
                 HStack{
-                    NavigationLink{
-                        SheetMusicOrganisationLearn9View()
-                    }label:{
+                    Button(action:{
+                        dismiss()
+                    }){
                         Text("back")
                             .padding()
                             .background(
                                 RoundedRectangle(cornerRadius: 10)
                                     .stroke(.black, lineWidth: 3)
-                                    .frame(width:100,height:50)
-                                
+                                    .frame(width: 100, height: 50)
                             )
                             .foregroundStyle(.black)
                             .font(.system(size: 25))
                     }
-                    
                     Spacer()
                     Image(systemName: "speaker.wave.2.fill")
                         .font(.system(size: 25))
@@ -108,7 +106,7 @@ struct SheetMusicOrganisationLearn10View: View {
                             isSpeaking.toggle()
                         }
                     NavigationLink{
-                        SheetMusicOrganisationReview1View()
+                        SheetMusicOrganisationReview1View(isPresented:$isPresented)
                     }label:{
                         Text("next")
                             .padding()
@@ -150,5 +148,6 @@ struct SheetMusicOrganisationLearn10View: View {
 }
 
 #Preview {
-    SheetMusicOrganisationLearn10View()
+    @Previewable @State var isShowing = false
+    SheetMusicOrganisationLearn10View(isPresented: $isShowing)
 }

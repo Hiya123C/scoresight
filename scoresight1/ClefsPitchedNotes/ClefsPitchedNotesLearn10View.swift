@@ -32,14 +32,15 @@ struct ClefsPitchedNotesLearn10View: View {
             print("Failed to play audio: \(error.localizedDescription)")
         }
     }
-    
+    @Environment(\.dismiss) var dismiss
+    @Binding var isPresented:Bool
     var body: some View {
         NavigationStack {
             VStack {
                 HStack {
-                    NavigationLink{
-                        ClefsPitchedNotesView()
-                    }label:{
+                    Button(action:{
+                        isPresented = false
+                    }){
                         Image(systemName: "x.circle")
                             .symbolRenderingMode(.palette)
                             .foregroundStyle(.black, .white)
@@ -64,34 +65,22 @@ struct ClefsPitchedNotesLearn10View: View {
                     }
                 }
                 HStack{
-                    NavigationLink{
-                        ClefsPitchedNotesLearn9View()
-                    }label:{
+                    Button(action:{
+                        dismiss()
+                    }){
                         Text("back")
                             .padding()
                             .background(
                                 RoundedRectangle(cornerRadius: 10)
                                     .stroke(.black, lineWidth: 3)
-                                    .frame(width:100,height:50)
-                                
+                                    .frame(width: 100, height: 50)
                             )
                             .foregroundStyle(.black)
                             .font(.system(size: 25))
-                        Spacer()
-                        
                     }
-//                    Button(action: {
-//                        playAudio()
-//                        print("playing") //cant hear anything.
-//                    }) {
-//                        Image(systemName: "speaker.wave.2.fill")
-//                            .font(.system(size: 30))
-//                            .foregroundStyle(.black)
-//                    }
-//                    .padding()
-                    
+                    Spacer()
                     NavigationLink{
-                        ClefsPitchedNotesLearn11View()
+                        ClefsPitchedNotesLearn11View(isPresented:$isPresented)
                     }label:{
                         Text("next")
                             .padding()
@@ -122,5 +111,6 @@ struct ClefsPitchedNotesLearn10View: View {
 }
 
 #Preview {
-    ClefsPitchedNotesLearn10View()
+    @Previewable @State var isShowing = false
+   ClefsPitchedNotesLearn10View(isPresented: $isShowing)
 }

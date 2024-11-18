@@ -10,16 +10,19 @@ import AVFoundation
 private let synthesizer = AVSpeechSynthesizer()
 struct TimeSignaturesLearn8View: View {
     @State private var topNumber: Int = 3
-    
+    @Environment(\.dismiss) var dismiss
+    @Binding var isPresented:Bool
     var body: some View {
         NavigationStack {
             VStack {
                 HStack {
-                    NavigationLink(destination: TimeSignaturesView()) {
+                    Button(action:{
+                        isPresented = false
+                    }){
                         Image(systemName: "x.circle")
                             .symbolRenderingMode(.palette)
                             .foregroundStyle(.black, .white)
-                            .font(.system(size: 50))
+                            .font(.system(size:50))
                     }
                     Spacer()
                 }
@@ -48,15 +51,17 @@ struct TimeSignaturesLearn8View: View {
                 Spacer()
                 
                 HStack {
-                    NavigationLink(destination: TimeSignaturesLearn7View()) {
+                    Button(action:{
+                        dismiss()
+                    }){
                         Text("back")
                             .padding()
-                            .frame(width: 100, height: 50)
                             .background(
                                 RoundedRectangle(cornerRadius: 10)
-                                    .stroke(Color.black, lineWidth: 3)
+                                    .stroke(.black, lineWidth: 3)
+                                    .frame(width: 100, height: 50)
                             )
-                            .foregroundColor(.black)
+                            .foregroundStyle(.black)
                             .font(.system(size: 25))
                     }
                     
@@ -90,7 +95,7 @@ struct TimeSignaturesLearn8View: View {
                             .font(.system(size: 30))
                             .foregroundStyle(.black)
                     }
-                    NavigationLink(destination: TimeSignaturesLearn9View()) {
+                    NavigationLink(destination: TimeSignaturesLearn9View(isPresented:$isPresented)) {
                         Text("next")
                             .padding()
                             .frame(width: 100, height: 50)
@@ -131,5 +136,6 @@ struct TimeSignaturesLearn8View: View {
 }
 
 #Preview {
-    TimeSignaturesLearn8View()
+    @Previewable @State var isShowing = false
+   TimeSignaturesLearn8View(isPresented: $isShowing)
 }

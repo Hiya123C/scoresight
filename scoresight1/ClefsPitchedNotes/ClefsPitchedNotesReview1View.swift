@@ -3,13 +3,15 @@
 import SwiftUI
 
 struct ClefsPitchedNotesReviewView: View {
+    @Environment(\.dismiss) var dismiss
+    @Binding var isPresented: Bool
     var body: some View {
         NavigationStack {
             VStack {
                 HStack {
-                    NavigationLink{
-                        ClefsPitchedNotesView()
-                    }label:{
+                    Button(action:{
+                        isPresented = false
+                    }){
                         Image(systemName: "x.circle")
                             .symbolRenderingMode(.palette)
                             .foregroundStyle(.black, .white)
@@ -24,24 +26,22 @@ struct ClefsPitchedNotesReviewView: View {
                     .multilineTextAlignment(.center)
                 Spacer()
                 HStack{
-                    NavigationLink{
-                        ClefsPitchedNotesLearn14View()
-                    }label:{
+                    Button(action:{
+                        dismiss()
+                    }){
                         Text("back")
                             .padding()
                             .background(
                                 RoundedRectangle(cornerRadius: 10)
                                     .stroke(.black, lineWidth: 3)
-                                    .frame(width:100,height:50)
-                                
+                                    .frame(width: 100, height: 50)
                             )
                             .foregroundStyle(.black)
                             .font(.system(size: 25))
-                        Spacer()
-                        
                     }
+                    Spacer()
                     NavigationLink{
-                        ClefsPitchedNotesReview2View()
+                        ClefsPitchedNotesReview2View(isPresented:$isPresented)
                     }label:{
                         Text("next")
                             .padding()
@@ -64,5 +64,6 @@ struct ClefsPitchedNotesReviewView: View {
 }
 
 #Preview {
-    ClefsPitchedNotesReviewView()
+    @Previewable @State var isShowing = false
+   ClefsPitchedNotesReviewView(isPresented: $isShowing)
 }

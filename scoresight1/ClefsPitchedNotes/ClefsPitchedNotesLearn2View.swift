@@ -11,13 +11,15 @@ import AVFoundation
 private let synthesizer = AVSpeechSynthesizer()
 
 struct ClefsPitchedNotesLearn2View: View {
+    @Environment(\.dismiss) var dismiss
+    @Binding var isPresented: Bool
     var body: some View {
         NavigationStack {
         VStack {
             HStack {
-                NavigationLink{
-                    ClefsPitchedNotesView()
-                }label:{
+                Button(action:{
+                    isPresented = false
+                }){
                     Image(systemName: "x.circle")
                         .symbolRenderingMode(.palette)
                         .foregroundStyle(.black, .white)
@@ -31,16 +33,15 @@ struct ClefsPitchedNotesLearn2View: View {
                 .resizable()
                 .scaledToFit()
             HStack{
-                NavigationLink{
-                    ClefsPitchedNotesLearnView()
-                }label:{
+                Button(action:{
+                    dismiss()
+                }){
                     Text("back")
                         .padding()
                         .background(
                             RoundedRectangle(cornerRadius: 10)
                                 .stroke(.black, lineWidth: 3)
-                                .frame(width:100,height:50)
-                            
+                                .frame(width: 100, height: 50)
                         )
                         .foregroundStyle(.black)
                         .font(.system(size: 25))
@@ -56,7 +57,7 @@ struct ClefsPitchedNotesLearn2View: View {
                     .padding()
                 
                 NavigationLink{
-                    ClefsPitchedNotesLearn3View()
+                    ClefsPitchedNotesLearn3View(isPresented:$isPresented)
                 }label:{
                     Text("next")
                         .padding()
@@ -100,5 +101,6 @@ private func stopAudio() {
 }
 
 #Preview {
-    ClefsPitchedNotesLearn2View()
+    @Previewable @State var isShowing = false
+   ClefsPitchedNotesLearn2View(isPresented: $isShowing)
 }

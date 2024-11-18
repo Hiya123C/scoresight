@@ -8,14 +8,17 @@
 import SwiftUI
 
 struct ClefsPitchedNotesView: View {
+    @Environment(\.dismiss) var dismiss
+    @State private var showingSheet = false
+    @State private var showingSheet1 = false
     
     var body: some View {
-        NavigationStack {
+        NavigationStack{
             VStack {
-                HStack {
-                    NavigationLink{
-                        ContentView()
-                    }label:{
+                HStack{
+                    Button(action:{
+                        dismiss()
+                    }){
                         Image(systemName: "x.circle")
                             .symbolRenderingMode(.palette)
                             .foregroundStyle(.black, .white)
@@ -23,6 +26,7 @@ struct ClefsPitchedNotesView: View {
                     }
                     Spacer()
                 }
+
                 Spacer()
                 ViewThatFits{
                     Text("clefs +\npitched notes")
@@ -41,35 +45,40 @@ struct ClefsPitchedNotesView: View {
                     
                 }
                 Spacer()
-                NavigationLink{
-                    ClefsPitchedNotesLearnView()
-                }label:{
-                    ZStack {
-                        Text("learn")
-                            .font(.system(size: 30))
-                            .foregroundStyle(.black)
-                            .bold()
-                            .background (
-                                RoundedRectangle(cornerRadius: 15)
-                                    .stroke(.black, lineWidth: 3)
-                                    .frame(width: 200, height: 50)
-                            )
-                    }
-                    .padding()
+                Button(action:{
+                    showingSheet = true
+                }){
+                    Text("learn")
+                        .font(.system(size: 30))
+                        .foregroundStyle(.black)
+                        .padding()
+                        .bold()
+                        .background(
+                            RoundedRectangle(cornerRadius: 15)
+                                .stroke(.black, lineWidth: 3)
+                                .frame(width: 200, height: 50)
+                        )
+                }.sheet(isPresented: $showingSheet) {
+                    ClefsPitchedNotesLearnView(isPresented:$showingSheet)
                 }
+                
                 Spacer()
-                NavigationLink{
-                    ClefsPitchedNotesReviewView()
-                }label:{
-                    ZStack {
-                        Text("review")
-                            .font(.system(size: 30))
-                            .foregroundStyle(.black)
-                            .bold()
-                        RoundedRectangle(cornerRadius: 15)
-                            .stroke(.black, lineWidth: 3)
-                            .frame(width: 200, height: 50)
-                    }
+                
+                Button(action:{
+                    showingSheet1 = true
+                }){
+                    Text("review")
+                        .font(.system(size: 30))
+                        .foregroundStyle(.black)
+                        .padding()
+                        .bold()
+                        .background(
+                            RoundedRectangle(cornerRadius: 15)
+                                .stroke(.black, lineWidth: 3)
+                                .frame(width: 200, height: 50)
+                        )
+                }.sheet(isPresented: $showingSheet1) {
+                    ClefsPitchedNotesReviewView(isPresented:$showingSheet1)
                 }
                 Spacer()
             }

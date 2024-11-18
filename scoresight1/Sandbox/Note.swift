@@ -7,7 +7,7 @@ struct Note: Identifiable {
     var position: CGPoint
     var NoteLength: NoteLength
     var pitch: NotePitch{
-        switch position.y {
+        switch Double(round(position.y * 100)/100) {
         case 25.6: return .d
         case 12.8: return .e
         case 0: return .f
@@ -18,7 +18,7 @@ struct Note: Identifiable {
         case -64: return .D
         case -76.8: return .E
         case -89.6: return .F
-        case -102.2: return .G //why cant detrec ahh
+        case -102.4: return .G //why cant detrec ahh
         default: return .b // default pitch
         }
     }

@@ -10,16 +10,19 @@ import AVFoundation
 
 struct RhythmNotesRestsLearn12View: View {
     private let synthesizer = AVSpeechSynthesizer()
-
+    @Environment(\.dismiss) var dismiss
+    @Binding var isPresented:Bool
     var body: some View {
         NavigationStack {
             VStack {
                 HStack {
-                    NavigationLink(destination: RhythmNotesRestsView()) {
+                    Button(action:{
+                        isPresented = false
+                    }){
                         Image(systemName: "x.circle")
                             .symbolRenderingMode(.palette)
                             .foregroundStyle(.black, .white)
-                            .font(.system(size: 50))
+                            .font(.system(size:50))
                     }
                     Spacer()
                 }
@@ -43,15 +46,17 @@ struct RhythmNotesRestsLearn12View: View {
 
                 Spacer()
                 HStack {
-                    NavigationLink(destination: RhythmNotesRestsLearn11View()) {
+                    Button(action:{
+                        dismiss()
+                    }){
                         Text("back")
                             .padding()
-                            .frame(width: 100, height: 50)
                             .background(
                                 RoundedRectangle(cornerRadius: 10)
                                     .stroke(.black, lineWidth: 3)
+                                    .frame(width: 100, height: 50)
                             )
-                            .foregroundColor(.black)
+                            .foregroundStyle(.black)
                             .font(.system(size: 25))
                     }
                     Spacer()
@@ -65,7 +70,7 @@ struct RhythmNotesRestsLearn12View: View {
                             .padding(.trailing, 20)
                     }
 
-                    NavigationLink(destination: RhythmNotesRestsLearn13View()) {
+                    NavigationLink(destination: RhythmNotesRestsLearn13View(isPresented:$isPresented)) {
                         Text("next")
                             .padding()
                             .frame(width: 100, height: 50)
@@ -104,5 +109,6 @@ struct RhythmNotesRestsLearn12View: View {
 }
 
 #Preview {
-    RhythmNotesRestsLearn12View()
+    @Previewable @State var isShowing = false
+    RhythmNotesRestsLearn12View(isPresented: $isShowing)
 }

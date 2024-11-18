@@ -12,8 +12,9 @@ struct DynamicsLearnView: View {
     
     @State private var volume = 0.0
     @State private var isEditing = false
-    // figure out how to change the slider colour
     @State private var audioPlayer: AVAudioPlayer?
+    @Environment(\.dismiss) var dismiss
+    @Binding var isPresented: Bool
     
     func playAudio1() {
         guard let soundURL = Bundle.main.url(forResource: "ppp", withExtension: "mp3") else {
@@ -24,9 +25,6 @@ struct DynamicsLearnView: View {
                 audioPlayer = try AVAudioPlayer(contentsOf: soundURL)
                 audioPlayer?.numberOfLoops = 0
                 audioPlayer?.play()
-
-            
-    
         } catch {
             print("Failed to play audio: \(error.localizedDescription)")
         }
@@ -149,9 +147,9 @@ struct DynamicsLearnView: View {
         NavigationStack {
             VStack {
                 HStack {
-                    NavigationLink{
-                        DynamicsView()
-                    } label:{
+                    Button(action:{
+                        isPresented = false
+                    }){
                         Image(systemName: "x.circle")
                             .symbolRenderingMode(.palette)
                             .foregroundStyle(.black, .white)
@@ -287,7 +285,7 @@ struct DynamicsLearnView: View {
                 HStack{
                     Spacer()
                     NavigationLink{
-                        DynamicsLearn2View()
+                        DynamicsLearn2View(isPresented:$isPresented)
                     } label:{
                         Text("next")
                             .padding()
@@ -342,5 +340,6 @@ struct DynamicsLearnView: View {
 }
 
 #Preview {
-    DynamicsLearnView()
+    @Previewable @State var isShowing = false
+  DynamicsLearnView(isPresented: $isShowing)
 }

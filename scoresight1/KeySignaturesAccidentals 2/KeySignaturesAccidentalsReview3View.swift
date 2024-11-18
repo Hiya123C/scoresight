@@ -12,19 +12,20 @@ struct KeySignaturesAccidentalsReview3View: View {
     @State private var selectedAnswer: String? = nil
     @State private var correctAnswer: Bool = false
     @State private var wrongAnswer: Bool = false
+    @Binding var isPresented: Bool
     
     var body: some View {
         VStack {
             NavigationStack {
                 VStack {
                     HStack {
-                        NavigationLink {
-                            KeySignaturesAccidentalsView()
-                        } label: {
+                        Button(action:{
+                            isPresented = false
+                        }){
                             Image(systemName: "x.circle")
                                 .symbolRenderingMode(.palette)
                                 .foregroundStyle(.black, .white)
-                                .font(.system(size: 50))
+                                .font(.system(size:50))
                         }
                         Spacer()
                     }
@@ -64,7 +65,7 @@ struct KeySignaturesAccidentalsReview3View: View {
                         HStack {
                             Spacer()
                             NavigationLink {
-                                KeySignaturesAccidentalsReview4View()
+                                KeySignaturesAccidentalsReview4View(isPresented:$isPresented)
                             } label: {
                                 Text("next")
                                     .padding()
@@ -98,5 +99,6 @@ struct KeySignaturesAccidentalsReview3View: View {
 }
 
 #Preview {
-    KeySignaturesAccidentalsReview3View()
+    @Previewable @State var isShowing = false
+   KeySignaturesAccidentalsReview3View(isPresented: $isShowing)
 }

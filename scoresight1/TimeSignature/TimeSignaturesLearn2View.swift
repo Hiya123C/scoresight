@@ -11,18 +11,21 @@ import AVFoundation
 private let synthesizer = AVSpeechSynthesizer()
 
 struct TimeSignaturesLearn2View: View {
+    @Environment(\.dismiss) var dismiss
+    @Binding var isPresented:Bool
     var body: some View {
         NavigationStack {
             VStack(spacing: 20) {
                 HStack {
-                    Button(action: {}) {
-                        NavigationLink(destination: TimeSignaturesView()) {
-                            Image(systemName: "x.circle")
-                                .symbolRenderingMode(.palette)
-                                .foregroundStyle(.black, .white)
-                                .font(.system(size: 50))
-                        }
+                    Button(action:{
+                        isPresented = false
+                    }){
+                        Image(systemName: "x.circle")
+                            .symbolRenderingMode(.palette)
+                            .foregroundStyle(.black, .white)
+                            .font(.system(size:50))
                     }
+                    
                     Spacer()
                 }
                 .padding([.top, .leading])
@@ -39,13 +42,15 @@ struct TimeSignaturesLearn2View: View {
                 .padding()
                 
                 HStack {
-                    NavigationLink(destination: TimeSignaturesLearnView()) {
+                    Button(action:{
+                        dismiss()
+                    }){
                         Text("back")
                             .padding()
-                            .frame(width: 100, height: 50)
                             .background(
                                 RoundedRectangle(cornerRadius: 10)
                                     .stroke(.black, lineWidth: 3)
+                                    .frame(width: 100, height: 50)
                             )
                             .foregroundStyle(.black)
                             .font(.system(size: 25))
@@ -58,7 +63,7 @@ struct TimeSignaturesLearn2View: View {
                             .font(.system(size: 30))
                             .foregroundStyle(.black)
                     }
-                    NavigationLink(destination: TimeSignaturesLearn3View()) {
+                    NavigationLink(destination: TimeSignaturesLearn3View(isPresented:$isPresented)) {
                         Text("next")
                             .padding()
                             .frame(width: 100, height: 50)
@@ -100,5 +105,6 @@ struct TimeSignaturesLearn2View: View {
 }
 
 #Preview {
-    TimeSignaturesLearn2View()
+    @Previewable @State var isShowing = false
+   TimeSignaturesLearn2View(isPresented: $isShowing)
 }

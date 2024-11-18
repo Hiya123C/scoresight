@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct ArticulationsOrnamentsReview5View: View {
+    @Binding var isPresented: Bool
     var body: some View {
         VStack{
             NavigationStack{
@@ -18,9 +19,9 @@ struct ArticulationsOrnamentsReview5View: View {
                 
                 
                 Spacer()
-                NavigationLink{
-                    ContentView()
-                }label:{
+                Button(action:{
+                    isPresented = false
+                }){
                     Text("exit")
                         .padding()
                         .font(.system(size: 30))
@@ -30,15 +31,15 @@ struct ArticulationsOrnamentsReview5View: View {
                         .background(
                             RoundedRectangle(cornerRadius: 10)
                                 .fill(Color.red)
-                           
+                            
                         )
                         .background(
                             RoundedRectangle(cornerRadius: 10)
                                 .stroke(.black, lineWidth: 5)
                         )
                 }
-                    Spacer()
-                }
+                Spacer()
+            }
         }
         .navigationBarBackButtonHidden(true)
     }
@@ -46,5 +47,6 @@ struct ArticulationsOrnamentsReview5View: View {
 
 
 #Preview {
-    ArticulationsOrnamentsReview5View()
+    @Previewable @State var isShowing = false
+    ArticulationsOrnamentsReview5View(isPresented: $isShowing)
 }

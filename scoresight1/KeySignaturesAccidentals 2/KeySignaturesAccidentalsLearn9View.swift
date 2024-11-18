@@ -9,8 +9,8 @@ struct KeySignaturesAccidentalsLearn9View: View {
     
     @State private var opacities: [Double] = Array(repeating: 0, count: 8) // Start all images hidden
     @State private var currentIndex = 0
-    let animationDuration: Double = 1.0  // Duration for fade in/out
-    let delayBetweenImages: Double = 0.5 // Delay before showing next image
+    let animationDuration: Double = 0.5  // Duration for fade in/out
+    let delayBetweenImages: Double = 0.2 // Delay before showing next image
     
     // Define positions for each sharp relative to the staff
     let positions: [(x: CGFloat, y: CGFloat)] = [
@@ -65,14 +65,15 @@ struct KeySignaturesAccidentalsLearn9View: View {
         // Start the animation sequence
         animateNext()
     }
-    
+    @Environment(\.dismiss) var dismiss
+    @Binding var isPresented: Bool
     var body: some View {
         NavigationStack {
             VStack {
                 HStack {
-                    NavigationLink{
-                        KeySignaturesAccidentalsView()
-                    } label:{
+                    Button(action:{
+                        isPresented = false
+                    }){
                         Image(systemName: "x.circle")
                             .symbolRenderingMode(.palette)
                             .foregroundStyle(.black, .white)
@@ -102,20 +103,18 @@ struct KeySignaturesAccidentalsLearn9View: View {
                 }
                 
                 HStack{
-                    NavigationLink{
-                        KeySignaturesAccidentalsLearn8View()
-                    } label:{
+                    Button(action:{
+                        dismiss()
+                    }){
                         Text("back")
                             .padding()
                             .background(
                                 RoundedRectangle(cornerRadius: 10)
                                     .stroke(.black, lineWidth: 3)
-                                    .frame(width:100,height:50)
-                                
+                                    .frame(width: 100, height: 50)
                             )
                             .foregroundStyle(.black)
                             .font(.system(size: 25))
-                        
                     }
                     Spacer()
                     Button(action: {
@@ -127,7 +126,7 @@ struct KeySignaturesAccidentalsLearn9View: View {
                     }
                     .padding()
                     NavigationLink{
-                        KeySignaturesAccidentalsLearn10View()
+                        KeySignaturesAccidentalsLearn10View(isPresented:$isPresented)
                     } label:{
                         Text("next")
                             .padding()
@@ -171,5 +170,6 @@ struct KeySignaturesAccidentalsLearn9View: View {
 }
 
 #Preview {
-    KeySignaturesAccidentalsLearn9View()
+    @Previewable @State var isShowing = false
+   KeySignaturesAccidentalsLearn9View(isPresented: $isShowing)
 }

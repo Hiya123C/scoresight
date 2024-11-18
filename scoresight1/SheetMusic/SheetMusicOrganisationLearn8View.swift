@@ -30,18 +30,19 @@ struct SheetMusicOrganisationLearn8View: View {
             print("Failed to play audio: \(error.localizedDescription)")
         }
     }
-
+    @Environment(\.dismiss) var dismiss
+    @Binding var isPresented:Bool
     var body: some View {
-        VStack {
-            NavigationStack {
-                HStack {
-                    NavigationLink {
-                        SheetMusicOrganisationView()
-                    } label: {
+        NavigationStack{
+            VStack {
+                HStack{
+                    Button(action:{
+                        isPresented = false
+                    }){
                         Image(systemName: "x.circle")
                             .symbolRenderingMode(.palette)
                             .foregroundStyle(.black, .white)
-                            .font(.system(size: 50))
+                            .font(.system(size:50))
                     }
                     Spacer()
                 }
@@ -75,9 +76,9 @@ struct SheetMusicOrganisationLearn8View: View {
                 .frame(maxHeight: .infinity)
                 
                 HStack {
-                    NavigationLink {
-                        SheetMusicOrganisationLearn7View()
-                    } label: {
+                    Button(action:{
+                        dismiss()
+                    }){
                         Text("back")
                             .padding()
                             .background(
@@ -105,7 +106,7 @@ struct SheetMusicOrganisationLearn8View: View {
                         }
                     
                     NavigationLink {
-                        SheetMusicOrganisationLearn9View()
+                        SheetMusicOrganisationLearn9View(isPresented:$isPresented)
                     } label: {
                         Text("next")
                             .padding()
@@ -153,5 +154,6 @@ struct SheetMusicOrganisationLearn8View: View {
 
 
 #Preview {
-    SheetMusicOrganisationLearn8View()
+    @Previewable @State var isShowing = false
+    SheetMusicOrganisationLearn8View(isPresented: $isShowing)
 }

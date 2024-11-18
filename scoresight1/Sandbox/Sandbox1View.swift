@@ -7,16 +7,17 @@ struct Sandbox1View: View {
     @StateObject private var viewModel = SandboxViewModel()
     @StateObject private var audioManager = AudioManager()
     @State private var selectedRestIndex: Int? = nil
-    
+    @Environment(\.dismiss) var dismiss
     
     var body: some View {
         NavigationStack{
             VStack{
                 HStack{
-                    NavigationLink{
-                        SandboxView()
-                    }label:{
+                    Button(action:{
+                        dismiss()
+                    }){
                         Image(systemName: "x.circle")
+                            .symbolRenderingMode(.palette)
                             .foregroundStyle(.black, .white)
                             .font(.system(size:50))
                     }
@@ -75,27 +76,19 @@ struct Sandbox1View: View {
                                             .gesture(
                                                 DragGesture()
                                                     .onEnded{ value in
-                                                print(value.translation)
                                                         if value.translation.height > 20 {
-                                                            print("down")
-                                                            if viewModel.notes[index].position.y < 24 {
+                                                                                                                  if viewModel.notes[index].position.y < 24 {
                                                                 
                                                                 viewModel.notes[index].position.y += 12.8
                                                             }
                                                             
                                                         } else if value.translation.height < -10 {
-                                                        print("up")
+                                                        
                                                             if viewModel.notes[index].position.y > -96 {
                                                                 viewModel.notes[index].position.y -= 12.8
                                                             }
                                                     }
-                                                        print(viewModel.notes[index].pitch)
-                                                        
                                                 }
-                                                        //how to link notePitch w/o error
-                                                        //                                                                                                                        let notePitch = viewModel.notes[index].notePitch(from: verticalPosition)
-                                                        //                                                                                                                        print("Note at position \(verticalPosition) has pitch \(notePitch.rawValue)")
-//                                                    }
                                             )
                                             ForEach(0..<viewModel.notes[index].NoteLength.lengthMultiplier, id: \.self) { _ in
                                                 //spacing in between notes

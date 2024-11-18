@@ -12,19 +12,19 @@ struct ArticulationsOrnamentsReview4View: View {
     @State private var selectedAnswer: String? = nil
     @State private var correctAnswer: Bool = false
     @State private var wrongAnswer: Bool = false
-    
+    @Binding var isPresented: Bool
     var body: some View {
         VStack {
             NavigationStack {
                 VStack {
                     HStack {
-                        NavigationLink {
-                            ArticulationsOrnamentsView()
-                        } label: {
+                        Button(action:{
+                            isPresented = false
+                        }){
                             Image(systemName: "x.circle")
                                 .symbolRenderingMode(.palette)
                                 .foregroundStyle(.black, .white)
-                                .font(.system(size: 50))
+                                .font(.system(size:50))
                         }
                         Spacer()
                     }
@@ -76,7 +76,7 @@ struct ArticulationsOrnamentsReview4View: View {
                         HStack {
                             Spacer()
                             NavigationLink {
-                                ArticulationsOrnamentsReview5View()
+                                ArticulationsOrnamentsReview5View(isPresented:$isPresented)
                             } label: {
                                 Text("next")
                                     .padding()
@@ -111,5 +111,6 @@ struct ArticulationsOrnamentsReview4View: View {
 }
 
 #Preview {
-    ArticulationsOrnamentsReview4View()
+    @Previewable @State var isShowing = false
+  ArticulationsOrnamentsReview4View(isPresented: $isShowing)
 }

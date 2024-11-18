@@ -7,24 +7,24 @@ struct SheetMusicOrganisationReview3View: View {
     @State private var selectedAnswer: String? = nil
     @State private var correctAnswer: Bool = false
     @State private var wrongAnswer: Bool = false
-    
+    @Environment(\.dismiss) var dismiss
+    @Binding var isPresented:Bool
     var body: some View {
-        VStack {
-            NavigationStack {
-                VStack {
-                    HStack {
-                        NavigationLink {
-                            SheetMusicOrganisationView()
-                        } label: {
-                            Image(systemName: "x.circle")
-                                .symbolRenderingMode(.palette)
-                                .foregroundStyle(.black, .white)
-                                .font(.system(size: 50))
-                        }
-                        Spacer()
+        NavigationStack{
+            VStack {
+                HStack{
+                    Button(action:{
+                        isPresented = false
+                    }){
+                        Image(systemName: "x.circle")
+                            .symbolRenderingMode(.palette)
+                            .foregroundStyle(.black, .white)
+                            .font(.system(size:50))
                     }
                     Spacer()
+                }
                     
+                    Spacer()
                     VStack {
                         Text("Which direction should the stave be pointing at?")
                             .font(.system(size: 40))
@@ -64,7 +64,7 @@ struct SheetMusicOrganisationReview3View: View {
                         HStack {
                             Spacer()
                             NavigationLink {
-                                SheetMusicOrganisationReview4View()
+                                SheetMusicOrganisationReview4View(isPresented:$isPresented)
                             } label: {
                                 Text("next")
                                     .padding()
@@ -91,13 +91,12 @@ struct SheetMusicOrganisationReview3View: View {
                                 .padding(.top, 10)
                         }
                     }
-                }
+                }.navigationBarBackButtonHidden(true)
             }
-        }
-        .navigationBarBackButtonHidden(true)
     }
 }
 
 #Preview {
-    SheetMusicOrganisationReview3View()
+    @Previewable @State var isShowing = false
+    SheetMusicOrganisationReview3View(isPresented:$isShowing)
 }

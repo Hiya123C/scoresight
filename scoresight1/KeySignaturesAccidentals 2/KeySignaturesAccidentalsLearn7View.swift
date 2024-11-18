@@ -15,13 +15,13 @@ struct KeySignaturesAccidentalsLearn7View: View {
     // Define positions for each sharp relative to the staff
     let positions: [(x: CGFloat, y: CGFloat)] = [
         (x: 0, y: 0),
-        (x: 3, y: -3),
-        (x: 3, y: -3),
-        (x: -1, y: -4),
-        (x: 1, y: -3),
-        (x: 2, y: -3),
-        (x: 2, y: -3),    
-        (x: 3, y: -3)
+        (x: 0, y: 0),
+        (x: 0, y: 0),
+        (x: 0, y: 0),
+        (x: 0, y: 0),
+        (x: 0, y: 0),
+        (x: 0, y: 0),
+        (x: 0, y: 0)
     ]
     
     func startAnimation() {
@@ -65,13 +65,15 @@ struct KeySignaturesAccidentalsLearn7View: View {
         animateNext()
     }
     
+    @Environment(\.dismiss) var dismiss
+    @Binding var isPresented: Bool
     var body: some View {
         NavigationStack {
             VStack {
                 HStack {
-                    NavigationLink{
-                        KeySignaturesAccidentalsView()
-                    } label:{
+                    Button(action:{
+                        isPresented = false
+                    }){
                         Image(systemName: "x.circle")
                             .symbolRenderingMode(.palette)
                             .foregroundStyle(.black, .white)
@@ -102,20 +104,18 @@ struct KeySignaturesAccidentalsLearn7View: View {
                 }
                 
                 HStack{
-                    NavigationLink{
-                        KeySignaturesAccidentalsLearn6View()
-                    } label:{
+                    Button(action:{
+                        dismiss()
+                    }){
                         Text("back")
                             .padding()
                             .background(
                                 RoundedRectangle(cornerRadius: 10)
                                     .stroke(.black, lineWidth: 3)
-                                    .frame(width:100,height:50)
-                                
+                                    .frame(width: 100, height: 50)
                             )
                             .foregroundStyle(.black)
                             .font(.system(size: 25))
-                        
                     }
                     Spacer()
                     Button(action: {
@@ -127,7 +127,7 @@ struct KeySignaturesAccidentalsLearn7View: View {
                     }
                     .padding()
                     NavigationLink{
-                        KeySignaturesAccidentalsLearn8View()
+                        KeySignaturesAccidentalsLearn8View(isPresented:$isPresented)
                     } label:{
                         Text("next")
                             .padding()
@@ -169,5 +169,6 @@ struct KeySignaturesAccidentalsLearn7View: View {
 }
 
 #Preview {
-    KeySignaturesAccidentalsLearn7View()
+    @Previewable @State var isShowing = false
+   KeySignaturesAccidentalsLearn7View(isPresented: $isShowing)
 }

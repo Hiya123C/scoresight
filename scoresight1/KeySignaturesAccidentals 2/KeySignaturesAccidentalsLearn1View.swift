@@ -11,13 +11,15 @@ import AVFoundation
 private let synthesizer = AVSpeechSynthesizer()
 
 struct KeySignaturesAccidentalsLearnView: View {
+    @Environment(\.dismiss) var dismiss
+    @Binding var isPresented: Bool
     var body: some View {
-        NavigationStack {
+        NavigationStack{
             VStack {
-                HStack {
-                    NavigationLink{
-                        KeySignaturesAccidentalsView()
-                    } label:{
+                HStack{
+                    Button(action:{
+                        isPresented = false
+                    }){
                         Image(systemName: "x.circle")
                             .symbolRenderingMode(.palette)
                             .foregroundStyle(.black, .white)
@@ -49,7 +51,7 @@ struct KeySignaturesAccidentalsLearnView: View {
                     }
                     .padding()
                     NavigationLink{
-                        KeySignaturesAccidentalsLearn2View()
+                        KeySignaturesAccidentalsLearn2View(isPresented:$isPresented)
                     } label:{
                         Text("next")
                             .padding()
@@ -93,5 +95,6 @@ struct KeySignaturesAccidentalsLearnView: View {
 }
 
 #Preview {
-    KeySignaturesAccidentalsLearnView()
+    @Previewable @State var isShowing = false
+   KeySignaturesAccidentalsLearnView(isPresented: $isShowing)
 }

@@ -6,50 +6,62 @@ private let synthesizer = AVSpeechSynthesizer()
 struct ArticulationsOrnamentsLearn5View: View {
     @State private var isPlayingAudio = false
     @State private var audioPlayer: AVAudioPlayer?
-
-    // Reusable description text
-    private let narrationText = "This is a staccato. You play the note short and detached, with a brief silence following each note, like so:"
-
-    init() {
-        synthesizer.delegate = SpeechDelegate1.shared
-    }
-
-    func playPiano() {
+    @Environment(\.dismiss) var dismiss
+    @Binding var isPresented: Bool
+    
+    func playAudio() {
         guard let soundURL = Bundle.main.url(forResource: "staccato", withExtension: "mp3") else {
-            print("Audio file not found.")
+            print("Audio cannot find.")
             return
         }
         do {
-            audioPlayer = try AVAudioPlayer(contentsOf: soundURL)
-            audioPlayer?.numberOfLoops = 0
-            audioPlayer?.play()
+            if audioPlayer == nil {
+                audioPlayer = try AVAudioPlayer(contentsOf: soundURL)
+                audioPlayer?.numberOfLoops = 0
+            }
+            
+            if let player = audioPlayer {
+                if isPlayingAudio {
+                    player.pause()
+                } else {
+                    player.play()
+                }
+                isPlayingAudio.toggle()
+            }
         } catch {
             print("Failed to play audio: \(error.localizedDescription)")
         }
     }
-
+    
     var body: some View {
         NavigationStack {
             VStack {
-                // Close Button
                 HStack {
-                    NavigationLink {
-                        ArticulationsOrnamentsView()
-                    } label: {
+                    Button(action:{
+                        isPresented = false
+                    }){
                         Image(systemName: "x.circle")
                             .symbolRenderingMode(.palette)
                             .foregroundStyle(.black, .white)
-                            .font(.system(size: 50))
+                            .font(.system(size:50))
                     }
                     Spacer()
                 }
                 Spacer()
 
-                // Image and Description
                 HStack {
                     Image("staccato")
                         .resizable()
                         .scaledToFit()
+                    Button(action: {
+                        playAudio()
+                    }) {
+                        Image(systemName: isPlayingAudio ? "pause.circle" : "play.circle")
+                            .symbolRenderingMode(.palette)
+                            .foregroundStyle(.black, .black)
+                            .font(.system(size: 50))
+                            .padding(50)
+                    }
                     VStack(alignment: .trailing) {
                         Text("this is a")
                             .font(.system(size: 40))
@@ -60,11 +72,10 @@ struct ArticulationsOrnamentsLearn5View: View {
                 }
                 Spacer()
 
-                // Buttons (Back, Replay Audio, Next)
                 HStack {
-                    NavigationLink {
-                        ArticulationsOrnamentsLearn4View()
-                    } label: {
+                    Button(action:{
+                        dismiss()
+                    }){
                         Text("back")
                             .padding()
                             .background(
@@ -85,7 +96,7 @@ struct ArticulationsOrnamentsLearn5View: View {
                     }
                     .padding()
                     NavigationLink {
-                        ArticulationsOrnamentsLearn6View()
+                        ArticulationsOrnamentsLearn6View(isPresented:$isPresented)
                     } label: {
                         Text("next")
                             .padding()
@@ -101,11 +112,8 @@ struct ArticulationsOrnamentsLearn5View: View {
                 .padding(.horizontal)
             }
             .onAppear {
-                // Trigger speech and piano setup
-                SpeechDelegate1.shared.onSpeechFinished = {
-                    playPiano()
-                }
-                speakText(narrationText)
+                
+                speakText("this is a staccato. you play the note short and detached, with a brief silence following each note.")
             }
             .onDisappear {
                 stopAudio()
@@ -124,7 +132,7 @@ struct ArticulationsOrnamentsLearn5View: View {
 
     // Replay narration and audio
     private func replayAudio() {
-        speakText(narrationText)
+        speakText("this is a staccato. you play the note short and detached, with a brief silence following each note.")
     }
 
     // Stop all audio
@@ -137,5 +145,6 @@ struct ArticulationsOrnamentsLearn5View: View {
 
 
 #Preview {
-    ArticulationsOrnamentsLearn5View()
+    @Previewable @State var isShowing = false
+  ArticulationsOrnamentsLearn5View(isPresented: $isShowing)
 }

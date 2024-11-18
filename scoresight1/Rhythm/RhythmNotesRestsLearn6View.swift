@@ -11,28 +11,30 @@ import AVFoundation
 private let synthesizer = AVSpeechSynthesizer()
 
 struct RhythmNotesRestsLearn6View: View {
+    @Environment(\.dismiss) var dismiss
+    @Binding var isPresented:Bool
     var body: some View {
         NavigationStack {
             VStack {
                 HStack {
-                    Button(action: {}) {
-                        NavigationLink(destination: RhythmNotesRestsView()) {
-                            Image(systemName: "x.circle")
-                                .symbolRenderingMode(.palette)
-                                .foregroundStyle(.black, .white)
-                                .font(.system(size: 50))
-                        }
+                    Button(action:{
+                        isPresented = false
+                    }){
+                        Image(systemName: "x.circle")
+                            .symbolRenderingMode(.palette)
+                            .foregroundStyle(.black, .white)
+                            .font(.system(size:50))
                     }
                     Spacer()
                 }
                 .padding(.top)
-
+                
                 Spacer()
                 HStack (spacing: 90) {
                     Image("quaver rest")
                         .resizable()
                         .scaledToFit()
-
+                    
                     VStack(alignment: .leading, spacing: 5) {
                         Text("This is a")
                             .font(.system(size: 40))
@@ -44,11 +46,13 @@ struct RhythmNotesRestsLearn6View: View {
                     }
                 }
                 .padding()
-
+                
                 Spacer()
-
+                
                 HStack {
-                    NavigationLink(destination: RhythmNotesRestsLearn5View()) {
+                    Button(action:{
+                        dismiss()
+                    }){
                         Text("back")
                             .padding()
                             .background(
@@ -69,7 +73,7 @@ struct RhythmNotesRestsLearn6View: View {
                                 .foregroundStyle(.black)
                                 .padding(.trailing, 10)
                         }
-                        NavigationLink(destination: RhythmNotesRestsLearn7View()) {
+                        NavigationLink(destination: RhythmNotesRestsLearn7View(isPresented:$isPresented)) {
                             Text("next")
                                 .padding()
                                 .background(
@@ -87,18 +91,18 @@ struct RhythmNotesRestsLearn6View: View {
             .navigationBarHidden(true)
             .onAppear {
                 speakText("This is a quaver rest. Similar to the quaver note, it is half a beat long. However, instead of holding the note, you don’t play for half a beat.")
-        }
-        .navigationBarHidden(true)
-                .onDisappear {
-                    synthesizer.stopSpeaking(at: .immediate)
-                }
+            }
+            .navigationBarHidden(true)
+            .onDisappear {
+                synthesizer.stopSpeaking(at: .immediate)
+            }
         }
     }
-
+    
     private func replayAudio() {
         speakText("This is a quaver rest. Similar to the quaver note, it is half a beat long. However, instead of holding the note, you don’t play for half a beat.")
     }
-
+    
     private func speakText(_ text: String) {
         let utterance = AVSpeechUtterance(string: text)
         utterance.voice = AVSpeechSynthesisVoice(language: "en-US")
@@ -108,5 +112,7 @@ struct RhythmNotesRestsLearn6View: View {
 }
 
 #Preview {
-    RhythmNotesRestsLearn6View()
+    @Previewable @State var isShowing = false
+    RhythmNotesRestsLearn6View(isPresented: $isShowing)
+    
 }

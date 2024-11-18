@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct DynamicsReview5View: View {
+    @Binding var isPresented: Bool
     var body: some View {
         VStack{
             NavigationStack{
@@ -18,9 +19,9 @@ struct DynamicsReview5View: View {
                 
                 
                 Spacer()
-                NavigationLink{
-                    ContentView()
-                }label:{
+                Button(action:{
+                    isPresented = false
+                }){
                     Text("exit")
                         .padding()
                         .font(.system(size: 30))
@@ -45,5 +46,6 @@ struct DynamicsReview5View: View {
 }
 
 #Preview {
-    DynamicsReview5View()
+    @Previewable @State var isShowing = false
+    DynamicsReview5View(isPresented: $isShowing)
 }

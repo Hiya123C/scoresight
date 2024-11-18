@@ -8,13 +8,15 @@
 import SwiftUI
 
 struct ArticulationsOrnamentsReviewView: View {
+    @Environment(\.dismiss) var dismiss
+    @Binding var isPresented: Bool
     var body: some View {
         NavigationStack {
             VStack {
                 HStack {
-                    NavigationLink{
-                        ArticulationsOrnamentsView()
-                    }label:{
+                    Button(action:{
+                        isPresented = false
+                    }){
                         Image(systemName: "x.circle")
                             .symbolRenderingMode(.palette)
                             .foregroundStyle(.black, .white)
@@ -29,24 +31,22 @@ struct ArticulationsOrnamentsReviewView: View {
                     .multilineTextAlignment(.center)
                 Spacer()
                 HStack{
-                    NavigationLink{
-                        ArticulationsOrnamentsLearn14View()
-                    }label:{
+                    Button(action:{
+                        dismiss()
+                    }){
                         Text("back")
                             .padding()
                             .background(
                                 RoundedRectangle(cornerRadius: 10)
                                     .stroke(.black, lineWidth: 3)
-                                    .frame(width:100,height:50)
-                                
+                                    .frame(width: 100, height: 50)
                             )
                             .foregroundStyle(.black)
                             .font(.system(size: 25))
-                        Spacer()
-                        
                     }
+                    Spacer()
                     NavigationLink{
-                        ArticulationsOrnamentsReview2View()
+                        ArticulationsOrnamentsReview2View(isPresented:$isPresented)
                     }label:{
                         Text("next")
                             .padding()
@@ -69,5 +69,6 @@ struct ArticulationsOrnamentsReviewView: View {
 }
 
 #Preview {
-    ArticulationsOrnamentsReviewView()
+    @Previewable @State var isShowing = false
+  ArticulationsOrnamentsReviewView(isPresented: $isShowing)
 }

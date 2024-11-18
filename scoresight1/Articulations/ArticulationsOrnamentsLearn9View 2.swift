@@ -1,19 +1,14 @@
-//
-//  DynamicsLearn2View.swift
-//  scoresight1
-//
-//  Created by Li Jiansheng on 11/11/24.
-//
-
 import SwiftUI
 import AVFoundation
 
-struct DynamicsLearn2View: View {
-    
+private let synthesizer = AVSpeechSynthesizer()
+
+struct ArticulationsOrnamentsLearn9View: View {
     @State private var audioPlayer: AVAudioPlayer?
     @State private var isPlayingAudio = false
+    
     func playAudio() {
-        guard let soundURL = Bundle.main.url(forResource: "crescendo", withExtension: "mp3") else {
+        guard let soundURL = Bundle.main.url(forResource: "marcato", withExtension: "mp3") else {
             print("Audio cannot find.")
             return
         }
@@ -35,11 +30,12 @@ struct DynamicsLearn2View: View {
             print("Failed to play audio: \(error.localizedDescription)")
         }
     }
-    @Binding var isPresented: Bool
     @Environment(\.dismiss) var dismiss
+    @Binding var isPresented: Bool
     var body: some View {
         NavigationStack {
             VStack {
+                // Close Button
                 HStack {
                     Button(action:{
                         isPresented = false
@@ -52,32 +48,32 @@ struct DynamicsLearn2View: View {
                     Spacer()
                 }
                 Spacer()
-                    VStack{
-                        HStack{
-                            Image("crescendo")
-                                .resizable()
-                                .scaledToFit()
-                                .scaleEffect(1.2)
-                            
-                            
-                            Button(action: {
-                                playAudio()
-                            }) {
-                                Image(systemName: isPlayingAudio ? "pause.circle" : "play.circle")
-                                    .symbolRenderingMode(.palette)
-                                    .foregroundStyle(.black, .black)
-                                    .font(.system(size: 50))
-                                    .padding(30)
-                            }
-                        }
-                        Text("gradually getting louder")
-                            .font(.system(size: 25))
-                        Text("crescendo")
-                            .font(.system(size:80))
+
+                // Image and Description
+                HStack {
+                    Image("marcato")
+                        .resizable()
+                        .scaledToFit()
+                    Button(action: {
+                        playAudio()
+                    }) {
+                        Image(systemName: isPlayingAudio ? "pause.circle" : "play.circle")
+                            .symbolRenderingMode(.palette)
+                            .foregroundStyle(.black, .black)
+                            .font(.system(size: 50))
+                            .padding(50)
+                    }
+                    VStack(alignment: .trailing) {
+                        Text("this is a")
+                            .font(.system(size: 40))
+                        Text("marcato")
+                            .font(.system(size: 80))
                             .bold()
+                    }
                 }
                 Spacer()
-                HStack{
+                
+                HStack {
                     Button(action:{
                         dismiss()
                     }){
@@ -92,38 +88,63 @@ struct DynamicsLearn2View: View {
                             .font(.system(size: 25))
                     }
                     Spacer()
-                    NavigationLink{
-                        DynamicsLearn3View(isPresented:$isPresented)
-                    } label:{
+                    Button(action: {
+                        replayAudio()
+                    }) {
+                        Image(systemName: "speaker.wave.2.fill")
+                            .font(.system(size: 30))
+                            .foregroundStyle(.black)
+                    }
+                    .padding()
+                    NavigationLink {
+                        ArticulationsOrnamentsLearn10View(isPresented:$isPresented)
+                    } label: {
                         Text("next")
                             .padding()
                             .background(
                                 RoundedRectangle(cornerRadius: 10)
                                     .stroke(.black, lineWidth: 3)
-                                    .frame(width:100,height:50)
-                                
+                                    .frame(width: 100, height: 50)
                             )
                             .foregroundStyle(.black)
                             .font(.system(size: 25))
-                        
-                        
                     }
                 }
+                .padding(.horizontal)
+            }
+            .onAppear {
+                speakText("this is a marcato. you play the note with a strong, marked emphasis, even more pronounced than an accent.")
             }
             .onDisappear {
                 stopAudio()
             }
-            .navigationBarBackButtonHidden(true)
+            .navigationBarHidden(true)
         }
     }
+
+    // Speak the given text
+    private func speakText(_ text: String) {
+        let utterance = AVSpeechUtterance(string: text)
+        utterance.voice = AVSpeechSynthesisVoice(language: "en-US")
+        utterance.rate = 0.5
+        synthesizer.speak(utterance)
+    }
+
+    // Replay narration and audio
+    private func replayAudio() {
+        speakText("this is a marcato. you play the note with a strong, marked emphasis, even more pronounced than an accent.")
+    }
+
+    // Stop all audio
     private func stopAudio() {
+        synthesizer.stopSpeaking(at: .immediate)
         audioPlayer?.stop()
         audioPlayer = nil
-        isPlayingAudio = false
     }
 }
 
+
 #Preview {
     @Previewable @State var isShowing = false
-  DynamicsLearn2View(isPresented: $isShowing)
+  ArticulationsOrnamentsLearn9View(isPresented: $isShowing)
 }

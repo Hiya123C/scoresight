@@ -8,13 +8,17 @@
 import SwiftUI
 
 struct ArticulationsOrnamentsView: View {
+    @Environment(\.dismiss) var dismiss
+    @State private var showingSheet1 = false
+    @State private var showingSheet = false
+    
     var body: some View {
         NavigationStack{
             VStack {
-                HStack {
-                    NavigationLink{
-                        ContentView()
-                    }label:{
+                HStack{
+                    Button(action:{
+                        dismiss()
+                    }){
                         Image(systemName: "x.circle")
                             .symbolRenderingMode(.palette)
                             .foregroundStyle(.black, .white)
@@ -22,6 +26,7 @@ struct ArticulationsOrnamentsView: View {
                     }
                     Spacer()
                 }
+
                 Spacer()
                 ViewThatFits{
                     Text("articulations\n+ ornaments")
@@ -36,36 +41,39 @@ struct ArticulationsOrnamentsView: View {
                     
                 }
                 Spacer()
-                NavigationLink{
-                    ArticulationsOrnamentsLearnView()
-                }label:{
-                    ZStack {
-                        Text("learn")
-                            .font(.system(size: 30))
-                            .foregroundStyle(.black)
-                            .bold()
-                            .background (
-                                RoundedRectangle(cornerRadius: 15)
-                                    .stroke(.black, lineWidth: 3)
-                                    .frame(width: 200, height: 50)
-                            )
-                    }
-                    .padding()
+                Button(action:{
+                    showingSheet = true
+                }){
+                    Text("learn")
+                        .font(.system(size: 30))
+                        .foregroundStyle(.black)
+                        .padding()
+                        .bold()
+                        .background(
+                            RoundedRectangle(cornerRadius: 15)
+                                .stroke(.black, lineWidth: 3)
+                                .frame(width: 200, height: 50)
+                        )
+                }.sheet(isPresented: $showingSheet) {
+                    ArticulationsOrnamentsLearnView(isPresented:$showingSheet)
+
                 }
-                NavigationLink{
-                    ArticulationsOrnamentsReviewView()
-                }label:{
-                    ZStack {
-                        Text("review")
-                            .font(.system(size: 30))
-                            .foregroundStyle(.black)
-                            .bold()
-                            .background (
-                                RoundedRectangle(cornerRadius: 15)
-                                    .stroke(.black, lineWidth: 3)
-                                    .frame(width: 200, height: 50)
-                            )
-                    }
+                    
+                Button(action:{
+                    showingSheet1 = true
+                }){
+                    Text("review")
+                        .font(.system(size: 30))
+                        .foregroundStyle(.black)
+                        .padding()
+                        .bold()
+                        .background(
+                            RoundedRectangle(cornerRadius: 15)
+                                .stroke(.black, lineWidth: 3)
+                                .frame(width: 200, height: 50)
+                        )
+                }.sheet(isPresented: $showingSheet1) {
+                    ArticulationsOrnamentsReviewView(isPresented:$showingSheet1)
                 }
                 Spacer()
             }

@@ -10,27 +10,29 @@ import SwiftUI
 
 struct RhythmNotesRestsReview2View: View {
     
-    private var fourColumnGrid = [GridItem(.flexible()), GridItem(.flexible()), GridItem(.flexible()), GridItem(.flexible())]
+    var fourColumnGrid = [GridItem(.flexible()), GridItem(.flexible()), GridItem(.flexible()), GridItem(.flexible())]
     
     @State var cards = createCardList().shuffled()
     @State var MatchedCards = [Card]()
     @State var UserChoices = [Card]()
-    @State private var showCompletionSheet = false
+    @State var showCompletionSheet = false
+    @Environment(\.dismiss) var dismiss
+    @Binding var isPresented: Bool //waht private
     
     var body: some View {
         GeometryReader { geo in
             NavigationStack {
                 VStack {
                     HStack {
-                        Button(action: {
-                        }) {
-                            NavigationLink(destination: RhythmNotesRestsView()) {
-                                Image(systemName: "x.circle")
-                                    .symbolRenderingMode(.palette)
-                                    .foregroundStyle(.black, .white)
-                                    .font(.system(size: 30))
-                            }
+                        Button(action:{
+                            isPresented = false
+                        }){
+                            Image(systemName: "x.circle")
+                                .symbolRenderingMode(.palette)
+                                .foregroundStyle(.black, .white)
+                                .font(.system(size:50))
                         }
+                        
                         Spacer()
                     }
                     .padding([.top, .leading], 10)
@@ -100,5 +102,6 @@ struct CompletionSheet: View {
 }
 
 #Preview {
-    RhythmNotesRestsReview2View()
+    @Previewable @State var isShowing = false
+    RhythmNotesRestsReview2View(isPresented: $isShowing)
 }

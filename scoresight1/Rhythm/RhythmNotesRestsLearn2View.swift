@@ -12,24 +12,23 @@ private let synthesizer = AVSpeechSynthesizer()
 
 struct RhythmNotesRestsLearn2View: View {
     @State private var showAlert = false
-    
+    @Environment(\.dismiss) var dismiss
+    @Binding var isPresented:Bool
     var body: some View {
         NavigationStack {
             VStack {
                 Spacer()
                 
                 HStack {
-                    Spacer(minLength: 0)
-                    NavigationLink {
-                        RhythmNotesRestsView()
-                    } label: {
+                    Button(action:{
+                        isPresented = false
+                    }){
                         Image(systemName: "x.circle")
                             .symbolRenderingMode(.palette)
                             .foregroundStyle(.black, .white)
-                            .font(.system(size: 50))
-                            .padding(.top, 20)
-                            .frame(maxWidth: .infinity, alignment: .leading)
+                            .font(.system(size:50))
                     }
+                    Spacer()
                 }
                 
                 HStack {
@@ -67,10 +66,10 @@ struct RhythmNotesRestsLearn2View: View {
                 Spacer()
                 
                 HStack {
-                    NavigationLink {
-                        RhythmNotesRestsLearnView()
-                    } label: {
-                        Text("Back")
+                    Button(action:{
+                        dismiss()
+                    }){
+                        Text("back")
                             .padding()
                             .background(
                                 RoundedRectangle(cornerRadius: 10)
@@ -91,7 +90,7 @@ struct RhythmNotesRestsLearn2View: View {
                             .foregroundStyle(.black)
                             .padding(.trailing, 10)
                     }
-                    NavigationLink(destination: RhythmNotesRestsLearn3View()) {
+                    NavigationLink(destination: RhythmNotesRestsLearn3View(isPresented:$isPresented)) {
                         Text("Next")
                             .padding()
                             .background(
@@ -134,5 +133,6 @@ struct RhythmNotesRestsLearn2View: View {
 }
 
 #Preview {
-    RhythmNotesRestsLearn2View()
+    @Previewable @State var isShowing = false
+    RhythmNotesRestsLearn2View(isPresented: $isShowing)
 }

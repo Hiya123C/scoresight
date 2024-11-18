@@ -13,19 +13,21 @@ struct TimeSignaturesReview2View: View {
     @State private var correctAnswer: Bool = false
     @State private var wrongAnswer: Bool = false
     @State private var audioPlayer: AVAudioPlayer?
+    @Environment(\.dismiss) var dismiss
+    @Binding var isPresented:Bool
     
     var body: some View {
         NavigationStack {
             VStack {
                     VStack {
                         HStack {
-                            NavigationLink {
-                                TimeSignaturesView()
-                            } label: {
+                            Button(action:{
+                                isPresented = false
+                            }){
                                 Image(systemName: "x.circle")
                                     .symbolRenderingMode(.palette)
                                     .foregroundStyle(.black, .white)
-                                    .font(.system(size: 50))
+                                    .font(.system(size:50))
                             }
                             Spacer()
                         }
@@ -80,7 +82,7 @@ struct TimeSignaturesReview2View: View {
                         HStack {
                             Spacer()
                             NavigationLink {
-                                TimeSignaturesReview3View()
+                                TimeSignaturesReview3View(isPresented:$isPresented)
                             } label: {
                                 Button(action: playAudio) {
                                     Image(systemName: "speaker.wave.2.fill")
@@ -163,5 +165,6 @@ struct TimeSignaturesReview2View: View {
     }
 
 #Preview {
-    TimeSignaturesReview2View()
+    @Previewable @State var isShowing = false
+   TimeSignaturesReview2View(isPresented: $isShowing)
 }

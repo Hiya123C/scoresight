@@ -8,13 +8,16 @@
 import SwiftUI
 
 struct RhythmNotesRestsView: View {
+    @Environment(\.dismiss) var dismiss
+    @State private var showingSheet = false
+    @State private var showingSheet1 = false
     var body: some View {
         NavigationStack{
             VStack {
                 HStack{
-                    NavigationLink{
-                        ContentView()
-                    } label:{
+                    Button(action:{
+                        dismiss()
+                    }){
                         Image(systemName: "x.circle")
                             .symbolRenderingMode(.palette)
                             .foregroundStyle(.black, .white)
@@ -24,28 +27,28 @@ struct RhythmNotesRestsView: View {
                 }
                 Spacer()
                 ViewThatFits{
-                                Text("rhythm\nnotes + rests")
-                                    .fontWeight(.bold)
-                                    .font(.system(size:95)).environment(\._lineHeightMultiple, 0.75)
-                                    .multilineTextAlignment(.center)
-                                Text("rhythm notes\n+ rests")
-                                    .fontWeight(.bold)
-                                    .font(.system(size:75)).environment(\._lineHeightMultiple, 0.75)
-                                    .multilineTextAlignment(.center)
-                                Text("rhythm notes\n+ rests")
-                                    .fontWeight(.bold)
-                                    .font(.system(size:70)).environment(\._lineHeightMultiple, 0.75)
-                                    .multilineTextAlignment(.center)
-                                Text("rhythm notes\n+ rests")
-                                    .fontWeight(.bold)
-                                    .font(.system(size:60)).environment(\._lineHeightMultiple, 0.75)
-                                    .multilineTextAlignment(.center)
-                            }
+                    Text("rhythm\nnotes + rests")
+                        .fontWeight(.bold)
+                        .font(.system(size:95)).environment(\._lineHeightMultiple, 0.75)
+                        .multilineTextAlignment(.center)
+                    Text("rhythm notes\n+ rests")
+                        .fontWeight(.bold)
+                        .font(.system(size:75)).environment(\._lineHeightMultiple, 0.75)
+                        .multilineTextAlignment(.center)
+                    Text("rhythm notes\n+ rests")
+                        .fontWeight(.bold)
+                        .font(.system(size:70)).environment(\._lineHeightMultiple, 0.75)
+                        .multilineTextAlignment(.center)
+                    Text("rhythm notes\n+ rests")
+                        .fontWeight(.bold)
+                        .font(.system(size:60)).environment(\._lineHeightMultiple, 0.75)
+                        .multilineTextAlignment(.center)
+                }
                 Spacer()
                 
-                NavigationLink{
-                    RhythmNotesRestsLearnView()
-                }label:{
+                Button(action:{
+                    showingSheet = true
+                }){
                     Text("learn")
                         .font(.system(size: 30))
                         .foregroundStyle(.black)
@@ -56,23 +59,25 @@ struct RhythmNotesRestsView: View {
                                 .stroke(.black, lineWidth: 3)
                                 .frame(width: 200, height: 50)
                         )
-                        
+                }.sheet(isPresented: $showingSheet) {
+                    RhythmNotesRestsLearnView(isPresented: $showingSheet)
                 }
-                
-                Spacer()
-                
-                NavigationLink{
-                    RhythmNotesRestsReviewView()
-                }label:{
+                   
+                Button(action:{
+                    showingSheet1 = true
+                }){
                     Text("review")
                         .font(.system(size: 30))
                         .foregroundStyle(.black)
+                        .padding()
                         .bold()
                         .background(
                             RoundedRectangle(cornerRadius: 15)
                                 .stroke(.black, lineWidth: 3)
                                 .frame(width: 200, height: 50)
                         )
+                }.sheet(isPresented: $showingSheet1) {
+                    RhythmNotesRestsReviewView(isPresented:$showingSheet1)
                 }
                 Spacer()
             }

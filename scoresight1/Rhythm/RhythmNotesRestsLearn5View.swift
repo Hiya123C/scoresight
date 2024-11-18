@@ -10,18 +10,19 @@ import AVFoundation
 
 struct RhythmNotesRestsLearn5View: View {
     private let synthesizer = AVSpeechSynthesizer()
-    
+    @Environment(\.dismiss) var dismiss
+    @Binding var isPresented:Bool
     var body: some View {
         NavigationStack {
             VStack {
                 HStack {
-                    Button(action: {}) {
-                        NavigationLink(destination: RhythmNotesRestsView()) {
-                            Image(systemName: "x.circle")
-                                .symbolRenderingMode(.palette)
-                                .foregroundStyle(.black, .white)
-                                .font(.system(size: 50))
-                        }
+                    Button(action:{
+                        isPresented = false
+                    }){
+                        Image(systemName: "x.circle")
+                            .symbolRenderingMode(.palette)
+                            .foregroundStyle(.black, .white)
+                            .font(.system(size:50))
                     }
                     Spacer()
                 }
@@ -49,7 +50,9 @@ struct RhythmNotesRestsLearn5View: View {
                 Spacer()
                 
                 HStack {
-                    NavigationLink(destination: RhythmNotesRestsLearn4View()) {
+                    Button(action:{
+                        dismiss()
+                    }){
                         Text("back")
                             .padding()
                             .background(
@@ -70,7 +73,7 @@ struct RhythmNotesRestsLearn5View: View {
                                 .foregroundStyle(.black)
                                 .padding(.trailing, 20)
                         }
-                        NavigationLink(destination: RhythmNotesRestsLearn6View()) {
+                        NavigationLink(destination: RhythmNotesRestsLearn6View(isPresented:$isPresented)) {
                             Text("next")
                                 .padding()
                                 .background(
@@ -108,8 +111,7 @@ struct RhythmNotesRestsLearn5View: View {
     }
 }
 
-struct RhythmNotesRestsLearn5View_Previews: PreviewProvider {
-    static var previews: some View {
-        RhythmNotesRestsLearn5View()
-    }
+#Preview {
+    @Previewable @State var isShowing = false
+    RhythmNotesRestsLearn5View(isPresented: $isShowing)
 }

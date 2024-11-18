@@ -1,15 +1,17 @@
-//so weird.**
+//
 
 import SwiftUI
 
 struct SheetMusicOrganisationReview1View: View {
+    @Environment(\.dismiss) var dismiss
+    @Binding var isPresented: Bool
     var body: some View {
-        VStack {
-            NavigationStack{
+        NavigationStack{
+            VStack {
                 HStack{
-                    NavigationLink{
-                        SheetMusicOrganisationView()
-                    } label:{
+                    Button(action:{
+                        isPresented = false
+                    }){
                         Image(systemName: "x.circle")
                             .symbolRenderingMode(.palette)
                             .foregroundStyle(.black, .white)
@@ -26,16 +28,15 @@ struct SheetMusicOrganisationReview1View: View {
             }
             
             HStack{
-                NavigationLink{
-                    SheetMusicOrganisationLearn10View()
-                }label:{
+                Button(action:{
+                    dismiss()
+                }){
                     Text("back")
                         .padding()
                         .background(
                             RoundedRectangle(cornerRadius: 10)
                                 .stroke(.black, lineWidth: 3)
-                                .frame(width:100,height:50)
-                            
+                                .frame(width: 100, height: 50)
                         )
                         .foregroundStyle(.black)
                         .font(.system(size: 25))
@@ -44,7 +45,7 @@ struct SheetMusicOrganisationReview1View: View {
                 Spacer()
                 
                 NavigationLink{
-                    SheetMusicOrganisationReview3View()
+                    SheetMusicOrganisationReview3View(isPresented:$isPresented)
                 }label:{
                     Text("next")
                         .padding()
@@ -65,5 +66,6 @@ struct SheetMusicOrganisationReview1View: View {
 }
 
 #Preview {
-    SheetMusicOrganisationReview1View()
+    @Previewable @State var isShowing = false
+    SheetMusicOrganisationReview1View(isPresented:$isShowing)
 }

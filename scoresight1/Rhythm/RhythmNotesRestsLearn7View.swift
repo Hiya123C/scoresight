@@ -10,19 +10,19 @@ import AVFoundation
 
 struct RhythmNotesRestsLearn7View: View {
     private let synthesizer = AVSpeechSynthesizer()
-
+    @Environment(\.dismiss) var dismiss
+    @Binding var isPresented:Bool
     var body: some View {
         NavigationStack {
             VStack {
                 HStack {
-                    Button(action: {
-                    }) {
-                        NavigationLink(destination: RhythmNotesRestsView()) {
-                            Image(systemName: "x.circle")
-                                .symbolRenderingMode(.palette)
-                                .foregroundStyle(.black, .white)
-                                .font(.system(size: 50))
-                        }
+                    Button(action:{
+                        isPresented = false
+                    }){
+                        Image(systemName: "x.circle")
+                            .symbolRenderingMode(.palette)
+                            .foregroundStyle(.black, .white)
+                            .font(.system(size:50))
                     }
                     Spacer()
                 }
@@ -43,7 +43,9 @@ struct RhythmNotesRestsLearn7View: View {
                 }
                 
                 HStack {
-                    NavigationLink(destination: RhythmNotesRestsLearn5View()) {
+                    Button(action:{
+                        dismiss()
+                    }){
                         Text("back")
                             .padding()
                             .background(
@@ -65,7 +67,7 @@ struct RhythmNotesRestsLearn7View: View {
                     }
                     .padding(.trailing, 20)
                     
-                    NavigationLink(destination: RhythmNotesRestsLearn8View()) {
+                    NavigationLink(destination: RhythmNotesRestsLearn8View(isPresented:$isPresented)) {
                         Text("next")
                             .padding()
                             .background(
@@ -99,5 +101,6 @@ struct RhythmNotesRestsLearn7View: View {
 }
 
 #Preview {
-    RhythmNotesRestsLearn7View()
+    @Previewable @State var isShowing = false
+    RhythmNotesRestsLearn7View(isPresented: $isShowing)
 }

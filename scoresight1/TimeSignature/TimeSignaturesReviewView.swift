@@ -8,15 +8,19 @@
 import SwiftUI
 
 struct TimeSignaturesReviewView: View {
+    @Binding var isPresented: Bool
+    @Environment(\.dismiss) var dismiss
     var body: some View {
         NavigationStack {
             VStack {
                 HStack {
-                    NavigationLink(destination: TimeSignaturesView()) {
+                    Button(action:{
+                        isPresented = false
+                    }){
                         Image(systemName: "x.circle")
                             .symbolRenderingMode(.palette)
                             .foregroundStyle(.black, .white)
-                            .font(.system(size: 50))
+                            .font(.system(size:50))
                     }
                     Spacer()
                 }
@@ -31,7 +35,9 @@ struct TimeSignaturesReviewView: View {
                 Spacer()
                 
                 HStack {
-                    NavigationLink(destination: TimeSignaturesLearn9View()) {
+                    Button(action:{
+                        dismiss()
+                    }){
                         Text("back")
                             .padding()
                             .background(
@@ -46,7 +52,7 @@ struct TimeSignaturesReviewView: View {
                     Spacer()
                     
                     Button(action: {
-                    }) {                    NavigationLink(destination: TimeSignaturesReview2View()){
+                    }) {                    NavigationLink(destination: TimeSignaturesReview2View(isPresented:$isPresented)){
                         Text("next")
                             .padding()
                             .background(
@@ -68,5 +74,6 @@ struct TimeSignaturesReviewView: View {
 }
 
 #Preview {
-    TimeSignaturesReviewView()
+    @Previewable @State var isShowing = false
+   TimeSignaturesReviewView(isPresented: $isShowing)
 }

@@ -6,43 +6,72 @@ import AVFoundation
 struct SheetMusicOrganisationLearn2View: View {
     private let synthesizer = AVSpeechSynthesizer()
     @State private var isSpeaking = false
-    
+    @Environment(\.dismiss) var dismiss
+    @Binding var isPresented: Bool
     var body: some View {
         VStack {
-            NavigationStack {
-                HStack {
-                    NavigationLink {
-                        SheetMusicOrganisationView()
-                    } label: {
-                        Image(systemName: "x.circle")
-                            .symbolRenderingMode(.palette)
-                            .foregroundStyle(.black, .white)
-                            .font(.system(size: 50))
-                    }
-                    Spacer()
+            HStack{
+                Button(action:{
+                    isPresented = false
+                }){
+                    Image(systemName: "x.circle")
+                        .symbolRenderingMode(.palette)
+                        .foregroundStyle(.black, .white)
+                        .font(.system(size:50))
                 }
-                VStack {
-                    HStack(alignment: .center) {
-                        Image("clefs")
-                            .resizable()
-                            .scaledToFit()
-                        
-                        VStack {
-                            Text("these are")
-                                .font(.system(size: 40))
-                            Text("clefs")
-                                .font(.system(size: 80))
-                                .bold()
-                        }
+                Spacer()
+            }
+            VStack {
+                HStack(alignment: .center) {
+                    Image("clefs")
+                        .resizable()
+                        .scaledToFit()
+                    
+                    VStack {
+                        Text("these are")
+                            .font(.system(size: 40))
+                        Text("clefs")
+                            .font(.system(size: 80))
+                            .bold()
                     }
                 }
-                .frame(maxHeight: .infinity)
+            }
+            .frame(maxHeight: .infinity)
+            
+            HStack {
+                Button(action:{
+                    dismiss()
+                }){
+                    Text("back")
+                        .padding()
+                        .background(
+                            RoundedRectangle(cornerRadius: 10)
+                                .stroke(.black, lineWidth: 3)
+                                .frame(width: 100, height: 50)
+                        )
+                        .foregroundStyle(.black)
+                        .font(.system(size: 25))
+                }
                 
-                HStack {
-                    NavigationLink {
-                        SheetMusicOrganisationLearnView()
-                    } label: {
-                        Text("back")
+                Spacer()
+                
+                NavigationLink {
+                    SheetMusicOrganisationLearn3View(isPresented: $isPresented)
+                } label: {
+                    HStack {
+                        Image(systemName: "speaker.wave.2.fill")
+                            .font(.system(size: 25))
+                            .padding(.trailing, 20)
+                            .foregroundStyle(.black)
+                            .onTapGesture {
+                                if isSpeaking {
+                                    stopSpeech()
+                                } else {
+                                    speakText("In every first bar of a line, there are clefs.")
+                                }
+                                isSpeaking.toggle()
+                            }
+                        Text("next")
                             .padding()
                             .background(
                                 RoundedRectangle(cornerRadius: 10)
@@ -52,46 +81,17 @@ struct SheetMusicOrganisationLearn2View: View {
                             .foregroundStyle(.black)
                             .font(.system(size: 25))
                     }
-                    
-                    Spacer()
-                    
-                    NavigationLink {
-                        SheetMusicOrganisationLearn3View()
-                    } label: {
-                        HStack {
-                            Image(systemName: "speaker.wave.2.fill")
-                                .font(.system(size: 25))
-                                .padding(.trailing, 20)
-                                .foregroundStyle(.black)
-                                .onTapGesture {
-                                    if isSpeaking {
-                                        stopSpeech()
-                                    } else {
-                                        speakText("In every first bar of a line, there are clefs.")
-                                    }
-                                    isSpeaking.toggle()
-                                }
-                            Text("next")
-                                .padding()
-                                .background(
-                                    RoundedRectangle(cornerRadius: 10)
-                                        .stroke(.black, lineWidth: 3)
-                                        .frame(width: 100, height: 50)
-                                )
-                                .foregroundStyle(.black)
-                                .font(.system(size: 25))
-                        }
-                    }
                 }
             }
-            .onAppear {
-                speakText("In every first bar of a line, there are clefs.")
-            }
-            .onDisappear {
-                stopSpeech()
-            }
-            .navigationBarBackButtonHidden(true)
         }
+        .onAppear {
+            speakText("In every first bar of a line, there are clefs.")
+        }
+        .onDisappear {
+            stopSpeech()
+        }
+        .navigationBarBackButtonHidden(true)
+        
     }
     
     private func speakText(_ text: String) {
@@ -110,5 +110,6 @@ struct SheetMusicOrganisationLearn2View: View {
 }
 
 #Preview {
-    SheetMusicOrganisationLearn2View()
+    @Previewable @State var isShowing = false
+    SheetMusicOrganisationLearn2View(isPresented: $isShowing)
 }

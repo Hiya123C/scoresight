@@ -8,13 +8,17 @@
 import SwiftUI
 
 struct TimeSignaturesView: View {
+    @Environment(\.dismiss) var dismiss
+    @State private var showingSheet = false
+    @State private var showingSheet1 = false
+    
     var body: some View {
         NavigationStack{
             VStack {
                 HStack{
-                    NavigationLink{
-                        ContentView()
-                    } label:{
+                    Button(action:{
+                        dismiss()
+                    }){
                         Image(systemName: "x.circle")
                             .symbolRenderingMode(.palette)
                             .foregroundStyle(.black, .white)
@@ -22,6 +26,7 @@ struct TimeSignaturesView: View {
                     }
                     Spacer()
                 }
+
                 Spacer()
                 ViewThatFits{
                     Text("time signatures")
@@ -40,34 +45,40 @@ struct TimeSignaturesView: View {
                 }
                 Spacer()
                 
-                NavigationLink{
-                    TimeSignaturesLearnView()
-                }label:{
+                Button(action:{
+                    showingSheet = true
+                }){
                     Text("learn")
                         .font(.system(size: 30))
                         .foregroundStyle(.black)
+                        .padding()
                         .bold()
                         .background(
                             RoundedRectangle(cornerRadius: 15)
                                 .stroke(.black, lineWidth: 3)
                                 .frame(width: 200, height: 50)
                         )
+                    
+                }.sheet(isPresented: $showingSheet) {
+                    TimeSignaturesLearnView(isPresented:$showingSheet)
                 }
                 
-                Spacer()
                 
-                NavigationLink{
-                    TimeSignaturesReviewView()
-                }label:{
+                Button(action:{
+                    showingSheet1 = true
+                }){
                     Text("review")
                         .font(.system(size: 30))
                         .foregroundStyle(.black)
+                        .padding()
                         .bold()
                         .background(
                             RoundedRectangle(cornerRadius: 15)
                                 .stroke(.black, lineWidth: 3)
                                 .frame(width: 200, height: 50)
                         )
+                }.sheet(isPresented: $showingSheet1) {
+                    TimeSignaturesReviewView(isPresented:$showingSheet1)
                 }
                 
                 

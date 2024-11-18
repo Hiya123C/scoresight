@@ -18,19 +18,21 @@ struct RhythmNotesRestsLearn4View: View {
     @State private var firstTimer: Timer?
     @State private var secondTimer: Timer?
     @State private var metronomeIsPlaying = false
+    @Environment(\.dismiss) var dismiss
+    @Binding var isPresented:Bool
     private let synthesizer = AVSpeechSynthesizer()
 
     var body: some View {
         NavigationStack {
             VStack {
                 HStack {
-                    Button(action: {}) {
-                        NavigationLink(destination: RhythmNotesRestsView()) {
-                            Image(systemName: "x.circle")
-                                .symbolRenderingMode(.palette)
-                                .foregroundStyle(.black, .white)
-                                .font(.system(size: 40))
-                        }
+                    Button(action:{
+                        isPresented = false
+                    }){
+                        Image(systemName: "x.circle")
+                            .symbolRenderingMode(.palette)
+                            .foregroundStyle(.black, .white)
+                            .font(.system(size:50))
                     }
                     Spacer()
                 }
@@ -158,18 +160,18 @@ struct RhythmNotesRestsLearn4View: View {
                 
                 Spacer()
                 HStack {
-                    Button(action: {}) {
-                        NavigationLink(destination: RhythmNotesRestsLearn3View()) {
-                            Text("back")
-                                .padding()
-                                .background(
-                                    RoundedRectangle(cornerRadius: 10)
-                                        .stroke(.black, lineWidth: 3)
-                                        .frame(width: 100, height: 50)
-                                )
-                                .foregroundStyle(.black)
-                                .font(.system(size: 25))
-                        }
+                    Button(action:{
+                        dismiss()
+                    }){
+                        Text("back")
+                            .padding()
+                            .background(
+                                RoundedRectangle(cornerRadius: 10)
+                                    .stroke(.black, lineWidth: 3)
+                                    .frame(width: 100, height: 50)
+                            )
+                            .foregroundStyle(.black)
+                            .font(.system(size: 25))
                     }
                     Spacer()
                     Button(action: {
@@ -180,7 +182,7 @@ struct RhythmNotesRestsLearn4View: View {
                                 .font(.system(size: 30))
                                 .foregroundStyle(.black)
                                 .padding(.leading, 10)
-                            NavigationLink(destination: RhythmNotesRestsLearn5View()) {
+                            NavigationLink(destination: RhythmNotesRestsLearn5View(isPresented:$isPresented)) {
                                 Text("next")
                                     .padding()
                                     .background(
@@ -298,5 +300,6 @@ struct RhythmNotesRestsLearn4View: View {
 }
 
 #Preview {
-    RhythmNotesRestsLearn4View()
+    @Previewable @State var isShowing = false
+    RhythmNotesRestsLearn4View(isPresented: $isShowing)
 }

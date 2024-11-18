@@ -11,13 +11,15 @@ import AVFoundation
 private let synthesizer = AVSpeechSynthesizer()
 
 struct ClefsPitchedNotesLearnView: View {
+    @Environment(\.dismiss) var dismiss
+    @Binding var isPresented: Bool
     var body: some View {
-        NavigationStack {
+        NavigationStack{
             VStack {
-                HStack {
-                    NavigationLink{
-                        ClefsPitchedNotesView()
-                    }label:{
+                HStack{
+                    Button(action:{
+                        isPresented = false
+                    }){
                         Image(systemName: "x.circle")
                             .symbolRenderingMode(.palette)
                             .foregroundStyle(.black, .white)
@@ -51,7 +53,7 @@ struct ClefsPitchedNotesLearnView: View {
                     }
                     .padding()
                     NavigationLink{
-                        ClefsPitchedNotesLearn2View()
+                        ClefsPitchedNotesLearn2View(isPresented:$isPresented)
                     }label:{
                         Text("next")
                             .padding()
@@ -94,5 +96,6 @@ struct ClefsPitchedNotesLearnView: View {
 }
 
 #Preview {
-    ClefsPitchedNotesLearnView()
+    @Previewable @State var isShowing = false
+   ClefsPitchedNotesLearnView(isPresented: $isShowing)
 }

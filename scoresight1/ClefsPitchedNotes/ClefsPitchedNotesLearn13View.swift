@@ -31,6 +31,8 @@ struct ClefsPitchedNotesLearn13View: View {
             print("Failed to play audio: \(error.localizedDescription)")
         }
     }
+    @Environment(\.dismiss) var dismiss
+    @Binding var isPresented: Bool
     var body: some View {
         NavigationStack {
             VStack {
@@ -61,25 +63,22 @@ struct ClefsPitchedNotesLearn13View: View {
                     }
                 }
                 HStack{
-                    NavigationLink{
-                        ClefsPitchedNotesLearn12View()
-                    }label:{
+                    Button(action:{
+                        dismiss()
+                    }){
                         Text("back")
                             .padding()
                             .background(
                                 RoundedRectangle(cornerRadius: 10)
                                     .stroke(.black, lineWidth: 3)
-                                    .frame(width:100,height:50)
-                                
+                                    .frame(width: 100, height: 50)
                             )
                             .foregroundStyle(.black)
                             .font(.system(size: 25))
-                        Spacer()
-                        
                     }
-
+                    Spacer()
                     NavigationLink{
-                        ClefsPitchedNotesLearn14View()
+                        ClefsPitchedNotesLearn14View(isPresented:$isPresented)
                     }label:{
                         Text("next")
                             .padding()
@@ -91,8 +90,6 @@ struct ClefsPitchedNotesLearn13View: View {
                             )
                             .foregroundStyle(.black)
                             .font(.system(size: 25))
-                        
-                        
                     }
                 }
             }
@@ -109,5 +106,6 @@ struct ClefsPitchedNotesLearn13View: View {
 }
 
 #Preview {
-    ClefsPitchedNotesLearn13View()
+    @Previewable @State var isShowing = false
+   ClefsPitchedNotesLearn13View(isPresented: $isShowing)
 }

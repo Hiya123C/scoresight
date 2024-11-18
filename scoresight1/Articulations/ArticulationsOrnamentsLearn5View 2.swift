@@ -1,19 +1,16 @@
-//
-//  DynamicsLearn2View.swift
-//  scoresight1
-//
-//  Created by Li Jiansheng on 11/11/24.
-//
-
 import SwiftUI
 import AVFoundation
 
-struct DynamicsLearn2View: View {
-    
-    @State private var audioPlayer: AVAudioPlayer?
+private let synthesizer = AVSpeechSynthesizer()
+
+struct ArticulationsOrnamentsLearn5View: View {
     @State private var isPlayingAudio = false
+    @State private var audioPlayer: AVAudioPlayer?
+    @Environment(\.dismiss) var dismiss
+    @Binding var isPresented: Bool
+    
     func playAudio() {
-        guard let soundURL = Bundle.main.url(forResource: "crescendo", withExtension: "mp3") else {
+        guard let soundURL = Bundle.main.url(forResource: "staccato", withExtension: "mp3") else {
             print("Audio cannot find.")
             return
         }
@@ -35,8 +32,7 @@ struct DynamicsLearn2View: View {
             print("Failed to play audio: \(error.localizedDescription)")
         }
     }
-    @Binding var isPresented: Bool
-    @Environment(\.dismiss) var dismiss
+    
     var body: some View {
         NavigationStack {
             VStack {
@@ -52,32 +48,31 @@ struct DynamicsLearn2View: View {
                     Spacer()
                 }
                 Spacer()
-                    VStack{
-                        HStack{
-                            Image("crescendo")
-                                .resizable()
-                                .scaledToFit()
-                                .scaleEffect(1.2)
-                            
-                            
-                            Button(action: {
-                                playAudio()
-                            }) {
-                                Image(systemName: isPlayingAudio ? "pause.circle" : "play.circle")
-                                    .symbolRenderingMode(.palette)
-                                    .foregroundStyle(.black, .black)
-                                    .font(.system(size: 50))
-                                    .padding(30)
-                            }
-                        }
-                        Text("gradually getting louder")
-                            .font(.system(size: 25))
-                        Text("crescendo")
-                            .font(.system(size:80))
+
+                HStack {
+                    Image("staccato")
+                        .resizable()
+                        .scaledToFit()
+                    Button(action: {
+                        playAudio()
+                    }) {
+                        Image(systemName: isPlayingAudio ? "pause.circle" : "play.circle")
+                            .symbolRenderingMode(.palette)
+                            .foregroundStyle(.black, .black)
+                            .font(.system(size: 50))
+                            .padding(50)
+                    }
+                    VStack(alignment: .trailing) {
+                        Text("this is a")
+                            .font(.system(size: 40))
+                        Text("staccato")
+                            .font(.system(size: 80))
                             .bold()
+                    }
                 }
                 Spacer()
-                HStack{
+
+                HStack {
                     Button(action:{
                         dismiss()
                     }){
@@ -92,38 +87,64 @@ struct DynamicsLearn2View: View {
                             .font(.system(size: 25))
                     }
                     Spacer()
-                    NavigationLink{
-                        DynamicsLearn3View(isPresented:$isPresented)
-                    } label:{
+                    Button(action: {
+                        replayAudio()
+                    }) {
+                        Image(systemName: "speaker.wave.2.fill")
+                            .font(.system(size: 30))
+                            .foregroundStyle(.black)
+                    }
+                    .padding()
+                    NavigationLink {
+                        ArticulationsOrnamentsLearn6View(isPresented:$isPresented)
+                    } label: {
                         Text("next")
                             .padding()
                             .background(
                                 RoundedRectangle(cornerRadius: 10)
                                     .stroke(.black, lineWidth: 3)
-                                    .frame(width:100,height:50)
-                                
+                                    .frame(width: 100, height: 50)
                             )
                             .foregroundStyle(.black)
                             .font(.system(size: 25))
-                        
-                        
                     }
                 }
+                .padding(.horizontal)
+            }
+            .onAppear {
+                
+                speakText("this is a staccato. you play the note short and detached, with a brief silence following each note.")
             }
             .onDisappear {
                 stopAudio()
             }
-            .navigationBarBackButtonHidden(true)
+            .navigationBarHidden(true)
         }
     }
+
+    // Speak the given text
+    private func speakText(_ text: String) {
+        let utterance = AVSpeechUtterance(string: text)
+        utterance.voice = AVSpeechSynthesisVoice(language: "en-US")
+        utterance.rate = 0.5
+        synthesizer.speak(utterance)
+    }
+
+    // Replay narration and audio
+    private func replayAudio() {
+        speakText("this is a staccato. you play the note short and detached, with a brief silence following each note.")
+    }
+
+    // Stop all audio
     private func stopAudio() {
+        synthesizer.stopSpeaking(at: .immediate)
         audioPlayer?.stop()
         audioPlayer = nil
-        isPlayingAudio = false
     }
 }
 
+
 #Preview {
     @Previewable @State var isShowing = false
-  DynamicsLearn2View(isPresented: $isShowing)
+  ArticulationsOrnamentsLearn5View(isPresented: $isShowing)
 }

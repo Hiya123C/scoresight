@@ -5,24 +5,23 @@ import AVFoundation
 
 struct SheetMusicOrganisationLearnView: View {
     private let synthesizer = AVSpeechSynthesizer()
-    
     @State private var isSpeaking = false
-    
+    @Binding var isPresented: Bool
     var body: some View {
-        NavigationStack {
+        NavigationStack{
             VStack {
-                HStack {
-                    NavigationLink {
-                        SheetMusicOrganisationView()
-                    } label: {
+                HStack{
+                    Button(action:{
+                        isPresented = false
+                    }){
                         Image(systemName: "x.circle")
                             .symbolRenderingMode(.palette)
                             .foregroundStyle(.black, .white)
-                            .font(.system(size: 50))
+                            .font(.system(size:50))
                     }
                     Spacer()
                 }
-                
+
                 VStack {
                     Spacer()
                     HStack(alignment: .center) {
@@ -43,7 +42,7 @@ struct SheetMusicOrganisationLearnView: View {
                 HStack {
                     Spacer()
                     NavigationLink {
-                        SheetMusicOrganisationLearn2View()
+                        SheetMusicOrganisationLearn2View(isPresented: $isPresented)
                     } label: {
                         HStack {
                             Image(systemName: "speaker.wave.2.fill")
@@ -97,5 +96,6 @@ struct SheetMusicOrganisationLearnView: View {
 }
 
 #Preview {
-    SheetMusicOrganisationLearnView()
+    @Previewable @State var isShowing = false
+    SheetMusicOrganisationLearnView(isPresented: $isShowing)
 }

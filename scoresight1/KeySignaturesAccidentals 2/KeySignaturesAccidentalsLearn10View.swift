@@ -11,13 +11,15 @@ import AVFoundation
 private let synthesizer = AVSpeechSynthesizer()
 
 struct KeySignaturesAccidentalsLearn10View: View {
+    @Binding var isPresented: Bool
+    @Environment(\.dismiss) var dismiss
     var body: some View {
         NavigationStack {
             VStack {
                 HStack {
-                    NavigationLink{
-                        KeySignaturesAccidentalsView()
-                    } label:{
+                    Button(action:{
+                        isPresented = false
+                    }){
                         Image(systemName: "x.circle")
                             .symbolRenderingMode(.palette)
                             .foregroundStyle(.black, .white)
@@ -39,20 +41,18 @@ struct KeySignaturesAccidentalsLearn10View: View {
                     }
                 }
                 HStack{
-                    NavigationLink{
-                        KeySignaturesAccidentalsLearn9View()
-                    } label:{
+                    Button(action:{
+                        dismiss()
+                    }){
                         Text("back")
                             .padding()
                             .background(
                                 RoundedRectangle(cornerRadius: 10)
                                     .stroke(.black, lineWidth: 3)
-                                    .frame(width:100,height:50)
-                                
+                                    .frame(width: 100, height: 50)
                             )
                             .foregroundStyle(.black)
                             .font(.system(size: 25))
-                        
                     }
                     Spacer()
                     Button(action: {
@@ -64,7 +64,7 @@ struct KeySignaturesAccidentalsLearn10View: View {
                     }
                     .padding()
                     NavigationLink{
-                        KeySignaturesAccidentalsLearn11View()
+                        KeySignaturesAccidentalsLearn11View(isPresented:$isPresented)
                     } label:{
                         Text("next")
                             .padding()
@@ -108,5 +108,6 @@ struct KeySignaturesAccidentalsLearn10View: View {
 }
 
 #Preview {
-    KeySignaturesAccidentalsLearn10View()
+    @Previewable @State var isShowing = false
+   KeySignaturesAccidentalsLearn10View(isPresented: $isShowing)
 }

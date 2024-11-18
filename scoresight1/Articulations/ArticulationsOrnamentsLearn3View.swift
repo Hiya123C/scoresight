@@ -4,42 +4,46 @@ import AVFoundation
 private let synthesizer = AVSpeechSynthesizer()
 
 struct ArticulationsOrnamentsLearn3View: View {
-    @State private var isPlayingAudio = false
     @State private var audioPlayer: AVAudioPlayer?
-
-    // Reusable description text
-    private let narrationText = "This is a trill. It is used to rapidly alternate between the written note and the note above it, like so:"
-
-    init() {
-        synthesizer.delegate = SpeechDelegate1.shared
-    }
-
-    func playPiano() {
+    @State private var isPlayingAudio = false
+    
+    func playAudio() {
         guard let soundURL = Bundle.main.url(forResource: "trill", withExtension: "mp3") else {
-            print("Audio file not found.")
+            print("Audio cannot find.")
             return
         }
         do {
-            audioPlayer = try AVAudioPlayer(contentsOf: soundURL)
-            audioPlayer?.numberOfLoops = 0
-            audioPlayer?.play()
+            if audioPlayer == nil {
+                audioPlayer = try AVAudioPlayer(contentsOf: soundURL)
+                audioPlayer?.numberOfLoops = 0
+            }
+            
+            if let player = audioPlayer {
+                if isPlayingAudio {
+                    player.pause()
+                } else {
+                    player.play()
+                }
+                isPlayingAudio.toggle()
+            }
         } catch {
             print("Failed to play audio: \(error.localizedDescription)")
         }
     }
-
+    @Environment(\.dismiss) var dismiss
+    @Binding var isPresented:Bool
     var body: some View {
         NavigationStack {
             VStack {
                 // Close Button
                 HStack {
-                    NavigationLink {
-                        ArticulationsOrnamentsView()
-                    } label: {
+                    Button(action:{
+                        isPresented = false
+                    }){
                         Image(systemName: "x.circle")
                             .symbolRenderingMode(.palette)
                             .foregroundStyle(.black, .white)
-                            .font(.system(size: 50))
+                            .font(.system(size:50))
                     }
                     Spacer()
                 }
@@ -50,8 +54,17 @@ struct ArticulationsOrnamentsLearn3View: View {
                     Image("trill")
                         .resizable()
                         .scaledToFit()
+                    Button(action: {
+                        playAudio()
+                    }) {
+                        Image(systemName: isPlayingAudio ? "pause.circle" : "play.circle")
+                            .symbolRenderingMode(.palette)
+                            .foregroundStyle(.black, .black)
+                            .font(.system(size: 50))
+                            .padding(50)
+                    }
                     VStack(alignment: .trailing) {
-                        Text("this is a")
+                        Text("this is an")
                             .font(.system(size: 40))
                         Text("trill")
                             .font(.system(size: 80))
@@ -62,9 +75,9 @@ struct ArticulationsOrnamentsLearn3View: View {
 
                 // Buttons (Back, Replay Audio, Next)
                 HStack {
-                    NavigationLink {
-                        ArticulationsOrnamentsLearn2View()
-                    } label: {
+                    Button(action:{
+                        dismiss()
+                    }){
                         Text("back")
                             .padding()
                             .background(
@@ -85,7 +98,7 @@ struct ArticulationsOrnamentsLearn3View: View {
                     }
                     .padding()
                     NavigationLink {
-                        ArticulationsOrnamentsLearn4View()
+                        ArticulationsOrnamentsLearn4View(isPresented:$isPresented)
                     } label: {
                         Text("next")
                             .padding()
@@ -101,11 +114,7 @@ struct ArticulationsOrnamentsLearn3View: View {
                 .padding(.horizontal)
             }
             .onAppear {
-                // Trigger speech and piano setup
-                SpeechDelegate1.shared.onSpeechFinished = {
-                    playPiano()
-                }
-                speakText(narrationText)
+                speakText("this is a trill. it is used to rapidly alternate between the written note and the note above it.")
             }
             .onDisappear {
                 stopAudio()
@@ -124,7 +133,7 @@ struct ArticulationsOrnamentsLearn3View: View {
 
     // Replay narration and audio
     private func replayAudio() {
-        speakText(narrationText)
+        speakText("this is a trill. it is used to rapidly alternate between the written note and the note above it.")
     }
 
     // Stop all audio
@@ -138,5 +147,6 @@ struct ArticulationsOrnamentsLearn3View: View {
 
 
 #Preview {
-    ArticulationsOrnamentsLearn3View()
+    @Previewable @State var isShowing = false
+  ArticulationsOrnamentsLearn3View(isPresented: $isShowing)
 }

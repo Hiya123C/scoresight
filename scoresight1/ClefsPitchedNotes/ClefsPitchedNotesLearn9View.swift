@@ -11,12 +11,14 @@ import AVFoundation
 private let synthesizer = AVSpeechSynthesizer()
 
 struct ClefsPitchedNotesLearn9View: View {
+    @Binding var isPresented: Bool
+    @Environment(\.dismiss) var dismiss
     var body: some View {
         NavigationStack {
             HStack {
-                NavigationLink{
-                    ClefsPitchedNotesView()
-                }label:{
+                Button(action:{
+                    isPresented = false
+                }){
                     Image(systemName: "x.circle")
                         .symbolRenderingMode(.palette)
                         .foregroundStyle(.black, .white)
@@ -29,20 +31,18 @@ struct ClefsPitchedNotesLearn9View: View {
                 .frame(alignment: .center)
             
             HStack{
-                NavigationLink{
-                    ClefsPitchedNotesLearn8View()
-                }label:{
+                Button(action:{
+                    dismiss()
+                }){
                     Text("back")
                         .padding()
                         .background(
                             RoundedRectangle(cornerRadius: 10)
                                 .stroke(.black, lineWidth: 3)
-                                .frame(width:100,height:50)
-                            
+                                .frame(width: 100, height: 50)
                         )
                         .foregroundStyle(.black)
                         .font(.system(size: 25))
-                    
                 }
                 Spacer()
                 Button(action: {
@@ -54,7 +54,7 @@ struct ClefsPitchedNotesLearn9View: View {
                 }
                 .padding()
                 NavigationLink{
-                    ClefsPitchedNotesLearn10View()
+                    ClefsPitchedNotesLearn10View(isPresented:$isPresented)
                 }label:{
                     Text("next")
                         .padding()
@@ -97,5 +97,6 @@ struct ClefsPitchedNotesLearn9View: View {
 }
 
 #Preview {
-    ClefsPitchedNotesLearn9View()
+    @Previewable @State var isShowing = false
+   ClefsPitchedNotesLearn9View(isPresented: $isShowing)
 }

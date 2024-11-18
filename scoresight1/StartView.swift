@@ -8,7 +8,6 @@
 import SwiftUI
 
 struct StartView: View {
-    // figure out the gaps for all the pages btw title and button
     var body: some View {
         NavigationStack{
             VStack {

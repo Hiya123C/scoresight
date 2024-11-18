@@ -8,13 +8,15 @@
 import SwiftUI
 
 struct DynamicsReviewView: View {
+    @Environment(\.dismiss) var dismiss
+    @Binding var isPresented: Bool
     var body: some View {
         NavigationStack {
             VStack {
                 HStack {
-                    NavigationLink{
-                        DynamicsView()
-                    } label:{
+                    Button(action:{
+                        isPresented = false
+                    }){
                         Image(systemName: "x.circle")
                             .symbolRenderingMode(.palette)
                             .foregroundStyle(.black, .white)
@@ -29,24 +31,22 @@ struct DynamicsReviewView: View {
                     .multilineTextAlignment(.center)
                 Spacer()
                 HStack{
-                    NavigationLink{
-                        DynamicsLearn8View()
-                    } label:{
+                    Button(action:{
+                        dismiss()
+                    }){
                         Text("back")
                             .padding()
                             .background(
                                 RoundedRectangle(cornerRadius: 10)
                                     .stroke(.black, lineWidth: 3)
-                                    .frame(width:100,height:50)
-                                
+                                    .frame(width: 100, height: 50)
                             )
                             .foregroundStyle(.black)
                             .font(.system(size: 25))
-                        Spacer()
-                        
                     }
+                    Spacer()
                     NavigationLink{
-                        DynamicsReview2View()
+                        DynamicsReview2View(isPresented:$isPresented)
                     } label:{
                         Text("next")
                             .padding()
@@ -69,5 +69,6 @@ struct DynamicsReviewView: View {
 }
 
 #Preview {
-    DynamicsReviewView()
+    @Previewable @State var isShowing = false
+  DynamicsReviewView(isPresented: $isShowing)
 }

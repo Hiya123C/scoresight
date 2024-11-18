@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct KeySignaturesAccidentalsReview5View: View {
+    @Binding var isPresented: Bool
     var body: some View {
         VStack{
             NavigationStack{
@@ -18,9 +19,10 @@ struct KeySignaturesAccidentalsReview5View: View {
                 
                 
                 Spacer()
-                NavigationLink{
-                    ContentView()
-                }label:{
+                Button(action:{
+                    isPresented = false
+                }){
+
                     Text("exit")
                         .padding()
                         .font(.system(size: 30))
@@ -45,5 +47,6 @@ struct KeySignaturesAccidentalsReview5View: View {
 }
 
 #Preview {
-    KeySignaturesAccidentalsReview5View()
+    @Previewable @State var isShowing = false
+   KeySignaturesAccidentalsReview5View(isPresented: $isShowing)
 }

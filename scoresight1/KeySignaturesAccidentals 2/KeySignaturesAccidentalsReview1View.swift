@@ -8,13 +8,15 @@
 import SwiftUI
 
 struct KeySignaturesAccidentalsReviewView: View {
+    @Environment(\.dismiss) var dismiss
+    @Binding var isPresented: Bool
     var body: some View {
         NavigationStack {
             VStack {
                 HStack {
-                    NavigationLink{
-                        KeySignaturesAccidentalsView()
-                    } label:{
+                    Button(action:{
+                        isPresented = false
+                    }){
                         Image(systemName: "x.circle")
                             .symbolRenderingMode(.palette)
                             .foregroundStyle(.black, .white)
@@ -29,24 +31,22 @@ struct KeySignaturesAccidentalsReviewView: View {
                     .multilineTextAlignment(.center)
                 Spacer()
                 HStack{
-                    NavigationLink{
-                        KeySignaturesAccidentalsLearn16View()
-                    } label:{
+                    Button(action:{
+                        dismiss()
+                    }){
                         Text("back")
                             .padding()
                             .background(
                                 RoundedRectangle(cornerRadius: 10)
                                     .stroke(.black, lineWidth: 3)
-                                    .frame(width:100,height:50)
-                                
+                                    .frame(width: 100, height: 50)
                             )
                             .foregroundStyle(.black)
                             .font(.system(size: 25))
-                        Spacer()
-                        
                     }
+                    Spacer()
                     NavigationLink{
-                        KeySignaturesAccidentalsReview2View()
+                        KeySignaturesAccidentalsReview2View(isPresented:$isPresented)
                     } label:{
                         Text("next")
                             .padding()
@@ -58,8 +58,6 @@ struct KeySignaturesAccidentalsReviewView: View {
                             )
                             .foregroundStyle(.black)
                             .font(.system(size: 25))
-                        
-                        
                     }
                 }
             }
@@ -69,5 +67,6 @@ struct KeySignaturesAccidentalsReviewView: View {
 }
 
 #Preview {
-    KeySignaturesAccidentalsReviewView()
+    @Previewable @State var isShowing = false
+   KeySignaturesAccidentalsReviewView(isPresented: $isShowing)
 }

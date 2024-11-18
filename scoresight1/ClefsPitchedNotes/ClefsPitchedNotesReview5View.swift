@@ -3,6 +3,7 @@
 import SwiftUI
 
 struct ClefsPitchedNotesReview5View: View {
+    @Binding var isPresented: Bool
     var body: some View {
         VStack{
             NavigationStack{
@@ -12,9 +13,9 @@ struct ClefsPitchedNotesReview5View: View {
                     .bold()
                 Spacer()
                 
-                NavigationLink{
-                    ContentView()
-                }label:{
+                Button(action:{
+                    isPresented = false
+                }){
                     Text("exit")
                         .padding()
                         .font(.system(size: 30))
@@ -38,5 +39,6 @@ struct ClefsPitchedNotesReview5View: View {
 }
 
 #Preview {
-    ClefsPitchedNotesReview5View()
+    @Previewable @State var isShowing = false
+   ClefsPitchedNotesReview5View(isPresented: $isShowing)
 }

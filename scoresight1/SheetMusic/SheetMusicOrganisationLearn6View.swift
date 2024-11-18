@@ -6,15 +6,15 @@ import AVFoundation
 struct SheetMusicOrganisationLearn6View: View {
     @State private var synthesizer = AVSpeechSynthesizer()
     @State private var isSpeaking = false
-    
-    
+    @Environment(\.dismiss) var dismiss
+    @Binding var isPresented: Bool
     var body: some View {
-        VStack{
-            NavigationStack{
+        NavigationStack{
+            VStack {
                 HStack{
-                    NavigationLink{
-                        SheetMusicOrganisationView()
-                    } label:{
+                    Button(action:{
+                        isPresented = false
+                    }){
                         Image(systemName: "x.circle")
                             .symbolRenderingMode(.palette)
                             .foregroundStyle(.black, .white)
@@ -44,16 +44,15 @@ struct SheetMusicOrganisationLearn6View: View {
                 .frame(maxHeight:.infinity)
                 
                 HStack{
-                    NavigationLink{
-                        SheetMusicOrganisationLearn5View()
-                    }label:{
+                    Button(action:{
+                        dismiss()
+                    }){
                         Text("back")
                             .padding()
                             .background(
                                 RoundedRectangle(cornerRadius: 10)
                                     .stroke(.black, lineWidth: 3)
-                                    .frame(width:100,height:50)
-                                
+                                    .frame(width: 100, height: 50)
                             )
                             .foregroundStyle(.black)
                             .font(.system(size: 25))
@@ -74,7 +73,7 @@ struct SheetMusicOrganisationLearn6View: View {
                         }
                     
                     NavigationLink{
-                        SheetMusicOrganisationLearn7View()
+                        SheetMusicOrganisationLearn7View(isPresented:$isPresented)
                     }label:{
                         Text("next")
                             .padding()
@@ -116,5 +115,6 @@ struct SheetMusicOrganisationLearn6View: View {
 }
 
 #Preview {
-    SheetMusicOrganisationLearn6View()
+    @Previewable @State var isShowing = false
+    SheetMusicOrganisationLearn6View(isPresented: $isShowing)
 }

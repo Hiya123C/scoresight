@@ -4,42 +4,46 @@ import AVFoundation
 private let synthesizer = AVSpeechSynthesizer()
 
 struct ArticulationsOrnamentsLearn12View: View {
-    @State private var isPlayingAudio = false
     @State private var audioPlayer: AVAudioPlayer?
-
-    // Reusable description text
-    private let narrationText = "This is a lower mordent, which is played by rapidly alternating between the main note and the note immediately below it like so:"
-
-    init() {
-        synthesizer.delegate = SpeechDelegate1.shared
-    }
-
-    func playPiano() {
+    @State private var isPlayingAudio = false
+    
+    func playAudio() {
         guard let soundURL = Bundle.main.url(forResource: "lower mordent", withExtension: "mp3") else {
-            print("Audio file not found.")
+            print("Audio cannot find.")
             return
         }
         do {
-            audioPlayer = try AVAudioPlayer(contentsOf: soundURL)
-            audioPlayer?.numberOfLoops = 0
-            audioPlayer?.play()
+            if audioPlayer == nil {
+                audioPlayer = try AVAudioPlayer(contentsOf: soundURL)
+                audioPlayer?.numberOfLoops = 0
+            }
+            
+            if let player = audioPlayer {
+                if isPlayingAudio {
+                    player.pause()
+                } else {
+                    player.play()
+                }
+                isPlayingAudio.toggle()
+            }
         } catch {
             print("Failed to play audio: \(error.localizedDescription)")
         }
     }
-
+    @Environment(\.dismiss) var dismiss
+    @Binding var isPresented: Bool
     var body: some View {
         NavigationStack {
             VStack {
                 // Close Button
                 HStack {
-                    NavigationLink {
-                        ArticulationsOrnamentsView()
-                    } label: {
+                    Button(action:{
+                        isPresented = false
+                    }){
                         Image(systemName: "x.circle")
                             .symbolRenderingMode(.palette)
                             .foregroundStyle(.black, .white)
-                            .font(.system(size: 50))
+                            .font(.system(size:50))
                     }
                     Spacer()
                 }
@@ -50,22 +54,32 @@ struct ArticulationsOrnamentsLearn12View: View {
                     Image("lower mordent")
                         .resizable()
                         .scaledToFit()
-                    Spacer()
+                    
+                    Button(action: {
+                        playAudio()
+                    }) {
+                        Image(systemName: isPlayingAudio ? "pause.circle" : "play.circle")
+                            .symbolRenderingMode(.palette)
+                            .foregroundStyle(.black, .black)
+                            .font(.system(size: 50))
+                            .padding(50)
+                    }
                     VStack(alignment: .trailing) {
                         Text("this is a")
                             .font(.system(size: 40))
                         Text("lower\nmordent")
                             .font(.system(size: 75))
                             .bold()
+                            .multilineTextAlignment(.trailing)
                     }
                     Spacer()
                 }
                 Spacer()
 
                 HStack {
-                    NavigationLink {
-                        ArticulationsOrnamentsLearn11View()
-                    } label: {
+                    Button(action:{
+                        dismiss()
+                    }){
                         Text("back")
                             .padding()
                             .background(
@@ -86,7 +100,7 @@ struct ArticulationsOrnamentsLearn12View: View {
                     }
                     .padding()
                     NavigationLink {
-                        ArticulationsOrnamentsLearn13View()
+                        ArticulationsOrnamentsLearn13View(isPresented: $isPresented)
                     } label: {
                         Text("next")
                             .padding()
@@ -102,11 +116,8 @@ struct ArticulationsOrnamentsLearn12View: View {
                 .padding(.horizontal)
             }
             .onAppear {
-                // Trigger speech and piano setup
-                SpeechDelegate1.shared.onSpeechFinished = {
-                    playPiano()
-                }
-                speakText(narrationText)
+                
+                speakText("this is a  lower mordent, which is played by rapidly alternating between the main note and the note immediately below it.")
             }
             .onDisappear {
                 stopAudio()
@@ -125,7 +136,7 @@ struct ArticulationsOrnamentsLearn12View: View {
 
     // Replay narration and audio
     private func replayAudio() {
-        speakText(narrationText)
+        speakText("this is a  lower mordent, which is played by rapidly alternating between the main note and the note immediately below it.")
     }
 
     // Stop all audio
@@ -138,5 +149,6 @@ struct ArticulationsOrnamentsLearn12View: View {
 
 
 #Preview {
-    ArticulationsOrnamentsLearn12View()
+    @Previewable @State var isShowing = false
+  ArticulationsOrnamentsLearn12View(isPresented: $isShowing)
 }

@@ -8,15 +8,19 @@
 import SwiftUI
 
 struct RhythmNotesRestsReviewView: View {
+    @Environment(\.dismiss) var dismiss
+    @Binding var isPresented:Bool
     var body: some View {
         NavigationStack {
             VStack {
                 HStack {
-                    NavigationLink(destination: RhythmNotesRestsView()) {
+                    Button(action:{
+                        isPresented = false
+                    }){
                         Image(systemName: "x.circle")
                             .symbolRenderingMode(.palette)
                             .foregroundStyle(.black, .white)
-                            .font(.system(size: 50))
+                            .font(.system(size:50))
                     }
                     Spacer()
                 }
@@ -31,7 +35,9 @@ struct RhythmNotesRestsReviewView: View {
                 Spacer()
                 
                 HStack {
-                    NavigationLink(destination: RhythmNotesRestsLearn13View()) {
+                    Button(action:{
+                        dismiss()
+                    }){
                         Text("back")
                             .padding()
                             .background(
@@ -45,8 +51,9 @@ struct RhythmNotesRestsReviewView: View {
                     
                     Spacer()
                     
-                    Button(action: {
-                    }) {                    NavigationLink(destination: RhythmNotesRestsReview2View()){
+                    NavigationLink(destination: RhythmNotesRestsReview2View(isPresented:$isPresented)
+                    
+                    ){
                         Text("next")
                             .padding()
                             .background(
@@ -57,7 +64,7 @@ struct RhythmNotesRestsReviewView: View {
                             .foregroundStyle(.black)
                             .font(.system(size: 25))
                     }
-                    }
+                    
                 }
                 .padding([.leading, .trailing, .bottom], 20)
             }
@@ -68,5 +75,6 @@ struct RhythmNotesRestsReviewView: View {
 }
 
 #Preview {
-    RhythmNotesRestsReviewView()
+    @Previewable @State var isShowing = false
+    RhythmNotesRestsReviewView(isPresented: $isShowing)
 }

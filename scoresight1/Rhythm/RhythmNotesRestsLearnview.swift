@@ -27,20 +27,21 @@ struct RhythmNotesRestsLearnView: View {
             metronomePlayer?.prepareToPlay()
         }
     }
-    
+    @Binding var isPresented:Bool
     var body: some View {
-        NavigationStack {
+        NavigationStack{
             VStack {
-                NavigationLink {
-                    RhythmNotesRestsView()
-                } label: {
-                    Image(systemName: "x.circle")
-                        .symbolRenderingMode(.palette)
-                        .foregroundStyle(.black, .white)
-                        .font(.system(size: 50))
-                        .position(x: 0, y: 50)
+                HStack{
+                    Button(action:{
+                        isPresented = false
+                    }){
+                        Image(systemName: "x.circle")
+                            .symbolRenderingMode(.palette)
+                            .foregroundStyle(.black, .white)
+                            .font(.system(size:50))
+                    }
+                    Spacer()
                 }
-                
                 HStack {
                     Image("semibreve")
                         .resizable()
@@ -98,7 +99,7 @@ struct RhythmNotesRestsLearnView: View {
                             .foregroundStyle(.black)
                             .padding(.trailing, 10)
                     }
-                    NavigationLink(destination: RhythmNotesRestsLearn2View()) {
+                    NavigationLink(destination: RhythmNotesRestsLearn2View(isPresented:$isPresented)) {
                         Text("Next")
                             .padding()
                             .background(
@@ -198,5 +199,6 @@ struct RhythmNotesRestsLearnView: View {
 }
 
 #Preview {
-    RhythmNotesRestsLearnView()
+    @Previewable @State var isShowing = false
+    SheetMusicOrganisationLearnView(isPresented: $isShowing)
 }

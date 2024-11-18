@@ -397,6 +397,7 @@
 		316BA2D02CE1FAD000BAF59C /* KeySignaturesAccidentals 2 */ = {
 			isa = PBXGroup;
 			children = (
+				316BA2CF2CE1FAD000BAF59C /* KeySignaturesAccidentalsView.swift */,
 				316BA2BB2CE1FAD000BAF59C /* KeySignaturesAccidentalsLearn1View.swift */,
 				316BA2BC2CE1FAD000BAF59C /* KeySignaturesAccidentalsLearn2View.swift */,
 				316BA2BD2CE1FAD000BAF59C /* KeySignaturesAccidentalsLearn3View.swift */,
@@ -418,7 +419,6 @@
 				316BA2F02CE5D31A00BAF59C /* KeySignaturesAccidentalsReview3View.swift */,
 				316BA2F22CE5D33300BAF59C /* KeySignaturesAccidentalsReview4View.swift */,
 				316BA2F42CE5D34600BAF59C /* KeySignaturesAccidentalsReview5View.swift */,
-				316BA2CF2CE1FAD000BAF59C /* KeySignaturesAccidentalsView.swift */,
 			);
 			path = "KeySignaturesAccidentals 2";
 			sourceTree = "<group>";
@@ -449,6 +449,7 @@
 		D900ACCE2CE1F6AD00DC1959 /* ClefsPitchedNotes */ = {
 			isa = PBXGroup;
 			children = (
+				D900ACCD2CE1F6AD00DC1959 /* ClefsPitchedNotesView.swift */,
 				D900ACBA2CE1F6AD00DC1959 /* ClefsPitchedNotesLearn1View.swift */,
 				D900ACBB2CE1F6AD00DC1959 /* ClefsPitchedNotesLearn2View.swift */,
 				D900ACBC2CE1F6AD00DC1959 /* ClefsPitchedNotesLearn3View.swift */,
@@ -468,7 +469,6 @@
 				316BA2E82CE5CADD00BAF59C /* ClefsPitchedNotesReview3View.swift */,
 				316BA2EA2CE5CB9000BAF59C /* ClefsPitchedNotesReview4View.swift */,
 				316BA2EC2CE5CDFC00BAF59C /* ClefsPitchedNotesReview5View.swift */,
-				D900ACCD2CE1F6AD00DC1959 /* ClefsPitchedNotesView.swift */,
 			);
 			path = ClefsPitchedNotes;
 			sourceTree = "<group>";
@@ -489,6 +489,7 @@
 		D900ACFB2CE1F6B000DC1959 /* Dynamics */ = {
 			isa = PBXGroup;
 			children = (
+				D900ACFA2CE1F6B000DC1959 /* DynamicsView.swift */,
 				D900ACEE2CE1F6B000DC1959 /* DynamicsLearn1View.swift */,
 				D900ACEF2CE1F6B000DC1959 /* DynamicsLearn2View.swift */,
 				D900ACF02CE1F6B000DC1959 /* DynamicsLearn3View.swift */,
@@ -502,7 +503,6 @@
 				316BA2F82CE5DAD900BAF59C /* DynamicsReview3View.swift */,
 				316BA2FA2CE5DAE900BAF59C /* DynamicsReview4View.swift */,
 				316BA2FC2CE5DAF700BAF59C /* DynamicsReview5View.swift */,
-				D900ACFA2CE1F6B000DC1959 /* DynamicsView.swift */,
 			);
 			path = Dynamics;
 			sourceTree = "<group>";
@@ -510,6 +510,7 @@
 		D900AD1C2CE1F6B000DC1959 /* Articulations */ = {
 			isa = PBXGroup;
 			children = (
+				D900AD1B2CE1F6B000DC1959 /* ArticulationsOrnamentsView.swift */,
 				D900AD092CE1F6B000DC1959 /* ArticulationsOrnamentsLearn1View.swift */,
 				D900AD0A2CE1F6B000DC1959 /* ArticulationsOrnamentsLearn2View.swift */,
 				D900AD0B2CE1F6B000DC1959 /* ArticulationsOrnamentsLearn3View.swift */,
@@ -529,7 +530,6 @@
 				316BA3002CE5EABD00BAF59C /* ArticulationsOrnamentsReview3View.swift */,
 				316BA3022CE5EACC00BAF59C /* ArticulationsOrnamentsReview4View.swift */,
 				316BA3042CE5EADA00BAF59C /* ArticulationsOrnamentsReview5View.swift */,
-				D900AD1B2CE1F6B000DC1959 /* ArticulationsOrnamentsView.swift */,
 			);
 			path = Articulations;
 			sourceTree = "<group>";
@@ -539,6 +539,7 @@
 			children = (
 				D9116A542CE8814900804AC1 /* CardView.swift */,
 				D9116A552CE8814900804AC1 /* Memory.swift */,
+				D9116A652CE8814900804AC1 /* RhythmNotesRestsView.swift */,
 				D9116A622CE8814900804AC1 /* RhythmNotesRestsLearnview.swift */,
 				D9116A562CE8814900804AC1 /* RhythmNotesRestsLearn2View.swift */,
 				D9116A572CE8814900804AC1 /* RhythmNotesRestsLearn3View.swift */,
@@ -554,7 +555,6 @@
 				D9116A612CE8814900804AC1 /* RhythmNotesRestsLearn13View.swift */,
 				D9116A642CE8814900804AC1 /* RhythmNotesRestsReviewView.swift */,
 				D9116A632CE8814900804AC1 /* RhythmNotesRestsReview2View.swift */,
-				D9116A652CE8814900804AC1 /* RhythmNotesRestsView.swift */,
 			);
 			path = Rhythm;
 			sourceTree = "<group>";
@@ -562,6 +562,7 @@
 		D9116A882CE8818300804AC1 /* TimeSignature */ = {
 			isa = PBXGroup;
 			children = (
+				D9116A872CE8818300804AC1 /* TimeSignaturesView.swift */,
 				D9116A812CE8818300804AC1 /* TimeSignaturesLearnView.swift */,
 				D9116A792CE8818300804AC1 /* TimeSignaturesLearn2View.swift */,
 				D9116A7A2CE8818300804AC1 /* TimeSignaturesLearn3View.swift */,
@@ -571,12 +572,11 @@
 				D9116A7E2CE8818300804AC1 /* TimeSignaturesLearn7View.swift */,
 				D9116A7F2CE8818300804AC1 /* TimeSignaturesLearn8View.swift */,
 				D9116A802CE8818300804AC1 /* TimeSignaturesLearn9View.swift */,
+				D9116A862CE8818300804AC1 /* TimeSignaturesReviewView.swift */,
 				D9116A822CE8818300804AC1 /* TimeSignaturesReview2View.swift */,
 				D9116A832CE8818300804AC1 /* TimeSignaturesReview3View.swift */,
 				D9116A842CE8818300804AC1 /* TimeSignaturesReview4View.swift */,
 				D9116A852CE8818300804AC1 /* TimeSignaturesReview5View.swift */,
-				D9116A862CE8818300804AC1 /* TimeSignaturesReviewView.swift */,
-				D9116A872CE8818300804AC1 /* TimeSignaturesView.swift */,
 			);
 			path = TimeSignature;
 			sourceTree = "<group>";

@@ -4,42 +4,46 @@ import AVFoundation
 private let synthesizer = AVSpeechSynthesizer()
 
 struct ArticulationsOrnamentsLearn13View: View {
-    @State private var isPlayingAudio = false
     @State private var audioPlayer: AVAudioPlayer?
-
-    // Reusable description text
-    private let narrationText = "It is an ornamental note that leans into the main note, often taking part of its time. The tiny note is half the value of the big note. It is drawn without a slash. It is played like so:"
-
-    init() {
-        synthesizer.delegate = SpeechDelegate1.shared
-    }
-
-    func playPiano() {
+    @State private var isPlayingAudio = false
+    
+    func playAudio() {
         guard let soundURL = Bundle.main.url(forResource: "apoggiatura", withExtension: "mp3") else {
-            print("Audio file not found.")
+            print("Audio cannot find.")
             return
         }
         do {
-            audioPlayer = try AVAudioPlayer(contentsOf: soundURL)
-            audioPlayer?.numberOfLoops = 0
-            audioPlayer?.play()
+            if audioPlayer == nil {
+                audioPlayer = try AVAudioPlayer(contentsOf: soundURL)
+                audioPlayer?.numberOfLoops = 0
+            }
+            
+            if let player = audioPlayer {
+                if isPlayingAudio {
+                    player.pause()
+                } else {
+                    player.play()
+                }
+                isPlayingAudio.toggle()
+            }
         } catch {
             print("Failed to play audio: \(error.localizedDescription)")
         }
     }
-
+    @Environment(\.dismiss) var dismiss
+    @Binding var isPresented: Bool
     var body: some View {
         NavigationStack {
             VStack {
                 // Close Button
                 HStack {
-                    NavigationLink {
-                        ArticulationsOrnamentsView()
-                    } label: {
+                    Button(action:{
+                        isPresented = false
+                    }){
                         Image(systemName: "x.circle")
                             .symbolRenderingMode(.palette)
                             .foregroundStyle(.black, .white)
-                            .font(.system(size: 50))
+                            .font(.system(size:50))
                     }
                     Spacer()
                 }
@@ -50,12 +54,20 @@ struct ArticulationsOrnamentsLearn13View: View {
                     Image("apoggiatura")
                         .resizable()
                         .scaledToFit()
-                    Spacer()
+                    Button(action: {
+                        playAudio()
+                    }) {
+                        Image(systemName: isPlayingAudio ? "pause.circle" : "play.circle")
+                            .symbolRenderingMode(.palette)
+                            .foregroundStyle(.black, .black)
+                            .font(.system(size: 50))
+                            .padding(50)
+                    }
                     VStack(alignment: .trailing) {
                         Text("this is a")
                             .font(.system(size: 40))
                         Text("appogiatura")
-                            .font(.system(size: 65))
+                            .font(.system(size: 55))
                             .bold()
                     }
                     Spacer()
@@ -63,9 +75,9 @@ struct ArticulationsOrnamentsLearn13View: View {
                 Spacer()
 
                 HStack {
-                    NavigationLink {
-                        ArticulationsOrnamentsLearn12View()
-                    } label: {
+                    Button(action:{
+                        dismiss()
+                    }){
                         Text("back")
                             .padding()
                             .background(
@@ -86,7 +98,7 @@ struct ArticulationsOrnamentsLearn13View: View {
                     }
                     .padding()
                     NavigationLink {
-                        ArticulationsOrnamentsLearn14View()
+                        ArticulationsOrnamentsLearn14View(isPresented:$isPresented)
                     } label: {
                         Text("next")
                             .padding()
@@ -102,11 +114,7 @@ struct ArticulationsOrnamentsLearn13View: View {
                 .padding(.horizontal)
             }
             .onAppear {
-                // Trigger speech and piano setup
-                SpeechDelegate1.shared.onSpeechFinished = {
-                    playPiano()
-                }
-                speakText(narrationText)
+                speakText("this is an apoggiatura. It is an ornamental note that leans into the main note, often taking part of its time. The tiny note is half the value of the big note. it is drawn without a slash.")
             }
             .onDisappear {
                 stopAudio()
@@ -125,7 +133,7 @@ struct ArticulationsOrnamentsLearn13View: View {
 
     // Replay narration and audio
     private func replayAudio() {
-        speakText(narrationText)
+        speakText("this is an apoggiatura. It is an ornamental note that leans into the main note, often taking part of its time. The tiny note is half the value of the big note. it is drawn without a slash.")
     }
 
     // Stop all audio
@@ -138,5 +146,6 @@ struct ArticulationsOrnamentsLearn13View: View {
 
 
 #Preview {
-    ArticulationsOrnamentsLearn13View()
+    @Previewable @State var isShowing = false
+  ArticulationsOrnamentsLearn13View(isPresented: $isShowing)
 }

@@ -12,19 +12,19 @@ struct ClefsPitchedNotesReview2View: View {
     @State private var selectedAnswer: String? = nil
     @State private var correctAnswer: Bool = false
     @State private var wrongAnswer: Bool = false
-    
+    @Binding var isPresented: Bool
     var body: some View {
         VStack {
             NavigationStack {
                 VStack {
                     HStack {
-                        NavigationLink {
-                            ClefsPitchedNotesView()
-                        } label: {
+                        Button(action:{
+                            isPresented = false
+                        }){
                             Image(systemName: "x.circle")
                                 .symbolRenderingMode(.palette)
                                 .foregroundStyle(.black, .white)
-                                .font(.system(size: 50))
+                                .font(.system(size:50))
                         }
                         Spacer()
                     }
@@ -69,7 +69,7 @@ struct ClefsPitchedNotesReview2View: View {
                         HStack {
                             Spacer()
                             NavigationLink {
-                                ClefsPitchedNotesReview3View()
+                                ClefsPitchedNotesReview3View(isPresented:$isPresented)
                             } label: {
                                 Text("next")
                                     .padding()
@@ -104,5 +104,6 @@ struct ClefsPitchedNotesReview2View: View {
 }
 
 #Preview {
-    ClefsPitchedNotesReview2View()
+    @Previewable @State var isShowing = false
+   ClefsPitchedNotesReview2View(isPresented: $isShowing)
 }

@@ -21,16 +21,20 @@ struct TimeSignaturesLearn9View: View {
     @State private var metronomeStarted = false
     @State private var tappedCircles: [Int: String] = [:]
     @State private var navigateToReview = false
+    @Environment(\.dismiss) var dismiss
+    @Binding var isPresented: Bool
     
     var body: some View {
         NavigationStack {
             VStack {
                 HStack {
-                    NavigationLink(destination: TimeSignaturesView()) {
+                    Button(action:{
+                        isPresented = false
+                    }){
                         Image(systemName: "x.circle")
                             .symbolRenderingMode(.palette)
                             .foregroundStyle(.black, .white)
-                            .font(.system(size: 40))
+                            .font(.system(size:50))
                     }
                     Spacer()
                     Text("Tutorial")
@@ -125,7 +129,7 @@ struct TimeSignaturesLearn9View: View {
             }
             // Navigate to the TimeSignaturesReviewView when navigateToReview is true
             .navigationDestination(isPresented: $navigateToReview) {
-                TimeSignaturesReviewView()
+                TimeSignaturesReviewView(isPresented:$isPresented)
                     .navigationBarHidden(true)
                     .navigationBarBackButtonHidden(true)
             }
@@ -168,5 +172,6 @@ struct TimeSignaturesLearn9View: View {
 }
 
 #Preview{
-    TimeSignaturesLearn9View()
+    @Previewable @State var isShowing = false
+   TimeSignaturesLearn9View(isPresented: $isShowing)
 }

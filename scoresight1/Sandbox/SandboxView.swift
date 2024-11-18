@@ -4,13 +4,14 @@
 import SwiftUI
 
 struct SandboxView: View {
+    @Environment(\.dismiss) var dismiss
     var body: some View {
         NavigationStack{
             VStack {
-                HStack {
-                    NavigationLink{
-                        ContentView()
-                    }label:{
+                HStack{
+                    Button(action:{
+                        dismiss()
+                    }){
                         Image(systemName: "x.circle")
                             .symbolRenderingMode(.palette)
                             .foregroundStyle(.black, .white)
@@ -18,6 +19,7 @@ struct SandboxView: View {
                     }
                     Spacer()
                 }
+
                 Spacer()
                 ViewThatFits{
                     Text("sandbox")

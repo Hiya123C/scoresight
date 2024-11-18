@@ -11,22 +11,23 @@ import AVFoundation
 struct TimeSignaturesLearnView: View {
     private let synthesizer = AVSpeechSynthesizer()
     
+    @Environment(\.dismiss) var dismiss
+    @Binding var isPresented:Bool
+    
     var body: some View {
-        NavigationStack {
-            VStack(spacing: 20) {
-                HStack {
-                    Button(action: {}) {
-                        NavigationLink(destination: TimeSignaturesView()) {
-                            Image(systemName: "x.circle")
-                                .symbolRenderingMode(.palette)
-                                .foregroundStyle(.black, .white)
-                                .font(.system(size: 50))
-                        }
+        NavigationStack{
+            VStack {
+                HStack{
+                    Button(action:{
+                        isPresented = false
+                    }){
+                        Image(systemName: "x.circle")
+                            .symbolRenderingMode(.palette)
+                            .foregroundStyle(.black, .white)
+                            .font(.system(size:50))
                     }
                     Spacer()
                 }
-                .padding([.top, .leading])
-                
                 HStack (spacing: 100) {
                     Image("44")
                         .resizable()
@@ -56,7 +57,7 @@ struct TimeSignaturesLearnView: View {
                             .padding(.trailing, 10)
                     }
                     
-                    NavigationLink(destination: TimeSignaturesLearn2View()) {
+                    NavigationLink(destination: TimeSignaturesLearn2View(isPresented:$isPresented)) {
                         Text("next")
                             .padding()
                             .frame(width: 100, height: 50)
@@ -98,5 +99,6 @@ struct TimeSignaturesLearnView: View {
     }
 }
 #Preview {
-    TimeSignaturesLearnView()
+    @Previewable @State var isShowing = false
+   TimeSignaturesLearnView(isPresented: $isShowing)
 }

@@ -12,19 +12,20 @@ struct DynamicsReview4View: View {
     @State private var selectedAnswer: String? = nil
     @State private var correctAnswer: Bool = false
     @State private var wrongAnswer: Bool = false
+    @Binding var isPresented: Bool
     
     var body: some View {
         VStack {
             NavigationStack {
                 VStack {
                     HStack {
-                        NavigationLink {
-                            DynamicsView()
-                        } label: {
+                        Button(action:{
+                            isPresented = false
+                        }){
                             Image(systemName: "x.circle")
                                 .symbolRenderingMode(.palette)
                                 .foregroundStyle(.black, .white)
-                                .font(.system(size: 50))
+                                .font(.system(size:50))
                         }
                         Spacer()
                     }
@@ -47,7 +48,7 @@ struct DynamicsReview4View: View {
                                 wrongAnswer = false
                                 print("correct")
                             }
-                    // ask abt padding
+                    
                             Spacer()
                             AnswerButton(label: "sforzando (sfz) is played only for a given phrase while rinforzando (rfz) is played only for a beat", isSelected: selectedAnswer == "sforzando (sfz) is played only for a given phrase while rinforzando (rfz) is played only for a beat", isCorrect: false) {
                                 selectedAnswer = "sforzando (sfz) is played only for a given phrase while rinforzando (rfz) is played only for a beat"
@@ -64,7 +65,7 @@ struct DynamicsReview4View: View {
                         HStack {
                             Spacer()
                             NavigationLink {
-                                DynamicsReview5View()
+                                DynamicsReview5View(isPresented:$isPresented)
                             } label: {
                                 Text("next")
                                     .padding()
@@ -98,5 +99,6 @@ struct DynamicsReview4View: View {
 }
 
 #Preview {
-    DynamicsReview4View()
+    @Previewable @State var isShowing = false
+  DynamicsReview4View(isPresented: $isShowing)
 }

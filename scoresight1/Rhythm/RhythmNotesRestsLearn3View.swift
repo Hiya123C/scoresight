@@ -18,16 +18,20 @@ struct RhythmNotesRestsLearn3View: View {
     @State private var beatCount = 0
     @State private var timer: Timer?
     @State private var metronomeIsPlaying = false
+    @Environment(\.dismiss) var dismiss
+    @Binding var isPresented: Bool
     
     var body: some View {
         NavigationStack {
             VStack {
                 HStack {
-                    NavigationLink(destination: RhythmNotesRestsView()) {
+                    Button(action:{
+                        isPresented = false
+                    }){
                         Image(systemName: "x.circle")
                             .symbolRenderingMode(.palette)
                             .foregroundStyle(.black, .white)
-                            .font(.system(size: 50))
+                            .font(.system(size:50))
                     }
                     Spacer()
                 }
@@ -110,7 +114,9 @@ struct RhythmNotesRestsLearn3View: View {
                 Spacer()
                 
                 HStack {
-                    NavigationLink(destination: RhythmNotesRestsLearn2View()) {
+                    Button(action:{
+                        dismiss()
+                    }){
                         Text("back")
                             .padding()
                             .background(
@@ -132,7 +138,7 @@ struct RhythmNotesRestsLearn3View: View {
                             .foregroundStyle(.black)
                             .padding(.trailing, 10)
                     }
-                    NavigationLink(destination: RhythmNotesRestsLearn4View()) {
+                    NavigationLink(destination: RhythmNotesRestsLearn4View(isPresented:$isPresented)) {
                         Text("next")
                             .padding()
                             .background(
@@ -217,5 +223,6 @@ struct RhythmNotesRestsLearn3View: View {
 }
 
 #Preview {
-    RhythmNotesRestsLearn3View()
+    @Previewable @State var isShowing = false
+    RhythmNotesRestsLearn3View(isPresented: $isShowing)
 }

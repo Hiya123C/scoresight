@@ -6,19 +6,19 @@ import AVFoundation
 struct SheetMusicOrganisationLearn3View: View {
     @State private var synthesizer = AVSpeechSynthesizer()
     @State private var isSpeaking = false
-    
-    
+    @Environment(\.dismiss) var dismiss
+    @Binding var isPresented: Bool
     var body: some View {
-        NavigationStack {
+        NavigationStack{
             VStack {
-                HStack {
-                    NavigationLink {
-                        SheetMusicOrganisationView()
-                    } label: {
+                HStack{
+                    Button(action:{
+                        isPresented = false
+                    }){
                         Image(systemName: "x.circle")
                             .symbolRenderingMode(.palette)
                             .foregroundStyle(.black, .white)
-                            .font(.system(size: 50))
+                            .font(.system(size:50))
                     }
                     Spacer()
                 }
@@ -44,9 +44,9 @@ struct SheetMusicOrganisationLearn3View: View {
                 }
                 .frame(maxHeight: .infinity)
                 HStack {
-                    NavigationLink {
-                        SheetMusicOrganisationLearn2View()
-                    } label: {
+                    Button(action:{
+                        dismiss()
+                    }){
                         Text("back")
                             .padding()
                             .background(
@@ -71,7 +71,7 @@ struct SheetMusicOrganisationLearn3View: View {
                             isSpeaking.toggle()
                         }
                     NavigationLink {
-                        SheetMusicOrganisationLearn4View()
+                        SheetMusicOrganisationLearn4View(isPresented:$isPresented)
                     } label: {
                         Text("next")
                             .padding()
@@ -111,5 +111,6 @@ struct SheetMusicOrganisationLearn3View: View {
 }
 
 #Preview {
-    SheetMusicOrganisationLearn3View()
+    @Previewable @State var isShowing = false
+    SheetMusicOrganisationLearn2View(isPresented: $isShowing)
 }

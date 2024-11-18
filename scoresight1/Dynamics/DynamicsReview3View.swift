@@ -12,19 +12,20 @@ struct DynamicsReview3View: View {
     @State private var selectedAnswer: String? = nil
     @State private var correctAnswer: Bool = false
     @State private var wrongAnswer: Bool = false
+    @Binding var isPresented: Bool
     
     var body: some View {
         VStack {
             NavigationStack {
                 VStack {
                     HStack {
-                        NavigationLink {
-                            DynamicsView()
-                        } label: {
+                        Button(action:{
+                            isPresented = false
+                        }){
                             Image(systemName: "x.circle")
                                 .symbolRenderingMode(.palette)
                                 .foregroundStyle(.black, .white)
-                                .font(.system(size: 50))
+                                .font(.system(size:50))
                         }
                         Spacer()
                     }
@@ -68,7 +69,7 @@ struct DynamicsReview3View: View {
                         HStack {
                             Spacer()
                             NavigationLink {
-                                DynamicsReview4View()
+                                DynamicsReview4View(isPresented:$isPresented)
                             } label: {
                                 Text("next")
                                     .padding()
@@ -103,5 +104,6 @@ struct DynamicsReview3View: View {
 }
 
 #Preview {
-    DynamicsReview3View()
+    @Previewable @State var isShowing = false
+  DynamicsReview3View(isPresented: $isShowing)
 }
