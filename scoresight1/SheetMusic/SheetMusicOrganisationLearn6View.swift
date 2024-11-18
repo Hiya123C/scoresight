@@ -68,7 +68,7 @@ struct SheetMusicOrganisationLearn6View: View {
                             if isSpeaking {
                                 stopSpeech()
                             } else {
-                                speakText("on top of that, there are time signatures too")
+                                speakText("On top of that, there are time signatures too.")
                             }
                             isSpeaking.toggle()
                         }
@@ -92,7 +92,7 @@ struct SheetMusicOrganisationLearn6View: View {
             
         }
         .onAppear {
-            speakText("on top of that, there are time signatures too")
+            speakText("On top of that, there are time signatures too.")
         }
         .onDisappear {
             stopSpeech()
@@ -103,7 +103,7 @@ struct SheetMusicOrganisationLearn6View: View {
     private func speakText(_ text: String) {
         let utterance = AVSpeechUtterance(string: text)
         utterance.voice = AVSpeechSynthesisVoice(language: "en-US")
-        utterance.rate = 0.5
+        utterance.rate = AVSpeechUtteranceDefaultSpeechRate
         synthesizer.speak(utterance)
     }
     

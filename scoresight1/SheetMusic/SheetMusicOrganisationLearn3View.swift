@@ -66,7 +66,7 @@ struct SheetMusicOrganisationLearn3View: View {
                             if isSpeaking {
                                 stopSpeech()
                             } else {
-                                speakText("When playing a piano, the right hand plays the treble clef while left hand plays the bass clef.")
+                                speakText("When playing a piano, the right hand plays the treble clef while the left hand plays the bass clef.")
                             }
                             isSpeaking.toggle()
                         }
@@ -86,7 +86,7 @@ struct SheetMusicOrganisationLearn3View: View {
                 }
             }
             .onAppear {
-                speakText("When playing a piano, the right hand plays the treble clef while left hand plays the bass clef.")
+                speakText("When playing a piano, the right hand plays the treble clef while the left hand plays the bass clef.")
             }
             .onDisappear {
                 stopSpeech()
@@ -98,7 +98,7 @@ struct SheetMusicOrganisationLearn3View: View {
     private func speakText(_ text: String) {
         let utterance = AVSpeechUtterance(string: text)
         utterance.voice = AVSpeechSynthesisVoice(language: "en-US")
-        utterance.rate = 0.5
+        utterance.rate = AVSpeechUtteranceDefaultSpeechRate
         synthesizer.speak(utterance)
     }
     

@@ -65,7 +65,7 @@ struct SheetMusicOrganisationLearn7View: View {
                             if isSpeaking {
                                 stopSpeech()
                             } else {
-                                speakText("Most of the time, there are notes in the bar. The direction of the stem of the notes depends on its position relative to the middle blue line. Notes on the blue line can either have stems that go up or down")
+                                speakText("Most of the time, there are notes in the bar. The direction of the stem of the notes depends on its position relative to the middle line. Notes on the middle line can either have stems that go up or down.")
                             }
                             isSpeaking.toggle()
                         }
@@ -89,7 +89,7 @@ struct SheetMusicOrganisationLearn7View: View {
             
         }
         .onAppear {
-            speakText("Most of the time, there are notes in the bar. The direction of the stem of the notes depends on its position relative to the middle blue line. Notes on the blue line can either have stems that go up or down")
+            speakText("Most of the time, there are notes in the bar. The direction of the stem of the notes depends on its position relative to the middle line. Notes on the middle line can either have stems that go up or down")
         }
         .onDisappear {
             stopSpeech()
@@ -100,7 +100,7 @@ struct SheetMusicOrganisationLearn7View: View {
     private func speakText(_ text: String) {
         let utterance = AVSpeechUtterance(string: text)
         utterance.voice = AVSpeechSynthesisVoice(language: "en-US")
-        utterance.rate = 0.5
+        utterance.rate = AVSpeechUtteranceDefaultSpeechRate
         synthesizer.speak(utterance)
     }
     

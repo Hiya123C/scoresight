@@ -103,7 +103,7 @@ struct SheetMusicOrganisationLearn10View: View {
                             if isSpeaking {
                                 stopSpeech()
                             } else {
-                                speakText("Tempo markings set the tempo for a piece and is positioned just above the 1st bar of every piece")
+                                speakText("Tempo markings set the tempo for a piece and is positioned just above the 1st bar.")
                             }
                             isSpeaking.toggle()
                         }
@@ -126,7 +126,7 @@ struct SheetMusicOrganisationLearn10View: View {
             
         }
         .onAppear {
-            speakText("Tempo markings set the tempo for a piece and is positioned just above the 1st bar of every piece")
+            speakText("Tempo markings set the tempo for a piece and is positioned just above the 1st bar.")
         }
         .onDisappear {
             stopSpeech()
@@ -137,7 +137,7 @@ struct SheetMusicOrganisationLearn10View: View {
     private func speakText(_ text: String) {
         let utterance = AVSpeechUtterance(string: text)
         utterance.voice = AVSpeechSynthesisVoice(language: "en-US")
-        utterance.rate = 0.5
+        utterance.rate = AVSpeechUtteranceDefaultSpeechRate
         synthesizer.speak(utterance)
     }
     

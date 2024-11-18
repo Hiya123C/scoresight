@@ -101,7 +101,7 @@ struct SheetMusicOrganisationLearn9View: View {
                             if isSpeaking {
                                 stopSpeech()
                             } else {
-                                speakText("with a repeat sign, the bars in to the left of the sign will be repeated once")
+                                speakText("With a repeat sign, the bars to the left of the sign will be repeated once.")
                             }
                             isSpeaking.toggle()
                         }
@@ -125,7 +125,7 @@ struct SheetMusicOrganisationLearn9View: View {
             
         }
         .onAppear {
-            speakText("with a repeat sign, the bars in to the left of the sign will be repeated once")
+            speakText("With a repeat sign, the bars to the left of the sign will be repeated once.")
         }
         .onDisappear {
             stopSpeech()
@@ -137,7 +137,7 @@ struct SheetMusicOrganisationLearn9View: View {
     private func speakText(_ text: String) {
         let utterance = AVSpeechUtterance(string: text)
         utterance.voice = AVSpeechSynthesisVoice(language: "en-US")
-        utterance.rate = 0.5
+        utterance.rate = AVSpeechUtteranceDefaultSpeechRate
         synthesizer.speak(utterance)
     }
     

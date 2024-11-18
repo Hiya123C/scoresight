@@ -99,7 +99,7 @@ struct SheetMusicOrganisationLearn8View: View {
                             if isSpeaking {
                                 stopSpeech()
                             } else {
-                                speakText("At the end of each piece or song, it will be symbolized with an end sign.")
+                                speakText("At the end of each piece or song, there will be an end sign.")
                             }
                             isSpeaking.toggle()
                         }
@@ -121,7 +121,7 @@ struct SheetMusicOrganisationLearn8View: View {
             }
         }
         .onAppear {
-            speakText("At the end of each piece or song, it will be symbolized with an end sign.")
+            speakText("At the end of each piece or song, there will be an end sign.")
         }
         .onDisappear {
             stopSpeech()
@@ -133,7 +133,7 @@ struct SheetMusicOrganisationLearn8View: View {
     private func speakText(_ text: String) {
         let utterance = AVSpeechUtterance(string: text)
         utterance.voice = AVSpeechSynthesisVoice(language: "en-US")
-        utterance.rate = 0.5
+        utterance.rate = AVSpeechUtteranceDefaultSpeechRate
         synthesizer.speak(utterance)
     }
 

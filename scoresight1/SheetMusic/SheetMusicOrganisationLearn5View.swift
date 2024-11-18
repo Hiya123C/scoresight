@@ -64,7 +64,7 @@ struct SheetMusicOrganisationLearn5View: View {
                             if isSpeaking {
                                 stopSpeech()
                             } else {
-                                speakText("or could also be sharps")
+                                speakText("Or sharps.")
                             }
                             isSpeaking.toggle()
                         }
@@ -88,7 +88,7 @@ struct SheetMusicOrganisationLearn5View: View {
             
         }
         .onAppear {
-            speakText("or could also be sharps")
+            speakText("Or sharps.")
         }
         .onDisappear {
             stopSpeech()
@@ -98,7 +98,7 @@ struct SheetMusicOrganisationLearn5View: View {
     private func speakText(_ text: String) {
         let utterance = AVSpeechUtterance(string: text)
         utterance.voice = AVSpeechSynthesisVoice(language: "en-US")
-        utterance.rate = 0.5
+        utterance.rate = AVSpeechUtteranceDefaultSpeechRate
         synthesizer.speak(utterance)
     }
     
