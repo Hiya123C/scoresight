@@ -85,7 +85,7 @@ struct KeySignaturesAccidentalsLearn14View: View {
                 .padding(.horizontal)
             }
             .onAppear {
-                speakText("as you have learnt earlier, a double sharp goes up two semitones. this is an example of a double sharp on the piano keyboard.")
+                speakText("As you have learnt earlier, a double sharp goes up two semitones. This is an example of a double sharp on the piano keyboard.")
             }
             .onDisappear {
                 stopAudio()
@@ -96,12 +96,12 @@ struct KeySignaturesAccidentalsLearn14View: View {
     private func speakText(_ text: String) {
         let utterance = AVSpeechUtterance(string: text)
         utterance.voice = AVSpeechSynthesisVoice(language: "en-US")
-        utterance.rate = 0.5
+        utterance.rate = AVSpeechUtteranceDefaultSpeechRate
         synthesizer.speak(utterance)
     }
     
     private func replayAudio() {
-        speakText("as you have learnt earlier, a double sharp goes up two semitones. this is an example of a  double sharp on the piano keyboard.")
+        speakText("As you have learnt earlier, a double sharp goes up two semitones. This is an example of a  double sharp on the piano keyboard.")
     }
     
     private func stopAudio() {

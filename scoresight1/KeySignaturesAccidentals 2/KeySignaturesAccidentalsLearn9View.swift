@@ -146,7 +146,7 @@ struct KeySignaturesAccidentalsLearn9View: View {
                 .padding(.horizontal)
             }
             .onAppear {
-                speakText(" this is how flats appear on the bass clef, but it is always arranged in this note order from down to up to down again no matter the clef.")
+                speakText("This is how flats appear on the bass clef, but it is always arranged in this note order from down to up to down again no matter the clef.")
             }
             .onDisappear {
                 stopAudio()
@@ -157,12 +157,12 @@ struct KeySignaturesAccidentalsLearn9View: View {
     private func speakText(_ text: String) {
         let utterance = AVSpeechUtterance(string: text)
         utterance.voice = AVSpeechSynthesisVoice(language: "en-US")
-        utterance.rate = 0.5
+        utterance.rate = AVSpeechUtteranceDefaultSpeechRate
         synthesizer.speak(utterance)
     }
     
     private func replayAudio() {
-        speakText(" this is how flats appear on the bass clef, but it is always arranged in this note order from down to up to down again no matter the clef.")
+        speakText("This is how flats appear on the bass clef, but it is always arranged in this note order from down to up to down again no matter the clef.")
     }
     
     private func stopAudio() {

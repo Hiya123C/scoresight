@@ -83,7 +83,7 @@ struct KeySignaturesAccidentalsLearn3View: View {
                 .padding(.horizontal)
             }
             .onAppear {
-                speakText("This is a flat. it is the opposite of a sharp, indicating a lowering of pitch by a semitone or half step.")
+                speakText("This is a flat. It is the opposite of a sharp, indicating a lowering of pitch by a semitone or half step.")
             }
             .onDisappear {
                 stopAudio()
@@ -94,12 +94,12 @@ struct KeySignaturesAccidentalsLearn3View: View {
     private func speakText(_ text: String) {
         let utterance = AVSpeechUtterance(string: text)
         utterance.voice = AVSpeechSynthesisVoice(language: "en-US")
-        utterance.rate = 0.5
+        utterance.rate = AVSpeechUtteranceDefaultSpeechRate
         synthesizer.speak(utterance)
     }
     
     private func replayAudio() {
-        speakText("This is a flat. it is the opposite of a sharp, indicating a lowering of pitch by a semitone or half step.")
+        speakText("This is a flat. It is the opposite of a sharp, indicating a lowering of pitch by a semitone or half step.")
     }
     
     private func stopAudio() {

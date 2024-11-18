@@ -68,7 +68,7 @@ struct KeySignaturesAccidentalsLearnView: View {
                 .padding(.horizontal)
             }
             .onAppear {
-                speakText("This is a sharp. it a sign that indicates a note is played higher in pitch, by a semitone or half step.")
+                speakText("This is a sharp. It a sign that indicates a note is played higher in pitch, by a semitone or half step.")
             }
             .onDisappear {
                 stopAudio()
@@ -79,12 +79,12 @@ struct KeySignaturesAccidentalsLearnView: View {
     private func speakText(_ text: String) {
         let utterance = AVSpeechUtterance(string: text)
         utterance.voice = AVSpeechSynthesisVoice(language: "en-US")
-        utterance.rate = 0.5
+        utterance.rate = AVSpeechUtteranceDefaultSpeechRate
         synthesizer.speak(utterance)
     }
     
     private func replayAudio() {
-        speakText("This is a sharp. it a sign that indicates a note is played higher in pitch, by a semitone or half step.")
+        speakText("This is a sharp. It a sign that indicates a note is played higher in pitch, by a semitone or half step.")
     }
     
     private func stopAudio() {

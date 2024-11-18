@@ -71,7 +71,7 @@ struct KeySignaturesAccidentalsLearn5View: View {
                 .padding(.horizontal)
             }
             .onAppear {
-                speakText("Key signatures always appear in the order F, C, G, D, A, E, B for sharps or vice versa for flats. their order can be remembered by the phrase “father charles goes down and ends battle”.")
+                speakText("Key signatures always appear in the order F, C, G, D, A, E, B, for sharps or vice versa for flats. Their order can be remembered by the phrase “father charles goes down and ends battle”.")
             }
             .onDisappear {
                 stopAudio()
@@ -82,12 +82,12 @@ struct KeySignaturesAccidentalsLearn5View: View {
     private func speakText(_ text: String) {
         let utterance = AVSpeechUtterance(string: text)
         utterance.voice = AVSpeechSynthesisVoice(language: "en-US")
-        utterance.rate = 0.5
+        utterance.rate = AVSpeechUtteranceDefaultSpeechRate
         synthesizer.speak(utterance)
     }
     
     private func replayAudio() {
-        speakText("key signatures always appear in the order F, C, G, D, A, E, B for sharps or vice versa for flats. their order can be remembered by the phrase “father charles goes down and ends battle”.")
+        speakText("key signatures always appear in the order F, C, G, D, A, E, B, for sharps or vice versa for flats. Their order can be remembered by the phrase “father charles goes down and ends battle”.")
     }
     
     private func stopAudio() {

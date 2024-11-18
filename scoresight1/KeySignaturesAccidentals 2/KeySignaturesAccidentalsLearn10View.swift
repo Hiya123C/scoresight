@@ -83,7 +83,7 @@ struct KeySignaturesAccidentalsLearn10View: View {
                 .padding(.horizontal)
             }
             .onAppear {
-                speakText("There is one more sign to remember: a natural. it restores a note to its original pitch and cannot be a key signature, only an accidental..")
+                speakText("There is one more sign to remember: a natural. It restores a note to its original pitch and cannot be a key signature, only an accidental.")
             }
             .onDisappear {
                 stopAudio()
@@ -94,12 +94,12 @@ struct KeySignaturesAccidentalsLearn10View: View {
     private func speakText(_ text: String) {
         let utterance = AVSpeechUtterance(string: text)
         utterance.voice = AVSpeechSynthesisVoice(language: "en-US")
-        utterance.rate = 0.5
+        utterance.rate = AVSpeechUtteranceDefaultSpeechRate
         synthesizer.speak(utterance)
     }
     
     private func replayAudio() {
-        speakText("there is one more sign to remember: a natural. it restores a note to its original pitch and cannot be a key signature, only an accidental.")
+        speakText("There is one more sign to remember: a natural. it restores a note to its original pitch and cannot be a key signature, only an accidental.")
     }
     
     private func stopAudio() {

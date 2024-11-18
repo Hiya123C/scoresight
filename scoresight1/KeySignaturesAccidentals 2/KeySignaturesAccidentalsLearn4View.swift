@@ -83,7 +83,7 @@ struct KeySignaturesAccidentalsLearn4View: View {
                 .padding(.horizontal)
             }
             .onAppear {
-                speakText("This is a double flat. it is the opposite of a double sharp, lowering a note by two semitones. it can only be an accidental and not a key signature.")
+                speakText("This is a double flat. It is the opposite of a double sharp, lowering a note by two semitones. It can only be an accidental and not a key signature.")
             }
             .onDisappear {
                 stopAudio()
@@ -94,12 +94,12 @@ struct KeySignaturesAccidentalsLearn4View: View {
     private func speakText(_ text: String) {
         let utterance = AVSpeechUtterance(string: text)
         utterance.voice = AVSpeechSynthesisVoice(language: "en-US")
-        utterance.rate = 0.5
+        utterance.rate = AVSpeechUtteranceDefaultSpeechRate
         synthesizer.speak(utterance)
     }
     
     private func replayAudio() {
-        speakText("This is a double flat. it is the opposite of a double sharp, lowering a note by two semitones. it can only be an accidental and not a key signature.")
+        speakText("This is a double flat. It is the opposite of a double sharp, lowering a note by two semitones. It can only be an accidental and not a key signature.")
     }
     
     private func stopAudio() {

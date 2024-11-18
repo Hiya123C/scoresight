@@ -83,7 +83,7 @@ struct KeySignaturesAccidentalsLearn11View: View {
                 .padding(.horizontal)
             }
             .onAppear {
-                speakText("accidentals are signs placed immediately to the left of a note to show that the note must be changed in pitch.")
+                speakText("Accidentals are signs placed immediately to the left of a note to show that the note must be changed in pitch.")
             }
             .onDisappear {
                 stopAudio()
@@ -94,12 +94,12 @@ struct KeySignaturesAccidentalsLearn11View: View {
     private func speakText(_ text: String) {
         let utterance = AVSpeechUtterance(string: text)
         utterance.voice = AVSpeechSynthesisVoice(language: "en-US")
-        utterance.rate = 0.5
+        utterance.rate = AVSpeechUtteranceDefaultSpeechRate
         synthesizer.speak(utterance)
     }
     
     private func replayAudio() {
-        speakText("accidentals are signs placed immediately to the left of a note to show that the note must be changed in pitch.")
+        speakText("Accidentals are signs placed immediately to the left of a note to show that the note must be changed in pitch.")
     }
     
     private func stopAudio() {

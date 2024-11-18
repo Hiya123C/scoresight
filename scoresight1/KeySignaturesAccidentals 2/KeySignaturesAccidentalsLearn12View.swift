@@ -83,7 +83,7 @@ struct KeySignaturesAccidentalsLearn12View: View {
                 .padding(.horizontal)
             }
             .onAppear {
-                speakText("this is a semitone, sometimes called a half tone or half step. it is the distance from a white key to a neighbouring black key on the piano keyboard.")
+                speakText("This is a semitone, sometimes called a half tone or half step. It is the distance from a white key to a neighbouring black key on the piano keyboard.")
             }
             .onDisappear {
                 stopAudio()
@@ -94,12 +94,12 @@ struct KeySignaturesAccidentalsLearn12View: View {
     private func speakText(_ text: String) {
         let utterance = AVSpeechUtterance(string: text)
         utterance.voice = AVSpeechSynthesisVoice(language: "en-US")
-        utterance.rate = 0.5
+        utterance.rate = AVSpeechUtteranceDefaultSpeechRate
         synthesizer.speak(utterance)
     }
     
     private func replayAudio() {
-        speakText("this is a semitone, sometimes called a half tone or half step. it is the distance from a white key to a neighbouring black key on the piano keyboard.")
+        speakText("This is a semitone, sometimes called a half tone or half step. It is the distance from a white key to a neighbouring black key on the piano keyboard.")
     }
     
     private func stopAudio() {

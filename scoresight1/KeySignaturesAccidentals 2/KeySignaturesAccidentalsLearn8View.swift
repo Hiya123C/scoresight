@@ -78,7 +78,7 @@ struct KeySignaturesAccidentalsLearn8View: View {
                 .padding(.horizontal)
             }
             .onAppear {
-                speakText("flats are always arranged oppositely of the sharps in the order B, E, A, D, G, C, F.")
+                speakText("Flats are always arranged oppositely of the sharps in the order B, E, A, D, G, C, F.")
             }
             .onDisappear {
                 stopAudio()
@@ -89,12 +89,12 @@ struct KeySignaturesAccidentalsLearn8View: View {
     private func speakText(_ text: String) {
         let utterance = AVSpeechUtterance(string: text)
         utterance.voice = AVSpeechSynthesisVoice(language: "en-US")
-        utterance.rate = 0.5
+        utterance.rate = AVSpeechUtteranceDefaultSpeechRate
         synthesizer.speak(utterance)
     }
     
     private func replayAudio() {
-        speakText("flats are always arranged oppositely of the sharps in the order B, E, A, D, G, C, F.")
+        speakText("Flats are always arranged oppositely of the sharps in the order B, E, A, D, G, C, F.")
     }
     
     private func stopAudio() {
