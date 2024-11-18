@@ -57,7 +57,7 @@ struct RhythmNotesRestsLearn13View: View {
 
 
                     Button(action: {
-                        speakText("Here is an example of a duplet. You might see notes with the number 2 on top. For this example, there are 2 quavers. This means that 2 quavers have to be played in the span of a dotted crotchet. So instead of playing the value of a quaver, each quaver has the value of a dotted quaver now.")
+                        speakText("Here is an example of a duplet. You might see notes with the number 2 on top. For this example, there are 2 quavers. This means that 2 quavers have to be played in the span of a dotted crotchet.")
                     }) {
                         Image(systemName: "speaker.wave.2.fill")
                             .font(.system(size: 30))
@@ -82,7 +82,7 @@ struct RhythmNotesRestsLearn13View: View {
             }
             .navigationBarHidden(true)
             .onAppear {
-                speakText("Here is an example of a duplet. You might see notes with the number 2 on top. For this example, there are 2 quavers. This means that 2 quavers have to be played in the span of a dotted crotchet. So instead of playing the value of a quaver, each quaver has the value of a dotted quaver now.")
+                speakText("Here is an example of a duplet. You might see notes with the number 2 on top. For this example, there are 2 quavers. This means that 2 quavers have to be played in the span of a dotted crotchet.")
             }
             .onDisappear {
                 stopSpeech()
@@ -94,7 +94,7 @@ struct RhythmNotesRestsLearn13View: View {
     private func speakText(_ text: String) {
         let utterance = AVSpeechUtterance(string: text)
         utterance.voice = AVSpeechSynthesisVoice(language: "en-US")
-        utterance.rate = 0.5
+        utterance.rate = AVSpeechUtteranceDefaultSpeechRate
         synthesizer.speak(utterance)
     }
 

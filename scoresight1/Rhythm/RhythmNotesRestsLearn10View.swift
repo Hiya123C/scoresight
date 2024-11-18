@@ -57,7 +57,7 @@ struct RhythmNotesRestsLearn10View: View {
                     Spacer()
 
                     Button(action: {
-                        speakText("This is a demisemiquaver rest. Similar to the demisemiquaver note, it is one sixteenth of a beat long. However, instead of holding the note, you don't play for a sixteenth of a beat, basically a super short time.")
+                        speakText("This is a demisemiquaver rest. Similar to the demisemiquaver note, it is one sixteenth of a beat long. However, instead of holding the note, you don't play for a sixteenth of a beat.")
                     }) {
                         Image(systemName: "speaker.wave.2.fill")
                             .font(.system(size: 30))
@@ -81,7 +81,7 @@ struct RhythmNotesRestsLearn10View: View {
             }
             .navigationBarHidden(true)
             .onAppear {
-                speakText("This is a demisemiquaver rest. Similar to the demisemiquaver note, it is one sixteenth of a beat long. However, instead of holding the note, you don't play for a sixteenth of a beat, basically a super short time.")
+                speakText("This is a demisemiquaver rest. Similar to the demisemiquaver note, it is one sixteenth of a beat long. However, instead of holding the note, you don't play for a sixteenth of a beat.")
             }
             .onDisappear {
                 stopSpeech()
@@ -93,7 +93,7 @@ struct RhythmNotesRestsLearn10View: View {
     private func speakText(_ text: String) {
         let utterance = AVSpeechUtterance(string: text)
         utterance.voice = AVSpeechSynthesisVoice(language: "en-US")
-        utterance.rate = 0.5
+        utterance.rate = AVSpeechUtteranceDefaultSpeechRate
         synthesizer.speak(utterance)
     }
 

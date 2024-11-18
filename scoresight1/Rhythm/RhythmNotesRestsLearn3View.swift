@@ -147,7 +147,7 @@ struct RhythmNotesRestsLearn3View: View {
                 }
                 .padding(.bottom, 20)
                 .onAppear {
-                    speakText("this is a minim, followed by a minim rest. you have to play the minim for two beats. hold the rectangular button for two beats. do not play during the minim rest. Listen to the metronome to know the duration of the four beats.")
+                    speakText("This is a minim, followed by a minim rest. You have to play the minim for two beats. Hold the rectangular button for two beats. Do not play during the minim rest. Listen to the metronome to know the duration of the four beats.")
                 }
             }
             .navigationBarBackButtonHidden(true)
@@ -202,12 +202,12 @@ struct RhythmNotesRestsLearn3View: View {
     private func speakText(_ text: String) {
         let utterance = AVSpeechUtterance(string: text)
         utterance.voice = AVSpeechSynthesisVoice(language: "en-US")
-        utterance.rate = 0.5
+        utterance.rate = AVSpeechUtteranceDefaultSpeechRate
         synthesizer.speak(utterance)
     }
     
     private func replayAudio() {
-        speakText("this is a minim, followed by a minim rest. you have to play the minim for two beats. hold the rectangular button for two beats. do not play during the minim rest. Listen to the metronome to know the duration of the four beats.")
+        speakText("This is a minim, followed by a minim rest. You have to play the minim for two beats. Hold the rectangular button for two beats. Do not play during the minim rest. Listen to the metronome to know the duration of the four beats.")
     }
     
     private func stopAudio() {

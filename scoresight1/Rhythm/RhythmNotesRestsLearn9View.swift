@@ -57,7 +57,7 @@ struct RhythmNotesRestsLearn9View: View {
                     }
                     Spacer()
                     Button(action: {
-                        speakText("This is a demisemiquaver note. It is one sixteenth of a beat long. A quaver consists of two semiquavers, and a semiquaver consists of two demisemiquavers.")
+                        speakText("This is a demisemiquaver note. It is one sixteenth of a beat long. A semiquaver consists of two demisemiquavers.")
                     }) {
                         Image(systemName: "speaker.wave.2.fill")
                             .font(.system(size: 30))
@@ -82,7 +82,7 @@ struct RhythmNotesRestsLearn9View: View {
             .navigationBarHidden(true)
             .onAppear {
                
-                speakText("This is a demisemiquaver note. It is one sixteenth of a beat long. A quaver consists of two semiquavers, and a semiquaver consists of two demisemiquavers.")
+                speakText("This is a demisemiquaver note. It is one sixteenth of a beat long. A semiquaver consists of two demisemiquavers.")
             }
             .onDisappear {
                 stopSpeech()
@@ -94,7 +94,7 @@ struct RhythmNotesRestsLearn9View: View {
     private func speakText(_ text: String) {
         let utterance = AVSpeechUtterance(string: text)
         utterance.voice = AVSpeechSynthesisVoice(language: "en-US")
-        utterance.rate = 0.5
+        utterance.rate = AVSpeechUtteranceDefaultSpeechRate
         synthesizer.speak(utterance)
     }
 

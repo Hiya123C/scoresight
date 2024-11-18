@@ -114,7 +114,7 @@ struct RhythmNotesRestsLearnView: View {
                 .padding(.bottom, 30)
             }
             .onAppear {
-                speakText("this is a semibreve. you have to play it for four beats. Tap on the rectangular button and hold for four beats. Listen to the metronome to know the duration of the four beats.")
+                speakText("This is a semibreve. You have to play it for four beats. Tap on the rectangular button and hold for four beats. Listen to the metronome to know the duration of the four beats.")
             }
             .onAppear {
                 setupMetronome()
@@ -184,12 +184,12 @@ struct RhythmNotesRestsLearnView: View {
     private func speakText(_ text: String) {
         let utterance = AVSpeechUtterance(string: text)
         utterance.voice = AVSpeechSynthesisVoice(language: "en-US")
-        utterance.rate = 0.5
+        utterance.rate = AVSpeechUtteranceDefaultSpeechRate
         synthesizer.speak(utterance)
     }
 
     private func replayAudio() {
-        speakText("this is a semibreve. you have to play it for four beats. tap on the rectangular button and hold for four beats. listen to the metronome to know the duration of the four beats.")
+        speakText("This is a semibreve. You have to play it for four beats. Tap on the rectangular button and hold for four beats. Listen to the metronome to know the duration of the four beats.")
     }
 
     private func stopAudio() {

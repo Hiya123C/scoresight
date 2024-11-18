@@ -198,7 +198,7 @@ struct RhythmNotesRestsLearn4View: View {
             }
             .navigationBarHidden(true)
             .onAppear(){
-                speakText("These are two crotchets, followed by two crotchet rests. Similarly to the semibreve note, it is four beats long. However, instead of holding the note, you don't play for 4 beats.")
+                speakText("These are two crotchets, followed by two crotchet rests. Similar to the semibreve note, it is four beats long. However, instead of holding the note, you should play the notes separately.")
             }
             .onDisappear() {
                 synthesizer.stopSpeaking(at: .immediate)
@@ -212,13 +212,13 @@ struct RhythmNotesRestsLearn4View: View {
     }
 
     private func replayAudio() {
-        speakText("These are two crotchets, followed by two crotchet rests. Similarly to the semibreve note, it is four beats long. However, instead of holding the note, you don't play for 4 beats.")
+        speakText("These are two crotchets, followed by two crotchet rests. Similarly to the semibreve note, it is four beats long. However, instead of holding the note, you should play the notes separately.")
     }
 
     private func speakText(_ text: String) {
         let utterance = AVSpeechUtterance(string: text)
         utterance.voice = AVSpeechSynthesisVoice(language: "en-US")
-        utterance.rate = 0.5
+        utterance.rate = AVSpeechUtteranceDefaultSpeechRate
         synthesizer.speak(utterance)
     }
 

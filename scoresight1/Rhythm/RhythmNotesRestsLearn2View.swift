@@ -106,7 +106,7 @@ struct RhythmNotesRestsLearn2View: View {
                 }
                 .padding(.bottom, 30)
                 .onAppear {
-                    speakText("this is a semibreve rest. do not play it for four beats. Thus, do not tap the button. ")
+                    speakText("This is a semibreve rest. Do not play it for four beats. Thus, do not tap the button.")
                 }
             }
             .navigationBarBackButtonHidden(true)
@@ -120,12 +120,12 @@ struct RhythmNotesRestsLearn2View: View {
     private func speakText(_ text: String) {
         let utterance = AVSpeechUtterance(string: text)
         utterance.voice = AVSpeechSynthesisVoice(language: "en-US")
-        utterance.rate = 0.5
+        utterance.rate = AVSpeechUtteranceDefaultSpeechRate
         synthesizer.speak(utterance)
     }
     
     private func replayAudio() {
-        speakText("this is a semibreve rest. do not play it for four beats. Thus, do not tap the button.")
+        speakText("This is a semibreve rest. Do not play it for four beats. Thus, do not tap the button.")
     }
     
     private func stopAudio() {

@@ -56,7 +56,7 @@ struct RhythmNotesRestsLearn8View: View {
                     }
                     Spacer()
                     Button(action: {
-                        speakText("This is a semiquaver rest. Similar to the semiquaver note, it is one eighth of a beat long. However, instead of holding the note, you don't play for an eighth of a beat, basically a short time.")
+                        speakText("This is a semiquaver rest. Similar to the semiquaver note, it is one eighth of a beat long. However, instead of holding the note, you don't play for an eighth of a beat.")
                     }) {
                         Image(systemName: "speaker.wave.2.fill")
                             .font(.system(size: 30))
@@ -80,7 +80,7 @@ struct RhythmNotesRestsLearn8View: View {
             }
             .navigationBarHidden(true)
             .onAppear {
-                speakText("This is a semiquaver rest. Similar to the semiquaver note, it is one eighth of a beat long. However, instead of holding the note, you don't play for an eighth of a beat, basically a short time.")
+                speakText("This is a semiquaver rest. Similar to the semiquaver note, it is one eighth of a beat long. However, instead of holding the note, you don't play for an eighth of a beat.")
             }
             .onDisappear {
                 stopSpeech()
@@ -92,7 +92,7 @@ struct RhythmNotesRestsLearn8View: View {
     private func speakText(_ text: String) {
         let utterance = AVSpeechUtterance(string: text)
         utterance.voice = AVSpeechSynthesisVoice(language: "en-US")
-        utterance.rate = 0.5
+        utterance.rate = AVSpeechUtteranceDefaultSpeechRate
         synthesizer.speak(utterance)
     }
 
