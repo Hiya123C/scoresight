@@ -8,7 +8,7 @@ struct ArticulationsOrnamentsLearn10View: View {
     @State private var audioPlayer: AVAudioPlayer?
 
     // Reusable description text
-    private let narrationText = "this is a portato. it is a combination of legato and staccato, with notes slightly detached, like so:"
+    private let narrationText = "This is a portato. It is a combination of legato and staccato, with notes slightly detached, like so:"
 
     init() {
         synthesizer.delegate = SpeechDelegate1.shared
@@ -118,7 +118,7 @@ struct ArticulationsOrnamentsLearn10View: View {
     private func speakText(_ text: String) {
         let utterance = AVSpeechUtterance(string: text)
         utterance.voice = AVSpeechSynthesisVoice(language: "en-US")
-        utterance.rate = 0.5
+        utterance.rate = AVSpeechUtteranceDefaultSpeechRate
         synthesizer.speak(utterance)
     }
 

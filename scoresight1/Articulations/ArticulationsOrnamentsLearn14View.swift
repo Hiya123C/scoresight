@@ -8,7 +8,7 @@ struct ArticulationsOrnamentsLearn14View: View {
     @State private var audioPlayer: AVAudioPlayer?
 
     // Reusable description text
-    private let narrationText = "this is an apoggiatura. It is an ornamental note that leans into the main note, half of its time. Like so:"
+    private let narrationText = "This is an acciaccatura. The tiny note is always a demisemiquaver and the big note is the remaining value, which is why it’s called a ‘crush note’. It is drawn with a slash. It is played like so:"
 
     init() {
         synthesizer.delegate = SpeechDelegate1.shared
@@ -119,7 +119,7 @@ struct ArticulationsOrnamentsLearn14View: View {
     private func speakText(_ text: String) {
         let utterance = AVSpeechUtterance(string: text)
         utterance.voice = AVSpeechSynthesisVoice(language: "en-US")
-        utterance.rate = 0.5
+        utterance.rate = AVSpeechUtteranceDefaultSpeechRate
         synthesizer.speak(utterance)
     }
 

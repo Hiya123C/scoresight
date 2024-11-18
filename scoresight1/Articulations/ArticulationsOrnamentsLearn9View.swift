@@ -8,7 +8,7 @@ struct ArticulationsOrnamentsLearn9View: View {
     @State private var audioPlayer: AVAudioPlayer?
 
     // Reusable description text
-    private let narrationText = "this is a marcato. you play the note with a strong, marked emphasis, even more pronounced than an accent, like so:"
+    private let narrationText = "This is a marcato. You play the note with a strong, marked emphasis, even more pronounced than an accent, like so:"
 
     init() {
         synthesizer.delegate = SpeechDelegate1.shared
@@ -118,7 +118,7 @@ struct ArticulationsOrnamentsLearn9View: View {
     private func speakText(_ text: String) {
         let utterance = AVSpeechUtterance(string: text)
         utterance.voice = AVSpeechSynthesisVoice(language: "en-US")
-        utterance.rate = 0.5
+        utterance.rate = AVSpeechUtteranceDefaultSpeechRate
         synthesizer.speak(utterance)
     }
 

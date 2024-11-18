@@ -8,7 +8,7 @@ struct ArticulationsOrnamentsLearn4View: View {
     @State private var audioPlayer: AVAudioPlayer?
 
     // Reusable description text
-    private let narrationText = "this is a turn and an inverted turn,which has a line, and how the note looks like written out. it usually has four notes and ends at the ‘core’ note which is the note that is displayed, like so:"
+    private let narrationText = "This is a turn and an inverted turn,which has a line, and how the note looks like written out. It usually has four notes and ends at the ‘core’ note which is the note that is displayed, like so:"
 
     init() {
         synthesizer.delegate = SpeechDelegate1.shared
@@ -118,7 +118,7 @@ struct ArticulationsOrnamentsLearn4View: View {
     private func speakText(_ text: String) {
         let utterance = AVSpeechUtterance(string: text)
         utterance.voice = AVSpeechSynthesisVoice(language: "en-US")
-        utterance.rate = 0.5
+        utterance.rate = AVSpeechUtteranceDefaultSpeechRate
         synthesizer.speak(utterance)
     }
 

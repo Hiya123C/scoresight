@@ -8,7 +8,7 @@ struct ArticulationsOrnamentsLearn12View: View {
     @State private var audioPlayer: AVAudioPlayer?
 
     // Reusable description text
-    private let narrationText = "this is a lower mordent, which is played by rapidly alternating between the main note and the note immediately below it like so:"
+    private let narrationText = "This is a lower mordent, which is played by rapidly alternating between the main note and the note immediately below it like so:"
 
     init() {
         synthesizer.delegate = SpeechDelegate1.shared
@@ -119,7 +119,7 @@ struct ArticulationsOrnamentsLearn12View: View {
     private func speakText(_ text: String) {
         let utterance = AVSpeechUtterance(string: text)
         utterance.voice = AVSpeechSynthesisVoice(language: "en-US")
-        utterance.rate = 0.5
+        utterance.rate = AVSpeechUtteranceDefaultSpeechRate
         synthesizer.speak(utterance)
     }
 

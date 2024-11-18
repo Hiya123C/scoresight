@@ -87,7 +87,7 @@ struct ArticulationsOrnamentsLearnView: View {
                 SpeechDelegate.shared.onSpeechFinished = {
                     shouldPlayPiano = true
                 }
-                speakText("this is an accent. it is used to emphasise the note you are playing like so:")
+                speakText("This is an accent. It is used to emphasise the note you are playing like so:")
             }
             .onChange(of: shouldPlayPiano, initial: false) { oldValue, newValue in
                 if newValue {
@@ -105,12 +105,12 @@ struct ArticulationsOrnamentsLearnView: View {
     private func speakText(_ text: String) {
         let utterance = AVSpeechUtterance(string: text)
         utterance.voice = AVSpeechSynthesisVoice(language: "en-US")
-        utterance.rate = 0.5
+        utterance.rate = AVSpeechUtteranceDefaultSpeechRate
         synthesizer.speak(utterance)
     }
     
     private func replayAudio() {
-        speakText("this is an accent. it is used to emphasise the note you are playing like so:")
+        speakText("This is an accent. It is used to emphasise the note you are playing like so:")
     }
     
     private func stopAudio() {

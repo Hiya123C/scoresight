@@ -8,7 +8,7 @@ struct ArticulationsOrnamentsLearn8View: View {
     @State private var audioPlayer: AVAudioPlayer?
 
     // Reusable description text
-    private let narrationText = "this is a slur, also known as a legato, the notes within a slur is played smoothly without interruptions."
+    private let narrationText = "This is a slur, also known as a legato. The notes within a slur is played smoothly without interruptions like so:"
 
     init() {
         synthesizer.delegate = SpeechDelegate1.shared
@@ -118,7 +118,7 @@ struct ArticulationsOrnamentsLearn8View: View {
     private func speakText(_ text: String) {
         let utterance = AVSpeechUtterance(string: text)
         utterance.voice = AVSpeechSynthesisVoice(language: "en-US")
-        utterance.rate = 0.5
+        utterance.rate = AVSpeechUtteranceDefaultSpeechRate
         synthesizer.speak(utterance)
     }
 
