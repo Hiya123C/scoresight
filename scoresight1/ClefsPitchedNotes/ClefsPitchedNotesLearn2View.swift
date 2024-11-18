@@ -75,7 +75,7 @@ struct ClefsPitchedNotesLearn2View: View {
             .padding(.horizontal)
         }
         .onAppear {
-            speakText("This is where middle C is located on the treble clef. it is named this way as it is the C key in the located middle of the piano.")
+            speakText("This is where middle C is located on the treble clef. It is named this way as it is the C key in the located middle of the piano.")
         }
         .onDisappear {
             stopAudio()
@@ -86,12 +86,12 @@ struct ClefsPitchedNotesLearn2View: View {
 private func speakText(_ text: String) {
     let utterance = AVSpeechUtterance(string: text)
     utterance.voice = AVSpeechSynthesisVoice(language: "en-US")
-    utterance.rate = 0.5
+    utterance.rate = AVSpeechUtteranceDefaultSpeechRate
     synthesizer.speak(utterance)
 }
 
 private func replayAudio() {
-    speakText("This is where middle C is located on the treble clef. it is named this way as it is the C key in the located middle of the piano.")
+    speakText("This is where middle C is located on the treble clef. It is named this way as it is the C key in the located middle of the piano.")
 }
 
 private func stopAudio() {

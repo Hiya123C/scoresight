@@ -69,7 +69,7 @@ struct ClefsPitchedNotesLearnView: View {
                 .padding(.horizontal)
             }
             .onAppear {
-                speakText("This is a treble clef. it is usually used as the clef for the righthanded bars of piano and other common instruments such as violin, guitar, oboe, trumpet and clarinet.")
+                speakText("This is a treble clef. It is usually used as the clef for the righthanded bars of piano and other common instruments such as violin, guitar, oboe, trumpet and clarinet.")
             }
             .onDisappear {
                 stopAudio()
@@ -80,12 +80,12 @@ struct ClefsPitchedNotesLearnView: View {
     private func speakText(_ text: String) {
         let utterance = AVSpeechUtterance(string: text)
         utterance.voice = AVSpeechSynthesisVoice(language: "en-US")
-        utterance.rate = 0.5
+        utterance.rate = AVSpeechUtteranceDefaultSpeechRate
         synthesizer.speak(utterance)
     }
 
     private func replayAudio() {
-        speakText("This is a treble clef. it is usually used as the clef for the righthanded bars of piano and other common instruments such as violin, guitar, oboe, trumpet and clarinet.")
+        speakText("This is a treble clef. It is usually used as the clef for the righthanded bars of piano and other common instruments such as violin, guitar, oboe, trumpet and clarinet.")
     }
     
     private func stopAudio() {

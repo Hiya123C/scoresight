@@ -88,7 +88,7 @@ struct ClefsPitchedNotesLearn3View: View {
                 .padding(.horizontal)
             }
             .onAppear {
-                speakText("This is a bass clef. it is usually used as the clef for the left-handed bars of piano and other common instruments such as cello, bassoon, timpani, trombone.")
+                speakText("This is a bass clef. It is usually used as the clef for the left-handed bars of piano and other common instruments such as cello, bassoon, timpani, trombone.")
             }
             .onDisappear {
                 stopAudio()
@@ -99,12 +99,12 @@ struct ClefsPitchedNotesLearn3View: View {
     private func speakText(_ text: String) {
         let utterance = AVSpeechUtterance(string: text)
         utterance.voice = AVSpeechSynthesisVoice(language: "en-US")
-        utterance.rate = 0.5
+        utterance.rate = AVSpeechUtteranceDefaultSpeechRate
         synthesizer.speak(utterance)
     }
     
     private func replayAudio() {
-        speakText("This is a bass clef. it is usually used as the clef for the left-handed bars of piano and other common instruments such as cello, bassoon, timpani, trombone.")
+        speakText("This is a bass clef. It is usually used as the clef for the left-handed bars of piano and other common instruments such as cello, bassoon, timpani, trombone.")
     }
     
     private func stopAudio() {

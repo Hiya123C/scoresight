@@ -86,7 +86,7 @@ struct ClefsPitchedNotesLearn7View: View {
                 .padding(.horizontal)
             }
             .onAppear {
-                speakText("This is a tenor clef. it is used as the clef for the viola da gamba, though rarely, as well as the upper ranges of instruments that typically use the bass clef, like the cello, bassoon and euphonium.")
+                speakText("This is a tenor clef. It is used as the clef for the viola da gamba, though rarely, as well as the upper ranges of instruments that typically use the bass clef, like the cello, bassoon and euphonium.")
             }
             .onDisappear {
                 stopAudio()
@@ -97,12 +97,12 @@ struct ClefsPitchedNotesLearn7View: View {
     private func speakText(_ text: String) {
         let utterance = AVSpeechUtterance(string: text)
         utterance.voice = AVSpeechSynthesisVoice(language: "en-US")
-        utterance.rate = 0.5
+        utterance.rate = AVSpeechUtteranceDefaultSpeechRate
         synthesizer.speak(utterance)
     }
     
     private func replayAudio() {
-        speakText("This is a tenor clef. it is used as the clef for the viola da gamba, though rarely, as well as the upper ranges of instruments that typically use the bass clef, like the cello, bassoon and euphonium.")
+        speakText("This is a tenor clef. It is used as the clef for the viola da gamba, though rarely, as well as the upper ranges of instruments that typically use the bass clef, like the cello, bassoon and euphonium.")
     }
     
     private func stopAudio() {

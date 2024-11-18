@@ -83,7 +83,7 @@ struct ClefsPitchedNotesLearn14View: View {
                 .padding(.horizontal)
             }
             .onAppear {
-                speakText("This is an octave. it is an interval between two of the same notes, one higher and one lower. these notes are the first and eighth note in a series of eight notes.")
+                speakText("This is an octave. It is an interval between two of the same notes, one higher and one lower. These notes are the first and eighth note in a series of eight notes.")
             }
             .onDisappear {
                 stopAudio()
@@ -94,12 +94,12 @@ struct ClefsPitchedNotesLearn14View: View {
     private func speakText(_ text: String) {
         let utterance = AVSpeechUtterance(string: text)
         utterance.voice = AVSpeechSynthesisVoice(language: "en-US")
-        utterance.rate = 0.5
+        utterance.rate = AVSpeechUtteranceDefaultSpeechRate
         synthesizer.speak(utterance)
     }
     
     private func replayAudio() {
-        speakText("This is an octave. it is an interval between two of the same notes, one higher and one lower. these notes are the first and eighth note in a series of eight notes.")
+        speakText("This is an octave. It is an interval between two of the same notes, one higher and one lower. These notes are the first and eighth note in a series of eight notes.")
     }
     
     private func stopAudio() {

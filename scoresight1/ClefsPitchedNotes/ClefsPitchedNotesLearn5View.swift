@@ -86,7 +86,7 @@ struct ClefsPitchedNotesLearn5View: View {
                 .padding(.horizontal)
             }
             .onAppear {
-                speakText("This is an alto clef. it is usually used as a clef for instruments such as viola, alto trombone and mandola.")
+                speakText("This is an alto clef. It is usually used as a clef for instruments such as viola, alto trombone and mandola.")
             }
             .onDisappear {
                 stopAudio()
@@ -97,12 +97,12 @@ struct ClefsPitchedNotesLearn5View: View {
     private func speakText(_ text: String) {
         let utterance = AVSpeechUtterance(string: text)
         utterance.voice = AVSpeechSynthesisVoice(language: "en-US")
-        utterance.rate = 0.5
+        utterance.rate = AVSpeechUtteranceDefaultSpeechRate
         synthesizer.speak(utterance)
     }
     
     private func replayAudio() {
-        speakText("This is an alto clef. it is usually used as a clef for instruments such as viola, alto trombone and mandola.")
+        speakText("This is an alto clef. It is usually used as a clef for instruments such as viola, alto trombone and mandola.")
     }
     
     private func stopAudio() {
