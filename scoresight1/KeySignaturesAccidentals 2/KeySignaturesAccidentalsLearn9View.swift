@@ -9,20 +9,19 @@ struct KeySignaturesAccidentalsLearn9View: View {
     
     @State private var opacities: [Double] = Array(repeating: 0, count: 8) // Start all images hidden
     @State private var currentIndex = 0
-    let animationDuration: Double = 0.5  // Duration for fade in/out
-    let delayBetweenImages: Double = 0.2 // Delay before showing next image
+    let animationDuration: Double = 1.0  // Duration for fade in/out
+    let delayBetweenImages: Double = 0.5 // Delay before showing next image
     
     // Define positions for each sharp relative to the staff
     let positions: [(x: CGFloat, y: CGFloat)] = [
-        (x: 0, y: 0),
         (x: 0, y: -10),
-        (x: -2, y: -6),
-        (x: 0, y: -6),
-        (x: 0, y: -11),
-        (x: 0, y: -13),
-        (x: -2, y: -10),
-        (x: 0, y: -7),
-        
+        (x: 0, y: 0),
+        (x: 0, y: 0),
+        (x: 0, y: 0),
+        (x: 0, y: 0),
+        (x: 0, y: 0),
+        (x: -1, y: 4),
+        (x: -1, y: 6)
     ]
     
     func startAnimation() {
@@ -84,9 +83,9 @@ struct KeySignaturesAccidentalsLearn9View: View {
                 
                 ZStack {
                     ForEach(0..<8) { index in
-                        Image(index == 0 ? "bass flat 2" :
-                                index == 1 ? "bass flat b 1" :
-                                index == 2 ? "bass flat e 1" :
+                        Image(index == 0 ? "bass flat" :
+                                index == 1 ? "bass flat b 2" :
+                                index == 2 ? "bass flat e 2" :
                                 index == 3 ? "bass flat a 1" :
                                 index == 4 ? "bass flat d 1" :
                                 index == 5 ? "bass flat g 1" :

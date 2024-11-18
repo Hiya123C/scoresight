@@ -9,19 +9,19 @@ struct KeySignaturesAccidentalsLearn7View: View {
    
     @State private var opacities: [Double] = Array(repeating: 0, count: 8) // Start all images hidden
     @State private var currentIndex = 0
-    let animationDuration: Double = 0.5  // Duration for fade in/out
+    let animationDuration: Double = 0.5 // Duration for fade in/out
     let delayBetweenImages: Double = 0.2 // Delay before showing next image
     
     // Define positions for each sharp relative to the staff
     let positions: [(x: CGFloat, y: CGFloat)] = [
         (x: 0, y: 0),
+        (x: 8, y: -3),
+        (x: 3, y: -2),
+        (x: 1, y: 0),
+        (x: 0, y: 4),
         (x: 0, y: 0),
         (x: 0, y: 0),
-        (x: 0, y: 0),
-        (x: 0, y: 0),
-        (x: 0, y: 0),
-        (x: 0, y: 0),
-        (x: 0, y: 0)
+        (x: -3, y: -2)
     ]
     
     func startAnimation() {
@@ -85,12 +85,12 @@ struct KeySignaturesAccidentalsLearn7View: View {
                 ZStack {
                     ForEach(0..<8) { index in
                         Image(index == 0 ? "treble sharp" :
-                                index == 1 ? "treble sharp f" :
-                                index == 2 ? "treble sharp c" :
-                                index == 3 ? "treble sharp g" :
-                                index == 4 ? "treble sharp d" :
-                                index == 5 ? "treble sharp a" :
-                                index == 6 ? "treble sharp e" :
+                                index == 1 ? "treble sharp f 1" :
+                                index == 2 ? "treble sharp c 1" :
+                                index == 3 ? "treble sharp g 1" :
+                                index == 4 ? "treble sharp d 1" :
+                                index == 5 ? "treble sharp a 1" :
+                                index == 6 ? "treble sharp e 1" :
                                 "treble sharp b")
                         .resizable()
                         .scaledToFit()
