@@ -158,12 +158,12 @@ struct TimeSignaturesLearn9View: View {
     private func speakText(_ text: String) {
         let utterance = AVSpeechUtterance(string: text)
         utterance.voice = AVSpeechSynthesisVoice(language: "en-US")
-        utterance.rate = 0.5
+        utterance.rate = AVSpeechUtteranceDefaultSpeechRate
         synthesizer.speak(utterance)
     }
 
     private func replayAudio() {
-        speakText("Here’s a tutorial to differentiate on beat and off beat notes. The largest circles represent the on-beats. The smaller circles represent off beats. Tap on all on beats! Do not tap on off beats. Press skip to go to the review.")
+        speakText("Here’s a tutorial to differentiate on beat and off beat notes. The largest circles represent the on-beats. The smaller circles represent off beats. Tap on all on beats. Do not tap on off beats. Press skip to go to the review.")
     }
 }
 

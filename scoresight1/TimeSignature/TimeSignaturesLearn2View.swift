@@ -74,7 +74,7 @@ struct TimeSignaturesLearn2View: View {
             }
             .navigationBarHidden(true)
             .onAppear {
-                speakText("The numerator represents the number of note value in a bar. In this case, there are 4 crotchets this bar")
+                speakText("The numerator represents the number of notes in a bar. In this case, there are 4 crotchets this bar.")
             }
             .onDisappear {
                 stopAudio()
@@ -86,12 +86,12 @@ struct TimeSignaturesLearn2View: View {
     private func speakText(_ text: String) {
         let utterance = AVSpeechUtterance(string: text)
         utterance.voice = AVSpeechSynthesisVoice(language: "en-US")
-        utterance.rate = 0.5
+        utterance.rate = AVSpeechUtteranceDefaultSpeechRate
         synthesizer.speak(utterance)
     }
 
     private func replayAudio() {
-        speakText("The numerator represents the number of note value in a bar. In this case, there are 4 crotchets this bar")
+        speakText("The numerator represents the number of notes in a bar. In this case, there are 4 crotchets this bar.")
     }
     
     private func stopAudio() {

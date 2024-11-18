@@ -105,7 +105,7 @@ struct TimeSignaturesLearn6View: View {
                 .padding()
             }
             .onAppear {
-                speakText(" Find out how the bar changes when you press the plus and minus buttons! The limit is 2 to 4")
+                speakText("Find out how the bar changes when you press the plus and minus buttons! The limit is 2 to 4.")
             }
             .onDisappear {
                 stopAudio()
@@ -117,12 +117,12 @@ struct TimeSignaturesLearn6View: View {
     private func speakText(_ text: String) {
         let utterance = AVSpeechUtterance(string: text)
         utterance.voice = AVSpeechSynthesisVoice(language: "en-US")
-        utterance.rate = 0.5
+        utterance.rate = AVSpeechUtteranceDefaultSpeechRate
         synthesizer.speak(utterance)
     }
 
     private func replayAudio() {
-        speakText(" Find out how the bar changes when you press the plus and minus buttons! The limit is 2 to 4")
+        speakText("Find out how the bar changes when you press the plus and minus buttons! The limit is 2 to 4.")
     }
     
     private func stopAudio() {
