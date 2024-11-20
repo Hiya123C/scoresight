@@ -10,7 +10,7 @@ struct ArticulationsOrnamentsLearn2View: View {
     @Binding var isPresented: Bool
     
     // Reusable description text
-    private let narrationText = "This is a tenuto. It is used to sustain the note for its full value, with a slight emphasis, like so:"
+    private let narrationText = "This is a tenuto. It is used to sustain the note for its full value, with a slight emphasis."
 
     func playAudio() {
         guard let soundURL = Bundle.main.url(forResource: "tenuto", withExtension: "mp3") else {

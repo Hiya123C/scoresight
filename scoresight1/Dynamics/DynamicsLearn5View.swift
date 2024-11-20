@@ -1,5 +1,5 @@
 //
-//  DynamicsLearn5View.swift
+//  DynamicsLearn2View.swift
 //  scoresight1
 //
 //  Created by Li Jiansheng on 11/11/24.
@@ -9,9 +9,9 @@ import SwiftUI
 import AVFoundation
 
 struct DynamicsLearn5View: View {
+    
     @State private var audioPlayer: AVAudioPlayer?
     @State private var isPlayingAudio = false
-
     func playAudio() {
         guard let soundURL = Bundle.main.url(forResource: "rfz", withExtension: "mp3") else {
             print("Audio cannot find.")
@@ -52,31 +52,29 @@ struct DynamicsLearn5View: View {
                     Spacer()
                 }
                 Spacer()
-                VStack{
-                    HStack{
-                        Image("rinforzando")
-                            .resizable()
-                            .scaledToFit()
-                            .scaleEffect(1.3)
-                        
-                        Button(action: {
-                            playAudio()
-                        }) {
-                            Image(systemName: isPlayingAudio ? "pause.circle" : "play.circle")
-                                .symbolRenderingMode(.palette)
-                                .foregroundStyle(.black, .black)
-                                .font(.system(size: 50))
-                                .padding(50)
+                    VStack{
+                        HStack{
+                            Image("rinforzando")
+                                .resizable()
+                                .scaledToFit()
+                                .scaleEffect(1.2)
+                            
+                            
+                            Button(action: {
+                                playAudio()
+                            }) {
+                                Image(systemName: isPlayingAudio ? "pause.circle" : "play.circle")
+                                    .symbolRenderingMode(.palette)
+                                    .foregroundStyle(.black, .black)
+                                    .font(.system(size: 50))
+                                    .padding(30)
+                            }
                         }
-                    }
-                    
-                    
-                    Text("a sudden increase in volume (only for a given phrase)")
-                        .font(.system(size: 25))
-                    
-                    Text("rinforzando")
-                        .font(.system(size:80))
-                        .bold()
+                        Text("a sudden increase in volume (only for a given phrase)")
+                            .font(.system(size: 25))
+                        Text("rinforzando")
+                            .font(.system(size:70))
+                            .bold()
                 }
                 Spacer()
                 HStack{
@@ -94,7 +92,6 @@ struct DynamicsLearn5View: View {
                             .font(.system(size: 25))
                     }
                     Spacer()
-                    
                     NavigationLink{
                         DynamicsLearn6View(isPresented:$isPresented)
                     } label:{
@@ -108,10 +105,11 @@ struct DynamicsLearn5View: View {
                             )
                             .foregroundStyle(.black)
                             .font(.system(size: 25))
+                        
+                        
                     }
                 }
             }
-            
             .onDisappear {
                 stopAudio()
             }
@@ -121,8 +119,8 @@ struct DynamicsLearn5View: View {
     private func stopAudio() {
         audioPlayer?.stop()
         audioPlayer = nil
+        isPlayingAudio = false
     }
-    
 }
 
 #Preview {

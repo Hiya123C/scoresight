@@ -73,7 +73,7 @@ struct DynamicsLearn2View: View {
                         Text("gradually getting louder")
                             .font(.system(size: 25))
                         Text("crescendo")
-                            .font(.system(size:80))
+                            .font(.system(size:70))
                             .bold()
                 }
                 Spacer()

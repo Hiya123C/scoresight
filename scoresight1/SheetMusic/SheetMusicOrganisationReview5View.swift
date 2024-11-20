@@ -12,9 +12,9 @@ struct SheetMusicOrganisationReview5View: View {
         NavigationStack{
             VStack {
                 HStack{
-                    NavigationLink{
-                        SheetMusicOrganisationView()
-                    }label:{
+                    Button(action:{
+                        isPresented = false
+                    }){
                         Image(systemName: "x.circle")
                             .symbolRenderingMode(.palette)
                             .foregroundStyle(.black, .white)

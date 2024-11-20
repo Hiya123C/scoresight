@@ -28,20 +28,17 @@ struct TimeSignaturesLearn9View: View {
         NavigationStack {
             VStack {
                 HStack {
-                    Button(action:{
+                    Button(action: {
+                        resetTutorial()
                         isPresented = false
-                    }){
+                    }) {
                         Image(systemName: "x.circle")
                             .symbolRenderingMode(.palette)
                             .foregroundStyle(.black, .white)
-                            .font(.system(size:50))
+                            .font(.system(size: 50))
                     }
                     Spacer()
-                    Text("Tutorial")
-                        .font(.headline)
-                        .foregroundColor(.black)
-                    Spacer()
-                    
+
                     HStack {
                         Button(action: { replayAudio() }) {
                             Image(systemName: "speaker.wave.2.fill")
@@ -51,15 +48,17 @@ struct TimeSignaturesLearn9View: View {
                         }
                         Button("Skip") {
                             navigateToReview = true
+                            resetTutorial()
                         }
                         .foregroundColor(.black)
                         .font(.headline)
                     }
                 }
                 .padding(.horizontal)
-                
+
                 Spacer()
-                
+
+                // Main Content Section
                 HStack(alignment: .center) {
                     VStack {
                         Text("6")
@@ -69,48 +68,36 @@ struct TimeSignaturesLearn9View: View {
                             .font(.system(size: 80))
                             .bold()
                     }
-                    
+
+                    // Beat Circles
                     HStack(spacing: 24) {
                         ForEach(0..<beatsInMeasure, id: \.self) { index in
-                            ZStack {
-
-                                Circle()
-                                    .fill(tappedCircles[index] == nil ? Color.white : (tappedCircles[index] == "Perfect" ? Color.green : Color.red))
-                                    .frame(width: onBeats.contains(index) ? 100 : 50, height: onBeats.contains(index) ? 100 : 50)
-                                    .overlay(
-                                        Circle().stroke(Color.black, lineWidth: 2)
-                                    )
-                                    .onTapGesture {
-                                        if !metronomeStarted && index == 0 {
-                                            startMetronome()
-                                            metronomeStarted = true
+                            VStack(spacing: 5) {
+                                ZStack {
+                                    Circle()
+                                        .fill(tappedCircles[index] == nil ? Color.white : (tappedCircles[index] == "Perfect" ? Color.green : Color.red))
+                                        .frame(width: onBeats.contains(index) ? 100 : 50, height: onBeats.contains(index) ? 100 : 50)
+                                        .overlay(
+                                            Circle().stroke(Color.black, lineWidth: 2)
+                                        )
+                                        .onTapGesture {
+                                            handleTap(for: index)
                                         }
-                                        
-                     
-                                        if onBeats.contains(index) {
-                            
-                                            if index == currentBeat {
-                                                tappedCircles[index] = "Perfect"
-                                            }
-                                        } else {
-                                            tappedCircles[index] = "Don't Tap"
-                                        }
-                                    }
-                                
-                                // Show text below the tapped circle based on the feedback
-                                if let feedback = tappedCircles[index] {
-                                    Text(feedback)
-                                        .font(.caption)
-                                        .foregroundColor(feedback == "Perfect" ? .green : .red)
-                                        .bold()
-                                        .padding(.top, 5)
                                 }
+
+                                // Feedback Text
+                                Text(tappedCircles[index] ?? "") // Show feedback or empty space
+                                    .font(.caption)
+                                    .foregroundColor(tappedCircles[index] == "Perfect" ? .green : .red)
+                                    .bold()
+                                    .multilineTextAlignment(.center) // Ensure text stays within bounds
+                                    .frame(maxWidth: 80) // Limit width to avoid overflow
                             }
                         }
                     }
                     .padding(.leading, 20)
                 }
-                
+
                 Spacer()
             }
             .navigationBarHidden(true)
@@ -123,23 +110,31 @@ struct TimeSignaturesLearn9View: View {
                     playMetronomeSound()
                     advanceBeat()
                 } else if beatCount >= beatsInMeasure {
-                    metronomeTimer.upstream.connect().cancel() // Stop the timer after 6 beats
-                    beatCount = 0 // Reset beat count for the next session
+                    stopMetronome()
                 }
             }
-            // Navigate to the TimeSignaturesReviewView when navigateToReview is true
             .navigationDestination(isPresented: $navigateToReview) {
-                TimeSignaturesReviewView(isPresented:$isPresented)
+                TimeSignaturesReviewView(isPresented: $isPresented)
                     .navigationBarHidden(true)
                     .navigationBarBackButtonHidden(true)
             }
         }
         .navigationBarHidden(true)
     }
-    
-    // MARK: - Functions
-    
-    // Starts the metronome by preparing the audio player
+
+    func handleTap(for index: Int) {
+        if !metronomeStarted && index == 0 {
+            startMetronome()
+            metronomeStarted = true
+        }
+
+        if onBeats.contains(index) {
+            tappedCircles[index] = index == currentBeat ? "Perfect" : ""
+        } else {
+            tappedCircles[index] = "Don't Tap"
+        }
+    }
+
     func startMetronome() {
         guard let url = Bundle.main.url(forResource: "metronome", withExtension: "m4a") else {
             print("Metronome sound file not found")
@@ -148,17 +143,23 @@ struct TimeSignaturesLearn9View: View {
         metronomePlayer = try? AVAudioPlayer(contentsOf: url)
         metronomePlayer?.prepareToPlay()
     }
-    
+
     func playMetronomeSound() {
         metronomePlayer?.stop()
-        metronomePlayer?.currentTime = 0;        metronomePlayer?.play()
+        metronomePlayer?.currentTime = 0
+        metronomePlayer?.play()
     }
 
     func advanceBeat() {
         currentBeat = (currentBeat + 1) % beatsInMeasure
         beatCount += 1
     }
-    
+
+    func stopMetronome() {
+        metronomeTimer.upstream.connect().cancel()
+        beatCount = 0
+    }
+
     private func speakText(_ text: String) {
         let utterance = AVSpeechUtterance(string: text)
         utterance.voice = AVSpeechSynthesisVoice(language: "en-US")
@@ -169,9 +170,16 @@ struct TimeSignaturesLearn9View: View {
     private func replayAudio() {
         speakText("Here’s a tutorial to differentiate on beat and off beat notes. The largest circles represent the on-beats. The smaller circles represent off beats. Tap on all on beats. Do not tap on off beats. Press skip to go to the review.")
     }
+
+    func resetTutorial() {
+        currentBeat = 0
+        beatCount = 0
+        metronomeStarted = false
+        tappedCircles.removeAll()
+    }
 }
 
-#Preview{
+#Preview {
     @Previewable @State var isShowing = false
-   TimeSignaturesLearn9View(isPresented: $isShowing)
+    TimeSignaturesLearn9View(isPresented: $isShowing)
 }

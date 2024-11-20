@@ -1,5 +1,5 @@
 //
-//  DynamicsLearn4View.swift
+//  DynamicsLearn2View.swift
 //  scoresight1
 //
 //  Created by Li Jiansheng on 11/11/24.
@@ -12,7 +12,6 @@ struct DynamicsLearn4View: View {
     
     @State private var audioPlayer: AVAudioPlayer?
     @State private var isPlayingAudio = false
-
     func playAudio() {
         guard let soundURL = Bundle.main.url(forResource: "sfz", withExtension: "mp3") else {
             print("Audio cannot find.")
@@ -36,8 +35,8 @@ struct DynamicsLearn4View: View {
             print("Failed to play audio: \(error.localizedDescription)")
         }
     }
-    @Environment(\.dismiss) var dismiss
     @Binding var isPresented: Bool
+    @Environment(\.dismiss) var dismiss
     var body: some View {
         NavigationStack {
             VStack {
@@ -53,29 +52,29 @@ struct DynamicsLearn4View: View {
                     Spacer()
                 }
                 Spacer()
-                VStack{
-                    HStack{
-                        Image("sforzando")
-                            .resizable()
-                            .scaledToFit()
-                            .scaleEffect(1.3)
-                        
-                        Button(action: {
-                            playAudio()
-                        }) {
-                            Image(systemName: isPlayingAudio ? "pause.circle" : "play.circle")
-                                .symbolRenderingMode(.palette)
-                                .foregroundStyle(.black, .black)
-                                .font(.system(size: 50))
-                                .padding(30)
+                    VStack{
+                        HStack{
+                            Image("sforzando")
+                                .resizable()
+                                .scaledToFit()
+                                .scaleEffect(1.2)
+                            
+                            
+                            Button(action: {
+                                playAudio()
+                            }) {
+                                Image(systemName: isPlayingAudio ? "pause.circle" : "play.circle")
+                                    .symbolRenderingMode(.palette)
+                                    .foregroundStyle(.black, .black)
+                                    .font(.system(size: 50))
+                                    .padding(30)
+                            }
                         }
-                    }
-                    
-                    Text("with a sudden emphasis (only for a beat)")
-                        .font(.system(size: 25))
-                    Text("sforzando")
-                        .font(.system(size:80))
-                        .bold()
+                        Text("with a sudden emphasis (only for a beat)")
+                            .font(.system(size: 25))
+                        Text("sforzando")
+                            .font(.system(size:70))
+                            .bold()
                 }
                 Spacer()
                 HStack{
@@ -92,10 +91,9 @@ struct DynamicsLearn4View: View {
                             .foregroundStyle(.black)
                             .font(.system(size: 25))
                     }
-                    .padding()
                     Spacer()
                     NavigationLink{
-                        DynamicsLearn5View(isPresented: $isPresented)
+                        DynamicsLearn5View(isPresented:$isPresented)
                     } label:{
                         Text("next")
                             .padding()
@@ -121,6 +119,7 @@ struct DynamicsLearn4View: View {
     private func stopAudio() {
         audioPlayer?.stop()
         audioPlayer = nil
+        isPlayingAudio = false
     }
 }
 

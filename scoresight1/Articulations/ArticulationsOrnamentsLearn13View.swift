@@ -114,7 +114,7 @@ struct ArticulationsOrnamentsLearn13View: View {
                 .padding(.horizontal)
             }
             .onAppear {
-                speakText("this is an apoggiatura. It is an ornamental note that leans into the main note, often taking part of its time. The tiny note is half the value of the big note. it is drawn without a slash.")
+                speakText("this is an apoggiatura, or grace note. It is an ornamental note that leans into the main note, often taking half of its time.")
             }
             .onDisappear {
                 stopAudio()
@@ -133,7 +133,7 @@ struct ArticulationsOrnamentsLearn13View: View {
 
     // Replay narration and audio
     private func replayAudio() {
-        speakText("this is an apoggiatura. It is an ornamental note that leans into the main note, often taking part of its time. The tiny note is half the value of the big note. it is drawn without a slash.")
+        speakText("this is an apoggiatura. It is an ornamental note that leans into the main note, often taking half of its time.")
     }
 
     // Stop all audio

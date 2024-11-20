@@ -1,5 +1,5 @@
 //
-//  DynamicsLearn6View.swift
+//  DynamicsLearn2View.swift
 //  scoresight1
 //
 //  Created by Li Jiansheng on 11/11/24.
@@ -12,7 +12,6 @@ struct DynamicsLearn6View: View {
     
     @State private var audioPlayer: AVAudioPlayer?
     @State private var isPlayingAudio = false
-
     func playAudio() {
         guard let soundURL = Bundle.main.url(forResource: "fp", withExtension: "mp3") else {
             print("Audio cannot find.")
@@ -53,28 +52,29 @@ struct DynamicsLearn6View: View {
                     Spacer()
                 }
                 Spacer()
-                VStack{
-                    HStack{
-                        Image("fortepiano")
-                            .resizable()
-                            .scaledToFit()
-                            .scaleEffect(1.3)
-                        
-                        Button(action: {
-                            playAudio()
-                        }) {
-                            Image(systemName: isPlayingAudio ? "pause.circle" : "play.circle")
-                                .symbolRenderingMode(.palette)
-                                .foregroundStyle(.black, .black)
-                                .font(.system(size: 50))
-                                .padding(50)
+                    VStack{
+                        HStack{
+                            Image("fortepiano")
+                                .resizable()
+                                .scaledToFit()
+                                .scaleEffect(1.2)
+                            
+                            
+                            Button(action: {
+                                playAudio()
+                            }) {
+                                Image(systemName: isPlayingAudio ? "pause.circle" : "play.circle")
+                                    .symbolRenderingMode(.palette)
+                                    .foregroundStyle(.black, .black)
+                                    .font(.system(size: 50))
+                                    .padding(30)
+                            }
                         }
-                    }
-                    Text("loudly then immediately softly")
-                        .font(.system(size: 25))
-                    Text("fortepiano")
-                        .font(.system(size:80))
-                        .bold()
+                        Text("loudly then immediately softly")
+                            .font(.system(size: 25))
+                        Text("fortepiano")
+                            .font(.system(size:70))
+                            .bold()
                 }
                 Spacer()
                 HStack{
@@ -119,6 +119,7 @@ struct DynamicsLearn6View: View {
     private func stopAudio() {
         audioPlayer?.stop()
         audioPlayer = nil
+        isPlayingAudio = false
     }
 }
 

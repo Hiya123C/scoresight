@@ -113,7 +113,7 @@ struct ArticulationsOrnamentsLearn4View: View {
                 .padding(.horizontal)
             }
             .onAppear {
-                speakText("this is a turn and an inverted turn (the one with the line), and how the note looks like written out. it usually has four notes and ends at the ‘core’ note which is the note that is displayed.")
+                speakText("this is a turn and the one with the line is an inverted turn, and how the note looks like written out. it has four notes and ends with the ‘core’ note which is the note that is displayed.")
             }
             .onDisappear {
                 stopAudio()
@@ -132,7 +132,7 @@ struct ArticulationsOrnamentsLearn4View: View {
 
     // Replay narration and audio
     private func replayAudio() {
-        speakText("this is a turn and an inverted turn (the one with the line), and how the note looks like written out. it usually has four notes and ends at the ‘core’ note which is the note that is displayed.")
+        speakText("this is a turn and the one with the line is an inverted turn, and how the note looks like written out. it has four notes and ends with the ‘core’ note which is the note that is displayed.")
     }
 
     // Stop all audio

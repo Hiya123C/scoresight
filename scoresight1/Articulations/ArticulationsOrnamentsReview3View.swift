@@ -119,7 +119,6 @@ struct ArticulationsOrnamentsReview3View: View {
                             Text("Correct! The articulation played is portato.")
                                 .font(.system(size: 20))
                                 .foregroundColor(.green)
-                                
                                 .padding(.top, 10)
                         }
                         if wrongAnswer {

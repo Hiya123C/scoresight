@@ -1,5 +1,5 @@
 //
-//  DynamicsLearn8View.swift
+//  DynamicsLearn2View.swift
 //  scoresight1
 //
 //  Created by Li Jiansheng on 11/11/24.
@@ -12,7 +12,6 @@ struct DynamicsLearn8View: View {
     
     @State private var audioPlayer: AVAudioPlayer?
     @State private var isPlayingAudio = false
-
     func playAudio() {
         guard let soundURL = Bundle.main.url(forResource: "pedal", withExtension: "mp3") else {
             print("Audio cannot find.")
@@ -36,8 +35,8 @@ struct DynamicsLearn8View: View {
             print("Failed to play audio: \(error.localizedDescription)")
         }
     }
-    @Environment(\.dismiss) var dismiss
     @Binding var isPresented: Bool
+    @Environment(\.dismiss) var dismiss
     var body: some View {
         NavigationStack {
             VStack {
@@ -53,28 +52,29 @@ struct DynamicsLearn8View: View {
                     Spacer()
                 }
                 Spacer()
-                VStack{
-                    HStack{
-                        Image("pedal")
-                            .resizable()
-                            .scaledToFit()
-                            .scaleEffect(1.3)
-                        
-                        Button(action: {
-                            playAudio()
-                        }) {
-                            Image(systemName: isPlayingAudio ? "pause.circle" : "play.circle")
-                                .symbolRenderingMode(.palette)
-                                .foregroundStyle(.black, .black)
-                                .font(.system(size: 50))
-                                .padding(50)
+                    VStack{
+                        HStack{
+                            Image("pedal")
+                                .resizable()
+                                .scaledToFit()
+                                .scaleEffect(1.2)
+                            
+                            
+                            Button(action: {
+                                playAudio()
+                            }) {
+                                Image(systemName: isPlayingAudio ? "pause.circle" : "play.circle")
+                                    .symbolRenderingMode(.palette)
+                                    .foregroundStyle(.black, .black)
+                                    .font(.system(size: 50))
+                                    .padding(30)
+                            }
                         }
-                    }
-                    Text("use the sustain pedal on the piano (right pedal)")
-                        .font(.system(size: 25))
-                    Text("pedal")
-                        .font(.system(size:80))
-                        .bold()
+                        Text("use the sustain pedal on the piano (right pedal)")
+                            .font(.system(size: 25))
+                        Text("pedal")
+                            .font(.system(size:70))
+                            .bold()
                 }
                 Spacer()
                 HStack{
@@ -92,9 +92,8 @@ struct DynamicsLearn8View: View {
                             .font(.system(size: 25))
                     }
                     Spacer()
-                   
                     NavigationLink{
-                        DynamicsReviewView(isPresented: $isPresented)
+                        DynamicsReviewView(isPresented:$isPresented)
                     } label:{
                         Text("next")
                             .padding()
@@ -120,6 +119,7 @@ struct DynamicsLearn8View: View {
     private func stopAudio() {
         audioPlayer?.stop()
         audioPlayer = nil
+        isPlayingAudio = false
     }
 }
 

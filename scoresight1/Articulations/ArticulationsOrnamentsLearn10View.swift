@@ -114,7 +114,7 @@ struct ArticulationsOrnamentsLearn10View: View {
                 .padding(.horizontal)
             }
             .onAppear {
-                speakText("this is a portato. it is a combination of legato and staccato, with notes slightly detached.")
+                speakText("this is a portato. it is a combination of legato and staccato, played with notes slightly detached.")
             }
             .onDisappear {
                 stopAudio()
@@ -133,7 +133,7 @@ struct ArticulationsOrnamentsLearn10View: View {
 
     // Replay narration and audio
     private func replayAudio() {
-        speakText("this is a portato. it is a combination of legato and staccato, with notes slightly detached.")
+        speakText("this is a portato. it is a combination of legato and staccato, played with notes slightly detached.")
     }
 
     // Stop all audio

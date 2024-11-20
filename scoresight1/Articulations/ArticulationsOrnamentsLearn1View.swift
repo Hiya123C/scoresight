@@ -99,7 +99,7 @@ struct ArticulationsOrnamentsLearnView: View {
                 .padding(.horizontal)
             }
             .onAppear {
-                speakText("this is an accent. it is used to emphasise the note you are playing like so:")
+                speakText("this is an accent. it is used to emphasise the note you are playing.")
             }
             .onDisappear {
                 stopAudio()
@@ -116,7 +116,7 @@ struct ArticulationsOrnamentsLearnView: View {
     }
     
     private func replayAudio() {
-        speakText("This is an accent. It is used to emphasise the note you are playing like so:")
+        speakText("This is an accent. It is used to emphasise the note you are playing.")
     }
     
     private func stopAudio() {

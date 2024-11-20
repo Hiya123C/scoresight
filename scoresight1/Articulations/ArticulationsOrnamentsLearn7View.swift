@@ -112,7 +112,7 @@ struct ArticulationsOrnamentsLearn7View: View {
                 .padding(.horizontal)
             }
             .onAppear {
-                speakText("this is a glissando. you slide very quickly from one note to another note.")
+                speakText("This is a glissando. You slide very quickly from the first note to the following note.")
             }
             .onDisappear {
                 stopAudio()
@@ -131,7 +131,7 @@ struct ArticulationsOrnamentsLearn7View: View {
 
     // Replay narration and audio
     private func replayAudio() {
-        speakText("this is a glissando. you slide very quickly from one note to another note.")
+        speakText("This is a glissando. You slide very quickly from the first note to the following note.")
     }
 
     // Stop all audio

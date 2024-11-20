@@ -115,7 +115,7 @@ struct ArticulationsOrnamentsLearn14View: View {
             }
             .onAppear {
                
-                speakText("this is an acciaccatura. The  tiny note is always a demisemiquaver and the big note is the remaining value, which is why it’s called a ‘crush note’. it is drawn with a slash.")
+                speakText("this is an acciaccatura, or crush note. The tiny note is played for a short time then immediately followed by the big note.")
             }
             .onDisappear {
                 stopAudio()
@@ -134,7 +134,7 @@ struct ArticulationsOrnamentsLearn14View: View {
 
     // Replay narration and audio
     private func replayAudio() {
-        speakText("this is an acciaccatura. The  tiny note is always a demisemiquaver and the big note is the remaining value, which is why it’s called a ‘crush note’. it is drawn with a slash.")
+        speakText("this is an acciaccatura, or crush note. The tiny note is played for a short time then immediately followed by the big note.")
     }
 
     // Stop all audio

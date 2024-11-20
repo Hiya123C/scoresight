@@ -114,7 +114,7 @@ struct ArticulationsOrnamentsLearn8View: View {
                 .padding(.horizontal)
             }
             .onAppear {
-                speakText("this is a slur. you play the notes within a slur smoothly without interruptions. it is also known as legato.")
+                speakText("this is a slur, also known as a legato, with notes played smoothly without interruptions.")
             }
             .onDisappear {
                 stopAudio()
@@ -133,7 +133,7 @@ struct ArticulationsOrnamentsLearn8View: View {
 
     // Replay narration and audio
     private func replayAudio() {
-        speakText("this is a slur. you play the notes within a slur smoothly without interruptions. it is also known as legato.")
+        speakText("this is a slur, also known as a legato, with notes played smoothly without interruptions.")
     }
 
     // Stop all audio
