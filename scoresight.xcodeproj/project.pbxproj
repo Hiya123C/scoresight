@@ -188,7 +188,7 @@
 		D9116A972CE8818300804AC1 /* TimeSignaturesLearn2View.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9116A792CE8818300804AC1 /* TimeSignaturesLearn2View.swift */; };
 		D96089322CE984CA008E8756 /* G3.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = D96089312CE984C9008E8756 /* G3.mp3 */; };
 		D9C232342CE0D8280032674D /* metronome.m4a in Resources */ = {isa = PBXBuildFile; fileRef = D9C232332CE0D8280032674D /* metronome.m4a */; };
-		D9E035FB2CDF12AC00220F1F /* scoresight1App.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9E035FA2CDF12AC00220F1F /* scoresight1App.swift */; };
+		D9E035FB2CDF12AC00220F1F /* scoresightApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9E035FA2CDF12AC00220F1F /* scoresightApp.swift */; };
 		D9E035FD2CDF12AC00220F1F /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9E035FC2CDF12AC00220F1F /* ContentView.swift */; };
 		D9E035FF2CDF12AD00220F1F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D9E035FE2CDF12AD00220F1F /* Assets.xcassets */; };
 		D9E036022CDF12AD00220F1F /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D9E036012CDF12AD00220F1F /* Preview Assets.xcassets */; };
@@ -376,8 +376,8 @@
 		D9116A872CE8818300804AC1 /* TimeSignaturesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeSignaturesView.swift; sourceTree = "<group>"; };
 		D96089312CE984C9008E8756 /* G3.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = G3.mp3; sourceTree = "<group>"; };
 		D9C232332CE0D8280032674D /* metronome.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = metronome.m4a; sourceTree = "<group>"; };
-		D9E035F72CDF12AC00220F1F /* scoresight1.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = scoresight1.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		D9E035FA2CDF12AC00220F1F /* scoresight1App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = scoresight1App.swift; sourceTree = "<group>"; };
+		D9E035F72CDF12AC00220F1F /* scoresight.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = scoresight.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		D9E035FA2CDF12AC00220F1F /* scoresightApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = scoresightApp.swift; sourceTree = "<group>"; };
 		D9E035FC2CDF12AC00220F1F /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		D9E035FE2CDF12AD00220F1F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D9E036012CDF12AD00220F1F /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
@@ -584,7 +584,7 @@
 		D9E035EE2CDF12AC00220F1F = {
 			isa = PBXGroup;
 			children = (
-				D9E035F92CDF12AC00220F1F /* scoresight1 */,
+				D9E035F92CDF12AC00220F1F /* scoresight */,
 				D9E035F82CDF12AC00220F1F /* Products */,
 			);
 			sourceTree = "<group>";
@@ -592,15 +592,15 @@
 		D9E035F82CDF12AC00220F1F /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				D9E035F72CDF12AC00220F1F /* scoresight1.app */,
+				D9E035F72CDF12AC00220F1F /* scoresight.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		D9E035F92CDF12AC00220F1F /* scoresight1 */ = {
+		D9E035F92CDF12AC00220F1F /* scoresight */ = {
 			isa = PBXGroup;
 			children = (
-				D9E035FA2CDF12AC00220F1F /* scoresight1App.swift */,
+				D9E035FA2CDF12AC00220F1F /* scoresightApp.swift */,
 				31B8246E2CDF2DD50031E923 /* StartView.swift */,
 				D9E035FC2CDF12AC00220F1F /* ContentView.swift */,
 				D900AE172CE47BD300DC1959 /* AnswerButton.swift */,
@@ -615,7 +615,7 @@
 				D9E035FE2CDF12AD00220F1F /* Assets.xcassets */,
 				D9E036002CDF12AD00220F1F /* Preview Content */,
 			);
-			path = scoresight1;
+			path = scoresight;
 			sourceTree = "<group>";
 		};
 		D9E036002CDF12AD00220F1F /* Preview Content */ = {
@@ -677,9 +677,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		D9E035F62CDF12AC00220F1F /* scoresight1 */ = {
+		D9E035F62CDF12AC00220F1F /* scoresight */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = D9E036052CDF12AD00220F1F /* Build configuration list for PBXNativeTarget "scoresight1" */;
+			buildConfigurationList = D9E036052CDF12AD00220F1F /* Build configuration list for PBXNativeTarget "scoresight" */;
 			buildPhases = (
 				D9E035F32CDF12AC00220F1F /* Sources */,
 				D9E035F42CDF12AC00220F1F /* Frameworks */,
@@ -689,9 +689,9 @@
 			);
 			dependencies = (
 			);
-			name = scoresight1;
+			name = scoresight;
 			productName = scoresight1;
-			productReference = D9E035F72CDF12AC00220F1F /* scoresight1.app */;
+			productReference = D9E035F72CDF12AC00220F1F /* scoresight.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -709,7 +709,7 @@
 					};
 				};
 			};
-			buildConfigurationList = D9E035F22CDF12AC00220F1F /* Build configuration list for PBXProject "scoresight1" */;
+			buildConfigurationList = D9E035F22CDF12AC00220F1F /* Build configuration list for PBXProject "scoresight" */;
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
@@ -722,7 +722,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				D9E035F62CDF12AC00220F1F /* scoresight1 */,
+				D9E035F62CDF12AC00220F1F /* scoresight */,
 			);
 		};
 /* End PBXProject section */
@@ -924,7 +924,7 @@
 				D900AD082CE1F6B000DC1959 /* DynamicsView.swift in Sources */,
 				D900ACE22CE1F6AD00DC1959 /* ClefsPitchedNotesView.swift in Sources */,
 				316BA2F12CE5D31A00BAF59C /* KeySignaturesAccidentalsReview3View.swift in Sources */,
-				D9E035FB2CDF12AC00220F1F /* scoresight1App.swift in Sources */,
+				D9E035FB2CDF12AC00220F1F /* scoresightApp.swift in Sources */,
 				31B8246F2CDF2DD50031E923 /* StartView.swift in Sources */,
 				D900AE1A2CE48EE900DC1959 /* SheetMusicOrganisationReview4View.swift in Sources */,
 			);
@@ -1061,7 +1061,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"scoresight1/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "\"scoresight/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -1074,7 +1074,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = christine.scoresight1;
+				PRODUCT_BUNDLE_IDENTIFIER = christine.scoresight;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -1089,7 +1089,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"scoresight1/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "\"scoresight/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -1102,7 +1102,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = christine.scoresight1;
+				PRODUCT_BUNDLE_IDENTIFIER = christine.scoresight;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -1113,7 +1113,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		D9E035F22CDF12AC00220F1F /* Build configuration list for PBXProject "scoresight1" */ = {
+		D9E035F22CDF12AC00220F1F /* Build configuration list for PBXProject "scoresight" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				D9E036032CDF12AD00220F1F /* Debug */,
@@ -1122,7 +1122,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		D9E036052CDF12AD00220F1F /* Build configuration list for PBXNativeTarget "scoresight1" */ = {
+		D9E036052CDF12AD00220F1F /* Build configuration list for PBXNativeTarget "scoresight" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				D9E036062CDF12AD00220F1F /* Debug */,

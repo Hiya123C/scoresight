@@ -8,7 +8,7 @@
 import SwiftUI
 
 @main
-struct scoresight1App: App {
+struct scoresightApp: App {
     var body: some Scene {
         WindowGroup {
             StartView()
