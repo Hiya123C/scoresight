@@ -21,7 +21,7 @@ struct KeySignaturesAccidentalsView: View {
                         Image(systemName: "x.circle")
                             .symbolRenderingMode(.palette)
                             .foregroundStyle(.black, .white)
-                            .font(.system(size:50))
+                           .font(.system(size:50))
                     }
                     Spacer()
                 }
