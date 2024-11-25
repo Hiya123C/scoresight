@@ -93,13 +93,15 @@ struct ArticulationsOrnamentsReview3View: View {
                     ZStack {
                         HStack {
                             Spacer()
-                            Image(systemName: "speaker.wave.2.fill")
-                                .font(.system(size: 25))
-                                .padding(.trailing, 20)
-                                .foregroundStyle(.black)
-                                .onTapGesture {
-                                    playAudio()
-                                }
+                            Button(action: {
+                                playAudio()
+                            }) {
+                                Image(systemName: isPlayingAudio ? "pause.circle" : "play.circle")
+                                    .symbolRenderingMode(.palette)
+                                    .foregroundStyle(.black, .black)
+                                    .font(.system(size: 40))
+                                    .padding(.trailing)
+                            }
                             
                             NavigationLink {
                                 ArticulationsOrnamentsReview4View(isPresented:$isPresented)
@@ -143,6 +145,7 @@ struct ArticulationsOrnamentsReview3View: View {
         audioPlayer?.stop()
         audioPlayer = nil
     }
+    
 }
 
 #Preview {

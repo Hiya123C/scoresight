@@ -31,7 +31,7 @@ struct TimeSignaturesReview4View: View {
                     .padding()
 
                     VStack {
-                    Text("A 3/4 time signature has three beats per bar.")
+                    Text("A 3/4 time signature has three crotchet beats per bar.")
                         .font(.system(size: 30))
                         .multilineTextAlignment(.leading)
                         .padding()

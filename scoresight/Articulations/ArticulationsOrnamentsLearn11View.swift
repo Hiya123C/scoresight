@@ -64,7 +64,7 @@ struct ArticulationsOrnamentsLearn11View: View {
                             .padding(50)
                     }
                     VStack(alignment: .trailing) {
-                        Text("this is a")
+                        Text("this is an")
                             .font(.system(size: 40))
                         Text("upper\nmordent")
                             .font(.system(size: 75))
